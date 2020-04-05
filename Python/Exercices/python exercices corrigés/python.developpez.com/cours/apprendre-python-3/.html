@@ -1,0 +1,3179 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:og="http://ogp.me/ns#">
+
+<!-- Mirrored from python.developpez.com/cours/apprendre-python-3/. by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Apr 2020 18:04:24 GMT -->
+<head>
+	<meta charset="utf-8" />
+	<title>Une introduction à Python 3</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+	<meta name="format-detection" content="telephone=no">
+	<meta name="generator" content="developpez-com" />
+	<meta name="description" content="Une introduction à Python 3" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Une introduction à Python 3" />
+	<meta property="og:image" content="../../../www.developpez.com/template/images/logo.png" />
+	<meta property="og:url" content="index.html" />
+	<meta property="og:locale" content="fr_FR" />
+	<meta property="og:site_name" content="Developpez.com" />
+	<meta property="twitter:card" content="summary" />
+	<meta property="twitter:url" content="index.html" />
+	<meta property="twitter:description" content="Une introduction à Python 3" />
+	<meta property="twitter:title" content="Une introduction à Python 3" />
+	<meta property="twitter:image" content="../../../www.developpez.com/template/images/logo.png" />
+	<script type="text/javascript" src="../../template/scripts/jquery-1.7.2.js"></script>
+	<script async type="text/javascript" src="https://www.developpez.com/ws/pageview/"></script>
+	<script async="async" src="../../../www.googletagservices.com/tag/js/gpt.js"></script>
+	<script>
+		var googletag = googletag || {};
+		googletag.cmd = googletag.cmd || [];
+	</script>
+	<script async src="../../../pagead2.googlesyndication.com/pagead/js/f.txt"></script>
+	<link rel="shortcut icon" type="image/x-icon" href="https://python.developpez.com/template/favicon.ico" />
+	<link rel="image_src" href="../../../www.developpez.com/facebook-icon.png" />
+	<link rel="stylesheet" type="text/css" href="../../template/gabarite3be.css?1579157675" />
+	<link rel="stylesheet" type="text/css" media="print" href="../../template/printer.css" />
+	<link rel="stylesheet" type="text/css" href="../../template/gabarit-mobilee3be.css?1579157675" />
+	<script type="text/javascript" src="../../template/gabarit-mobilee3be.js?1579157675"></script>
+	<link rel="stylesheet" type="text/css" media="screen" href="../../template/kit/developpez-kit-generation.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="../../template/kit/code.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="../../template/kit/lightbox.2.51.css" />
+	<script type="text/javascript" src="../../template/kit/mathjax-dvp/MathJax22c4.js?config=TeX-AMS-MML_HTMLorMML&amp;locale=fr"></script>
+	<script type="text/javascript" src="../../template/kit/developpez-kit-generation.js"></script>
+	<script type="text/javascript" src="../../template/kit/lightbox.2.51.js"></script>
+	<script type="text/javascript" src="../../template/kit/fonctions-kit.js"></script>
+	<meta name="author" content="Kordeo" />
+	<!--[if lt IE 7]>
+	<script src="/template/ie7/IE7.js" type="text/javascript"></script>
+	<![endif]-->
+
+	<!--[if IE 6]>
+	<link rel="stylesheet" type="text/css" href="/template/gabarit-ie6.css" />
+	<![endif]-->
+
+	<!--[if IE 7]>
+	<link rel="stylesheet" type="text/css" href="/template/gabarit-ie7.css" />
+	<![endif]-->
+
+	<!--[if lt IE 9]>
+	<script type="text/javascript" src="/template/kit/html5_ie.js"></script>
+	<![endif]-->
+	<!--[if IE 9]><link rel="stylesheet" type="text/css" href="/template/kit/ie9.css" /><![endif]-->
+	<!--[if IE 8]><link rel="stylesheet" type="text/css" href="/template/kit/ie8.css" /><![endif]-->
+	<!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="/template/kit/ie.css" /><![endif]-->
+	<!--[if IE 7]><link rel="stylesheet" type="text/css" href="/template/kit/ie7.css" /><![endif]-->
+	<!--[if lte IE 6]><link rel="stylesheet" type="text/css" href="/template/kit/ie6.css" /><![endif]-->
+	<!--[if lt IE 9]><script type="text/javascript" src="/template/kit/html5_ie.js"></script><![endif]-->
+
+</head>
+<body>
+<header>
+
+<div id="gabarit_b1">
+	<div id="gabarit-barreRecherche" style="display:none;"><form action="https://www.google.fr/" target="_blank">
+  <div>
+    <input type="hidden" name="cx" value="partner-pub-8110924381468607:6449306375" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Rechercher" />
+  </div>
+</form></div>
+<div id="gabarit-new-logo" role="gabarit-accueil">
+	<a href="https://www.developpez.com/"><img src="../../template/images/logo-dvp-h55.png" width="48" height="55" /></a>
+	<a href="https://www.developpez.com/"><span class="dvp"></span></a>
+	<span class="triangle"></span>
+</div>
+<div id="gabarit_recherche"><!--<div class="gabarit-btn-menu profil" role="gabarit-profil"></div>-->
+	<div class="gabarit-btn-menu contacts" role="gabarit-contacts"></div><div class="gabarit-btn-menu recherche" role="gabarit-recherche"></div>
+</div>
+
+<div id="gabarit_superieur">
+	<nav>
+	<ul>
+		<li><a href="https://www.developpez.net/forums/" title="">Forums</a></li>
+		<li><a href="https://general.developpez.com/cours/" title="">Tutoriels</a></li>
+		<li><a href="https://magazine.developpez.com/" title="">Magazine</a></li>
+		<li><a href="https://general.developpez.com/faq/" title="">FAQ</a></li>
+		<li><a href="https://www.developpez.net/forums/blogs/" title="">Blogs</a></li>
+		<li><a href="https://chat.developpez.com/" title="">Chat</a></li>
+		<li><a href="https://www.developpez.com/newsletter/">Newsletter</a></li>
+		<li><a href="https://etudes.developpez.com/">Études</a></li>
+		<li><a href="https://emploi.developpez.com/" title="">Emploi</a></li>
+		<li><a href="https://club.developpez.com/">Club</a></li>
+	</ul>
+	</nav>
+</div></div>
+
+<nav>
+
+<!-- CONNEXION -->
+<div id="gabarit_mobile_connexion"></div>
+<div id="connexionMobile">
+	<form>
+		<div id="connexionMobile_contenu">
+		
+			<i id="fermerConnexionMobile" class="glyphicon glyphicon-remove"></i>
+			<p class="alert alert-info headerBox"></p>
+			<div class="englobeForm connexion">
+			
+				<p>Vous devez avoir un compte Developpez.com et être connecté pour pouvoir participer aux discussions.</p>
+				
+				<div class="row">
+					<div id="identificationConnexionMobile" class="col-sm-6">
+						<div class="card">
+							<div class="card-body">
+								<h5 class="card-title">Identifiez-vous</h5>
+								
+								<div id="loginBoxConnexionMobile" class="card-text">
+									<div class="groupbox">
+										<div class="cat_content">
+											<table width="100%">
+												<tr class="formIdentite">
+													<td nowrap="nowrap" class="form_label">Identifiant</td>
+													<td><input type="text" class="form_input form-control" id="formloginConnexionMobile"/></td>
+												</tr>
+												<tr class="formIdentite">
+													<td nowrap="nowrap" class="form_label">Mot de passe</td>
+													<td><input type="password" class="form_input form-control" id="formpassConnexionMobile"/></td>
+												</tr>
+												<tr><td colspan="2"><div id="formmsgConnexionMobile" style="display: none;"/></td></tr>
+												<tr><td colspan="2" align="right" class="form_label"><a href="http://www.developpez.net/forums/login.php?do=lostpw">Mot de passe oublié ?</a></td></tr>
+											</table>
+										</div>
+									</div>
+								</div>
+								
+								<div id="btnValidationConnexion">
+									<input type="button" value="Je me connecte !" id="formbuttonConnexionMobile" class="btn btn-primary" />
+									<div id="loadingConnexionMobile"><i class="glyphicon glyphicon-repeat gly-spin"></i></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="inscriptionConnexionMobile" class="col-sm-6">
+						<div class="card">
+							<div class="card-body">
+								<h5 class="card-title">Créer un compte</h5>
+								<p class="card-text">Vous n'avez pas encore de compte Developpez.com ? L'inscription est gratuite et ne vous prendra que quelques instants !</p>
+								<a href="https://www.developpez.net/forums/inscription/" class="btn btn-primary">Je m'inscris !</a>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				
+			</div>
+			<div class="englobeForm actions"></div>
+		</div>
+	</form>
+</div>
+<!-- FIN CONNEXION -->
+
+<div id="gabarit_mobile">
+	<div><a href="https://www.developpez.com/"><img src="../../template/images/logo-mobile.png" alt="" height="60"></a></div>
+	<div>
+		<p>Developpez.com</p>
+		<p>Python</p>
+	</div>
+
+	<div class="nav nav-pills nav-justified" style="white-space: nowrap; width: calc(100% - 40px);">
+					<a href="https://python.developpez.com/" class="nav-item nav-link"> &nbsp;Rubrique Python&nbsp; </a>
+			<a href="https://www.developpez.net/forums/f96/autres-langages/python-zope/" class="nav-item nav-link"> &nbsp;Forum Python&nbsp; </a>
+			
+	</div>
+	
+	<div class="nav nav-pills nav-justified" style="width: calc(100% - 40px); margin: 0 auto 6px;">
+		<a href="https://www.developpez.com/" class="nav-item nav-link"><i class="glyphicon glyphicon-home" style="top:0;"></i>&nbsp; Accueil</a>
+		<a href="https://www.developpez.net/forums/" class="nav-item nav-link"><i class="glyphicon glyphicon-comment" style="top:1px;"></i>&nbsp; Forums</a>
+			
+		<span class="nav-item nav-link" style="white-space:nowrap;" data-toggle="collapse" href="#gabarit_menu_mobile" role="button" aria-expanded="false"><i class="glyphicon glyphicon-th" style="top:0;"></i>&nbsp; Rubriques</span>
+	</div>
+</div>
+<div id="gabarit_mobile_fin"></div>
+
+<div class="collapse multi-collapse" id="gabarit_menu_mobile">
+	<p>Choisissez la catégorie, puis la rubrique :</p>
+	<ul>
+					<li>
+				<a href="https://www.developpez.com/" data-idrub="1" data-niv="1">Accueil</a>
+							</li>
+					<li>
+				<a href="https://alm.developpez.com/" data-idrub="42" data-niv="1">ALM</a>
+									<ul class="gabarit_sousmenu">
+						<li>
+							<a href="https://alm.developpez.com/" data-idrub="42" data-niv="2">
+								<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;ALM
+							</a>
+						</li>
+													<li>
+								<a href="https://merise.developpez.com/" data-idrub="43" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Merise
+								</a>
+							</li>
+													<li>
+								<a href="https://uml.developpez.com/" data-idrub="12" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;UML
+								</a>
+							</li>
+											</ul>
+							</li>
+					<li>
+				<a href="https://java.developpez.com/" data-idrub="4" data-niv="1">Java</a>
+									<ul class="gabarit_sousmenu">
+						<li>
+							<a href="https://java.developpez.com/" data-idrub="4" data-niv="2">
+								<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Java
+							</a>
+						</li>
+													<li>
+								<a href="https://javaweb.developpez.com/" data-idrub="97" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Java Web
+								</a>
+							</li>
+													<li>
+								<a href="https://spring.developpez.com/" data-idrub="87" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Spring
+								</a>
+							</li>
+													<li>
+								<a href="https://android.developpez.com/" data-idrub="95" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Android
+								</a>
+							</li>
+													<li>
+								<a href="https://eclipse.developpez.com/" data-idrub="55" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Eclipse
+								</a>
+							</li>
+													<li>
+								<a href="https://netbeans.developpez.com/" data-idrub="66" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;NetBeans
+								</a>
+							</li>
+											</ul>
+							</li>
+					<li>
+				<a href="https://dotnet.developpez.com/" data-idrub="20" data-niv="1">.NET</a>
+									<ul class="gabarit_sousmenu">
+						<li>
+							<a href="https://dotnet.developpez.com/" data-idrub="20" data-niv="2">
+								<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Microsoft DotNET
+							</a>
+						</li>
+													<li>
+								<a href="https://visualstudio.developpez.com/" data-idrub="84" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Visual Studio
+								</a>
+							</li>
+													<li>
+								<a href="https://dotnet.developpez.com/aspnet/" data-idrub="83" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;ASP.NET
+								</a>
+							</li>
+													<li>
+								<a href="https://dotnet.developpez.com/csharp/" data-idrub="81" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;C#
+								</a>
+							</li>
+													<li>
+								<a href="https://dotnet.developpez.com/vbnet/" data-idrub="82" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;VB.NET
+								</a>
+							</li>
+													<li>
+								<a href="https://windowsphone.developpez.com/" data-idrub="105" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Windows Phone
+								</a>
+							</li>
+													<li>
+								<a href="https://windows-azure.developpez.com/" data-idrub="107" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Microsoft Azure
+								</a>
+							</li>
+											</ul>
+							</li>
+					<li>
+				<a href="https://web.developpez.com/" data-idrub="8" data-niv="1">Dév. Web</a>
+									<ul class="gabarit_sousmenu">
+						<li>
+							<a href="https://web.developpez.com/" data-idrub="8" data-niv="2">
+								<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Développement Web
+							</a>
+						</li>
+													<li>
+								<a href="https://ajax.developpez.com/" data-idrub="85" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;AJAX
+								</a>
+							</li>
+													<li>
+								<a href="https://apache.developpez.com/" data-idrub="71" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Apache
+								</a>
+							</li>
+													<li>
+								<a href="https://asp.developpez.com/" data-idrub="10" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;ASP
+								</a>
+							</li>
+													<li>
+								<a href="https://css.developpez.com/" data-idrub="51" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;CSS
+								</a>
+							</li>
+													<li>
+								<a href="https://dart.developpez.com/" data-idrub="125" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Dart
+								</a>
+							</li>
+													<li>
+								<a href="https://flash.developpez.com/" data-idrub="41" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Flash / Flex
+								</a>
+							</li>
+													<li>
+								<a href="https://javascript.developpez.com/" data-idrub="45" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;JavaScript
+								</a>
+							</li>
+													<li>
+								<a href="https://nodejs.developpez.com/" data-idrub="141" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;NodeJS
+								</a>
+							</li>
+													<li>
+								<a href="https://php.developpez.com/" data-idrub="9" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;PHP
+								</a>
+							</li>
+													<li>
+								<a href="https://ruby.developpez.com/" data-idrub="53" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Ruby &amp; Rails
+								</a>
+							</li>
+													<li>
+								<a href="https://typescript.developpez.com/" data-idrub="127" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;TypeScript
+								</a>
+							</li>
+													<li>
+								<a href="https://web-semantique.developpez.com/" data-idrub="111" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Web sémantique
+								</a>
+							</li>
+													<li>
+								<a href="https://webmarketing.developpez.com/" data-idrub="80" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Webmarketing
+								</a>
+							</li>
+													<li>
+								<a href="https://xhtml.developpez.com/" data-idrub="50" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;(X)HTML
+								</a>
+							</li>
+											</ul>
+							</li>
+					<li>
+				<a href="https://edi.developpez.com/" data-idrub="90" data-niv="1">EDI</a>
+									<ul class="gabarit_sousmenu">
+						<li>
+							<a href="https://edi.developpez.com/" data-idrub="90" data-niv="2">
+								<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;EDI
+							</a>
+						</li>
+													<li>
+								<a href="https://4d.developpez.com/" data-idrub="39" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;4D
+								</a>
+							</li>
+													<li>
+								<a href="https://delphi.developpez.com/" data-idrub="2" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Delphi
+								</a>
+							</li>
+													<li>
+								<a href="https://eclipse.developpez.com/" data-idrub="55" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Eclipse
+								</a>
+							</li>
+													<li>
+								<a href="https://jetbrains.developpez.com/" data-idrub="144" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;JetBrains
+								</a>
+							</li>
+													<li>
+								<a href="https://labview.developpez.com/" data-idrub="72" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;LabVIEW
+								</a>
+							</li>
+													<li>
+								<a href="https://netbeans.developpez.com/" data-idrub="66" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;NetBeans
+								</a>
+							</li>
+													<li>
+								<a href="https://matlab.developpez.com/" data-idrub="58" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;MATLAB
+								</a>
+							</li>
+													<li>
+								<a href="https://scilab.developpez.com/" data-idrub="120" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Scilab
+								</a>
+							</li>
+													<li>
+								<a href="https://visualstudio.developpez.com/" data-idrub="84" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Visual Studio
+								</a>
+							</li>
+													<li>
+								<a href="https://wind.developpez.com/" data-idrub="74" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;WinDev
+								</a>
+							</li>
+													<li>
+								<a href="https://vb.developpez.com/" data-idrub="5" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Visual Basic 6
+								</a>
+							</li>
+													<li>
+								<a href="https://lazarus.developpez.com/" data-idrub="96" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Lazarus
+								</a>
+							</li>
+													<li>
+								<a href="https://qt-creator.developpez.com/" data-idrub="109" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Qt Creator
+								</a>
+							</li>
+											</ul>
+							</li>
+					<li>
+				<a href="https://programmation.developpez.com/" data-idrub="119" data-niv="1">Programmation</a>
+									<ul class="gabarit_sousmenu">
+						<li>
+							<a href="https://programmation.developpez.com/" data-idrub="119" data-niv="2">
+								<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Programmation
+							</a>
+						</li>
+													<li>
+								<a href="https://algo.developpez.com/" data-idrub="47" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Débuter - Algorithmique
+								</a>
+							</li>
+													<li>
+								<a href="https://jeux.developpez.com/" data-idrub="38" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;2D - 3D - Jeux
+								</a>
+							</li>
+													<li>
+								<a href="https://asm.developpez.com/" data-idrub="16" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Assembleur
+								</a>
+							</li>
+													<li>
+								<a href="https://c.developpez.com/" data-idrub="3" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;C
+								</a>
+							</li>
+													<li>
+								<a href="https://cpp.developpez.com/" data-idrub="59" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;C++
+								</a>
+							</li>
+													<li>
+								<a href="https://d.developpez.com/" data-idrub="123" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;D
+								</a>
+							</li>
+													<li>
+								<a href="https://go.developpez.com/" data-idrub="124" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Go
+								</a>
+							</li>
+													<li>
+								<a href="https://kotlin.developpez.com/" data-idrub="145" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Kotlin
+								</a>
+							</li>
+													<li>
+								<a href="https://objective-c.developpez.com/" data-idrub="117" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Objective C
+								</a>
+							</li>
+													<li>
+								<a href="https://pascal.developpez.com/" data-idrub="7" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Pascal
+								</a>
+							</li>
+													<li>
+								<a href="https://perl.developpez.com/" data-idrub="29" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Perl
+								</a>
+							</li>
+													<li>
+								<a href="https://python.developpez.com/" data-idrub="27" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Python
+								</a>
+							</li>
+													<li>
+								<a href="https://rust.developpez.com/" data-idrub="137" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Rust
+								</a>
+							</li>
+													<li>
+								<a href="https://swift.developpez.com/" data-idrub="128" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Swift
+								</a>
+							</li>
+													<li>
+								<a href="https://qt.developpez.com/" data-idrub="65" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Qt
+								</a>
+							</li>
+													<li>
+								<a href="https://xml.developpez.com/" data-idrub="11" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;XML
+								</a>
+							</li>
+													<li>
+								<a href="https://general.developpez.com/cours/" data-idrub="21" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Autres
+								</a>
+							</li>
+											</ul>
+							</li>
+					<li>
+				<a href="https://sgbd.developpez.com/" data-idrub="13" data-niv="1">SGBD</a>
+									<ul class="gabarit_sousmenu">
+						<li>
+							<a href="https://sgbd.developpez.com/" data-idrub="13" data-niv="2">
+								<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;SGBD &amp; SQL
+							</a>
+						</li>
+													<li>
+								<a href="https://4d.developpez.com/" data-idrub="39" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;4D
+								</a>
+							</li>
+													<li>
+								<a href="https://access.developpez.com/" data-idrub="19" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Access
+								</a>
+							</li>
+													<li>
+								<a href="https://big-data.developpez.com/" data-idrub="126" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Big Data
+								</a>
+							</li>
+													<li>
+								<a href="https://db2.developpez.com/" data-idrub="36" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;DB2
+								</a>
+							</li>
+													<li>
+								<a href="https://firebird.developpez.com/" data-idrub="73" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Firebird
+								</a>
+							</li>
+													<li>
+								<a href="https://interbase.developpez.com/" data-idrub="32" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;InterBase
+								</a>
+							</li>
+													<li>
+								<a href="https://mysql.developpez.com/" data-idrub="31" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;MySQL
+								</a>
+							</li>
+													<li>
+								<a href="https://nosql.developpez.com/" data-idrub="114" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;NoSQL
+								</a>
+							</li>
+													<li>
+								<a href="https://postgresql.developpez.com/" data-idrub="33" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;PostgreSQL
+								</a>
+							</li>
+													<li>
+								<a href="https://oracle.developpez.com/" data-idrub="25" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Oracle
+								</a>
+							</li>
+													<li>
+								<a href="https://sybase.developpez.com/" data-idrub="37" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Sybase
+								</a>
+							</li>
+													<li>
+								<a href="https://sqlserver.developpez.com/" data-idrub="34" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;SQL-Server
+								</a>
+							</li>
+											</ul>
+							</li>
+					<li>
+				<a href="https://office.developpez.com/" data-idrub="54" data-niv="1">Office</a>
+									<ul class="gabarit_sousmenu">
+						<li>
+							<a href="https://office.developpez.com/" data-idrub="54" data-niv="2">
+								<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Microsoft Office
+							</a>
+						</li>
+													<li>
+								<a href="https://access.developpez.com/" data-idrub="19" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Access
+								</a>
+							</li>
+													<li>
+								<a href="https://excel.developpez.com/" data-idrub="75" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Excel
+								</a>
+							</li>
+													<li>
+								<a href="https://word.developpez.com/" data-idrub="76" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Word
+								</a>
+							</li>
+													<li>
+								<a href="https://outlook.developpez.com/" data-idrub="77" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Outlook
+								</a>
+							</li>
+													<li>
+								<a href="https://powerpoint.developpez.com/" data-idrub="78" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;PowerPoint
+								</a>
+							</li>
+													<li>
+								<a href="https://sharepoint.developpez.com/" data-idrub="79" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;SharePoint
+								</a>
+							</li>
+													<li>
+								<a href="https://project.developpez.com/" data-idrub="99" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Microsoft Project
+								</a>
+							</li>
+													<li>
+								<a href="https://openoffice-libreoffice.developpez.com/" data-idrub="116" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;OpenOffice &amp; LibreOffice
+								</a>
+							</li>
+											</ul>
+							</li>
+					<li>
+				<a href="https://solutions-entreprise.developpez.com/" data-idrub="86" data-niv="1">Solutions d&#039;entreprise</a>
+									<ul class="gabarit_sousmenu">
+						<li>
+							<a href="https://solutions-entreprise.developpez.com/" data-idrub="86" data-niv="2">
+								<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Solutions d&#039;entreprise
+							</a>
+						</li>
+													<li>
+								<a href="https://abbyy.developpez.com/" data-idrub="147" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;ABBYY
+								</a>
+							</li>
+													<li>
+								<a href="https://big-data.developpez.com/" data-idrub="126" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Big Data
+								</a>
+							</li>
+													<li>
+								<a href="https://bpm.developpez.com/" data-idrub="134" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;BPM
+								</a>
+							</li>
+													<li>
+								<a href="https://business-intelligence.developpez.com/" data-idrub="61" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Business Intelligence
+								</a>
+							</li>
+													<li>
+								<a href="https://solutions-entreprise.developpez.com/erp-pgi/presentation-erp-pgi/" data-idrub="91" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;ERP / PGI
+								</a>
+							</li>
+													<li>
+								<a href="https://crm.developpez.com/" data-idrub="92" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;CRM
+								</a>
+							</li>
+													<li>
+								<a href="https://sas.developpez.com/" data-idrub="93" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;SAS
+								</a>
+							</li>
+													<li>
+								<a href="https://cloud-computing.developpez.com/" data-idrub="103" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Cloud Computing
+								</a>
+							</li>
+													<li>
+								<a href="https://sap.developpez.com/" data-idrub="106" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;SAP
+								</a>
+							</li>
+													<li>
+								<a href="https://www.developpez.net/forums/f1664/systemes/windows/windows-serveur/biztalk-server/" data-idrub="115" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Microsoft BizTalk Server
+								</a>
+							</li>
+													<li>
+								<a href="https://talend.developpez.com/" data-idrub="118" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Talend
+								</a>
+							</li>
+													<li>
+								<a href="https://ibmcloud.developpez.com/" data-idrub="135" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;IBM Cloud
+								</a>
+							</li>
+													<li>
+								<a href="https://intelligence-artificielle.developpez.com/" data-idrub="143" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Intelligence artificielle
+								</a>
+							</li>
+											</ul>
+							</li>
+					<li>
+				<a href="https://applications.developpez.com/" data-idrub="88" data-niv="1">Applications</a>
+									<ul class="gabarit_sousmenu">
+						<li>
+							<a href="https://applications.developpez.com/" data-idrub="88" data-niv="2">
+								<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Applications
+							</a>
+						</li>
+													<li>
+								<a href="https://open-source.developpez.com/" data-idrub="121" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Libres &amp; Open Source
+								</a>
+							</li>
+													<li>
+								<a href="https://openoffice-libreoffice.developpez.com/" data-idrub="116" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;OpenOffice &amp; LibreOffice
+								</a>
+							</li>
+													<li>
+								<a href="https://portail-projets.developpez.com/" data-idrub="98" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Projets
+								</a>
+							</li>
+											</ul>
+							</li>
+					<li>
+				<a href="https://mobiles.developpez.com/" data-idrub="94" data-niv="1">Mobiles</a>
+									<ul class="gabarit_sousmenu">
+						<li>
+							<a href="https://mobiles.developpez.com/" data-idrub="94" data-niv="2">
+								<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Mobiles
+							</a>
+						</li>
+													<li>
+								<a href="https://android.developpez.com/" data-idrub="95" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Android
+								</a>
+							</li>
+													<li>
+								<a href="https://ios.developpez.com/" data-idrub="101" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;iOS
+								</a>
+							</li>
+													<li>
+								<a href="https://windowsphone.developpez.com/" data-idrub="105" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Windows Phone
+								</a>
+							</li>
+											</ul>
+							</li>
+					<li>
+				<a href="https://systeme.developpez.com/" data-idrub="30" data-niv="1">Systèmes</a>
+									<ul class="gabarit_sousmenu">
+						<li>
+							<a href="https://systeme.developpez.com/" data-idrub="30" data-niv="2">
+								<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Systèmes
+							</a>
+						</li>
+													<li>
+								<a href="https://windows.developpez.com/" data-idrub="17" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Windows
+								</a>
+							</li>
+													<li>
+								<a href="https://linux.developpez.com/" data-idrub="18" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Linux
+								</a>
+							</li>
+													<li>
+								<a href="https://arduino.developpez.com/" data-idrub="142" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Arduino
+								</a>
+							</li>
+													<li>
+								<a href="https://securite.developpez.com/" data-idrub="40" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Sécurité
+								</a>
+							</li>
+													<li>
+								<a href="https://hardware.developpez.com/" data-idrub="64" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Hardware
+								</a>
+							</li>
+													<li>
+								<a href="https://hpc.developpez.com/" data-idrub="139" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;HPC
+								</a>
+							</li>
+													<li>
+								<a href="https://mac.developpez.com/" data-idrub="57" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Mac
+								</a>
+							</li>
+													<li>
+								<a href="https://raspberry-pi.developpez.com/" data-idrub="131" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Raspberry Pi
+								</a>
+							</li>
+													<li>
+								<a href="https://reseau.developpez.com/" data-idrub="70" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Réseau
+								</a>
+							</li>
+													<li>
+								<a href="https://green-it.developpez.com/" data-idrub="104" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Green IT
+								</a>
+							</li>
+													<li>
+								<a href="https://embarque.developpez.com/" data-idrub="110" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Systèmes embarqués
+								</a>
+							</li>
+													<li>
+								<a href="https://virtualisation.developpez.com/" data-idrub="108" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Virtualisation
+								</a>
+							</li>
+											</ul>
+							</li>
+			</ul>
+</div>
+
+<ul id="gabarit_menu" style="padding-left:56px;">
+	<li><a href="https://www.developpez.com/" data-idrub="1" data-niv="1" style="padding:0;"><div id="gabarit_home"></div></a>
+			</li>
+	<li><a href="https://alm.developpez.com/" data-idrub="42" data-niv="1">ALM<!--<span class="gabarit_tooltip">Cycle de vie du logiciel</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://alm.developpez.com/" data-idrub="42" data-niv="2">ALM</a></li>
+				<li><a href="https://merise.developpez.com/" data-idrub="43" data-niv="2">Merise</a></li>
+				<li><a href="https://uml.developpez.com/" data-idrub="12" data-niv="2">UML</a></li>
+			</ul></li>
+	<li><a href="https://java.developpez.com/" data-idrub="4" data-niv="1">Java<!--<span class="gabarit_tooltip">Plateforme et langage Java</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://java.developpez.com/" data-idrub="4" data-niv="2">Java</a></li>
+				<li><a href="https://javaweb.developpez.com/" data-idrub="97" data-niv="2">Java Web</a></li>
+				<li><a href="https://spring.developpez.com/" data-idrub="87" data-niv="2">Spring</a></li>
+				<li><a href="https://android.developpez.com/" data-idrub="95" data-niv="2">Android</a></li>
+				<li><a href="https://eclipse.developpez.com/" data-idrub="55" data-niv="2">Eclipse</a></li>
+				<li><a href="https://netbeans.developpez.com/" data-idrub="66" data-niv="2">NetBeans</a></li>
+			</ul></li>
+	<li><a href="https://dotnet.developpez.com/" data-idrub="20" data-niv="1">.NET<!--<span class="gabarit_tooltip">Microsoft Framework .NET</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://dotnet.developpez.com/" data-idrub="20" data-niv="2">Microsoft DotNET</a></li>
+				<li><a href="https://visualstudio.developpez.com/" data-idrub="84" data-niv="2">Visual Studio</a></li>
+				<li><a href="https://dotnet.developpez.com/aspnet/" data-idrub="83" data-niv="2">ASP.NET</a></li>
+				<li><a href="https://dotnet.developpez.com/csharp/" data-idrub="81" data-niv="2">C#</a></li>
+				<li><a href="https://dotnet.developpez.com/vbnet/" data-idrub="82" data-niv="2">VB.NET</a></li>
+				<li><a href="https://windowsphone.developpez.com/" data-idrub="105" data-niv="2">Windows Phone</a></li>
+				<li><a href="https://windows-azure.developpez.com/" data-idrub="107" data-niv="2">Microsoft Azure</a></li>
+			</ul></li>
+	<li><a href="https://web.developpez.com/" data-idrub="8" data-niv="1">Dév. Web<!--<span class="gabarit_tooltip">Développement Web et Webmarketing</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://web.developpez.com/" data-idrub="8" data-niv="2">Développement Web</a></li>
+				<li><a href="https://ajax.developpez.com/" data-idrub="85" data-niv="2">AJAX</a></li>
+				<li><a href="https://apache.developpez.com/" data-idrub="71" data-niv="2">Apache</a></li>
+				<li><a href="https://asp.developpez.com/" data-idrub="10" data-niv="2">ASP</a></li>
+				<li><a href="https://css.developpez.com/" data-idrub="51" data-niv="2">CSS</a></li>
+				<li><a href="https://dart.developpez.com/" data-idrub="125" data-niv="2">Dart</a></li>
+				<li><a href="https://flash.developpez.com/" data-idrub="41" data-niv="2">Flash / Flex</a></li>
+				<li><a href="https://javascript.developpez.com/" data-idrub="45" data-niv="2">JavaScript</a></li>
+				<li><a href="https://nodejs.developpez.com/" data-idrub="141" data-niv="2">NodeJS</a></li>
+				<li><a href="https://php.developpez.com/" data-idrub="9" data-niv="2">PHP</a></li>
+				<li><a href="https://ruby.developpez.com/" data-idrub="53" data-niv="2">Ruby &amp; Rails</a></li>
+				<li><a href="https://typescript.developpez.com/" data-idrub="127" data-niv="2">TypeScript</a></li>
+				<li><a href="https://web-semantique.developpez.com/" data-idrub="111" data-niv="2">Web sémantique</a></li>
+				<li><a href="https://webmarketing.developpez.com/" data-idrub="80" data-niv="2">Webmarketing</a></li>
+				<li><a href="https://xhtml.developpez.com/" data-idrub="50" data-niv="2">(X)HTML</a></li>
+			</ul></li>
+	<li><a href="https://edi.developpez.com/" data-idrub="90" data-niv="1">EDI<!--<span class="gabarit_tooltip">Environnements de Développement Intégré</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://edi.developpez.com/" data-idrub="90" data-niv="2">EDI</a></li>
+				<li><a href="https://4d.developpez.com/" data-idrub="39" data-niv="2">4D</a></li>
+				<li><a href="https://delphi.developpez.com/" data-idrub="2" data-niv="2">Delphi</a></li>
+				<li><a href="https://eclipse.developpez.com/" data-idrub="55" data-niv="2">Eclipse</a></li>
+				<li><a href="https://jetbrains.developpez.com/" data-idrub="144" data-niv="2">JetBrains</a></li>
+				<li><a href="https://labview.developpez.com/" data-idrub="72" data-niv="2">LabVIEW</a></li>
+				<li><a href="https://netbeans.developpez.com/" data-idrub="66" data-niv="2">NetBeans</a></li>
+				<li><a href="https://matlab.developpez.com/" data-idrub="58" data-niv="2">MATLAB</a></li>
+				<li><a href="https://scilab.developpez.com/" data-idrub="120" data-niv="2">Scilab</a></li>
+				<li><a href="https://visualstudio.developpez.com/" data-idrub="84" data-niv="2">Visual Studio</a></li>
+				<li><a href="https://wind.developpez.com/" data-idrub="74" data-niv="2">WinDev</a></li>
+				<li><a href="https://vb.developpez.com/" data-idrub="5" data-niv="2">Visual Basic 6</a></li>
+				<li><a href="https://lazarus.developpez.com/" data-idrub="96" data-niv="2">Lazarus</a></li>
+				<li><a href="https://qt-creator.developpez.com/" data-idrub="109" data-niv="2">Qt Creator</a></li>
+			</ul></li>
+	<li><a href="https://programmation.developpez.com/" data-idrub="119" data-niv="1" class="gabarit_selection">Programmation<!--<span class="gabarit_tooltip">Programmation et langages de programmation applicatifs</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://programmation.developpez.com/" data-idrub="119" data-niv="2">Programmation</a></li>
+				<li><a href="https://algo.developpez.com/" data-idrub="47" data-niv="2">Débuter - Algorithmique</a></li>
+				<li><a href="https://jeux.developpez.com/" data-idrub="38" data-niv="2">2D - 3D - Jeux</a></li>
+				<li><a href="https://asm.developpez.com/" data-idrub="16" data-niv="2">Assembleur</a></li>
+				<li><a href="https://c.developpez.com/" data-idrub="3" data-niv="2">C</a></li>
+				<li><a href="https://cpp.developpez.com/" data-idrub="59" data-niv="2">C++</a></li>
+				<li><a href="https://d.developpez.com/" data-idrub="123" data-niv="2">D</a></li>
+				<li><a href="https://go.developpez.com/" data-idrub="124" data-niv="2">Go</a></li>
+				<li><a href="https://kotlin.developpez.com/" data-idrub="145" data-niv="2">Kotlin</a></li>
+				<li><a href="https://objective-c.developpez.com/" data-idrub="117" data-niv="2">Objective C</a></li>
+				<li><a href="https://pascal.developpez.com/" data-idrub="7" data-niv="2">Pascal</a></li>
+				<li><a href="https://perl.developpez.com/" data-idrub="29" data-niv="2">Perl</a></li>
+				<li><a href="https://python.developpez.com/" data-idrub="27" data-niv="2">Python</a></li>
+				<li><a href="https://rust.developpez.com/" data-idrub="137" data-niv="2">Rust</a></li>
+				<li><a href="https://swift.developpez.com/" data-idrub="128" data-niv="2">Swift</a></li>
+				<li><a href="https://qt.developpez.com/" data-idrub="65" data-niv="2">Qt</a></li>
+				<li><a href="https://xml.developpez.com/" data-idrub="11" data-niv="2">XML</a></li>
+				<li><a href="https://general.developpez.com/cours/" data-idrub="21" data-niv="2">Autres</a></li>
+			</ul></li>
+	<li><a href="https://sgbd.developpez.com/" data-idrub="13" data-niv="1">SGBD<!--<span class="gabarit_tooltip">Systèmes de Gestion de Bases de Données</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://sgbd.developpez.com/" data-idrub="13" data-niv="2">SGBD &amp; SQL</a></li>
+				<li><a href="https://4d.developpez.com/" data-idrub="39" data-niv="2">4D</a></li>
+				<li><a href="https://access.developpez.com/" data-idrub="19" data-niv="2">Access</a></li>
+				<li><a href="https://big-data.developpez.com/" data-idrub="126" data-niv="2">Big Data</a></li>
+				<li><a href="https://db2.developpez.com/" data-idrub="36" data-niv="2">DB2</a></li>
+				<li><a href="https://firebird.developpez.com/" data-idrub="73" data-niv="2">Firebird</a></li>
+				<li><a href="https://interbase.developpez.com/" data-idrub="32" data-niv="2">InterBase</a></li>
+				<li><a href="https://mysql.developpez.com/" data-idrub="31" data-niv="2">MySQL</a></li>
+				<li><a href="https://nosql.developpez.com/" data-idrub="114" data-niv="2">NoSQL</a></li>
+				<li><a href="https://postgresql.developpez.com/" data-idrub="33" data-niv="2">PostgreSQL</a></li>
+				<li><a href="https://oracle.developpez.com/" data-idrub="25" data-niv="2">Oracle</a></li>
+				<li><a href="https://sybase.developpez.com/" data-idrub="37" data-niv="2">Sybase</a></li>
+				<li><a href="https://sqlserver.developpez.com/" data-idrub="34" data-niv="2">SQL-Server</a></li>
+			</ul></li>
+	<li><a href="https://office.developpez.com/" data-idrub="54" data-niv="1">Office<!--<span class="gabarit_tooltip">Bureautique pour l'entreprise</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://office.developpez.com/" data-idrub="54" data-niv="2">Microsoft Office</a></li>
+				<li><a href="https://access.developpez.com/" data-idrub="19" data-niv="2">Access</a></li>
+				<li><a href="https://excel.developpez.com/" data-idrub="75" data-niv="2">Excel</a></li>
+				<li><a href="https://word.developpez.com/" data-idrub="76" data-niv="2">Word</a></li>
+				<li><a href="https://outlook.developpez.com/" data-idrub="77" data-niv="2">Outlook</a></li>
+				<li><a href="https://powerpoint.developpez.com/" data-idrub="78" data-niv="2">PowerPoint</a></li>
+				<li><a href="https://sharepoint.developpez.com/" data-idrub="79" data-niv="2">SharePoint</a></li>
+				<li><a href="https://project.developpez.com/" data-idrub="99" data-niv="2">Microsoft Project</a></li>
+				<li><a href="https://openoffice-libreoffice.developpez.com/" data-idrub="116" data-niv="2">OpenOffice &amp; LibreOffice</a></li>
+			</ul></li>
+	<li><a href="https://solutions-entreprise.developpez.com/" data-idrub="86" data-niv="1">Solutions d&#039;entreprise<!--<span class="gabarit_tooltip">Autres logiciels pour l'entreprise</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://solutions-entreprise.developpez.com/" data-idrub="86" data-niv="2">Solutions d&#039;entreprise</a></li>
+				<li><a href="https://abbyy.developpez.com/" data-idrub="147" data-niv="2">ABBYY</a></li>
+				<li><a href="https://big-data.developpez.com/" data-idrub="126" data-niv="2">Big Data</a></li>
+				<li><a href="https://bpm.developpez.com/" data-idrub="134" data-niv="2">BPM</a></li>
+				<li><a href="https://business-intelligence.developpez.com/" data-idrub="61" data-niv="2">Business Intelligence</a></li>
+				<li><a href="https://solutions-entreprise.developpez.com/erp-pgi/presentation-erp-pgi/" data-idrub="91" data-niv="2">ERP / PGI</a></li>
+				<li><a href="https://crm.developpez.com/" data-idrub="92" data-niv="2">CRM</a></li>
+				<li><a href="https://sas.developpez.com/" data-idrub="93" data-niv="2">SAS</a></li>
+				<li><a href="https://cloud-computing.developpez.com/" data-idrub="103" data-niv="2">Cloud Computing</a></li>
+				<li><a href="https://sap.developpez.com/" data-idrub="106" data-niv="2">SAP</a></li>
+				<li><a href="https://www.developpez.net/forums/f1664/systemes/windows/windows-serveur/biztalk-server/" data-idrub="115" data-niv="2">Microsoft BizTalk Server</a></li>
+				<li><a href="https://talend.developpez.com/" data-idrub="118" data-niv="2">Talend</a></li>
+				<li><a href="https://ibmcloud.developpez.com/" data-idrub="135" data-niv="2">IBM Cloud</a></li>
+				<li><a href="https://intelligence-artificielle.developpez.com/" data-idrub="143" data-niv="2">Intelligence artificielle</a></li>
+			</ul></li>
+	<li><a href="https://applications.developpez.com/" data-idrub="88" data-niv="1">Applications<!--<span class="gabarit_tooltip">Applications logicielles</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://applications.developpez.com/" data-idrub="88" data-niv="2">Applications</a></li>
+				<li><a href="https://open-source.developpez.com/" data-idrub="121" data-niv="2">Libres &amp; Open Source</a></li>
+				<li><a href="https://openoffice-libreoffice.developpez.com/" data-idrub="116" data-niv="2">OpenOffice &amp; LibreOffice</a></li>
+				<li><a href="https://portail-projets.developpez.com/" data-idrub="98" data-niv="2">Projets</a></li>
+			</ul></li>
+	<li><a href="https://mobiles.developpez.com/" data-idrub="94" data-niv="1">Mobiles<!--<span class="gabarit_tooltip">Logiciels et matériels mobiles</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://mobiles.developpez.com/" data-idrub="94" data-niv="2">Mobiles</a></li>
+				<li><a href="https://android.developpez.com/" data-idrub="95" data-niv="2">Android</a></li>
+				<li><a href="https://ios.developpez.com/" data-idrub="101" data-niv="2">iOS</a></li>
+				<li><a href="https://windowsphone.developpez.com/" data-idrub="105" data-niv="2">Windows Phone</a></li>
+			</ul></li>
+	<li><a href="https://systeme.developpez.com/" data-idrub="30" data-niv="1">Systèmes<!--<span class="gabarit_tooltip">Logiciels et matériels systèmes</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://systeme.developpez.com/" data-idrub="30" data-niv="2">Systèmes</a></li>
+				<li><a href="https://windows.developpez.com/" data-idrub="17" data-niv="2">Windows</a></li>
+				<li><a href="https://linux.developpez.com/" data-idrub="18" data-niv="2">Linux</a></li>
+				<li><a href="https://arduino.developpez.com/" data-idrub="142" data-niv="2">Arduino</a></li>
+				<li><a href="https://securite.developpez.com/" data-idrub="40" data-niv="2">Sécurité</a></li>
+				<li><a href="https://hardware.developpez.com/" data-idrub="64" data-niv="2">Hardware</a></li>
+				<li><a href="https://hpc.developpez.com/" data-idrub="139" data-niv="2">HPC</a></li>
+				<li><a href="https://mac.developpez.com/" data-idrub="57" data-niv="2">Mac</a></li>
+				<li><a href="https://raspberry-pi.developpez.com/" data-idrub="131" data-niv="2">Raspberry Pi</a></li>
+				<li><a href="https://reseau.developpez.com/" data-idrub="70" data-niv="2">Réseau</a></li>
+				<li><a href="https://green-it.developpez.com/" data-idrub="104" data-niv="2">Green IT</a></li>
+				<li><a href="https://embarque.developpez.com/" data-idrub="110" data-niv="2">Systèmes embarqués</a></li>
+				<li><a href="https://virtualisation.developpez.com/" data-idrub="108" data-niv="2">Virtualisation</a></li>
+			</ul></li>
+</ul>
+
+<ul id="gabarit_barre1"><li><a href="https://programmation.developpez.com/">Programmation</a></li><li><a href="https://algo.developpez.com/">Algorithmique</a></li><li><a href="https://jeux.developpez.com/">2D-3D-Jeux</a></li><li><a href="https://asm.developpez.com/">Assembleur</a></li><li><a href="https://c.developpez.com/">C</a></li><li><a href="https://cpp.developpez.com/">C++</a></li><li><a href="https://d.developpez.com/">D</a></li><li><a href="https://go.developpez.com/">Go</a></li><li><a href="https://kotlin.developpez.com/">Kotlin</a></li><li><a href="https://objective-c.developpez.com/">Objective C</a></li><li><a href="https://pascal.developpez.com/">Pascal</a></li><li><a href="https://perl.developpez.com/">Perl</a></li><li class="gabarit_selection"><a href="https://python.developpez.com/">Python</a></li><li><a href="https://rust.developpez.com/">Rust</a></li><li><a href="https://swift.developpez.com/">Swift</a></li><li><a href="https://qt.developpez.com/">Qt</a></li><li><a href="https://xml.developpez.com/">XML</a></li><li><a href="https://general.developpez.com/cours/">Autres</a></li></ul>
+
+<div id="gabarit_barre2">
+	<a class="gabarit_social gabarit_facebook" href="http://www.facebook.com/pages/Python/109302299105907" target="_blank" title="Retrouver Developpez sur Facebook"></a>
+	<a class="gabarit_social gabarit_twitter" href="https://twitter.com/PythonDVP" target="_blank" title="Retrouver Developpez sur Twitter"></a>
+	<a class="gabarit_social gabarit_rss" href="http://python.developpez.com/index/rss" target="_blank" title="Flux RSS"></a>
+	<ul>
+<li><a href="https://www.developpez.net/forums/f96/autres-langages/python-zope/">FORUM PYTHON</a></li><li><a href="https://python.developpez.com/faq/">F.A.Q PYTHON</a></li><li><a href="https://python.developpez.com/cours/">TUTORIELS PYTHON</a></li><li><a href="https://python.developpez.com/sources/">SOURCES PYTHON</a></li><li><a href="https://python.developpez.com/telecharger/index/categorie/34/Outils-Python">OUTILS PYTHON</a></li><li><a href="https://python.developpez.com/livres/">LIVRES PYTHON</a></li><li><a href="http://pyqt.developpez.com/">PyQt</a></li>	</ul>
+</div>
+
+</nav>
+</header>
+<section>
+
+<div id="gabarit_pubBB">
+<div id="gabarit_pub0"></div><div id="yu27pl0f" class="dvpb0" style="display: inline-block; width: 728px; height: 90px"></div>
+</div>
+
+<div class="contenuPage">		<article class="ArticleComplet" itemscope itemtype="http://schema.org/Article">
+<meta itemprop="genre" content="informatique"/>
+<meta itemprop="inLanguage" content="fr-FR"/>
+		
+<header class="EnteteTitres">
+
+   <h1 class="titre-article" itemprop="name">Une introduction à Python 3 </h1>
+
+   <h2 class="soustitre-article">
+    <a data-rel="lightbox[article]" href="images/python3-01.png"><img src="images/python3-01.png" alt="Image non disponible" width="167" height="325" class="ImgCliquable image_verticale"/></a>
+  </h2>
+
+</header>
+<nav class="nav-sommaire">
+   <header class="header-sommaire">
+      <h1 class="TitreHeader StopArrondi ToggleGecko">Table des mati&egrave;res<img class="ToggleImgPlier" title="Plier" alt="Plier" src="../../template/kit/fleche-haut-bleue.png"/>
+         <img class="ToggleImgDeplier" title="Déplier" alt="Déplier" src="../../template/kit/fleche-bas-bleue.png" style="display:none;"/>
+      </h1>
+   </header>
+   <ul id="nav_sommaire_ul_principal" class="nav-sommaire-ul">
+    
+      <li>
+         <a class="summaryIndent0" href="925b.html?page=avant-propos">Avant-propos<br/>
+         </a>
+         <ul class="nav-sommaire-ul">
+            <li>
+               <a class="summaryIndent1" href="925b.html?page=avant-propos#Lno-1">Avant-propos</a>
+            </li>
+            <li>
+               <ul class="nav-sommaire-ul Indentationno-1">
+      
+      
+                  <li>
+                     <a class="summaryIndent2" href="925b.html?page=avant-propos#Lno-1-1">À qui s'adresse ce cours ?</a>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="925b.html?page=avant-propos#Lno-1-2">Cette introduction repose sur quelques partis pris</a>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="925b.html?page=avant-propos#Lno-1-3">Numéro de version ?</a>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="925b.html?page=avant-propos#Lno-1-4">Pour joindre les auteurs</a>
+                  </li>
+    
+               </ul>
+            </li>
+         </ul>
+      </li>
+    
+      <li>
+         <a class="summaryIndent0" href="32da.html?page=introduction">Introduction<br/>
+         </a>
+         <ul class="nav-sommaire-ul">
+            <li>
+               <a class="summaryIndent1" href="32da.html?page=introduction#L1">1. Introduction</a>
+            </li>
+            <li>
+               <ul class="nav-sommaire-ul Indentation1">
+      
+      
+      
+      
+                  <li>
+                     <a class="summaryIndent2" href="32da.html?page=introduction#L1-1">1-1. Principales caractéristiques du langage Python</a>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="32da.html?page=introduction#L1-2">1-2. Environnements matériel et logiciel</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation1-2">
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="32da.html?page=introduction#L1-2-1">1-2-1. L'ordinateur</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="32da.html?page=introduction#L1-2-2">1-2-2. Deux sortes de programmes</a>
+                        </li>
+      
+                     </ul>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="32da.html?page=introduction#L1-3">1-3. Langages</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation1-3">
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="32da.html?page=introduction#L1-3-1">1-3-1. Des langages de différents niveaux</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="32da.html?page=introduction#L1-3-2">1-3-2. Très bref historique des langages</a>
+                        </li>
+      
+                     </ul>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="32da.html?page=introduction#L1-4">1-4. Production des programmes</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation1-4">
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="32da.html?page=introduction#L1-4-1">1-4-1. Deux techniques de production des programmes</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="32da.html?page=introduction#L1-4-2">1-4-2. Technique de production de Python</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="32da.html?page=introduction#L1-4-3">1-4-3. Construction des programmes</a>
+                        </li>
+      
+                     </ul>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="32da.html?page=introduction#L1-5">1-5. Algorithme et programme</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation1-5">
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="32da.html?page=introduction#L1-5-1">1-5-1. Définitions</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="32da.html?page=introduction#L1-5-2">1-5-2. Présentation des programmes</a>
+                        </li>
+      
+                     </ul>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="32da.html?page=introduction#L1-6">1-6. Implémentations de Python</a>
+                  </li>
+    
+               </ul>
+            </li>
+         </ul>
+      </li>
+    
+      <li>
+         <a class="summaryIndent0" href="466e.html?page=la-calculatrice-python">La calculatrice Python<br/>
+         </a>
+         <ul class="nav-sommaire-ul">
+            <li>
+               <a class="summaryIndent1" href="466e.html?page=la-calculatrice-python#L2">2. La calculatrice Python</a>
+            </li>
+            <li>
+               <ul class="nav-sommaire-ul Indentation2">
+      
+      
+      
+      
+      
+      
+                  <li>
+                     <a class="summaryIndent2" href="466e.html?page=la-calculatrice-python#L2-1">2-1. Les modes d'exécution</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation2-1">
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="466e.html?page=la-calculatrice-python#L2-1-1">2-1-1. Les deux modes d'exécution d'un code Python</a>
+                        </li>
+      
+                     </ul>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="466e.html?page=la-calculatrice-python#L2-2">2-2. Identificateurs et mots clés</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation2-2">
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="466e.html?page=la-calculatrice-python#L2-2-1">2-2-1. Identificateurs</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="466e.html?page=la-calculatrice-python#L2-2-2">2-2-2. Style de nommage</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="466e.html?page=la-calculatrice-python#L2-2-3">2-2-3. Les mots réservés de Python 3</a>
+                        </li>
+      
+                     </ul>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="466e.html?page=la-calculatrice-python#L2-3">2-3. Notion d'expression</a>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="466e.html?page=la-calculatrice-python#L2-4">2-4. Les types de données entiers</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation2-4">
+        
+        
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="466e.html?page=la-calculatrice-python#L2-4-1">2-4-1. Le type int</a>
+                        </li>
+                        <li>
+                           <ul class="nav-sommaire-ul Indentation2-4-1">
+          
+          
+          
+          
+          
+                              <li>
+                                 <a class="summaryIndent4" href="466e.html?page=la-calculatrice-python#L2-4-1-a">2-4-1-a. Opérations arithmétiques</a>
+                              </li>
+          
+                              <li>
+                                 <a class="summaryIndent4" href="466e.html?page=la-calculatrice-python#L2-4-1-b">2-4-1-b. Bases usuelles</a>
+                              </li>
+        
+                           </ul>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="466e.html?page=la-calculatrice-python#L2-4-2">2-4-2. Le type bool</a>
+                        </li>
+      
+                     </ul>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="466e.html?page=la-calculatrice-python#L2-5">2-5. Les types de données flottants</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation2-5">
+        
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="466e.html?page=la-calculatrice-python#L2-5-1">2-5-1. Le type float</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="466e.html?page=la-calculatrice-python#L2-5-2">2-5-2. Le type complex</a>
+                        </li>
+      
+                     </ul>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="466e.html?page=la-calculatrice-python#L2-6">2-6. Variables et affectation</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation2-6">
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="466e.html?page=la-calculatrice-python#L2-6-1">2-6-1. Les variables</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="466e.html?page=la-calculatrice-python#L2-6-2">2-6-2. L'affectation</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="466e.html?page=la-calculatrice-python#L2-6-3">2-6-3. Affecter n'est pas comparer !</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="466e.html?page=la-calculatrice-python#L2-6-4">2-6-4. Les variantes de l'affectation</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="466e.html?page=la-calculatrice-python#L2-6-5">2-6-5. Représentation graphique des affectations</a>
+                        </li>
+      
+                     </ul>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="466e.html?page=la-calculatrice-python#L2-7">2-7. Les chaînes de caractères</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation2-7">
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="466e.html?page=la-calculatrice-python#L2-7-1">2-7-1. Présentation</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="466e.html?page=la-calculatrice-python#L2-7-2">2-7-2. Opérations</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="466e.html?page=la-calculatrice-python#L2-7-3">2-7-3. Fonctions vs méthodes</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="466e.html?page=la-calculatrice-python#L2-7-4">2-7-4. Méthodes de test de l'état d'une chaîne</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="466e.html?page=la-calculatrice-python#L2-7-5">2-7-5. Méthodes retournant une nouvelle chaîne</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="466e.html?page=la-calculatrice-python#L2-7-6">2-7-6. Indexation simple</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="466e.html?page=la-calculatrice-python#L2-7-7">2-7-7. Extraction de sous-chaînes</a>
+                        </li>
+      
+                     </ul>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="466e.html?page=la-calculatrice-python#L2-8">2-8. Les données binaires</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation2-8">
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="466e.html?page=la-calculatrice-python#L2-8-1">2-8-1. Les types binaires</a>
+                        </li>
+      
+                     </ul>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="466e.html?page=la-calculatrice-python#L2-9">2-9. Les entrées-sorties</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation2-9">
+        
+        
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="466e.html?page=la-calculatrice-python#L2-9-1">2-9-1. Les entrées</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="466e.html?page=la-calculatrice-python#L2-9-2">2-9-2. Les sorties</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="466e.html?page=la-calculatrice-python#L2-9-3">2-9-3. Les séquences d'échappement</a>
+                        </li>
+      
+                     </ul>
+                  </li>
+    
+               </ul>
+            </li>
+         </ul>
+      </li>
+    
+      <li>
+         <a class="summaryIndent0" href="a1f7.html?page=controle-du-flux-d-instructions">Contrôle du flux d'instructions<br/>
+         </a>
+         <ul class="nav-sommaire-ul">
+            <li>
+               <a class="summaryIndent1" href="a1f7.html?page=controle-du-flux-d-instructions#L3">3. Contrôle du flux d'instructions</a>
+            </li>
+            <li>
+               <ul class="nav-sommaire-ul Indentation3">
+      
+      
+      
+      
+      
+      
+                  <li>
+                     <a class="summaryIndent2" href="a1f7.html?page=controle-du-flux-d-instructions#L3-1">3-1. Instructions composées</a>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="a1f7.html?page=controle-du-flux-d-instructions#L3-2">3-2. Choisir</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation3-2">
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="a1f7.html?page=controle-du-flux-d-instructions#L3-2-1">3-2-1. Choisir : if - [elif] - [else]</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="a1f7.html?page=controle-du-flux-d-instructions#L3-2-2">3-2-2. Syntaxe compacte d'une alternative</a>
+                        </li>
+      
+                     </ul>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="a1f7.html?page=controle-du-flux-d-instructions#L3-3">3-3. Boucles</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation3-3">
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="a1f7.html?page=controle-du-flux-d-instructions#L3-3-1">3-3-1. Notions de conteneur et d'itérable</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="a1f7.html?page=controle-du-flux-d-instructions#L3-3-2">3-3-2. Python propose deux sortes de boucles</a>
+                        </li>
+                        <li>
+                           <ul class="nav-sommaire-ul Indentation3-3-2">
+          
+          
+                              <li>
+                                 <a class="summaryIndent4" href="a1f7.html?page=controle-du-flux-d-instructions#L3-3-2-a">3-3-2-a. Répéter : while</a>
+                              </li>
+          
+                              <li>
+                                 <a class="summaryIndent4" href="a1f7.html?page=controle-du-flux-d-instructions#L3-3-2-b">3-3-2-b. Parcourir : for</a>
+                              </li>
+        
+                           </ul>
+                        </li>
+      
+                     </ul>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="a1f7.html?page=controle-du-flux-d-instructions#L3-4">3-4. Ruptures de séquences</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation3-4">
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="a1f7.html?page=controle-du-flux-d-instructions#L3-4-1">3-4-1. interrompre une boucle : break</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="a1f7.html?page=controle-du-flux-d-instructions#L3-4-2">3-4-2. Court-circuiter une boucle : continue</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="a1f7.html?page=controle-du-flux-d-instructions#L3-4-3">3-4-3. Utilisation avancée des boucles</a>
+                        </li>
+                        <li>
+                           <ul class="nav-sommaire-ul Indentation3-4-3">
+          
+          
+          
+                              <li>
+                                 <a class="summaryIndent4" href="a1f7.html?page=controle-du-flux-d-instructions#L3-4-3-a">3-4-3-a. while - else</a>
+                              </li>
+          
+                              <li>
+                                 <a class="summaryIndent4" href="a1f7.html?page=controle-du-flux-d-instructions#L3-4-3-b">3-4-3-b. for - else</a>
+                              </li>
+        
+                           </ul>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="a1f7.html?page=controle-du-flux-d-instructions#L3-4-4">3-4-4. Traitement des erreurs : les exceptions</a>
+                        </li>
+                        <li>
+                           <ul class="nav-sommaire-ul Indentation3-4-4">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+                              <li>
+                                 <a class="summaryIndent4" href="a1f7.html?page=controle-du-flux-d-instructions#L3-4-4-a">3-4-4-a. Syntaxe complète d'une exception :</a>
+                              </li>
+        
+                           </ul>
+                        </li>
+      
+                     </ul>
+                  </li>
+    
+               </ul>
+            </li>
+         </ul>
+      </li>
+    
+      <li>
+         <a class="summaryIndent0" href="2454.html?page=conteneurs-standard">Conteneurs standard<br/>
+         </a>
+         <ul class="nav-sommaire-ul">
+            <li>
+               <a class="summaryIndent1" href="2454.html?page=conteneurs-standard#L4">4. Conteneurs standard</a>
+            </li>
+            <li>
+               <ul class="nav-sommaire-ul Indentation4">
+      
+      
+      
+      
+      
+                  <li>
+                     <a class="summaryIndent2" href="2454.html?page=conteneurs-standard#L4-1">4-1. Séquences</a>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="2454.html?page=conteneurs-standard#L4-2">4-2. Listes</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation4-2">
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="2454.html?page=conteneurs-standard#L4-2-1">4-2-1. Définition, syntaxe et exemples</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="2454.html?page=conteneurs-standard#L4-2-2">4-2-2. Initialisations et tests d'appartenance</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="2454.html?page=conteneurs-standard#L4-2-3">4-2-3. Méthodes</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="2454.html?page=conteneurs-standard#L4-2-4">4-2-4. Manipulation des tranches (ou sous-chaînes)</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="2454.html?page=conteneurs-standard#L4-2-5">4-2-5. Séquences de séquences</a>
+                        </li>
+      
+                     </ul>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="2454.html?page=conteneurs-standard#L4-3">4-3. Tuples</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation4-3">
+        
+        
+        
+        
+        
+        
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="2454.html?page=conteneurs-standard#L4-3-1">4-3-1. Les opérations des objets de type séquentiel</a>
+                        </li>
+      
+                     </ul>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="2454.html?page=conteneurs-standard#L4-4">4-4. Retour sur les références</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation4-4">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="2454.html?page=conteneurs-standard#L4-4-1">4-4-1. Complément graphique sur l'assignation</a>
+                        </li>
+      
+                     </ul>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="2454.html?page=conteneurs-standard#L4-5">4-5. Tableaux associatifs</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation4-5">
+        
+        
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="2454.html?page=conteneurs-standard#L4-5-1">4-5-1. Dictionnaires (dict)</a>
+                        </li>
+                        <li>
+                           <ul class="nav-sommaire-ul Indentation4-5-1">
+          
+          
+          
+          
+          
+          
+                              <li>
+                                 <a class="summaryIndent4" href="2454.html?page=conteneurs-standard#L4-5-1-a">4-5-1-a. Exemples de création</a>
+                              </li>
+          
+                              <li>
+                                 <a class="summaryIndent4" href="2454.html?page=conteneurs-standard#L4-5-1-b">4-5-1-b. Méthodes</a>
+                              </li>
+        
+                           </ul>
+                        </li>
+      
+                     </ul>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="2454.html?page=conteneurs-standard#L4-6">4-6. Ensembles (set)</a>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="2454.html?page=conteneurs-standard#L4-7">4-7. Fichiers textuels</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation4-7">
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="2454.html?page=conteneurs-standard#L4-7-1">4-7-1. Introduction</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="2454.html?page=conteneurs-standard#L4-7-2">4-7-2. Gestion des fichiers</a>
+                        </li>
+                        <li>
+                           <ul class="nav-sommaire-ul Indentation4-7-2">
+          
+          
+                              <li>
+                                 <a class="summaryIndent4" href="2454.html?page=conteneurs-standard#L4-7-2-a">4-7-2-a. Ouverture et fermeture des fichiers</a>
+                              </li>
+          
+                              <li>
+                                 <a class="summaryIndent4" href="2454.html?page=conteneurs-standard#L4-7-2-b">4-7-2-b. Écriture séquentielle</a>
+                              </li>
+          
+                              <li>
+                                 <a class="summaryIndent4" href="2454.html?page=conteneurs-standard#L4-7-2-c">4-7-2-c. Lecture séquentielle</a>
+                              </li>
+        
+                           </ul>
+                        </li>
+      
+                     </ul>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="2454.html?page=conteneurs-standard#L4-8">4-8. Itérer sur les conteneurs</a>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="2454.html?page=conteneurs-standard#L4-9">4-9. Affichage formaté</a>
+                  </li>
+    
+               </ul>
+            </li>
+         </ul>
+      </li>
+    
+      <li>
+         <a class="summaryIndent0" href="7059.html?page=fonctions-et-espaces-de-noms">Fonctions et espaces de noms<br/>
+         </a>
+         <ul class="nav-sommaire-ul">
+            <li>
+               <a class="summaryIndent1" href="7059.html?page=fonctions-et-espaces-de-noms#L5">5. Fonctions et espaces de noms</a>
+            </li>
+            <li>
+               <ul class="nav-sommaire-ul Indentation5">
+      
+      
+      
+      
+      
+      
+      
+      
+                  <li>
+                     <a class="summaryIndent2" href="7059.html?page=fonctions-et-espaces-de-noms#L5-1">5-1. Définition et syntaxe</a>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="7059.html?page=fonctions-et-espaces-de-noms#L5-2">5-2. Passage des arguments</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation5-2">
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="7059.html?page=fonctions-et-espaces-de-noms#L5-2-1">5-2-1. Mécanisme général</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="7059.html?page=fonctions-et-espaces-de-noms#L5-2-2">5-2-2. Un ou plusieurs paramètres, pas de retour</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="7059.html?page=fonctions-et-espaces-de-noms#L5-2-3">5-2-3. Un ou plusieurs paramètres, un ou plusieurs retours</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="7059.html?page=fonctions-et-espaces-de-noms#L5-2-4">5-2-4. Passage d'une fonction en paramètre</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="7059.html?page=fonctions-et-espaces-de-noms#L5-2-5">5-2-5. Paramètres avec valeur par défaut</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="7059.html?page=fonctions-et-espaces-de-noms#L5-2-6">5-2-6. Nombre d'arguments arbitraire : passage d'un tuple de valeurs</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="7059.html?page=fonctions-et-espaces-de-noms#L5-2-7">5-2-7. Nombre d'arguments arbitraire : passage d'un dictionnaire</a>
+                        </li>
+      
+                     </ul>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="7059.html?page=fonctions-et-espaces-de-noms#L5-3">5-3. Espaces de noms</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation5-3">
+        
+        
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="7059.html?page=fonctions-et-espaces-de-noms#L5-3-1">5-3-1. Portée des objets</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="7059.html?page=fonctions-et-espaces-de-noms#L5-3-2">5-3-2. Résolution des noms : règle LGI</a>
+                        </li>
+                        <li>
+                           <ul class="nav-sommaire-ul Indentation5-3-2">
+          
+          
+          
+          
+                              <li>
+                                 <a class="summaryIndent4" href="7059.html?page=fonctions-et-espaces-de-noms#L5-3-2-a">5-3-2-a. Exemples de portée</a>
+                              </li>
+        
+                           </ul>
+                        </li>
+      
+                     </ul>
+                  </li>
+    
+               </ul>
+            </li>
+         </ul>
+      </li>
+    
+      <li>
+         <a class="summaryIndent0" href="76b3.html?page=modules-et-packages">Modules et packages<br/>
+         </a>
+         <ul class="nav-sommaire-ul">
+            <li>
+               <a class="summaryIndent1" href="76b3.html?page=modules-et-packages#L6">6. Modules et packages</a>
+            </li>
+            <li>
+               <ul class="nav-sommaire-ul Indentation6">
+      
+      
+      
+      
+      
+      
+      
+                  <li>
+                     <a class="summaryIndent2" href="76b3.html?page=modules-et-packages#L6-1">6-1. Modules</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation6-1">
+        
+        
+        
+        
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="76b3.html?page=modules-et-packages#L6-1-1">6-1-1. Import</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="76b3.html?page=modules-et-packages#L6-1-2">6-1-2. Exemples</a>
+                        </li>
+                        <li>
+                           <ul class="nav-sommaire-ul Indentation6-1-2">
+          
+          
+                              <li>
+                                 <a class="summaryIndent4" href="76b3.html?page=modules-et-packages#L6-1-2-a">6-1-2-a. Notion d'« autotest »</a>
+                              </li>
+        
+                           </ul>
+                        </li>
+      
+                     </ul>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="76b3.html?page=modules-et-packages#L6-2">6-2. Batteries included</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation6-2">
+        
+        
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="76b3.html?page=modules-et-packages#L6-2-1">6-2-1. La gestion des chaînes</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="76b3.html?page=modules-et-packages#L6-2-2">6-2-2. La gestion de la ligne de commande</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="76b3.html?page=modules-et-packages#L6-2-3">6-2-3. La gestion du temps et des dates</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="76b3.html?page=modules-et-packages#L6-2-4">6-2-4. Algorithmes et types de données collection</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="76b3.html?page=modules-et-packages#L6-2-5">6-2-5. Et tant d'autres domaines…</a>
+                        </li>
+      
+                     </ul>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="76b3.html?page=modules-et-packages#L6-3">6-3. Python scientifique</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation6-3">
+        
+        
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="76b3.html?page=modules-et-packages#L6-3-1">6-3-1. Bibliothèques mathématiques et types numériques</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="76b3.html?page=modules-et-packages#L6-3-2">6-3-2. L'interpréteur IPython</a>
+                        </li>
+                        <li>
+                           <ul class="nav-sommaire-ul Indentation6-3-2">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+                              <li>
+                                 <a class="summaryIndent4" href="76b3.html?page=modules-et-packages#L6-3-2-a">6-3-2-a. Objectifs</a>
+                              </li>
+          
+                              <li>
+                                 <a class="summaryIndent4" href="76b3.html?page=modules-et-packages#L6-3-2-b">6-3-2-b. Quelques caractéristiques</a>
+                              </li>
+        
+                           </ul>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="76b3.html?page=modules-et-packages#L6-3-3">6-3-3. La bibliothèque NumPy</a>
+                        </li>
+                        <li>
+                           <ul class="nav-sommaire-ul Indentation6-3-3">
+          
+          
+                              <li>
+                                 <a class="summaryIndent4" href="76b3.html?page=modules-et-packages#L6-3-3-a">6-3-3-a. Introduction</a>
+                              </li>
+          
+                              <li>
+                                 <a class="summaryIndent4" href="76b3.html?page=modules-et-packages#L6-3-3-b">6-3-3-b. Exemples</a>
+                              </li>
+        
+                           </ul>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="76b3.html?page=modules-et-packages#L6-3-4">6-3-4. La bibliothèque matplotlib</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="76b3.html?page=modules-et-packages#L6-3-5">6-3-5. La bibliothèque SymPy</a>
+                        </li>
+                        <li>
+                           <ul class="nav-sommaire-ul Indentation6-3-5">
+          
+          
+                              <li>
+                                 <a class="summaryIndent4" href="76b3.html?page=modules-et-packages#L6-3-5-a">6-3-5-a. Introduction</a>
+                              </li>
+          
+                              <li>
+                                 <a class="summaryIndent4" href="76b3.html?page=modules-et-packages#L6-3-5-b">6-3-5-b. Exemples</a>
+                              </li>
+        
+                           </ul>
+                        </li>
+      
+                     </ul>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="76b3.html?page=modules-et-packages#L6-4">6-4. Bibliothèques tierces</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation6-4">
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="76b3.html?page=modules-et-packages#L6-4-1">6-4-1. Une grande diversité</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="76b3.html?page=modules-et-packages#L6-4-2">6-4-2. Un exemple : la bibliothèque Unum</a>
+                        </li>
+      
+                     </ul>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="76b3.html?page=modules-et-packages#L6-5">6-5. Packages</a>
+                  </li>
+    
+               </ul>
+            </li>
+         </ul>
+      </li>
+    
+      <li>
+         <a class="summaryIndent0" href="6c52.html?page=la-programmation-orientee-objet">La Programmation Orientée Objet<br/>
+         </a>
+         <ul class="nav-sommaire-ul">
+            <li>
+               <a class="summaryIndent1" href="6c52.html?page=la-programmation-orientee-objet#L7">7. La Programmation Orientée Objet</a>
+            </li>
+            <li>
+               <ul class="nav-sommaire-ul Indentation7">
+      
+      
+      
+      
+      
+                  <li>
+                     <a class="summaryIndent2" href="6c52.html?page=la-programmation-orientee-objet#L7-1">7-1. Terminologie</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation7-1">
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="6c52.html?page=la-programmation-orientee-objet#L7-1-1">7-1-1. Le vocabulaire de base de la POO</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="6c52.html?page=la-programmation-orientee-objet#L7-1-2">7-1-2. Notations UML de base</a>
+                        </li>
+      
+                     </ul>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="6c52.html?page=la-programmation-orientee-objet#L7-2">7-2. Classes et instanciation d'objets</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation7-2">
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="6c52.html?page=la-programmation-orientee-objet#L7-2-1">7-2-1. L'instruction class</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="6c52.html?page=la-programmation-orientee-objet#L7-2-2">7-2-2. L'instanciation et ses attributs</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="6c52.html?page=la-programmation-orientee-objet#L7-2-3">7-2-3. Retour sur les espaces de noms</a>
+                        </li>
+                        <li>
+                           <ul class="nav-sommaire-ul Indentation7-2-3">
+          
+          
+          
+          
+          
+          
+          
+                              <li>
+                                 <a class="summaryIndent4" href="6c52.html?page=la-programmation-orientee-objet#L7-2-3-a">7-2-3-a. Recherche des noms</a>
+                              </li>
+        
+                           </ul>
+                        </li>
+      
+                     </ul>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="6c52.html?page=la-programmation-orientee-objet#L7-3">7-3. Méthodes</a>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="6c52.html?page=la-programmation-orientee-objet#L7-4">7-4. Méthodes spéciales</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation7-4">
+        
+        
+        
+        
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="6c52.html?page=la-programmation-orientee-objet#L7-4-1">7-4-1. L'initialisateur</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="6c52.html?page=la-programmation-orientee-objet#L7-4-2">7-4-2. Surcharge des opérateurs</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="6c52.html?page=la-programmation-orientee-objet#L7-4-3">7-4-3. Exemple de surcharge</a>
+                        </li>
+      
+                     </ul>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="6c52.html?page=la-programmation-orientee-objet#L7-5">7-5. Héritage et polymorphisme</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation7-5">
+        
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="6c52.html?page=la-programmation-orientee-objet#L7-5-1">7-5-1. Héritage et polymorphisme</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="6c52.html?page=la-programmation-orientee-objet#L7-5-2">7-5-2. Exemple d'héritage et de polymorphisme</a>
+                        </li>
+      
+                     </ul>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="6c52.html?page=la-programmation-orientee-objet#L7-6">7-6. Notion de conception orientée objet</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation7-6">
+        
+        
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="6c52.html?page=la-programmation-orientee-objet#L7-6-1">7-6-1. Association</a>
+                        </li>
+                        <li>
+                           <ul class="nav-sommaire-ul Indentation7-6-1">
+          
+          
+          
+          
+          
+                              <li>
+                                 <a class="summaryIndent4" href="6c52.html?page=la-programmation-orientee-objet#L7-6-1-a">7-6-1-a. Agrégation</a>
+                              </li>
+          
+                              <li>
+                                 <a class="summaryIndent4" href="6c52.html?page=la-programmation-orientee-objet#L7-6-1-b">7-6-1-b. Composition</a>
+                              </li>
+        
+                           </ul>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="6c52.html?page=la-programmation-orientee-objet#L7-6-2">7-6-2. Dérivation</a>
+                        </li>
+      
+                     </ul>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="6c52.html?page=la-programmation-orientee-objet#L7-7">7-7. Un exemple complet</a>
+                  </li>
+    
+               </ul>
+            </li>
+         </ul>
+      </li>
+    
+      <li>
+         <a class="summaryIndent0" href="646c.html?page=la-poo-graphique">La POO graphique<br/>
+         </a>
+         <ul class="nav-sommaire-ul">
+            <li>
+               <a class="summaryIndent1" href="646c.html?page=la-poo-graphique#L8">8. La POO graphique</a>
+            </li>
+            <li>
+               <ul class="nav-sommaire-ul Indentation8">
+      
+      
+      
+      
+      
+      
+                  <li>
+                     <a class="summaryIndent2" href="646c.html?page=la-poo-graphique#L8-1">8-1. Programmes pilotés par des événements</a>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="646c.html?page=la-poo-graphique#L8-2">8-2. La bibliothèque tkinter</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation8-2">
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="646c.html?page=la-poo-graphique#L8-2-1">8-2-1. Présentation</a>
+                        </li>
+                        <li>
+                           <ul class="nav-sommaire-ul Indentation8-2-1">
+          
+          
+          
+          
+          
+                              <li>
+                                 <a class="summaryIndent4" href="646c.html?page=la-poo-graphique#L8-2-1-a">8-2-1-a. Un exemple tkinter simple (Fig. 8.2)</a>
+                              </li>
+        
+                           </ul>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="646c.html?page=la-poo-graphique#L8-2-2">8-2-2. Les widgets de tkinter</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="646c.html?page=la-poo-graphique#L8-2-3">8-2-3. Le positionnement des widgets</a>
+                        </li>
+      
+                     </ul>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="646c.html?page=la-poo-graphique#L8-3">8-3. Trois exemples</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation8-3">
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="646c.html?page=la-poo-graphique#L8-3-1">8-3-1. Une calculette</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="646c.html?page=la-poo-graphique#L8-3-2">8-3-2. tkPhone, un exemple sans menu</a>
+                        </li>
+                        <li>
+                           <ul class="nav-sommaire-ul Indentation8-3-2">
+          
+          
+          
+                              <li>
+                                 <a class="summaryIndent4" href="646c.html?page=la-poo-graphique#L8-3-2-a">8-3-2-a. Notion de callback</a>
+                              </li>
+          
+                              <li>
+                                 <a class="summaryIndent4" href="646c.html?page=la-poo-graphique#L8-3-2-b">8-3-2-b. Conception graphique</a>
+                              </li>
+          
+                              <li>
+                                 <a class="summaryIndent4" href="646c.html?page=la-poo-graphique#L8-3-2-c">8-3-2-c. Le code de l'interface graphique</a>
+                              </li>
+          
+                              <li>
+                                 <a class="summaryIndent4" href="646c.html?page=la-poo-graphique#L8-3-2-d">8-3-2-d. Le code de l'application</a>
+                              </li>
+        
+                           </ul>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="646c.html?page=la-poo-graphique#L8-3-3">8-3-3. IDLE, un exemple avec menu</a>
+                        </li>
+      
+                     </ul>
+                  </li>
+    
+               </ul>
+            </li>
+         </ul>
+      </li>
+    
+      <li>
+         <a class="summaryIndent0" href="bf52.html?page=quelques-techniques-avancees-de-programmation">Quelques techniques avancées de programmation<br/>
+         </a>
+         <ul class="nav-sommaire-ul">
+            <li>
+               <a class="summaryIndent1" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9">9. Quelques techniques avancées de programmation</a>
+            </li>
+            <li>
+               <ul class="nav-sommaire-ul Indentation9">
+      
+      
+      
+      
+                  <li>
+                     <a class="summaryIndent2" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-1">9-1. Techniques procédurales</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation9-1">
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-1-1">9-1-1. Le pouvoir de l'introspection</a>
+                        </li>
+                        <li>
+                           <ul class="nav-sommaire-ul Indentation9-1-1">
+          
+          
+          
+                              <li>
+                                 <a class="summaryIndent4" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-1-1-a">9-1-1-a. La fonction help()</a>
+                              </li>
+          
+                              <li>
+                                 <a class="summaryIndent4" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-1-1-b">9-1-1-b. Les fonctions type(), dir() et id()</a>
+                              </li>
+          
+                              <li>
+                                 <a class="summaryIndent4" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-1-1-c">9-1-1-c. Les fonctions locals() et globals()</a>
+                              </li>
+          
+                              <li>
+                                 <a class="summaryIndent4" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-1-1-d">9-1-1-d. Le module sys</a>
+                              </li>
+        
+                           </ul>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-1-2">9-1-2. Gestionnaire de contexte (ou bloc gardé)</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-1-3">9-1-3. Utiliser un dictionnaire pour lancer des fonctions ou des méthodes</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-1-4">9-1-4. Les fonctions récursives</a>
+                        </li>
+                        <li>
+                           <ul class="nav-sommaire-ul Indentation9-1-4">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+                              <li>
+                                 <a class="summaryIndent4" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-1-4-a">9-1-4-a. La récursivité terminale</a>
+                              </li>
+        
+                           </ul>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-1-5">9-1-5. Les listes définies en compréhension</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-1-6">9-1-6. Les dictionnaires définis en compréhension</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-1-7">9-1-7. Les ensembles définis en compréhension</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-1-8">9-1-8. Les générateurs et les expressions génératrices</a>
+                        </li>
+                        <li>
+                           <ul class="nav-sommaire-ul Indentation9-1-8">
+          
+          
+                              <li>
+                                 <a class="summaryIndent4" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-1-8-a">9-1-8-a. Les générateurs</a>
+                              </li>
+          
+                              <li>
+                                 <a class="summaryIndent4" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-1-8-b">9-1-8-b. Les expressions génératrices</a>
+                              </li>
+          
+                              <li>
+                                 <a class="summaryIndent4" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-1-8-c">9-1-8-c. Utilisation</a>
+                              </li>
+        
+                           </ul>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-1-9">9-1-9. Les fonctions incluses</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-1-10">9-1-10. Les décorateurs</a>
+                        </li>
+      
+                     </ul>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-2">9-2. Techniques objets</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation9-2">
+        
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-2-1">9-2-1. Les Functors</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-2-2">9-2-2. Les accesseurs</a>
+                        </li>
+                        <li>
+                           <ul class="nav-sommaire-ul Indentation9-2-2">
+          
+          
+                              <li>
+                                 <a class="summaryIndent4" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-2-2-a">9-2-2-a. Le problème de l'encapsulation</a>
+                              </li>
+          
+                              <li>
+                                 <a class="summaryIndent4" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-2-2-b">9-2-2-b. La solution property</a>
+                              </li>
+          
+                              <li>
+                                 <a class="summaryIndent4" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-2-2-c">9-2-2-c. Un autre exemple : la classe Cercle</a>
+                              </li>
+        
+                           </ul>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-2-3">9-2-3. Le duck typing et les annotations</a>
+                        </li>
+      
+                     </ul>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-3">9-3. Techniques fonctionnelles</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation9-3">
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-3-1">9-3-1. Directive lambda</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-3-2">9-3-2. Les fonctions map, filter et reduce</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-3-3">9-3-3. Les applications partielles de fonctions</a>
+                        </li>
+      
+                     </ul>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-4">9-4. La persistance et la sérialisation</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation9-4">
+        
+        
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-4-1">9-4-1. Sérialisation avec pickle et json</a>
+                        </li>
+                        <li>
+                           <ul class="nav-sommaire-ul Indentation9-4-1">
+          
+          
+                              <li>
+                                 <a class="summaryIndent4" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-4-1-a">9-4-1-a. Le module pickle</a>
+                              </li>
+          
+                              <li>
+                                 <a class="summaryIndent4" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-4-1-b">9-4-1-b. Le module json</a>
+                              </li>
+        
+                           </ul>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-4-2">9-4-2. Stockage avec sqlite3</a>
+                        </li>
+      
+                     </ul>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-5">9-5. Les tests</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation9-5">
+        
+        
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-5-1">9-5-1. Tests unitaires et tests fonctionnels</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-5-2">9-5-2. Module unittest</a>
+                        </li>
+      
+                     </ul>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-6">9-6. La documentation des sources</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation9-6">
+        
+        
+        
+        
+        
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-6-1">9-6-1. Le format reST</a>
+                        </li>
+                        <li>
+                           <ul class="nav-sommaire-ul Indentation9-6-1">
+          
+          
+          
+          
+                              <li>
+                                 <a class="summaryIndent4" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-6-1-a">9-6-1-a. docutils</a>
+                              </li>
+          
+                              <li>
+                                 <a class="summaryIndent4" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-6-1-b">9-6-1-b. Sphinx</a>
+                              </li>
+          
+                              <li>
+                                 <a class="summaryIndent4" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-6-1-c">9-6-1-c. rst2pdf</a>
+                              </li>
+        
+                           </ul>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-6-2">9-6-2. Le module doctest</a>
+                        </li>
+                        <li>
+                           <ul class="nav-sommaire-ul Indentation9-6-2">
+          
+          
+          
+          
+          
+          
+          
+                              <li>
+                                 <a class="summaryIndent4" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-6-2-a">9-6-2-a. Premier exemple : documentation1.py</a>
+                              </li>
+          
+                              <li>
+                                 <a class="summaryIndent4" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-6-2-b">9-6-2-b. Deuxième exemple : documentation2.py</a>
+                              </li>
+        
+                           </ul>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-6-3">9-6-3. Le développement dirigé par la documentation</a>
+                        </li>
+                        <li>
+                           <ul class="nav-sommaire-ul Indentation9-6-3">
+          
+          
+          
+          
+          
+                              <li>
+                                 <a class="summaryIndent4" href="bf52.html?page=quelques-techniques-avancees-de-programmation#L9-6-3-a">9-6-3-a. Exemple : test_documentation2.py</a>
+                              </li>
+        
+                           </ul>
+                        </li>
+      
+                     </ul>
+                  </li>
+    
+               </ul>
+            </li>
+         </ul>
+      </li>
+    
+      <li>
+         <a class="summaryIndent0" href="2f63.html?page=interlude">Interlude<br/>
+         </a>
+         <ul class="nav-sommaire-ul">
+            <li>
+               <a class="summaryIndent1" href="2f63.html?page=interlude#L10">10. Interlude</a>
+            </li>
+            <li>
+               <ul class="nav-sommaire-ul Indentation10">
+      
+      
+                  <li>
+                     <a class="summaryIndent2" href="2f63.html?page=interlude#L10-1">10-1. Le Zen de Python</a>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="2f63.html?page=interlude#L10-2">10-2. Le Graal de Python</a>
+                  </li>
+    
+               </ul>
+            </li>
+         </ul>
+      </li>
+    
+      <li>
+         <a class="summaryIndent0" href="33fb.html?page=passer-du-probleme-au-programme">Passer du problème au programme<br/>
+         </a>
+         <ul class="nav-sommaire-ul">
+            <li>
+               <a class="summaryIndent1" href="33fb.html?page=passer-du-probleme-au-programme#L11">11. Passer du problème au programme</a>
+            </li>
+            <li>
+               <ul class="nav-sommaire-ul Indentation11">
+      
+      
+      
+      
+                  <li>
+                     <a class="summaryIndent2" href="33fb.html?page=passer-du-probleme-au-programme#L11-1">11-1. Prérequis</a>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="33fb.html?page=passer-du-probleme-au-programme#L11-2">11-2. Réutiliser</a>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="33fb.html?page=passer-du-probleme-au-programme#L11-3">11-3. Réfléchir à un algorithme</a>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="33fb.html?page=passer-du-probleme-au-programme#L11-4">11-4. Résoudre « à la main »</a>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="33fb.html?page=passer-du-probleme-au-programme#L11-5">11-5. Formaliser</a>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="33fb.html?page=passer-du-probleme-au-programme#L11-6">11-6. Factoriser</a>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="33fb.html?page=passer-du-probleme-au-programme#L11-7">11-7. Passer de l'idée au programme</a>
+                  </li>
+    
+               </ul>
+            </li>
+         </ul>
+      </li>
+    
+      <li>
+         <a class="summaryIndent0" href="6668.html?page=jeux-de-caracteres-et-encodage">Jeux de caractères et encodage<br/>
+         </a>
+         <ul class="nav-sommaire-ul">
+            <li>
+               <a class="summaryIndent1" href="6668.html?page=jeux-de-caracteres-et-encodage#L12">12. Jeux de caractères et encodage</a>
+            </li>
+            <li>
+               <ul class="nav-sommaire-ul Indentation12">
+      
+      
+                  <li>
+                     <a class="summaryIndent2" href="6668.html?page=jeux-de-caracteres-et-encodage#L12-1">12-1. Position du problème</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation12-1">
+        
+        
+        
+        
+        
+        
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="6668.html?page=jeux-de-caracteres-et-encodage#L12-1-1">12-1-1. L'encodage UTF-8</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="6668.html?page=jeux-de-caracteres-et-encodage#L12-1-2">12-1-2. Applications aux scripts Python</a>
+                        </li>
+      
+                     </ul>
+                  </li>
+    
+               </ul>
+            </li>
+         </ul>
+      </li>
+    
+      <li>
+         <a class="summaryIndent0" href="e857.html?page=les-expressions-regulieres">Les expressions régulières<br/>
+         </a>
+         <ul class="nav-sommaire-ul">
+            <li>
+               <a class="summaryIndent1" href="e857.html?page=les-expressions-regulieres#L13">13. Les expressions régulières</a>
+            </li>
+            <li>
+               <ul class="nav-sommaire-ul Indentation13">
+      
+      
+      
+                  <li>
+                     <a class="summaryIndent2" href="e857.html?page=les-expressions-regulieres#L13-1">13-1. Introduction</a>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="e857.html?page=les-expressions-regulieres#L13-2">13-2. Les expressions régulières</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation13-2">
+        
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="e857.html?page=les-expressions-regulieres#L13-2-1">13-2-1. Les expressions régulières de base</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="e857.html?page=les-expressions-regulieres#L13-2-2">13-2-2. Les expressions régulières étendues</a>
+                        </li>
+      
+                     </ul>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="e857.html?page=les-expressions-regulieres#L13-3">13-3. Les expressions régulières avec Python</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation13-3">
+        
+        
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="e857.html?page=les-expressions-regulieres#L13-3-1">13-3-1. Pythonismes</a>
+                        </li>
+                        <li>
+                           <ul class="nav-sommaire-ul Indentation13-3-1">
+          
+          
+          
+                              <li>
+                                 <a class="summaryIndent4" href="e857.html?page=les-expressions-regulieres#L13-3-1-a">13-3-1-a. Utilisation des raw strings</a>
+                              </li>
+          
+                              <li>
+                                 <a class="summaryIndent4" href="e857.html?page=les-expressions-regulieres#L13-3-1-b">13-3-1-b. Les options de compilation</a>
+                              </li>
+          
+                              <li>
+                                 <a class="summaryIndent4" href="e857.html?page=les-expressions-regulieres#L13-3-1-c">13-3-1-c. Les motifs nominatifs</a>
+                              </li>
+        
+                           </ul>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="e857.html?page=les-expressions-regulieres#L13-3-2">13-3-2. Exemples</a>
+                        </li>
+                        <li>
+                           <ul class="nav-sommaire-ul Indentation13-3-2">
+          
+          
+          
+                              <li>
+                                 <a class="summaryIndent4" href="e857.html?page=les-expressions-regulieres#L13-3-2-a">13-3-2-a. Extraction simple</a>
+                              </li>
+          
+                              <li>
+                                 <a class="summaryIndent4" href="e857.html?page=les-expressions-regulieres#L13-3-2-b">13-3-2-b. Extraction des sous-groupes</a>
+                              </li>
+          
+                              <li>
+                                 <a class="summaryIndent4" href="e857.html?page=les-expressions-regulieres#L13-3-2-c">13-3-2-c. Extraction des sous-groupes nommés</a>
+                              </li>
+          
+                              <li>
+                                 <a class="summaryIndent4" href="e857.html?page=les-expressions-regulieres#L13-3-2-d">13-3-2-d. Extraction d'une liste de sous-groupes</a>
+                              </li>
+          
+                              <li>
+                                 <a class="summaryIndent4" href="e857.html?page=les-expressions-regulieres#L13-3-2-e">13-3-2-e. Scinder une chaîne</a>
+                              </li>
+          
+                              <li>
+                                 <a class="summaryIndent4" href="e857.html?page=les-expressions-regulieres#L13-3-2-f">13-3-2-f. Substitution au sein d'une chaîne</a>
+                              </li>
+        
+                           </ul>
+                        </li>
+      
+                     </ul>
+                  </li>
+    
+               </ul>
+            </li>
+         </ul>
+      </li>
+    
+      <li>
+         <a class="summaryIndent0" href="a20d.html?page=exercices-corriges">Exercices corrigés<br/>
+         </a>
+         <ul class="nav-sommaire-ul">
+            <li>
+               <a class="summaryIndent1" href="a20d.html?page=exercices-corriges#L14">14. Exercices corrigés</a>
+            </li>
+            <li>
+               <ul class="nav-sommaire-ul Indentation14">
+      
+      
+                  <li>
+                     <a class="summaryIndent2" href="a20d.html?page=exercices-corriges#L14-1">14-1. Énoncés des exercices</a>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="a20d.html?page=exercices-corriges#L14-2">14-2. Exercices</a>
+                  </li>
+                  <li>
+                     <ul class="nav-sommaire-ul Indentation14-2">
+        
+        
+                        <li>
+                           <a class="summaryIndent3" href="a20d.html?page=exercices-corriges#L14-2-1">14-2-1. Numéro 1</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="a20d.html?page=exercices-corriges#L14-2-2">14-2-2. Numéro 2</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="a20d.html?page=exercices-corriges#L14-2-3">14-2-3. Numéro 3</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="a20d.html?page=exercices-corriges#L14-2-4">14-2-4. Numéro 4</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="a20d.html?page=exercices-corriges#L14-2-5">14-2-5. Numéro 5</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="a20d.html?page=exercices-corriges#L14-2-6">14-2-6. Numéro 6 ✠</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="a20d.html?page=exercices-corriges#L14-2-7">14-2-7. Numéro 7</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="a20d.html?page=exercices-corriges#L14-2-8">14-2-8. Numéro 8</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="a20d.html?page=exercices-corriges#L14-2-9">14-2-9. Numéro 9</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="a20d.html?page=exercices-corriges#L14-2-10">14-2-10. Numéro 10</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="a20d.html?page=exercices-corriges#L14-2-11">14-2-11. Numéro 11 ✠</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="a20d.html?page=exercices-corriges#L14-2-12">14-2-12. Numéro 12</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="a20d.html?page=exercices-corriges#L14-2-13">14-2-13. Numéro 13</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="a20d.html?page=exercices-corriges#L14-2-14">14-2-14. Numéro 14</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="a20d.html?page=exercices-corriges#L14-2-15">14-2-15. Numéro 15</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="a20d.html?page=exercices-corriges#L14-2-16">14-2-16. Numéro 16 ✠</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="a20d.html?page=exercices-corriges#L14-2-17">14-2-17. Numéro 17</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="a20d.html?page=exercices-corriges#L14-2-18">14-2-18. Numéro 18</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="a20d.html?page=exercices-corriges#L14-2-19">14-2-19. Numéro 19</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="a20d.html?page=exercices-corriges#L14-2-20">14-2-20. Numéro 20</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="a20d.html?page=exercices-corriges#L14-2-21">14-2-21. Numéro 21 ✠✠</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="a20d.html?page=exercices-corriges#L14-2-22">14-2-22. Numéro 22 ✠✠</a>
+                        </li>
+        
+                        <li>
+                           <a class="summaryIndent3" href="a20d.html?page=exercices-corriges#L14-2-23">14-2-23. Numéro 23 ✠</a>
+                        </li>
+      
+                     </ul>
+                  </li>
+      
+                  <li>
+                     <a class="summaryIndent2" href="a20d.html?page=exercices-corriges#L14-3">14-3. Solutions des exercices</a>
+                  </li>
+    
+               </ul>
+            </li>
+         </ul>
+      </li>
+    
+      <li>
+         <a class="summaryIndent0" href="a91c.html?page=bibliographie-et-webographie">Bibliographie et Webographie<br/>
+         </a>
+         <ul class="nav-sommaire-ul">
+            <li>
+               <a class="summaryIndent1" href="a91c.html?page=bibliographie-et-webographie#L15">15. Bibliographie et Webographie</a>
+            </li>
+         </ul>
+      </li>
+    
+      <li>
+         <a class="summaryIndent0" href="c835.html?page=memento-des-bases-de-python-3">Mémento des bases de Python 3<br/>
+         </a>
+         <ul class="nav-sommaire-ul">
+            <li>
+               <a class="summaryIndent1" href="c835.html?page=memento-des-bases-de-python-3#L16">16. Mémento des bases de Python 3</a>
+            </li>
+         </ul>
+      </li>
+    
+      <li>
+         <a class="summaryIndent0" href="c525.html?page=glossaire">Glossaire<br/>
+         </a>
+         <ul class="nav-sommaire-ul">
+            <li>
+               <a class="summaryIndent1" href="c525.html?page=glossaire#Lno-18">Glossaire</a>
+            </li>
+         </ul>
+      </li>
+    
+      <li>
+         <a class="summaryIndent0" href="283d.html?page=remerciements">Remerciements<br/>
+         </a>
+         <ul class="nav-sommaire-ul">
+            <li>
+               <a class="summaryIndent1" href="283d.html?page=remerciements#Lno-19">Remerciements</a>
+            </li>
+         </ul>
+         <ul class="nav-sommaire-ul">
+            <li>
+               <a class="summaryIndent1" href="283d.html?page=remerciements#Lno-20">Remerciements Developpez.com</a>
+            </li>
+         </ul>
+      </li>
+    
+      <li>
+         <a class="summaryIndent0" href="8220.html?page=index-du-livre">Index du livre<br/>
+         </a>
+         <ul class="nav-sommaire-ul">
+            <li>
+               <a class="summaryIndent1" href="8220.html?page=index-du-livre#Lno-21">Index</a>
+            </li>
+         </ul>
+      </li>
+  
+   </ul>
+</nav>
+
+
+
+<div class="fixeMarge">
+   <section itemprop="about" class="SectionSynopsis">
+    
+      <p>Dans ce cours, vous allez apprendre les bases et fondamentaux en programmation avec Python. Ce cours se veut pédagogique et pragmatique avec de nombreux exercices corrigés qui permettent aux lecteurs d'appliquer tout ce qu'il apprend durant la lecture.</p>
+    
+      <p>Vous pouvez donner un avis sur ce cours sur le forum dédié Python : <a class="lienforum" href="https://www.developpez.net/forums/showthread.php?t=1572410">1&nbsp;commentaire</a> <img src="../../../www.developpez.com/template/kit/kitstars-5-0.png" width="66" height="14" style="border: none" alt="Donner une note � l'article (5)"/>.</p>
+  
+      <a class="lienArticle Fr" title="Lire la version en ligne de l'article." href="925b.html?page=avant-propos">Lire l'article.</a>
+      <p class="TextNbrVues">Article lu <span id="NbrVues">&nbsp;</span> fois.</p>
+   </section>
+</div>
+<div class="InfoAuthArtBook">
+	
+   <section class="SectionAuteurs">
+	
+      <header>
+         <h1 class="TitreHeader">Les deux auteurs</h1>
+      </header>
+<p class="auteur" itemprop="name" itemscope itemtype="http://schema.org/Person"><span itemprop="author" class="auteur-non-dvp">Laurent Pointal</span></p>
+<p class="auteur" itemprop="name" itemscope itemtype="http://schema.org/Person"><span itemprop="author" class="auteur-non-dvp">Bob Cordeau</span></p>
+</section>
+
+   <section class="SectionInformationArticle">
+
+      <header>
+         <h1 class="TitreHeader">L'article</h1>
+      </header>
+
+
+      <p class="InfoArticle">Publi&eacute;&nbsp;le&nbsp;<span itemprop="datePublished">7 août 2015 </span>
+      </p>
+      <span class="lienversionenligne">
+         <a class="lientelechargement" href="925b.html?page=avant-propos" title="Lire la version en ligne de l'article.">Version en ligne</a>
+      </span>
+      <p>
+
+         <span class="lientelechargementpdf">
+            <a class="lientelechargement" href="https://www.developpez.com/telechargements/cd5c28d0da23e1bc0b9e6dbade405d8a" title="Télécharger la version PDF de cet article.">Version PDF</a>
+         </span>
+
+         <span class="lientelechargementzip">
+            <a class="lientelechargement" href="python-3.zip" title="Télécharger la version HTML de cet article.">Version hors-ligne</a>
+         </span>
+      </p>
+
+      <p>
+         <span class="lientelechargementebook">
+            <a class="lientelechargement" href="python-3.epub" title="Télécharger la version ePub de l'article compatible avec la plupart des liseuses non Kindle (Amazon).">ePub</a>
+         </span>, <span class="lientelechargementebook">
+            <a class="lientelechargement" href="python-3.azw" title="Télécharger la version Azw spécifique aux liseuses Kindle (Amazon).">Azw</a>
+         </span> et <span class="lientelechargementebook">
+            <a class="lientelechargement" href="python-3.mobi" title="Télécharger la version Mobi de l'article compatible avec les liseuses Amazon.">Mobi</a>
+         </span>
+      </p>
+      <p class="ParaLienLireArticle">
+         <a class="LienLireArticle" href="925b.html?page=avant-propos">Lire l'article</a>
+      </p>
+
+   </section>
+
+   <section class="SectionBookmarks">
+
+      <header>
+         <h1 class="TitreHeader">Liens&nbsp;sociaux</h1>
+      </header>
+
+      <div class="InfoBookmarks"><a title="Viadeo" href="http://www.viadeo.com/shareit/share/?url=http%3A%2F%2Fpython.developpez.com%2Fcours%2Fapprendre-python-3%2F&amp;Title=Une+introduction+%C3%83%C2%A0+Python+3+" rel="nofollow"><img alt="Viadeo" src="../../../www.developpez.com/template/kit/kitbm-viadeo.png"/></a>&nbsp;<a title="Twitter" href="http://twitter.com/timeline/home?status=http%3A%2F%2Fpython.developpez.com%2Fcours%2Fapprendre-python-3%2F" rel="nofollow"><img alt="Twitter" src="../../../www.developpez.com/template/kit/kitbm-twitter.png"/></a>&nbsp;<a title="Facebook" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fpython.developpez.com%2Fcours%2Fapprendre-python-3%2F" rel="nofollow"><img alt="Facebook" src="../../../www.developpez.com/template/kit/kitbm-facebook.png"/></a>&nbsp;<a title="Google +" href="https://plus.google.com/share?url=http%3A%2F%2Fpython.developpez.com%2Fcours%2Fapprendre-python-3%2F" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><img src="../../../www.gstatic.com/images/icons/gplus-16.png" alt="Share on Google+"/></a>&nbsp;<script src="../../../platform.linkedin.com/in.js" type="text/javascript"> lang: fr_FR</script>
+			<script type="IN/Share" data-url="$url"></script>&nbsp;</div>
+
+   </section>
+</div>
+<section class="articleBody">
+   <div class="barreNavigation">
+      <hr class="hr-separation"/>
+      <a class="lientelechargement" href="925b.html?page=avant-propos">
+         <img alt="suivant" title="Page suivante" src="../../template/kit/kitsuivant.png"/>
+      </a>
+      <hr class="hr-separation"/>
+   </div>
+</section>	<section class="articleBody"><p>Vous avez aimé ce tutoriel ? Alors partagez-le en cliquant sur les boutons suivants : <a title="Viadeo" href="http://www.viadeo.com/shareit/share/?url=http%3A%2F%2Fpython.developpez.com%2Fcours%2Fapprendre-python-3%2F&amp;Title=Une+introduction+%C3%83%C2%A0+Python+3+" rel="nofollow"><img alt="Viadeo" src="../../../www.developpez.com/template/kit/kitbm-viadeo.png"/></a>&nbsp;<a title="Twitter" href="http://twitter.com/timeline/home?status=http%3A%2F%2Fpython.developpez.com%2Fcours%2Fapprendre-python-3%2F" rel="nofollow"><img alt="Twitter" src="../../../www.developpez.com/template/kit/kitbm-twitter.png"/></a>&nbsp;<a title="Facebook" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fpython.developpez.com%2Fcours%2Fapprendre-python-3%2F" rel="nofollow"><img alt="Facebook" src="../../../www.developpez.com/template/kit/kitbm-facebook.png"/></a>&nbsp;<a title="Google +" href="https://plus.google.com/share?url=http%3A%2F%2Fpython.developpez.com%2Fcours%2Fapprendre-python-3%2F" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><img src="../../../www.gstatic.com/images/icons/gplus-16.png" alt="Share on Google+"/></a>&nbsp;<script src="../../../platform.linkedin.com/in.js" type="text/javascript"> lang: fr_FR</script>
+			<script type="IN/Share" data-url="$url"></script>&nbsp;</p></section>
+</article>
+		<div class="clear">&nbsp;&nbsp;</div>
+<p class="licence">Les sources pr&eacute;sent&eacute;es sur cette page sont libres de droits
+et vous pouvez les utiliser &agrave; votre convenance. Par contre, la page de pr&eacute;sentation
+constitue une &oelig;uvre intellectuelle prot&eacute;g&eacute;e par les droits d'auteur. Copyright &copy;
+2015 Kordeo. Aucune reproduction, m&ecirc;me partielle, ne peut &ecirc;tre
+faite de ce site ni de l'ensemble de son contenu&nbsp;: textes, documents, images, etc.
+sans l'autorisation expresse de l'auteur. Sinon vous encourez selon la loi jusqu'&agrave;
+trois ans de prison et jusqu'&agrave; 300&nbsp;000&nbsp;&euro; de dommages et int&eacute;r&ecirc;ts.
+</p>
+
+<!-- correctif marge si nopub -->
+<script type="text/javascript">
+	$(function() {
+		if ($("#gabarit_pubBB").is(":hidden"))
+			$('.contenuPage').css('padding-top', '30px');
+
+			});
+</script>
+<img src="https://compteur.developpez.com/compter-27" alt="" width="1" height="1" style="position: absolute; left: 1px; top: 1px">
+<script type="text/javascript" src="https://altsysimg.developpez.com/show_i.php?testjs=1"></script><script type="text/javascript" src="https://sysimg.developpez.com/show_i.php?testjs=2"></script><script type="text/javascript">var Yahoo=0;if(!document.getElementById("RLISlqbpEKnU")){Yahoo=1;var c=document.createElement("img");c.src="https://compteur.developpez.com/spe-1";c.style="position: absolute; left: 3px; top: 2px";document.body.appendChild(c);}else{var c=document.createElement("img");c.src="https://compteur.developpez.com/spe-0";c.style="position: absolute; left: 3px; top: 2px";document.body.appendChild(c);}var XYahoo=0;if(!document.getElementById("iZa4cCaP9NJh")){XYahoo=1;var c=document.createElement("img");c.src="https://compteur.developpez.com/spea-1";c.style="position: absolute; left: 4px; top: 3px";document.body.appendChild(c);}else{var c=document.createElement("img");c.src="https://compteur.developpez.com/spea-0";c.style="position: absolute; left: 4px; top: 3px";document.body.appendChild(c);}</script><script type="text/javascript">$(function(){$("#yu27pl0f").load("/template/yu27pl0f"+Yahoo+".jpg");});</script>
+<style type="text/css">@media screen and (max-width: 975px) { #yu27pl0f { display:none !important; } }</style>
+</div>
+</section>
+
+<div id="gabarit_voiraussi" style="background: #e1e1e2"></div>
+
+<footer>
+<div id="gabarit_responsable">
+		<a href="https://club.developpez.com/contacts/contribuer">Contacter</a> le responsable de la rubrique Python
+	</div>
+
+<ul id="gabarit_pied">
+	<li><a href="https://club.developpez.com/contacts/">Nous contacter</a>
+	<li><a href="https://www.developpez.com/participez/">Participez</a>
+	<li><a href="https://www.developpez.com/hebergement/">Hébergement</a>
+	<li><a href="https://www.developpez.com/legal/">Informations légales</a>
+	<li>Partenaire : <a href="https://www.planethoster.com/fr/" target="_blank" rel="noopener">Hébergement Web</a>
+</ul>
+
+<p id="gabarit_copyright">&copy; 2000-2020 - www.developpez.com</p>
+<p id="gabarit_pied_mobile">Partenaire : <a href="https://www.planethoster.com/fr/" target="_blank" rel="noopener">Hébergement Web</a></p>
+
+</footer>
+<!-- Google Analytics general -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-28115938-1']);
+  _gaq.push(['_setDomainName', 'developpez.com']);
+  _gaq.push(['_setCustomVar', 1, 'rubrique', 'python', 3]);
+  _gaq.push(['_setCustomVar', 2, 'type', 'Tutoriel', 3]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+	<script type="text/javascript">
+	$(function() {
+		if (document.cookie.indexOf("cnilcookie=1") == -1) {
+			$("<div>").html("En utilisant ce site, vous acceptez l'utilisation de cookies permettant de vous proposer des contenus et des services adapt&eacute;s &agrave; vos centres d'int&eacute;r&ecirc;ts - <u>J'accepte</u>").attr("id", "gabarit_cnilcookie").appendTo("body").click(function() {
+				$("#gabarit_cnilcookie").remove();
+				var expDate = new Date();
+				expDate.setTime(expDate.getTime() + (395 * 24 * 3600 * 1000));
+				document.cookie = "cnilcookie=1;expires=" + expDate.toGMTString() + ";domain=.developpez.com;path=/";
+			});
+		}
+	});
+	</script>
+
+</body>
+
+<!-- Mirrored from python.developpez.com/cours/apprendre-python-3/. by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Apr 2020 18:04:25 GMT -->
+</html>
+		

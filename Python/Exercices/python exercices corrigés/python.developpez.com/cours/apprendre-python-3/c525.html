@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:og="http://ogp.me/ns#">
+
+<!-- Mirrored from python.developpez.com/cours/apprendre-python-3/.?page=glossaire by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Apr 2020 18:06:08 GMT -->
+<head>
+	<meta charset="utf-8" />
+	<title>Une introduction à Python 3</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+	<meta name="format-detection" content="telephone=no">
+	<meta name="generator" content="developpez-com" />
+	<meta name="description" content="Une introduction à Python 3" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Une introduction à Python 3" />
+	<meta property="og:image" content="../../../www.developpez.com/template/images/logo.png" />
+	<meta property="og:url" content="index.html" />
+	<meta property="og:locale" content="fr_FR" />
+	<meta property="og:site_name" content="Developpez.com" />
+	<meta property="twitter:card" content="summary" />
+	<meta property="twitter:url" content="index.html" />
+	<meta property="twitter:description" content="Une introduction à Python 3" />
+	<meta property="twitter:title" content="Une introduction à Python 3" />
+	<meta property="twitter:image" content="../../../www.developpez.com/template/images/logo.png" />
+	<script type="text/javascript" src="../../template/scripts/jquery-1.7.2.js"></script>
+	<script async type="text/javascript" src="https://www.developpez.com/ws/pageview/"></script>
+	<script async="async" src="../../../www.googletagservices.com/tag/js/gpt.js"></script>
+	<script>
+		var googletag = googletag || {};
+		googletag.cmd = googletag.cmd || [];
+	</script>
+	<script async src="../../../pagead2.googlesyndication.com/pagead/js/f.txt"></script>
+	<link rel="shortcut icon" type="image/x-icon" href="https://python.developpez.com/template/favicon.ico" />
+	<link rel="image_src" href="../../../www.developpez.com/facebook-icon.png" />
+	<link rel="stylesheet" type="text/css" href="../../template/gabarite3be.css?1579157675" />
+	<link rel="stylesheet" type="text/css" media="print" href="../../template/printer.css" />
+	<link rel="stylesheet" type="text/css" href="../../template/gabarit-mobilee3be.css?1579157675" />
+	<script type="text/javascript" src="../../template/gabarit-mobilee3be.js?1579157675"></script>
+	<link rel="stylesheet" type="text/css" media="screen" href="../../template/kit/developpez-kit-generation.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="../../template/kit/code.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="../../template/kit/lightbox.2.51.css" />
+	<script type="text/javascript" src="../../template/kit/mathjax-dvp/MathJax22c4.js?config=TeX-AMS-MML_HTMLorMML&amp;locale=fr"></script>
+	<script type="text/javascript" src="../../template/kit/developpez-kit-generation.js"></script>
+	<script type="text/javascript" src="../../template/kit/lightbox.2.51.js"></script>
+	<script type="text/javascript" src="../../template/kit/fonctions-kit.js"></script>
+	<meta name="author" content="Kordeo" />
+	<!--[if lt IE 7]>
+	<script src="/template/ie7/IE7.js" type="text/javascript"></script>
+	<![endif]-->
+
+	<!--[if IE 6]>
+	<link rel="stylesheet" type="text/css" href="/template/gabarit-ie6.css" />
+	<![endif]-->
+
+	<!--[if IE 7]>
+	<link rel="stylesheet" type="text/css" href="/template/gabarit-ie7.css" />
+	<![endif]-->
+
+	<!--[if lt IE 9]>
+	<script type="text/javascript" src="/template/kit/html5_ie.js"></script>
+	<![endif]-->
+	<!--[if IE 9]><link rel="stylesheet" type="text/css" href="/template/kit/ie9.css" /><![endif]-->
+	<!--[if IE 8]><link rel="stylesheet" type="text/css" href="/template/kit/ie8.css" /><![endif]-->
+	<!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="/template/kit/ie.css" /><![endif]-->
+	<!--[if IE 7]><link rel="stylesheet" type="text/css" href="/template/kit/ie7.css" /><![endif]-->
+	<!--[if lte IE 6]><link rel="stylesheet" type="text/css" href="/template/kit/ie6.css" /><![endif]-->
+	<!--[if lt IE 9]><script type="text/javascript" src="/template/kit/html5_ie.js"></script><![endif]-->
+
+</head>
+<body>
+<header>
+
+<div id="gabarit_b1">
+	<div id="gabarit-barreRecherche" style="display:none;"><form action="https://www.google.fr/" target="_blank">
+  <div>
+    <input type="hidden" name="cx" value="partner-pub-8110924381468607:6449306375" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Rechercher" />
+  </div>
+</form></div>
+<div id="gabarit-new-logo" role="gabarit-accueil">
+	<a href="https://www.developpez.com/"><img src="../../template/images/logo-dvp-h55.png" width="48" height="55" /></a>
+	<a href="https://www.developpez.com/"><span class="dvp"></span></a>
+	<span class="triangle"></span>
+</div>
+<div id="gabarit_recherche"><!--<div class="gabarit-btn-menu profil" role="gabarit-profil"></div>-->
+	<div class="gabarit-btn-menu contacts" role="gabarit-contacts"></div><div class="gabarit-btn-menu recherche" role="gabarit-recherche"></div>
+</div>
+
+<div id="gabarit_superieur">
+	<nav>
+	<ul>
+		<li><a href="https://www.developpez.net/forums/" title="">Forums</a></li>
+		<li><a href="https://general.developpez.com/cours/" title="">Tutoriels</a></li>
+		<li><a href="https://magazine.developpez.com/" title="">Magazine</a></li>
+		<li><a href="https://general.developpez.com/faq/" title="">FAQ</a></li>
+		<li><a href="https://www.developpez.net/forums/blogs/" title="">Blogs</a></li>
+		<li><a href="https://chat.developpez.com/" title="">Chat</a></li>
+		<li><a href="https://www.developpez.com/newsletter/">Newsletter</a></li>
+		<li><a href="https://etudes.developpez.com/">Études</a></li>
+		<li><a href="https://emploi.developpez.com/" title="">Emploi</a></li>
+		<li><a href="https://club.developpez.com/">Club</a></li>
+	</ul>
+	</nav>
+</div></div>
+
+<nav>
+
+<!-- CONNEXION -->
+<div id="gabarit_mobile_connexion"></div>
+<div id="connexionMobile">
+	<form>
+		<div id="connexionMobile_contenu">
+		
+			<i id="fermerConnexionMobile" class="glyphicon glyphicon-remove"></i>
+			<p class="alert alert-info headerBox"></p>
+			<div class="englobeForm connexion">
+			
+				<p>Vous devez avoir un compte Developpez.com et être connecté pour pouvoir participer aux discussions.</p>
+				
+				<div class="row">
+					<div id="identificationConnexionMobile" class="col-sm-6">
+						<div class="card">
+							<div class="card-body">
+								<h5 class="card-title">Identifiez-vous</h5>
+								
+								<div id="loginBoxConnexionMobile" class="card-text">
+									<div class="groupbox">
+										<div class="cat_content">
+											<table width="100%">
+												<tr class="formIdentite">
+													<td nowrap="nowrap" class="form_label">Identifiant</td>
+													<td><input type="text" class="form_input form-control" id="formloginConnexionMobile"/></td>
+												</tr>
+												<tr class="formIdentite">
+													<td nowrap="nowrap" class="form_label">Mot de passe</td>
+													<td><input type="password" class="form_input form-control" id="formpassConnexionMobile"/></td>
+												</tr>
+												<tr><td colspan="2"><div id="formmsgConnexionMobile" style="display: none;"/></td></tr>
+												<tr><td colspan="2" align="right" class="form_label"><a href="http://www.developpez.net/forums/login.php?do=lostpw">Mot de passe oublié ?</a></td></tr>
+											</table>
+										</div>
+									</div>
+								</div>
+								
+								<div id="btnValidationConnexion">
+									<input type="button" value="Je me connecte !" id="formbuttonConnexionMobile" class="btn btn-primary" />
+									<div id="loadingConnexionMobile"><i class="glyphicon glyphicon-repeat gly-spin"></i></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="inscriptionConnexionMobile" class="col-sm-6">
+						<div class="card">
+							<div class="card-body">
+								<h5 class="card-title">Créer un compte</h5>
+								<p class="card-text">Vous n'avez pas encore de compte Developpez.com ? L'inscription est gratuite et ne vous prendra que quelques instants !</p>
+								<a href="https://www.developpez.net/forums/inscription/" class="btn btn-primary">Je m'inscris !</a>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				
+			</div>
+			<div class="englobeForm actions"></div>
+		</div>
+	</form>
+</div>
+<!-- FIN CONNEXION -->
+
+<div id="gabarit_mobile">
+	<div><a href="https://www.developpez.com/"><img src="../../template/images/logo-mobile.png" alt="" height="60"></a></div>
+	<div>
+		<p>Developpez.com</p>
+		<p>Python</p>
+	</div>
+
+	<div class="nav nav-pills nav-justified" style="white-space: nowrap; width: calc(100% - 40px);">
+					<a href="https://python.developpez.com/" class="nav-item nav-link"> &nbsp;Rubrique Python&nbsp; </a>
+			<a href="https://www.developpez.net/forums/f96/autres-langages/python-zope/" class="nav-item nav-link"> &nbsp;Forum Python&nbsp; </a>
+			
+	</div>
+	
+	<div class="nav nav-pills nav-justified" style="width: calc(100% - 40px); margin: 0 auto 6px;">
+		<a href="https://www.developpez.com/" class="nav-item nav-link"><i class="glyphicon glyphicon-home" style="top:0;"></i>&nbsp; Accueil</a>
+		<a href="https://www.developpez.net/forums/" class="nav-item nav-link"><i class="glyphicon glyphicon-comment" style="top:1px;"></i>&nbsp; Forums</a>
+			
+		<span class="nav-item nav-link" style="white-space:nowrap;" data-toggle="collapse" href="#gabarit_menu_mobile" role="button" aria-expanded="false"><i class="glyphicon glyphicon-th" style="top:0;"></i>&nbsp; Rubriques</span>
+	</div>
+</div>
+<div id="gabarit_mobile_fin"></div>
+
+<div class="collapse multi-collapse" id="gabarit_menu_mobile">
+	<p>Choisissez la catégorie, puis la rubrique :</p>
+	<ul>
+					<li>
+				<a href="https://www.developpez.com/" data-idrub="1" data-niv="1">Accueil</a>
+							</li>
+					<li>
+				<a href="https://alm.developpez.com/" data-idrub="42" data-niv="1">ALM</a>
+									<ul class="gabarit_sousmenu">
+						<li>
+							<a href="https://alm.developpez.com/" data-idrub="42" data-niv="2">
+								<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;ALM
+							</a>
+						</li>
+													<li>
+								<a href="https://merise.developpez.com/" data-idrub="43" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Merise
+								</a>
+							</li>
+													<li>
+								<a href="https://uml.developpez.com/" data-idrub="12" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;UML
+								</a>
+							</li>
+											</ul>
+							</li>
+					<li>
+				<a href="https://java.developpez.com/" data-idrub="4" data-niv="1">Java</a>
+									<ul class="gabarit_sousmenu">
+						<li>
+							<a href="https://java.developpez.com/" data-idrub="4" data-niv="2">
+								<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Java
+							</a>
+						</li>
+													<li>
+								<a href="https://javaweb.developpez.com/" data-idrub="97" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Java Web
+								</a>
+							</li>
+													<li>
+								<a href="https://spring.developpez.com/" data-idrub="87" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Spring
+								</a>
+							</li>
+													<li>
+								<a href="https://android.developpez.com/" data-idrub="95" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Android
+								</a>
+							</li>
+													<li>
+								<a href="https://eclipse.developpez.com/" data-idrub="55" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Eclipse
+								</a>
+							</li>
+													<li>
+								<a href="https://netbeans.developpez.com/" data-idrub="66" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;NetBeans
+								</a>
+							</li>
+											</ul>
+							</li>
+					<li>
+				<a href="https://dotnet.developpez.com/" data-idrub="20" data-niv="1">.NET</a>
+									<ul class="gabarit_sousmenu">
+						<li>
+							<a href="https://dotnet.developpez.com/" data-idrub="20" data-niv="2">
+								<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Microsoft DotNET
+							</a>
+						</li>
+													<li>
+								<a href="https://visualstudio.developpez.com/" data-idrub="84" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Visual Studio
+								</a>
+							</li>
+													<li>
+								<a href="https://dotnet.developpez.com/aspnet/" data-idrub="83" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;ASP.NET
+								</a>
+							</li>
+													<li>
+								<a href="https://dotnet.developpez.com/csharp/" data-idrub="81" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;C#
+								</a>
+							</li>
+													<li>
+								<a href="https://dotnet.developpez.com/vbnet/" data-idrub="82" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;VB.NET
+								</a>
+							</li>
+													<li>
+								<a href="https://windowsphone.developpez.com/" data-idrub="105" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Windows Phone
+								</a>
+							</li>
+													<li>
+								<a href="https://windows-azure.developpez.com/" data-idrub="107" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Microsoft Azure
+								</a>
+							</li>
+											</ul>
+							</li>
+					<li>
+				<a href="https://web.developpez.com/" data-idrub="8" data-niv="1">Dév. Web</a>
+									<ul class="gabarit_sousmenu">
+						<li>
+							<a href="https://web.developpez.com/" data-idrub="8" data-niv="2">
+								<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Développement Web
+							</a>
+						</li>
+													<li>
+								<a href="https://ajax.developpez.com/" data-idrub="85" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;AJAX
+								</a>
+							</li>
+													<li>
+								<a href="https://apache.developpez.com/" data-idrub="71" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Apache
+								</a>
+							</li>
+													<li>
+								<a href="https://asp.developpez.com/" data-idrub="10" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;ASP
+								</a>
+							</li>
+													<li>
+								<a href="https://css.developpez.com/" data-idrub="51" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;CSS
+								</a>
+							</li>
+													<li>
+								<a href="https://dart.developpez.com/" data-idrub="125" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Dart
+								</a>
+							</li>
+													<li>
+								<a href="https://flash.developpez.com/" data-idrub="41" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Flash / Flex
+								</a>
+							</li>
+													<li>
+								<a href="https://javascript.developpez.com/" data-idrub="45" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;JavaScript
+								</a>
+							</li>
+													<li>
+								<a href="https://nodejs.developpez.com/" data-idrub="141" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;NodeJS
+								</a>
+							</li>
+													<li>
+								<a href="https://php.developpez.com/" data-idrub="9" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;PHP
+								</a>
+							</li>
+													<li>
+								<a href="https://ruby.developpez.com/" data-idrub="53" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Ruby &amp; Rails
+								</a>
+							</li>
+													<li>
+								<a href="https://typescript.developpez.com/" data-idrub="127" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;TypeScript
+								</a>
+							</li>
+													<li>
+								<a href="https://web-semantique.developpez.com/" data-idrub="111" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Web sémantique
+								</a>
+							</li>
+													<li>
+								<a href="https://webmarketing.developpez.com/" data-idrub="80" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Webmarketing
+								</a>
+							</li>
+													<li>
+								<a href="https://xhtml.developpez.com/" data-idrub="50" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;(X)HTML
+								</a>
+							</li>
+											</ul>
+							</li>
+					<li>
+				<a href="https://edi.developpez.com/" data-idrub="90" data-niv="1">EDI</a>
+									<ul class="gabarit_sousmenu">
+						<li>
+							<a href="https://edi.developpez.com/" data-idrub="90" data-niv="2">
+								<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;EDI
+							</a>
+						</li>
+													<li>
+								<a href="https://4d.developpez.com/" data-idrub="39" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;4D
+								</a>
+							</li>
+													<li>
+								<a href="https://delphi.developpez.com/" data-idrub="2" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Delphi
+								</a>
+							</li>
+													<li>
+								<a href="https://eclipse.developpez.com/" data-idrub="55" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Eclipse
+								</a>
+							</li>
+													<li>
+								<a href="https://jetbrains.developpez.com/" data-idrub="144" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;JetBrains
+								</a>
+							</li>
+													<li>
+								<a href="https://labview.developpez.com/" data-idrub="72" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;LabVIEW
+								</a>
+							</li>
+													<li>
+								<a href="https://netbeans.developpez.com/" data-idrub="66" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;NetBeans
+								</a>
+							</li>
+													<li>
+								<a href="https://matlab.developpez.com/" data-idrub="58" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;MATLAB
+								</a>
+							</li>
+													<li>
+								<a href="https://scilab.developpez.com/" data-idrub="120" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Scilab
+								</a>
+							</li>
+													<li>
+								<a href="https://visualstudio.developpez.com/" data-idrub="84" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Visual Studio
+								</a>
+							</li>
+													<li>
+								<a href="https://wind.developpez.com/" data-idrub="74" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;WinDev
+								</a>
+							</li>
+													<li>
+								<a href="https://vb.developpez.com/" data-idrub="5" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Visual Basic 6
+								</a>
+							</li>
+													<li>
+								<a href="https://lazarus.developpez.com/" data-idrub="96" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Lazarus
+								</a>
+							</li>
+													<li>
+								<a href="https://qt-creator.developpez.com/" data-idrub="109" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Qt Creator
+								</a>
+							</li>
+											</ul>
+							</li>
+					<li>
+				<a href="https://programmation.developpez.com/" data-idrub="119" data-niv="1">Programmation</a>
+									<ul class="gabarit_sousmenu">
+						<li>
+							<a href="https://programmation.developpez.com/" data-idrub="119" data-niv="2">
+								<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Programmation
+							</a>
+						</li>
+													<li>
+								<a href="https://algo.developpez.com/" data-idrub="47" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Débuter - Algorithmique
+								</a>
+							</li>
+													<li>
+								<a href="https://jeux.developpez.com/" data-idrub="38" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;2D - 3D - Jeux
+								</a>
+							</li>
+													<li>
+								<a href="https://asm.developpez.com/" data-idrub="16" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Assembleur
+								</a>
+							</li>
+													<li>
+								<a href="https://c.developpez.com/" data-idrub="3" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;C
+								</a>
+							</li>
+													<li>
+								<a href="https://cpp.developpez.com/" data-idrub="59" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;C++
+								</a>
+							</li>
+													<li>
+								<a href="https://d.developpez.com/" data-idrub="123" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;D
+								</a>
+							</li>
+													<li>
+								<a href="https://go.developpez.com/" data-idrub="124" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Go
+								</a>
+							</li>
+													<li>
+								<a href="https://kotlin.developpez.com/" data-idrub="145" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Kotlin
+								</a>
+							</li>
+													<li>
+								<a href="https://objective-c.developpez.com/" data-idrub="117" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Objective C
+								</a>
+							</li>
+													<li>
+								<a href="https://pascal.developpez.com/" data-idrub="7" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Pascal
+								</a>
+							</li>
+													<li>
+								<a href="https://perl.developpez.com/" data-idrub="29" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Perl
+								</a>
+							</li>
+													<li>
+								<a href="https://python.developpez.com/" data-idrub="27" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Python
+								</a>
+							</li>
+													<li>
+								<a href="https://rust.developpez.com/" data-idrub="137" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Rust
+								</a>
+							</li>
+													<li>
+								<a href="https://swift.developpez.com/" data-idrub="128" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Swift
+								</a>
+							</li>
+													<li>
+								<a href="https://qt.developpez.com/" data-idrub="65" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Qt
+								</a>
+							</li>
+													<li>
+								<a href="https://xml.developpez.com/" data-idrub="11" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;XML
+								</a>
+							</li>
+													<li>
+								<a href="https://general.developpez.com/cours/" data-idrub="21" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Autres
+								</a>
+							</li>
+											</ul>
+							</li>
+					<li>
+				<a href="https://sgbd.developpez.com/" data-idrub="13" data-niv="1">SGBD</a>
+									<ul class="gabarit_sousmenu">
+						<li>
+							<a href="https://sgbd.developpez.com/" data-idrub="13" data-niv="2">
+								<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;SGBD &amp; SQL
+							</a>
+						</li>
+													<li>
+								<a href="https://4d.developpez.com/" data-idrub="39" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;4D
+								</a>
+							</li>
+													<li>
+								<a href="https://access.developpez.com/" data-idrub="19" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Access
+								</a>
+							</li>
+													<li>
+								<a href="https://big-data.developpez.com/" data-idrub="126" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Big Data
+								</a>
+							</li>
+													<li>
+								<a href="https://db2.developpez.com/" data-idrub="36" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;DB2
+								</a>
+							</li>
+													<li>
+								<a href="https://firebird.developpez.com/" data-idrub="73" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Firebird
+								</a>
+							</li>
+													<li>
+								<a href="https://interbase.developpez.com/" data-idrub="32" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;InterBase
+								</a>
+							</li>
+													<li>
+								<a href="https://mysql.developpez.com/" data-idrub="31" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;MySQL
+								</a>
+							</li>
+													<li>
+								<a href="https://nosql.developpez.com/" data-idrub="114" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;NoSQL
+								</a>
+							</li>
+													<li>
+								<a href="https://postgresql.developpez.com/" data-idrub="33" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;PostgreSQL
+								</a>
+							</li>
+													<li>
+								<a href="https://oracle.developpez.com/" data-idrub="25" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Oracle
+								</a>
+							</li>
+													<li>
+								<a href="https://sybase.developpez.com/" data-idrub="37" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Sybase
+								</a>
+							</li>
+													<li>
+								<a href="https://sqlserver.developpez.com/" data-idrub="34" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;SQL-Server
+								</a>
+							</li>
+											</ul>
+							</li>
+					<li>
+				<a href="https://office.developpez.com/" data-idrub="54" data-niv="1">Office</a>
+									<ul class="gabarit_sousmenu">
+						<li>
+							<a href="https://office.developpez.com/" data-idrub="54" data-niv="2">
+								<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Microsoft Office
+							</a>
+						</li>
+													<li>
+								<a href="https://access.developpez.com/" data-idrub="19" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Access
+								</a>
+							</li>
+													<li>
+								<a href="https://excel.developpez.com/" data-idrub="75" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Excel
+								</a>
+							</li>
+													<li>
+								<a href="https://word.developpez.com/" data-idrub="76" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Word
+								</a>
+							</li>
+													<li>
+								<a href="https://outlook.developpez.com/" data-idrub="77" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Outlook
+								</a>
+							</li>
+													<li>
+								<a href="https://powerpoint.developpez.com/" data-idrub="78" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;PowerPoint
+								</a>
+							</li>
+													<li>
+								<a href="https://sharepoint.developpez.com/" data-idrub="79" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;SharePoint
+								</a>
+							</li>
+													<li>
+								<a href="https://project.developpez.com/" data-idrub="99" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Microsoft Project
+								</a>
+							</li>
+													<li>
+								<a href="https://openoffice-libreoffice.developpez.com/" data-idrub="116" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;OpenOffice &amp; LibreOffice
+								</a>
+							</li>
+											</ul>
+							</li>
+					<li>
+				<a href="https://solutions-entreprise.developpez.com/" data-idrub="86" data-niv="1">Solutions d&#039;entreprise</a>
+									<ul class="gabarit_sousmenu">
+						<li>
+							<a href="https://solutions-entreprise.developpez.com/" data-idrub="86" data-niv="2">
+								<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Solutions d&#039;entreprise
+							</a>
+						</li>
+													<li>
+								<a href="https://abbyy.developpez.com/" data-idrub="147" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;ABBYY
+								</a>
+							</li>
+													<li>
+								<a href="https://big-data.developpez.com/" data-idrub="126" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Big Data
+								</a>
+							</li>
+													<li>
+								<a href="https://bpm.developpez.com/" data-idrub="134" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;BPM
+								</a>
+							</li>
+													<li>
+								<a href="https://business-intelligence.developpez.com/" data-idrub="61" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Business Intelligence
+								</a>
+							</li>
+													<li>
+								<a href="https://solutions-entreprise.developpez.com/erp-pgi/presentation-erp-pgi/" data-idrub="91" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;ERP / PGI
+								</a>
+							</li>
+													<li>
+								<a href="https://crm.developpez.com/" data-idrub="92" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;CRM
+								</a>
+							</li>
+													<li>
+								<a href="https://sas.developpez.com/" data-idrub="93" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;SAS
+								</a>
+							</li>
+													<li>
+								<a href="https://cloud-computing.developpez.com/" data-idrub="103" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Cloud Computing
+								</a>
+							</li>
+													<li>
+								<a href="https://sap.developpez.com/" data-idrub="106" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;SAP
+								</a>
+							</li>
+													<li>
+								<a href="https://www.developpez.net/forums/f1664/systemes/windows/windows-serveur/biztalk-server/" data-idrub="115" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Microsoft BizTalk Server
+								</a>
+							</li>
+													<li>
+								<a href="https://talend.developpez.com/" data-idrub="118" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Talend
+								</a>
+							</li>
+													<li>
+								<a href="https://ibmcloud.developpez.com/" data-idrub="135" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;IBM Cloud
+								</a>
+							</li>
+													<li>
+								<a href="https://intelligence-artificielle.developpez.com/" data-idrub="143" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Intelligence artificielle
+								</a>
+							</li>
+											</ul>
+							</li>
+					<li>
+				<a href="https://applications.developpez.com/" data-idrub="88" data-niv="1">Applications</a>
+									<ul class="gabarit_sousmenu">
+						<li>
+							<a href="https://applications.developpez.com/" data-idrub="88" data-niv="2">
+								<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Applications
+							</a>
+						</li>
+													<li>
+								<a href="https://open-source.developpez.com/" data-idrub="121" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Libres &amp; Open Source
+								</a>
+							</li>
+													<li>
+								<a href="https://openoffice-libreoffice.developpez.com/" data-idrub="116" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;OpenOffice &amp; LibreOffice
+								</a>
+							</li>
+													<li>
+								<a href="https://portail-projets.developpez.com/" data-idrub="98" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Projets
+								</a>
+							</li>
+											</ul>
+							</li>
+					<li>
+				<a href="https://mobiles.developpez.com/" data-idrub="94" data-niv="1">Mobiles</a>
+									<ul class="gabarit_sousmenu">
+						<li>
+							<a href="https://mobiles.developpez.com/" data-idrub="94" data-niv="2">
+								<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Mobiles
+							</a>
+						</li>
+													<li>
+								<a href="https://android.developpez.com/" data-idrub="95" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Android
+								</a>
+							</li>
+													<li>
+								<a href="https://ios.developpez.com/" data-idrub="101" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;iOS
+								</a>
+							</li>
+													<li>
+								<a href="https://windowsphone.developpez.com/" data-idrub="105" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Windows Phone
+								</a>
+							</li>
+											</ul>
+							</li>
+					<li>
+				<a href="https://systeme.developpez.com/" data-idrub="30" data-niv="1">Systèmes</a>
+									<ul class="gabarit_sousmenu">
+						<li>
+							<a href="https://systeme.developpez.com/" data-idrub="30" data-niv="2">
+								<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Systèmes
+							</a>
+						</li>
+													<li>
+								<a href="https://windows.developpez.com/" data-idrub="17" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Windows
+								</a>
+							</li>
+													<li>
+								<a href="https://linux.developpez.com/" data-idrub="18" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Linux
+								</a>
+							</li>
+													<li>
+								<a href="https://arduino.developpez.com/" data-idrub="142" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Arduino
+								</a>
+							</li>
+													<li>
+								<a href="https://securite.developpez.com/" data-idrub="40" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Sécurité
+								</a>
+							</li>
+													<li>
+								<a href="https://hardware.developpez.com/" data-idrub="64" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Hardware
+								</a>
+							</li>
+													<li>
+								<a href="https://hpc.developpez.com/" data-idrub="139" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;HPC
+								</a>
+							</li>
+													<li>
+								<a href="https://mac.developpez.com/" data-idrub="57" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Mac
+								</a>
+							</li>
+													<li>
+								<a href="https://raspberry-pi.developpez.com/" data-idrub="131" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Raspberry Pi
+								</a>
+							</li>
+													<li>
+								<a href="https://reseau.developpez.com/" data-idrub="70" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Réseau
+								</a>
+							</li>
+													<li>
+								<a href="https://green-it.developpez.com/" data-idrub="104" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Green IT
+								</a>
+							</li>
+													<li>
+								<a href="https://embarque.developpez.com/" data-idrub="110" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Systèmes embarqués
+								</a>
+							</li>
+													<li>
+								<a href="https://virtualisation.developpez.com/" data-idrub="108" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Virtualisation
+								</a>
+							</li>
+											</ul>
+							</li>
+			</ul>
+</div>
+
+<ul id="gabarit_menu" style="padding-left:56px;">
+	<li><a href="https://www.developpez.com/" data-idrub="1" data-niv="1" style="padding:0;"><div id="gabarit_home"></div></a>
+			</li>
+	<li><a href="https://alm.developpez.com/" data-idrub="42" data-niv="1">ALM<!--<span class="gabarit_tooltip">Cycle de vie du logiciel</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://alm.developpez.com/" data-idrub="42" data-niv="2">ALM</a></li>
+				<li><a href="https://merise.developpez.com/" data-idrub="43" data-niv="2">Merise</a></li>
+				<li><a href="https://uml.developpez.com/" data-idrub="12" data-niv="2">UML</a></li>
+			</ul></li>
+	<li><a href="https://java.developpez.com/" data-idrub="4" data-niv="1">Java<!--<span class="gabarit_tooltip">Plateforme et langage Java</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://java.developpez.com/" data-idrub="4" data-niv="2">Java</a></li>
+				<li><a href="https://javaweb.developpez.com/" data-idrub="97" data-niv="2">Java Web</a></li>
+				<li><a href="https://spring.developpez.com/" data-idrub="87" data-niv="2">Spring</a></li>
+				<li><a href="https://android.developpez.com/" data-idrub="95" data-niv="2">Android</a></li>
+				<li><a href="https://eclipse.developpez.com/" data-idrub="55" data-niv="2">Eclipse</a></li>
+				<li><a href="https://netbeans.developpez.com/" data-idrub="66" data-niv="2">NetBeans</a></li>
+			</ul></li>
+	<li><a href="https://dotnet.developpez.com/" data-idrub="20" data-niv="1">.NET<!--<span class="gabarit_tooltip">Microsoft Framework .NET</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://dotnet.developpez.com/" data-idrub="20" data-niv="2">Microsoft DotNET</a></li>
+				<li><a href="https://visualstudio.developpez.com/" data-idrub="84" data-niv="2">Visual Studio</a></li>
+				<li><a href="https://dotnet.developpez.com/aspnet/" data-idrub="83" data-niv="2">ASP.NET</a></li>
+				<li><a href="https://dotnet.developpez.com/csharp/" data-idrub="81" data-niv="2">C#</a></li>
+				<li><a href="https://dotnet.developpez.com/vbnet/" data-idrub="82" data-niv="2">VB.NET</a></li>
+				<li><a href="https://windowsphone.developpez.com/" data-idrub="105" data-niv="2">Windows Phone</a></li>
+				<li><a href="https://windows-azure.developpez.com/" data-idrub="107" data-niv="2">Microsoft Azure</a></li>
+			</ul></li>
+	<li><a href="https://web.developpez.com/" data-idrub="8" data-niv="1">Dév. Web<!--<span class="gabarit_tooltip">Développement Web et Webmarketing</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://web.developpez.com/" data-idrub="8" data-niv="2">Développement Web</a></li>
+				<li><a href="https://ajax.developpez.com/" data-idrub="85" data-niv="2">AJAX</a></li>
+				<li><a href="https://apache.developpez.com/" data-idrub="71" data-niv="2">Apache</a></li>
+				<li><a href="https://asp.developpez.com/" data-idrub="10" data-niv="2">ASP</a></li>
+				<li><a href="https://css.developpez.com/" data-idrub="51" data-niv="2">CSS</a></li>
+				<li><a href="https://dart.developpez.com/" data-idrub="125" data-niv="2">Dart</a></li>
+				<li><a href="https://flash.developpez.com/" data-idrub="41" data-niv="2">Flash / Flex</a></li>
+				<li><a href="https://javascript.developpez.com/" data-idrub="45" data-niv="2">JavaScript</a></li>
+				<li><a href="https://nodejs.developpez.com/" data-idrub="141" data-niv="2">NodeJS</a></li>
+				<li><a href="https://php.developpez.com/" data-idrub="9" data-niv="2">PHP</a></li>
+				<li><a href="https://ruby.developpez.com/" data-idrub="53" data-niv="2">Ruby &amp; Rails</a></li>
+				<li><a href="https://typescript.developpez.com/" data-idrub="127" data-niv="2">TypeScript</a></li>
+				<li><a href="https://web-semantique.developpez.com/" data-idrub="111" data-niv="2">Web sémantique</a></li>
+				<li><a href="https://webmarketing.developpez.com/" data-idrub="80" data-niv="2">Webmarketing</a></li>
+				<li><a href="https://xhtml.developpez.com/" data-idrub="50" data-niv="2">(X)HTML</a></li>
+			</ul></li>
+	<li><a href="https://edi.developpez.com/" data-idrub="90" data-niv="1">EDI<!--<span class="gabarit_tooltip">Environnements de Développement Intégré</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://edi.developpez.com/" data-idrub="90" data-niv="2">EDI</a></li>
+				<li><a href="https://4d.developpez.com/" data-idrub="39" data-niv="2">4D</a></li>
+				<li><a href="https://delphi.developpez.com/" data-idrub="2" data-niv="2">Delphi</a></li>
+				<li><a href="https://eclipse.developpez.com/" data-idrub="55" data-niv="2">Eclipse</a></li>
+				<li><a href="https://jetbrains.developpez.com/" data-idrub="144" data-niv="2">JetBrains</a></li>
+				<li><a href="https://labview.developpez.com/" data-idrub="72" data-niv="2">LabVIEW</a></li>
+				<li><a href="https://netbeans.developpez.com/" data-idrub="66" data-niv="2">NetBeans</a></li>
+				<li><a href="https://matlab.developpez.com/" data-idrub="58" data-niv="2">MATLAB</a></li>
+				<li><a href="https://scilab.developpez.com/" data-idrub="120" data-niv="2">Scilab</a></li>
+				<li><a href="https://visualstudio.developpez.com/" data-idrub="84" data-niv="2">Visual Studio</a></li>
+				<li><a href="https://wind.developpez.com/" data-idrub="74" data-niv="2">WinDev</a></li>
+				<li><a href="https://vb.developpez.com/" data-idrub="5" data-niv="2">Visual Basic 6</a></li>
+				<li><a href="https://lazarus.developpez.com/" data-idrub="96" data-niv="2">Lazarus</a></li>
+				<li><a href="https://qt-creator.developpez.com/" data-idrub="109" data-niv="2">Qt Creator</a></li>
+			</ul></li>
+	<li><a href="https://programmation.developpez.com/" data-idrub="119" data-niv="1" class="gabarit_selection">Programmation<!--<span class="gabarit_tooltip">Programmation et langages de programmation applicatifs</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://programmation.developpez.com/" data-idrub="119" data-niv="2">Programmation</a></li>
+				<li><a href="https://algo.developpez.com/" data-idrub="47" data-niv="2">Débuter - Algorithmique</a></li>
+				<li><a href="https://jeux.developpez.com/" data-idrub="38" data-niv="2">2D - 3D - Jeux</a></li>
+				<li><a href="https://asm.developpez.com/" data-idrub="16" data-niv="2">Assembleur</a></li>
+				<li><a href="https://c.developpez.com/" data-idrub="3" data-niv="2">C</a></li>
+				<li><a href="https://cpp.developpez.com/" data-idrub="59" data-niv="2">C++</a></li>
+				<li><a href="https://d.developpez.com/" data-idrub="123" data-niv="2">D</a></li>
+				<li><a href="https://go.developpez.com/" data-idrub="124" data-niv="2">Go</a></li>
+				<li><a href="https://kotlin.developpez.com/" data-idrub="145" data-niv="2">Kotlin</a></li>
+				<li><a href="https://objective-c.developpez.com/" data-idrub="117" data-niv="2">Objective C</a></li>
+				<li><a href="https://pascal.developpez.com/" data-idrub="7" data-niv="2">Pascal</a></li>
+				<li><a href="https://perl.developpez.com/" data-idrub="29" data-niv="2">Perl</a></li>
+				<li><a href="https://python.developpez.com/" data-idrub="27" data-niv="2">Python</a></li>
+				<li><a href="https://rust.developpez.com/" data-idrub="137" data-niv="2">Rust</a></li>
+				<li><a href="https://swift.developpez.com/" data-idrub="128" data-niv="2">Swift</a></li>
+				<li><a href="https://qt.developpez.com/" data-idrub="65" data-niv="2">Qt</a></li>
+				<li><a href="https://xml.developpez.com/" data-idrub="11" data-niv="2">XML</a></li>
+				<li><a href="https://general.developpez.com/cours/" data-idrub="21" data-niv="2">Autres</a></li>
+			</ul></li>
+	<li><a href="https://sgbd.developpez.com/" data-idrub="13" data-niv="1">SGBD<!--<span class="gabarit_tooltip">Systèmes de Gestion de Bases de Données</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://sgbd.developpez.com/" data-idrub="13" data-niv="2">SGBD &amp; SQL</a></li>
+				<li><a href="https://4d.developpez.com/" data-idrub="39" data-niv="2">4D</a></li>
+				<li><a href="https://access.developpez.com/" data-idrub="19" data-niv="2">Access</a></li>
+				<li><a href="https://big-data.developpez.com/" data-idrub="126" data-niv="2">Big Data</a></li>
+				<li><a href="https://db2.developpez.com/" data-idrub="36" data-niv="2">DB2</a></li>
+				<li><a href="https://firebird.developpez.com/" data-idrub="73" data-niv="2">Firebird</a></li>
+				<li><a href="https://interbase.developpez.com/" data-idrub="32" data-niv="2">InterBase</a></li>
+				<li><a href="https://mysql.developpez.com/" data-idrub="31" data-niv="2">MySQL</a></li>
+				<li><a href="https://nosql.developpez.com/" data-idrub="114" data-niv="2">NoSQL</a></li>
+				<li><a href="https://postgresql.developpez.com/" data-idrub="33" data-niv="2">PostgreSQL</a></li>
+				<li><a href="https://oracle.developpez.com/" data-idrub="25" data-niv="2">Oracle</a></li>
+				<li><a href="https://sybase.developpez.com/" data-idrub="37" data-niv="2">Sybase</a></li>
+				<li><a href="https://sqlserver.developpez.com/" data-idrub="34" data-niv="2">SQL-Server</a></li>
+			</ul></li>
+	<li><a href="https://office.developpez.com/" data-idrub="54" data-niv="1">Office<!--<span class="gabarit_tooltip">Bureautique pour l'entreprise</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://office.developpez.com/" data-idrub="54" data-niv="2">Microsoft Office</a></li>
+				<li><a href="https://access.developpez.com/" data-idrub="19" data-niv="2">Access</a></li>
+				<li><a href="https://excel.developpez.com/" data-idrub="75" data-niv="2">Excel</a></li>
+				<li><a href="https://word.developpez.com/" data-idrub="76" data-niv="2">Word</a></li>
+				<li><a href="https://outlook.developpez.com/" data-idrub="77" data-niv="2">Outlook</a></li>
+				<li><a href="https://powerpoint.developpez.com/" data-idrub="78" data-niv="2">PowerPoint</a></li>
+				<li><a href="https://sharepoint.developpez.com/" data-idrub="79" data-niv="2">SharePoint</a></li>
+				<li><a href="https://project.developpez.com/" data-idrub="99" data-niv="2">Microsoft Project</a></li>
+				<li><a href="https://openoffice-libreoffice.developpez.com/" data-idrub="116" data-niv="2">OpenOffice &amp; LibreOffice</a></li>
+			</ul></li>
+	<li><a href="https://solutions-entreprise.developpez.com/" data-idrub="86" data-niv="1">Solutions d&#039;entreprise<!--<span class="gabarit_tooltip">Autres logiciels pour l'entreprise</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://solutions-entreprise.developpez.com/" data-idrub="86" data-niv="2">Solutions d&#039;entreprise</a></li>
+				<li><a href="https://abbyy.developpez.com/" data-idrub="147" data-niv="2">ABBYY</a></li>
+				<li><a href="https://big-data.developpez.com/" data-idrub="126" data-niv="2">Big Data</a></li>
+				<li><a href="https://bpm.developpez.com/" data-idrub="134" data-niv="2">BPM</a></li>
+				<li><a href="https://business-intelligence.developpez.com/" data-idrub="61" data-niv="2">Business Intelligence</a></li>
+				<li><a href="https://solutions-entreprise.developpez.com/erp-pgi/presentation-erp-pgi/" data-idrub="91" data-niv="2">ERP / PGI</a></li>
+				<li><a href="https://crm.developpez.com/" data-idrub="92" data-niv="2">CRM</a></li>
+				<li><a href="https://sas.developpez.com/" data-idrub="93" data-niv="2">SAS</a></li>
+				<li><a href="https://cloud-computing.developpez.com/" data-idrub="103" data-niv="2">Cloud Computing</a></li>
+				<li><a href="https://sap.developpez.com/" data-idrub="106" data-niv="2">SAP</a></li>
+				<li><a href="https://www.developpez.net/forums/f1664/systemes/windows/windows-serveur/biztalk-server/" data-idrub="115" data-niv="2">Microsoft BizTalk Server</a></li>
+				<li><a href="https://talend.developpez.com/" data-idrub="118" data-niv="2">Talend</a></li>
+				<li><a href="https://ibmcloud.developpez.com/" data-idrub="135" data-niv="2">IBM Cloud</a></li>
+				<li><a href="https://intelligence-artificielle.developpez.com/" data-idrub="143" data-niv="2">Intelligence artificielle</a></li>
+			</ul></li>
+	<li><a href="https://applications.developpez.com/" data-idrub="88" data-niv="1">Applications<!--<span class="gabarit_tooltip">Applications logicielles</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://applications.developpez.com/" data-idrub="88" data-niv="2">Applications</a></li>
+				<li><a href="https://open-source.developpez.com/" data-idrub="121" data-niv="2">Libres &amp; Open Source</a></li>
+				<li><a href="https://openoffice-libreoffice.developpez.com/" data-idrub="116" data-niv="2">OpenOffice &amp; LibreOffice</a></li>
+				<li><a href="https://portail-projets.developpez.com/" data-idrub="98" data-niv="2">Projets</a></li>
+			</ul></li>
+	<li><a href="https://mobiles.developpez.com/" data-idrub="94" data-niv="1">Mobiles<!--<span class="gabarit_tooltip">Logiciels et matériels mobiles</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://mobiles.developpez.com/" data-idrub="94" data-niv="2">Mobiles</a></li>
+				<li><a href="https://android.developpez.com/" data-idrub="95" data-niv="2">Android</a></li>
+				<li><a href="https://ios.developpez.com/" data-idrub="101" data-niv="2">iOS</a></li>
+				<li><a href="https://windowsphone.developpez.com/" data-idrub="105" data-niv="2">Windows Phone</a></li>
+			</ul></li>
+	<li><a href="https://systeme.developpez.com/" data-idrub="30" data-niv="1">Systèmes<!--<span class="gabarit_tooltip">Logiciels et matériels systèmes</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://systeme.developpez.com/" data-idrub="30" data-niv="2">Systèmes</a></li>
+				<li><a href="https://windows.developpez.com/" data-idrub="17" data-niv="2">Windows</a></li>
+				<li><a href="https://linux.developpez.com/" data-idrub="18" data-niv="2">Linux</a></li>
+				<li><a href="https://arduino.developpez.com/" data-idrub="142" data-niv="2">Arduino</a></li>
+				<li><a href="https://securite.developpez.com/" data-idrub="40" data-niv="2">Sécurité</a></li>
+				<li><a href="https://hardware.developpez.com/" data-idrub="64" data-niv="2">Hardware</a></li>
+				<li><a href="https://hpc.developpez.com/" data-idrub="139" data-niv="2">HPC</a></li>
+				<li><a href="https://mac.developpez.com/" data-idrub="57" data-niv="2">Mac</a></li>
+				<li><a href="https://raspberry-pi.developpez.com/" data-idrub="131" data-niv="2">Raspberry Pi</a></li>
+				<li><a href="https://reseau.developpez.com/" data-idrub="70" data-niv="2">Réseau</a></li>
+				<li><a href="https://green-it.developpez.com/" data-idrub="104" data-niv="2">Green IT</a></li>
+				<li><a href="https://embarque.developpez.com/" data-idrub="110" data-niv="2">Systèmes embarqués</a></li>
+				<li><a href="https://virtualisation.developpez.com/" data-idrub="108" data-niv="2">Virtualisation</a></li>
+			</ul></li>
+</ul>
+
+<ul id="gabarit_barre1"><li><a href="https://programmation.developpez.com/">Programmation</a></li><li><a href="https://algo.developpez.com/">Algorithmique</a></li><li><a href="https://jeux.developpez.com/">2D-3D-Jeux</a></li><li><a href="https://asm.developpez.com/">Assembleur</a></li><li><a href="https://c.developpez.com/">C</a></li><li><a href="https://cpp.developpez.com/">C++</a></li><li><a href="https://d.developpez.com/">D</a></li><li><a href="https://go.developpez.com/">Go</a></li><li><a href="https://kotlin.developpez.com/">Kotlin</a></li><li><a href="https://objective-c.developpez.com/">Objective C</a></li><li><a href="https://pascal.developpez.com/">Pascal</a></li><li><a href="https://perl.developpez.com/">Perl</a></li><li class="gabarit_selection"><a href="https://python.developpez.com/">Python</a></li><li><a href="https://rust.developpez.com/">Rust</a></li><li><a href="https://swift.developpez.com/">Swift</a></li><li><a href="https://qt.developpez.com/">Qt</a></li><li><a href="https://xml.developpez.com/">XML</a></li><li><a href="https://general.developpez.com/cours/">Autres</a></li></ul>
+
+<div id="gabarit_barre2">
+	<a class="gabarit_social gabarit_facebook" href="http://www.facebook.com/pages/Python/109302299105907" target="_blank" title="Retrouver Developpez sur Facebook"></a>
+	<a class="gabarit_social gabarit_twitter" href="https://twitter.com/PythonDVP" target="_blank" title="Retrouver Developpez sur Twitter"></a>
+	<a class="gabarit_social gabarit_rss" href="http://python.developpez.com/index/rss" target="_blank" title="Flux RSS"></a>
+	<ul>
+<li><a href="https://www.developpez.net/forums/f96/autres-langages/python-zope/">FORUM PYTHON</a></li><li><a href="https://python.developpez.com/faq/">F.A.Q PYTHON</a></li><li><a href="https://python.developpez.com/cours/">TUTORIELS PYTHON</a></li><li><a href="https://python.developpez.com/sources/">SOURCES PYTHON</a></li><li><a href="https://python.developpez.com/telecharger/index/categorie/34/Outils-Python">OUTILS PYTHON</a></li><li><a href="https://python.developpez.com/livres/">LIVRES PYTHON</a></li><li><a href="http://pyqt.developpez.com/">PyQt</a></li>	</ul>
+</div>
+
+</nav>
+</header>
+<section>
+
+<div id="gabarit_pubBB">
+<div id="gabarit_pub0"></div><div id="ag27ll0y" class="dvpb0" style="display: inline-block; width: 728px; height: 90px"></div>
+</div>
+
+<div class="contenuPage">		<article class="ArticleComplet" itemscope itemtype="http://schema.org/Article">
+<meta itemprop="genre" content="informatique"/>
+<meta itemprop="inLanguage" content="fr-FR"/>
+		
+<header class="EnteteTitres">
+<h1 class="titre-article" itemprop="name">Une introduction à Python 3 </h1>
+<h2 class="soustitre-article">
+    <a data-rel="lightbox[article]" href="images/python3-01.png"><img src="images/python3-01.png" alt="Image non disponible" width="167" height="325" class="ImgCliquable image_verticale"/></a>
+  </h2>
+</header><nav class="nav-sommaire ArticleHorsLigne"><header><h1 class="TitreHeader StopArrondi ToggleGecko">Table des mati&egrave;res<img class="ToggleImgPlier" title="Plier" alt="Plier" src="../../template/kit/fleche-haut-bleue.png"/><img class="ToggleImgDeplier" title="Déplier" alt="Déplier" style="display:none;" src="../../template/kit/fleche-bas-bleue.png"/></h1></header><ul id="nav_sommaire_ul_principal" class="nav-sommaire-ul">
+  
+	
+  
+  
+  
+  
+  
+  <li><a class="summaryIndent0" href="#Lno-18">Glossaire</a></li>
+  
+</ul></nav><section class="ArticleHorsLigne"><section class="articleBody" itemprop="articleBody"><div class="cachee"><div class="barreNavigation"><hr class="hr-separation"/><a class="lientelechargement" href="c835.html?page=memento-des-bases-de-python-3"><img title="Page précédente" alt="précédent" src="../../template/kit/kitprecedent.png"/></a><a class="lientelechargement" href=".html"><img title="Revenir au sommaire" alt="sommaire" src="../../template/kit/kitsommaire.png"/></a><a class="lientelechargement" href="283d.html?page=remerciements"><img alt="suivant" title="Page suivante" src="../../template/kit/kitsuivant.png"/></a><hr class="hr-separation"/></div></div>
+  
+	
+  
+  
+  
+  
+  
+  
+		<h1 class="TitreSection0" id="Lno-18">Glossaire<a class="HautPage" href="#" title="Haut de page">&#9650;</a></h1><div class="BlocSection0">
+      
+      <p><b>&gt;&gt;&gt;</b> </p>
+      <ul class="none">
+        <li>Invite Python par défaut dans un shell interactif. Souvent utilisée dans les exemples de code extraits de sessions de l'interpréteur Python.</li>
+      </ul>
+      <p><b>…</b> </p>
+      <ul class="none">
+        <li>Invite Python par défaut dans un shell interactif, utilisée lorsqu'il faut entrer le code d'un bloc indenté ou à l'intérieur d'une paire de parenthèses, crochets ou accolades.</li>
+      </ul>
+      <p><b>2to3</b> </p>
+      <ul class="none">
+        <li>Un outil qui essaye de convertir le code Python 2.x en code Python 3.x en gérant la plupart des incompatibilités qu'il peut détecter.<br/>
+		 2to3 est disponible dans la bibliothèque standard lib2to2 ; un point d'entrée autonome est Tool/scipts/2to3.<br/>
+		 Voir <b>2to3 - Automated Python 2 to 3 code translation.</b></li>
+      </ul>
+      <p><b>abstract base class</b> <span class="italique">ABC</span> (<span style="color:#0000cc;">classe de base abstraite</span>)</p>
+      <ul class="none">
+        <li>Complète le <span class="italique">duck-typing</span> en fournissant un moyen de définir des interfaces alors que d'autres techniques (comme <b>hasattr()</b>) sont plus lourdes. Python fournit de base plusieurs <span class="italique">ABC</span> pour les structures de données (module <b>collections</b>), les nombres (module <b>numbers</b>) et les flux (module <b>io</b>). Vous pouvez créer votre propre <span class="italique">ABC</span> en utilisant le module <b>abc</b>.</li>
+      </ul>
+      <p><b>argument</b> (<span style="color:#0000cc;">argument</span>) [cf. <a class=" tooltip blue-tooltip lienArticle https" href="index7059.html?page=fonctions-et-espaces-de-noms#L5-2">chapitre 5.2<span>Passage des arguments</span></a>]</p>
+      <ul class="none">
+        <li>Valeur passée à une fonction ou une méthode, affectée à une variable nommée locale au corps de la fonction. Une fonction ou une méthode peut avoir à la fois des arguments par position et avec des valeurs par défaut. Ces arguments peuvent être de multiplicité variable : <b>*</b> accepte ou fournit plusieurs arguments par position dans une liste, tandis que <b>**</b> joue le même rôle en utilisant les valeurs par défaut dans un dictionnaire.<br/>
+		 On peut passer toute expression dans la liste d'arguments, et la valeur évaluée est transmise à la variable locale.</li>
+      </ul>
+      <p><b>attribute</b> (<span style="color:#0000cc;">attribut</span>) [cf. <a class=" tooltip blue-tooltip lienArticle https" href="index6c52.html?page=la-programmation-orientee-objet#L7-1">chapitre 7.1<span>Terminologie</span></a>]</p>
+      <ul class="none">
+        <li>Valeur associée à un objet référencé par un nom et une expression pointée. Par exemple, l'attribut <b>a</b> d'un objet <b>o</b> peut être référencé <b>o.a</b>.</li>
+      </ul>
+      <p><b>BDFL</b> <span class="italique">Benevolent Dictator For Life</span> (<span style="color:#0000cc;">Dictateur Bienveillant à Vie</span>) [cf. <a class=" tooltip blue-tooltip lienArticle https" href="index32da.html?page=introduction#L1">chapitre 1<span>Introduction</span></a>]</p>
+      <ul class="none">
+        <li>Amical surnom de Guido van Rossum, le créateur de Python.</li>
+      </ul>
+      <p><b>bytecode</b> (<span style="color:#0000cc;">bytecode ou langage intermédiaire</span>) [cf. <a class=" tooltip blue-tooltip lienArticle https" href="index32da.html?page=introduction#L1-4-1">chapitre 1.4.1<span>Deux techniques de production des programmes</span></a>]</p>
+      <ul class="none">
+        <li>Le code source Python est compilé en bytecode, représentation interne d'un programme Python dans l'interpréteur. Le bytecode est également rangé dans des fichiers .pyc et .pyo, ainsi l'exécution d'un même fichier est plus rapide les fois ultérieures (la compilation du source en bytecode peut être évitée). On dit que le bytecode tourne sur une <b>machine virtuelle</b> qui, essentiellement, se réduit à une collection d'appels des routines correspondant à chaque code du bytecode.</li>
+      </ul>
+      <p><b>class</b> (<span style="color:#0000cc;">classe</span>) [cf. <a class=" tooltip blue-tooltip lienArticle https" href="index6c52.html?page=la-programmation-orientee-objet#L7-1">chapitre 7.1<span>Terminologie</span></a>]</p>
+      <ul class="none">
+        <li>Modèle permettant de créer ses propres objets. Les définitions de classes contiennent normalement des définitions de méthodes qui opèrent sur les instances de classes.</li>
+      </ul>
+      <p><b>coercion</b> (<span style="color:#0000cc;">coercition ou transtypage</span>) [cf. <a class=" tooltip blue-tooltip lienArticle https" href="index466e.html?page=la-calculatrice-python#L2-9-1">chapitre 2.9.1<span>Les entrées</span></a>]</p>
+      <ul class="none">
+        <li>Conversion implicite d'une instance d'un type dans un autre type dans une opération concernant deux arguments de types compatibles. Par exemple, <span class="codeinline">int(3.15)</span> convertit le nombre flottant 3.15 en l'entier 3, mais dans 3+4.5, chaque argument est d'un type différent (l'un <span class="codeinline">int</span> et l'autre <span class="codeinline">float</span>) et tous deux doivent être convertis dans le même type avant d'être additionnés, sinon une exception <span class="codeinline">TypeError</span> sera lancée. Sans coercition, tous les arguments, même de types compatibles, doivent être normalisés à la même valeur par le programmeur, par exemple, <span class="codeinline">float(3)+4.5</span> au lieu de simplement <span class="codeinline">3+4.5</span>.</li>
+      </ul>
+      <p><b>complex number</b> (<span style="color:#0000cc;">nombre complexe</span>) [cf. <a class=" tooltip blue-tooltip lienArticle https" href="index466e.html?page=la-calculatrice-python#L2-5-2">chapitre 2.5.2<span>Le type complex</span></a>]</p>
+      <ul class="none">
+        <li>Une extension du système familier des nombres réels dans laquelle tous les nombres sont exprimés comme la somme d'une partie réelle et une partie imaginaire. Les nombres imaginaires sont des multiples réels de l'unité imaginaire (la racine carrée de -1), souvent écrite <b>i</b> par les mathématiciens et <b>j</b> par les ingénieurs. Python a un traitement incorporé des nombres complexes, qui sont écrits avec cette deuxième notation ; la partie imaginaire est écrite avec un suffixe <span class="codeinline">j</span> , par exemple <span class="codeinline">3+1j</span>. Pour avoir accès aux équivalents complexes des éléments du module <b>math</b> utilisez le module <b>cmath</b>.<br/>
+		 L'utilisation des nombres complexes est une possibilité mathématique assez avancée. Si vous n'êtes pas certain d'en avoir besoin, vous pouvez les ignorer sans risque.</li>
+      </ul>
+      <p><b>context manager</b> (<span style="color:#0000cc;">gestionnaire de contexte</span>) [cf. <a class=" tooltip blue-tooltip lienArticle https" href="indexbf52.html?page=quelques-techniques-avancees-de-programmation#L9-1-2">chapitre 9.1.2<span>Gestionnaire de contexte (ou bloc gardé)</span></a>]</p>
+      <ul class="none">
+        <li>Objet qui contrôle l'environnement indiqué par l'instruction <b>with</b> et qui définit les méthodes <b>__enter__()</b> et <b>__exit__()</b>. Voir la PEP 343.</li>
+      </ul>
+      <p><b>CPython</b> (<span style="color:#0000cc;">Python classique</span>) [cf. <a class=" tooltip blue-tooltip lienArticle https" href="index32da.html?page=introduction#L1-6">chapitre 1.6<span>Implémentations de Python</span></a>]</p>
+      <ul class="none">
+        <li>Implémentation canonique du langage de programmation Python. Le terme <span class="italique">CPython</span> est utilisé dans les cas où il est nécessaire de distinguer cette implémentation d'autres comme Jython ou IronPython.</li>
+      </ul>
+      <p><b>decorator</b> (<span style="color:#0000cc;">décorateur</span>) [cf. <a class=" tooltip blue-tooltip lienArticle https" href="indexbf52.html?page=quelques-techniques-avancees-de-programmation#L9-1-10">chapitre 9.1.10<span>Les décorateurs</span></a>]</p>
+      <ul class="none">
+        <li>Fonction retournant une autre fonction habituellement appliquée comme une transformation utilisant la syntaxe <b>@wrapper</b>.<br/><b>classmethod()</b> et <b>staticmethod()</b> sont des exemples classiques de décorateurs.<br/>
+		Les deux définitions de fonctions suivantes sont sémantiquement équivalentes :</li>
+      </ul>
+      <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e33023">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e33023" onclick="selectionCode('contenuCoded0e33023', 'IdTitreCode-d0e33023');">S&eacute;lectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e33023" class="contenuCode"><code class="python_keyword1">def</code> <code class="python_function">f</code><code class="python_operator">(</code>…) :
+    …
+f <code class="python_operator">=</code> <a class="python_keyword2 lien_documentation_code" target="_blank" href="http://docs.python.org/library/functions.html?highlight=staticmethod#staticmethod"><span>staticmethod</span></a><code class="python_operator">(</code>f)</code></pre></div>
+      <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e33041">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e33041" onclick="selectionCode('contenuCoded0e33041', 'IdTitreCode-d0e33041');">S&eacute;lectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e33041" class="contenuCode"><code class="python_keyword4">@staticmethod</code>
+<code class="python_keyword1">def</code> <code class="python_function">f</code><code class="python_operator">(</code>…) :
+    …</code></pre></div>
+      <p>Un concept identique existe pour les classes, mais est moins utilisé. Voir la documentation <b>function definition</b> et <b>class definition</b> pour plus de détails sur les décorateurs.</p>
+      <p><b>descriptor</b> (<span style="color:#0000cc;">descripteur</span>)</p>
+      <ul class="none">
+        <li>Tout objet qui définit les méthodes <b>__get__()</b>, <b>__set__()</b> ou <b>__delete__()</b>. Lorsqu'un attribut d'une classe est un descripteur, un comportement spécifique est déclenché lors de la consultation de l'attribut. Normalement, écrire <b>a.b</b> consulte l'objet <b>b</b> dans le dictionnaire de la classe de <b>a</b>, mais si <b>b</b> est un descripteur, la méthode <b>__get__()</b> est appelée. Comprendre les descripteurs est fondamental pour la compréhension profonde de Python, car ils sont à la base de nombreuses caractéristiques, comme les fonctions, les méthodes, les propriétés, les méthodes de classe, les méthodes statiques et les références aux super-classes.<br/>
+		 Pour plus d'informations sur les méthodes des descripteurs, voir <a class="lienArticle simple" href="http://docs.python.org/3/reference/datamodel.html#implementing-descriptors">Implementing Descriptors</a>.</li>
+      </ul>
+      <p><b>dictionary</b> (<span style="color:#0000cc;">dictionnaire</span>) [cf. <a class=" tooltip blue-tooltip lienArticle https" href="index2454.html?page=conteneurs-standard#L4-5-1">chapitre 4.5.1<span>Dictionnaires (dict)</span></a>]</p>
+      <ul class="none">
+        <li>Une table associative, dans laquelle des clés arbitraires sont associées à des valeurs. L'utilisation des objets <b>dict</b> ressemble beaucoup à celle des objets <b>list</b>, mais les clés peuvent être n'importe quels objets ayant une fonction <b>__hash__()</b>, non seulement des entiers. Ces tables sont appelées <span class="italique">hash</span> en Perl.</li>
+      </ul>
+      <p><b>docstring</b> (<span style="color:#0000cc;">chaîne de documentation</span>) [cf. <a class=" tooltip blue-tooltip lienArticle https" href="index7059.html?page=fonctions-et-espaces-de-noms#L5-1">chapitre 5.1<span>Définition et syntaxe</span></a>]</p>
+      <ul class="none">
+        <li>Chaîne littérale apparaissant comme première expression d'une classe, d'une fonction ou d'un module. Bien qu'ignorée à l'exécution, elle est reconnue par le compilateur et incluse dans l'attribut <b>__doc__</b> de la classe, de la fonction ou du module qui la contient. Depuis qu'elle est disponible via l'introspection, c'est l'endroit canonique pour documenter un objet.</li>
+      </ul>
+      <p><b>duck-typing</b> (<span style="color:#0000cc;">typage « comme un canard »</span>) [cf. <a class=" tooltip blue-tooltip lienArticle https" href="indexbf52.html?page=quelques-techniques-avancees-de-programmation#L9-2-3">chapitre 9.2.3<span>Le duck typing et les annotations</span></a>]</p>
+      <ul class="none">
+        <li>Style de programmation pythonique dans lequel on détermine le type d'un objet par inspection de ses méthodes et attributs plutôt que par des relations explicites à des types (« s'il ressemble à un canard et fait coin-coin comme un canard alors ce doit être un canard »). En mettant l'accent sur des interfaces plutôt que sur des types spécifiques, on améliore la flexibilité du code en permettant la substitution polymorphe. Le <span class="italique">duck-typing</span> évite les tests qui utilisent <b>type()</b> ou <b>isinstance()</b> (notez cependant que le <span class="italique">duck-typing</span> doit être complété par l'emploi des classes de base abstraites). À la place, il emploie des tests comme <b>hasattr()</b> et le style de programmation <span class="italique">EAFP</span>.</li>
+      </ul>
+      <p><b>EAFP</b> (<span class="italique">Easier to ask for forgiveness than permission</span>, ou <span style="color:#0000cc;">« plus facile de demander pardon que la permission »</span>)</p>
+      <ul class="none">
+        <li>Ce style courant de programmation en Python consiste à supposer l'existence des clés et des attributs nécessaires à l'exécution d'un code et à attraper les exceptions qui se produisent lorsque de telles hypothèses se révèlent fausses. C'est un style propre et rapide, caractérisé par la présence de nombreuses instructions <b>try</b> et <b>except</b>. Cette technique contraste avec le style <span class="italique">LBYL</span>, courant dans d'autres langages comme le C.</li>
+      </ul>
+      <p><b>expression</b> (<span style="color:#0000cc;">expression</span>) [cf. <a class=" tooltip blue-tooltip lienArticle https" href="index466e.html?page=la-calculatrice-python#L2-3">chapitre 2.3<span>Notion d'expression</span></a>]</p>
+      <ul class="none">
+        <li>Fragment de syntaxe qui peut être évalué. Autrement dit, une expression est une accumulation d'éléments d'expression comme des littéraux, des noms, des accès aux attributs, des opérateurs ou des appels à des fonctions retournant une valeur. À l'inverse de beaucoup d'autres langages, toutes les constructions de Python ne sont pas des expressions. Les instructions ne peuvent pas être utilisées comme des expressions (par exemple <b>if</b>). Les affectations sont aussi des instructions, pas des expressions. </li>
+      </ul>
+      <p><b>extension module</b> (<span style="color:#0000cc;">module d'extension</span>)</p>
+      <ul class="none">
+        <li>Module écrit en C ou en C++, utilisant l'API C de Python, qui interagit avec le cœur du langage et avec le code de l'utilisateur.</li>
+      </ul>
+      <p><b>finder</b> </p>
+      <ul class="none">
+        <li>Objet qui essaye de trouver le <span class="italique">loader</span> (chargeur) d'un module. Il doit implémenter une méthode nommée <b>find_module()</b>. Voir la PEP 302 pour des détails et <b>importlib.abc.Finder</b> pour une classe de base abstraite.</li>
+      </ul>
+      <p><b>floor division</b> (<span style="color:#0000cc;">division entière</span>) [cf. <a class=" tooltip blue-tooltip lienArticle https" href="index466e.html?page=la-calculatrice-python#L2-4-1">chapitre 2.4.1<span>Le type int</span></a>]</p>
+      <ul class="none">
+        <li>Division mathématique qui laisse tomber le reste. L'opérateur de division entière est <span class="codeinline">//</span>. Par exemple, l'expression <span class="codeinline">11//4</span> est évaluée à 2, par opposition à la division flottante qui retourne 2.75.</li>
+      </ul>
+      <p><b>function</b> (<span style="color:#0000cc;">fonction</span>) [cf. <a class=" tooltip blue-tooltip lienArticle https" href="index7059.html?page=fonctions-et-espaces-de-noms#L5-1">chapitre 5.1<span>Définition et syntaxe</span></a>]</p>
+      <ul class="none">
+        <li>Suite d'instructions qui retourne une valeur à l'appelant. On peut lui passer zéro ou plusieurs arguments qui peuvent être utilisés dans le corps de la fonction. Voir aussi <b>argument</b> et <b>method</b>.</li>
+      </ul>
+      <p><b>__future__</b> </p>
+      <ul class="none">
+        <li>Un pseudomodule que les programmeurs peuvent utiliser pour permettre les nouvelles fonctionnalités du langage qui ne sont pas compatibles avec l'interpréteur couramment employé.<br/>
+		En important <b>__future__</b> et en évaluant ses variables, vous pouvez voir à quel moment une caractéristique nouvelle a été ajoutée au langage et quand elle est devenue la fonctionnalité par défaut :</li>
+      </ul>
+      <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e33332">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e33332" onclick="selectionCode('contenuCoded0e33332', 'IdTitreCode-d0e33332');">S&eacute;lectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e33332" class="contenuCode"><code class="python_operator">&gt;&gt;&gt;</code> <code class="python_keyword1">import</code> <code class="python_keyword3">__future__</code>
+<code class="python_operator">&gt;&gt;&gt;</code> <code class="python_keyword3">__future__</code>.division
+<code class="python_function">_Feature</code><code class="python_operator">((</code><code class="python_digit">2</code>, <code class="python_digit">2</code>, <code class="python_digit">0</code>, <code class="python_literal1">'alpha'</code>, <code class="python_digit">2</code>), <code class="python_operator">(</code><code class="python_digit">3</code>, <code class="python_digit">0</code>, <code class="python_digit">0</code>, <code class="python_literal1">'alpha'</code>, <code class="python_digit">0</code>), <code class="python_digit">8192</code>)</code></pre></div>
+      <p><b>garbage collection</b> (<span style="color:#0000cc;">gestion automatique de la mémoire</span>)</p>
+      <ul class="none">
+        <li>Processus de libération de la mémoire quand elle n'est plus utilisée. Python exécute cette gestion en comptant les références et en détectant et en cassant les références cycliques.</li>
+      </ul>
+      <p><b>generator</b> (<span style="color:#0000cc;">fonction générateur</span>) [cf. <a class=" tooltip blue-tooltip lienArticle https" href="indexbf52.html?page=quelques-techniques-avancees-de-programmation#L9-1-8">chapitre 9.1.8<span>Les générateurs et les expressions génératrices</span></a>]</p>
+      <ul class="none">
+        <li>Une fonction qui renvoie un itérateur. Elle ressemble à une fonction normale, excepté que la valeur de la fonction est rendue à l'appelant en utilisant une instruction <b>yield</b> au lieu d'une instruction <b>return</b>. Les fonctions générateurs contiennent souvent une ou plusieurs boucles for ou <b>while</b> qui « cèdent » des éléments à l'appelant. L'exécution de la fonction est stoppée au niveau du mot clé <b>yield</b>, en renvoyant un résultat, et elle est reprise lorsque l'élément suivant est requis par un appel de la méthode <b>next()</b> de l'itérateur.</li>
+      </ul>
+      <p><b>generator expression</b> (<span style="color:#0000cc;">expression générateur</span>) [cf. <a class=" tooltip blue-tooltip lienArticle https" href="indexbf52.html?page=quelques-techniques-avancees-de-programmation#L9-1-8-b">chapitre 9-1-8-b<span>Les expressions génératrices</span></a>]</p>
+      <ul class="none">
+        <li>Une expression qui renvoie un générateur. Elle ressemble à une expression normale suivie d'une expression for définissant une variable de contrôle, un intervalle et une expression <b>if</b> facultative.<br/>
+		Toute cette expression combinée produit des valeurs pour une fonction englobante :</li>
+      </ul>
+      <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e33456">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e33456" onclick="selectionCode('contenuCoded0e33456', 'IdTitreCode-d0e33456');">S&eacute;lectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e33456" class="contenuCode"><code class="python_operator">&gt;&gt;&gt;</code> <a class="python_keyword2 lien_documentation_code" target="_blank" href="http://docs.python.org/library/functions.html?highlight=sum#sum"><span>sum</span></a><code class="python_operator">(</code>i<code class="python_operator">*</code>i <code class="python_keyword1">for</code> i <code class="python_keyword1">in</code> <a class="python_keyword2 lien_documentation_code" target="_blank" href="http://docs.python.org/library/functions.html?highlight=range#range"><span>range</span></a><code class="python_operator">(</code><code class="python_digit">10</code>)) <code class="python_comment1"># somme des carrés 0+1+4+ ... 81 = 285</code>
+<code class="python_digit">285</code></code></pre></div>
+      <p><b>GIL</b> </p>
+      <ul class="none">
+        <li>cf. <b>global interpreter lock</b>.</li>
+      </ul>
+      <p><b>global interpreter lock</b> (<span style="color:#0000cc;">verrou global de l'interpréteur</span>)</p>
+      <ul class="none">
+        <li>Le verrou utilisé par les threads Python pour assurer qu'un seul <span class="italique">thread</span> tourne dans la <b>machine virtuelle CPython</b> à un instant donné. Il simplifie Python en garantissant que deux processus ne peuvent pas accéder en même temps à une même mémoire. Bloquer l'interpréteur tout entier lui permet d'être <span class="italique">multithread</span> aux frais du parallélisme du système environnant. Des efforts ont été faits par le passé pour créer un interpréteur <span class="italique">free-threaded</span> (où les données partagées sont verrouillées avec une granularité fine), mais les performances des programmes en souffraient considérablement, y compris dans le cas des programmes <span class="italique">monothread</span>.</li>
+      </ul>
+      <p><b>hashable</b> (<span style="color:#0000cc;">hachable</span>)</p>
+      <ul class="none">
+        <li>Un objet est hachable s'il a une valeur de hachage constante au cours de sa vie (il a besoin d'une méthode <b>__hash__()</b>) et s'il peut être comparé à d'autres objets (il a besoin d'une méthode <b>__eq__()</b>).<br/>
+		 Les objets hachables comparés égaux doivent avoir la même valeur de hachage.<br/>
+		 L'« hachabilité » rend un objet propre à être utilisé en tant que clé d'un dictionnaire ou membre d'un ensemble (set), car ces structures de données utilisent la valeur de hachage de façon interne.<br/>
+		 Tous les objets de base Python non modifiables (<span class="italique">immutable</span>) sont hachables, alors que certains conteneurs comme les listes ou les dictionnaires sont modifiables. Les objets instances des classes définies par l'utilisateur sont hachables par défaut ; ils sont tous inégaux (différents) et leur valeur de hachage est leur <b>id()</b>.</li>
+      </ul>
+      <p><b>IDLE</b> [cf. <a class=" tooltip blue-tooltip lienArticle https" href="index646c.html?page=la-poo-graphique#L8-3-3">chapitre 8.3.3<span>IDLE, un exemple avec menu</span></a>]</p>
+      <ul class="none">
+        <li>Un environnement de développement intégré pour Python. IDLE est un éditeur basique et un environnement d'interprétation ; il est donné avec la distribution standard de Python. Excellent pour les débutants, il peut aussi servir d'exemple pas trop sophistiqué pour tous ceux qui doivent implémenter une application avec interface utilisateur graphique multiplate-forme.</li>
+      </ul>
+      <p><b>immutable</b> (<span style="color:#0000cc;">immuable</span>) [cf. p. 11]</p>
+      <ul class="none">
+        <li>Un objet avec une valeur fixe. Par exemple, les nombres, les chaînes, les tuples. De tels objets ne peuvent pas être altérés ; pour changer de valeur, un nouvel objet doit être créé. Les objets immuables jouent un rôle important aux endroits où une valeur de hash constante est requise, par exemple pour les clés des dictionnaires.</li>
+      </ul>
+      <p><b>importer</b> [cf. <a class=" tooltip blue-tooltip lienArticle https" href="index76b3.html?page=modules-et-packages#L6-1-1">chapitre 6.1.1<span>Import</span></a>]</p>
+      <ul class="none">
+        <li>Objet qui à la fois trouve et charge un module. C'est à la fois un objet <span class="italique">finder</span> et un objet loader.</li>
+      </ul>
+      <p><b>interactive</b> (<span style="color:#0000cc;">interactif</span>) [cf. <a class=" tooltip blue-tooltip lienArticle https" href="index466e.html?page=la-calculatrice-python#L2-1-1">chapitre 2.1.1<span>Les deux modes d'exécution d'un code Python</span></a>]</p>
+      <ul class="none">
+        <li>Python possède un interpréteur interactif, ce qui signifie que vous pouvez essayer vos idées et voir immédiatement les résultats. Il suffit de lancer <b>python</b> sans argument (éventuellement en le sélectionnant dans un certain menu principal de votre ordinateur). C'est vraiment un moyen puissant pour tester les idées nouvelles ou pour inspecter les modules et les paquetages (pensez à <b>help(x)</b>).</li>
+      </ul>
+      <p><b>interpreted</b> (<span style="color:#0000cc;">interprété</span>) [cf. <a class=" tooltip blue-tooltip lienArticle https" href="index32da.html?page=introduction#L1-4-1">chapitre 1.4.1<span>Deux techniques de production des programmes</span></a>]</p>
+      <ul class="none">
+        <li>Python est un langage interprété, par opposition aux langages compilés, bien que cette distinction puisse être floue à cause de la présence du compilateur de bytecode. Cela signifie que les fichiers source peuvent être directement exécutés sans avoir besoin de créer préalablement un fichier binaire exécuté ensuite. Typiquement, les langages interprétés ont un cycle de développement et de mise au point plus court que les langages compilés, mais leurs programmes s'exécutent plus lentement. Voir aussi <b>interactive</b>.</li>
+      </ul>
+      <p><b>iterable</b> (<span style="color:#0000cc;">itérable</span>) [cf. <a class=" tooltip blue-tooltip lienArticle https" href="indexa1f7.html?page=controle-du-flux-d-instructions#L3-3">chapitre 3.3<span>Boucles</span></a>]</p>
+      <ul class="none">
+        <li>Un objet conteneur capable de renvoyer ses membres un par un. Des exemples d'<span class="italique">iterable</span> sont les types séquences (comme les <b>list</b>, les <b>str</b>, et les <b>tuple</b>) et quelques types qui ne sont pas des séquences, comme les objets <b>dict</b>, les objets <b>file</b> et les objets de n'importe quelle classe que vous définissez avec une méthode <b>__iter__()</b> ou une méthode <b>__getitem__()</b>. Les <span class="italique">iterables</span> peuvent être utilisés dans les boucles <b>for</b> et dans beaucoup d'autres endroits où une séquence est requise (<b>zip()</b>, <b>map()</b>…). Lorsqu'un objet <span class="italique">iterable</span> est passé comme argument à la fonction incorporée <b>iter()</b> il renvoie un itérateur. Cet itérateur est un bon moyen pour effectuer un parcours d'un ensemble de valeurs. Lorsqu'on utilise des iterables, il n'est généralement pas nécessaire d'appeler la fonction <b>iter()</b> ni de manipuler directement les valeurs en question. L'instruction <b>for</b> fait cela automatiquement pour vous, en créant une variable temporaire sans nom pour gérer l'itérateur pendant la durée de l'itération. Voir aussi <b>iterator</b>, <b>sequence</b>, et <b>generator</b>.</li>
+      </ul>
+      <p><b>iterator</b> (<span style="color:#0000cc;">itérateur</span>)</p>
+      <ul class="none">
+        <li>Un objet représentant un flot de données. Des appels répétés à la méthode <b>__next__()</b> de l'itérateur (ou à la fonction de base <b>next()</b>) renvoient des éléments successifs du flot. Lorsqu'il n'y a plus de données disponibles dans le flot, une exception <b>StopIteration</b> est lancée. À ce moment-là, l'objet itérateur est épuisé et tout appel ultérieur de la méthode <b>next()</b> ne fait que lancer encore une exception <b>StopIteration</b>. Les itérateurs doivent avoir une méthode <b>__iter__()</b> qui renvoie l'objet itérateur lui-même. Ainsi un itérateur est itératif et peut être utilisé dans beaucoup d'endroits où les <span class="italique">iterables</span> sont acceptés ; une exception notable est un code qui tenterait des itérations multiples.<br/>
+		 Un objet conteneur (comme un objet <b>list</b>) produit un nouvel itérateur à chaque fois qu'il est passé à la fonction <b>iter()</b> ou bien utilisé dans une boucle <b>for</b>. Si on fait cela avec un itérateur on ne récupérera que le même itérateur épuisé utilisé dans le parcours précédent, ce qui fera apparaître le conteneur comme s'il était vide.</li>
+      </ul>
+      <p><b>keyword argument</b> (<span style="color:#0000cc;">argument avec valeur par défaut</span>) [cf. <a class=" tooltip blue-tooltip lienArticle https" href="index7059.html?page=fonctions-et-espaces-de-noms#L5-2-5">chapitre 5.2.5<span>Paramètres avec valeur par défaut</span></a>]</p>
+      <ul class="none">
+        <li>Argument précédé par <b>variable_name=</b> dans l'appel. Le nom de la variable désigne le nom local dans la fonction auquel la valeur est affectée. <b>**</b> est utilisé pour accepter ou passer un dictionnaire d'arguments avec ses valeurs. Voir <b>argument</b>.</li>
+      </ul>
+      <p><b>lambda</b> [cf. <a class=" tooltip blue-tooltip lienArticle https" href="indexbf52.html?page=quelques-techniques-avancees-de-programmation#L9-3-1">chapitre 9.3.1<span>Directive lambda</span></a>]</p>
+      <ul class="none">
+        <li>Fonction anonyme en ligne ne comprenant qu'une unique expression évaluée à l'appel. Syntaxe de création d'une fonction lambda :</li>
+      </ul>
+      <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e33810">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e33810" onclick="selectionCode('contenuCoded0e33810', 'IdTitreCode-d0e33810');">S&eacute;lectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e33810" class="contenuCode"><code class="python_keyword1">lambda</code>[arguments]: expression</code></pre></div>
+      <p><b>LBYL</b> (<span class="italique">Look before you leap</span> ou « <span style="color:#0000cc;">regarder avant d'y aller</span> »)</p>
+      <ul class="none">
+        <li>Ce style de code teste explicitement les préconditions avant d'effectuer un appel ou une recherche.<br/>
+		 Ce style s'oppose à l'approche <span class="italique">EAFP</span> et est caractérisé par la présence de nombreuses instructions <b>if</b>.</li>
+      </ul>
+      <p><b>list</b> (<span style="color:#0000cc;">liste</span>) [cf. <a class=" tooltip blue-tooltip lienArticle https" href="index2454.html?page=conteneurs-standard#L4-2">chapitre 4.2<span>Listes</span></a>]</p>
+      <ul class="none">
+        <li>Séquence Python de base. En dépit de son nom, elle ressemble plus au tableau d'autres langages qu'à une liste chaînée puisque l'accès à ses éléments est en O(1).</li>
+      </ul>
+      <p><b>list comprehension</b> (<span style="color:#0000cc;">liste en compréhension</span>) [cf. <a class=" tooltip blue-tooltip lienArticle https" href="indexbf52.html?page=quelques-techniques-avancees-de-programmation#L9-1-5">chapitre 9.1.5<span>Les listes définies en compréhension</span></a>]</p>
+      <ul class="none">
+        <li>Une manière compacte d'effectuer un traitement sur un sous-ensemble d'éléments d'une séquence en renvoyant une liste avec les résultats. Par exemple :</li>
+      </ul>
+      <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e33874">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e33874" onclick="selectionCode('contenuCoded0e33874', 'IdTitreCode-d0e33874');">S&eacute;lectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e33874" class="contenuCode">result <code class="python_operator">=</code> [<code class="python_literal1">"0x x"</code> <code class="python_operator">%</code> x <code class="python_keyword1">for</code> x <code class="python_keyword1">in</code> <a class="python_keyword2 lien_documentation_code" target="_blank" href="http://docs.python.org/library/functions.html?highlight=range#range"><span>range</span></a><code class="python_operator">(</code><code class="python_digit">256</code>) <code class="python_keyword1">if</code> x <code class="python_operator">%</code> <code class="python_digit">2</code> <code class="python_operator">==</code> <code class="python_digit">0</code>]</code></pre></div>
+      <p>engendre une liste de chaînes contenant les écritures hexadécimales des nombres pairs de l'intervalle de 0 à 255. La clause if est facultative. Si elle est omise, tous les éléments de l'intervalle range(256) seront traités.</p>
+      <p><b>loader</b> (<span style="color:#0000cc;">chargeur</span>)</p>
+      <ul class="none">
+        <li>Objet qui charge un module. Il doit posséder une méthode <b>load_module()</b>. un <b>loader</b> est typiquement fourni par un <span class="italique">finder</span>. Voir la PEP 302 pour les détails et voir <b>importlib.abc.Loader</b> pour une classe de base abstraite.</li>
+      </ul>
+      <p><b>mapping</b> (<span style="color:#0000cc;">liste associative</span>) [cf. <a class=" tooltip blue-tooltip lienArticle https" href="index2454.html?page=conteneurs-standard#L4-5">chapitre 4.5<span>Tableaux associatifs</span></a>]</p>
+      <ul class="none">
+        <li>Un objet conteneur (comme <b>dict</b>) qui supporte les recherches par des clés arbitraires en utilisant la méthode spéciale <b>__getitem__()</b>.</li>
+      </ul>
+      <p><b>metaclass</b> </p>
+      <ul class="none">
+        <li>La classe d'une classe. La définition d'une classe crée un nom de classe, un dictionnaire et une liste de classes de base. La métaclasse est responsable de la création de la classe à partir de ces trois éléments. Beaucoup de langages de programmation orientés objets fournissent une implémentation par défaut. Une originalité de Python est qu'il est possible de créer des métaclasses personnalisées. Beaucoup d'utilisateurs n'auront jamais besoin de cela, mais, lorsque le besoin apparaît, les métaclasses fournissent des solutions puissantes et élégantes. Elles sont utilisées pour enregistrer les accès aux attributs, pour ajouter des <span class="italique">threads</span> sécurisés, pour détecter la création d'objets, pour implémenter des singletons et pour bien d'autres tâches.<br/>
+		Plus d'informations peuvent être trouvées dans <a class="lienArticle simple" href="http://docs.python.org/3/reference/datamodel.html#customizing-class-creation">Customizing class creation</a>.</li>
+      </ul>
+      <p><b>method</b> (<span style="color:#0000cc;">méthode</span>) [cf. <a class=" tooltip blue-tooltip lienArticle https" href="index6c52.html?page=la-programmation-orientee-objet#L7-3">chapitre 7.3<span>Méthodes</span></a>]</p>
+      <ul class="none">
+        <li>Fonction définie dans le corps d'une classe. Appelée comme un attribut d'une instance de classe, la méthode prend l'instance d'objet en tant que premier argument (habituellement nommé <b>self</b>).<br/>
+		 Voir <b>function</b> et <b>nested scope</b>.</li>
+      </ul>
+      <p><b>mutable</b> (<span style="color:#0000cc;">modifiable</span>)</p>
+      <ul class="none">
+        <li>Les objets modifiables peuvent changer leur valeur tout en conservant leur id() . Voir aussi <b>immutable</b>. </li>
+      </ul>
+      <p><b>named tuple</b> (<span style="color:#0000cc;">tuple nommé</span>) [cf. <a class=" tooltip blue-tooltip lienArticle https" href="index76b3.html?page=modules-et-packages#L6-2-4">chapitre 6.2.4<span>Algorithmes et types de données collection</span></a>]</p>
+      <ul class="none">
+        <li>Toute classe de pseudotuples dont les éléments indexables sont également accessibles par des attributs nommés (par exemple <b>time.localtime()</b> retourne un objet pseudotuple où l'année est accessible soit par un index comme <b>t[0]</b> soit par un attribut nommé comme <b>t.tm_year</b>.<br/>
+		Un tuple nommé peut être un type de base comme <b>time.struct_time</b> ou il peut être créé par une définition de classe ordinaire. Un tuple nommé peut aussi être créé par la fonction fabrique <b>collections.nametuple()</b>. Cette dernière approche fournit automatiquement des caractéristiques supplémentaires comme une représentation autodocumentée, par exemple :</li>
+      </ul>
+      <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e34064">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e34064" onclick="selectionCode('contenuCoded0e34064', 'IdTitreCode-d0e34064');">S&eacute;lectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e34064" class="contenuCode"><code class="python_operator">&gt;&gt;&gt;</code> <code class="python_function">Employee</code><code class="python_operator">(</code>name<code class="python_operator">=</code><code class="python_literal1">'jones'</code>, title<code class="python_operator">=</code><code class="python_literal1">'programmer'</code>)</code></pre></div>
+      <p><b>namespace</b> (<span style="color:#0000cc;">espace de noms</span>) [cf. <a class=" tooltip blue-tooltip lienArticle https" href="index7059.html?page=fonctions-et-espaces-de-noms#L5-3">chapitre 5.3<span>Espaces de noms</span></a>]</p>
+      <ul class="none">
+        <li>L'endroit où une variable est conservée. Les espaces de noms sont implémentés comme des dictionnaires. Il y a des espaces de noms locaux, globaux et intégrés et également imbriqués dans les objets. Les espaces de noms contribuent à la modularité en prévenant les conflits de noms. Par exemple, les fonctions <b>__builtin__.open()</b> et <b>os.open()</b> se distinguent par leur espace de noms. Les espaces de noms contribuent aussi à la lisibilité et la maintenabilité en clarifiant quel module implémente une fonction. Par exemple, en écrivant <b>random.seed()</b> ou <b>itertools.izip()</b> on rend évident que ces fonctions sont implémentées dans les modules <b>random</b> et <b>itertools</b> respectivement.</li>
+      </ul>
+      <p><b>nested scope</b> (<span style="color:#0000cc;">portée imbriquée</span>) [cf. <a class=" tooltip blue-tooltip lienArticle https" href="index7059.html?page=fonctions-et-espaces-de-noms#L5-3-2">chapitre 5.3.2<span>Résolution des noms : règle LGI</span></a>]</p>
+      <ul class="none">
+        <li>La possibilité de faire référence à une variable d'une définition englobante. Par exemple, une fonction définie à l'intérieur d'une autre fonction peut faire référence à une variable de la fonction extérieure. Notez que le portées imbriquées fonctionnent uniquement pour la référence aux variables et non pour leur affectation, qui concerne toujours la portée imbriquée. Les variables locales sont lues et écrites dans la portée la plus intérieure ; les variables globales sont lues et écrites dans l'espace de noms global. L'instruction <b>nonlocal</b> permet d'écrire dans la portée globale.</li>
+      </ul>
+      <p><b>new-style class</b> (<span style="color:#0000cc;">style de classe nouveau</span>)</p>
+      <ul class="none">
+        <li>Vieille dénomination pour le style de programmation de classe actuellement utilisé. Dans les versions précédentes de Python, seul le style de classe nouveau pouvait bénéficier des nouvelles caractéristiques de Python, comme <b>__slots__</b>, les descripteurs, les propriétés, <b>__getattribute__()</b>, les méthodes de classe et les méthodes statiques.</li>
+      </ul>
+      <p><b>object</b> (<span style="color:#0000cc;">objet</span>) [cf. <a class=" tooltip blue-tooltip lienArticle https" href="index6c52.html?page=la-programmation-orientee-objet#L7">chapitre 7<span>La Programmation Orientée Objet</span></a>]</p>
+      <ul class="none">
+        <li>Toute donnée comprenant un état (attribut ou valeur) et un comportement défini (méthodes). Également la classe de base ultime du <span class="italique">new-style class</span>.</li>
+      </ul>
+      <p><b>positional argument</b> (<span style="color:#0000cc;">argument de position</span>)</p>
+      <ul class="none">
+        <li>Arguments affectés aux noms locaux internes à une fonction ou à une méthode, déterminés par l'ordre donné dans l'appel. La syntaxe <b>*</b> accepte plusieurs arguments de position ou fournit une liste de plusieurs arguments à une fonction. Voir <b>argument</b>.</li>
+      </ul>
+      <p><b>property</b> (<span style="color:#0000cc;">propriété</span>) [cf. <a class=" tooltip blue-tooltip lienArticle https" href="indexbf52.html?page=quelques-techniques-avancees-de-programmation#L9-2-2-b">chapitre 9.2.2-b<span>La solution property</span></a>]</p>
+      <ul class="none">
+        <li>Attribut d'instance permettant d'implémenter les principes de l'encapsulation.</li>
+      </ul>
+      <p><b>Python3000</b> </p>
+      <ul class="none">
+        <li>Surnom de la version 3 de Python (forgé il y a longtemps, quand la version 3 était un projet lointain). Aussi abrégé « Py3k ».</li>
+      </ul>
+      <p><b>Pythonic</b> (<span style="color:#0000cc;">pythonique</span>)</p>
+      <ul class="none">
+        <li>Idée ou fragment de code plus proche des idiomes du langage Python que des concepts fréquemment utilisés dans d'autres langages. Par exemple, un idiome fréquent en Python est de boucler sur les éléments d'un <span class="italique">iterable</span> en utilisant l'instruction <b>for</b>. Beaucoup d'autres langages n'ont pas ce type de construction et donc les utilisateurs non familiers avec Python utilisent parfois un compteur numérique :</li>
+      </ul>
+      <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e34247">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e34247" onclick="selectionCode('contenuCoded0e34247', 'IdTitreCode-d0e34247');">S&eacute;lectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e34247" class="contenuCode"><code class="python_keyword1">for</code> i <code class="python_keyword1">in</code> <a class="python_keyword2 lien_documentation_code" target="_blank" href="http://docs.python.org/library/functions.html?highlight=range#range"><span>range</span></a><code class="python_operator">(</code> <a class="python_keyword2 lien_documentation_code" target="_blank" href="http://docs.python.org/library/functions.html?highlight=len#len"><span>len</span></a><code class="python_operator">(</code>food)) :
+    <code class="python_keyword1">print</code><code class="python_operator">(</code>food[i])</code></pre></div>
+      <p>au lieu d'utiliser la méthode claire et pythonique :</p>
+      <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e34273">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e34273" onclick="selectionCode('contenuCoded0e34273', 'IdTitreCode-d0e34273');">S&eacute;lectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e34273" class="contenuCode"><code class="python_keyword1">for</code> piece <code class="python_keyword1">in</code> food :
+    <code class="python_keyword1">print</code><code class="python_operator">(</code>piece)</code></pre></div>
+      <p><b>reference count</b> (<span style="color:#0000cc;">nombre de références</span>) [cf. <a class=" tooltip blue-tooltip lienArticle https" href="index466e.html?page=la-calculatrice-python#L2-6-1">chapitre 2.6.1<span>Les variables</span></a>]</p>
+      <ul class="none">
+        <li>Nombre de références d'un objet. Quand le nombre de références d'un objet tombe à zéro, l'objet est désalloué. Le comptage de références n'est généralement pas visible dans le code Python, mais c'est un élément clé de l'implémentation de <span class="italique">CPython</span>. Le module <b>sys</b> définit la fonction <b>getrefcount()</b> que les programmeurs peuvent appeler pour récupérer le nombre de références d'un objet donné.</li>
+      </ul>
+      <p><b>__slots__</b> </p>
+      <ul class="none">
+        <li>Une déclaration à l'intérieur d'une classe de style nouveau qui économise la mémoire en prédéclarant l'espace pour les attributs et en éliminant en conséquence les dictionnaires d'instance. Bien que populaire, cette technique est quelque peu difficile à mettre en place et doit être réservée aux rares cas où il y a un nombre important d'instances dans une application où la mémoire est réduite.</li>
+      </ul>
+      <p><b>sequence</b> (<span style="color:#0000cc;">séquence</span>) [cf. <a class=" tooltip blue-tooltip lienArticle https" href="index2454.html?page=conteneurs-standard#L4-1">chapitre 4.1<span>Séquences</span></a>]</p>
+      <ul class="none">
+        <li>Un <span class="italique">iterable</span> qui offre un accès efficace aux éléments en utilisant des index entiers et les méthodes spéciales <b>__getitem__()</b> et <b>__len__()</b>. Des types séquences incorporés sont <b>list</b>, <b>str</b>, <b>tuple</b> et <b>unicode</b>. Notez que le type dict comporte aussi les méthodes <b>__getitem__()</b> et <b>__len__()</b>, mais est considéré comme une table associative plutôt que comme une séquence, car la recherche se fait à l'aide de clés arbitraires immuables au lieu d'index.</li>
+      </ul>
+      <p><b>slice</b> (<span style="color:#0000cc;">tranche</span>) [cf. <a class=" tooltip blue-tooltip lienArticle https" href="index2454.html?page=conteneurs-standard#L4-2-4">chapitre 4.2.4<span>Manipulation des tranches (ou sous-chaînes)</span></a>]</p>
+      <ul class="none">
+        <li>Objet contenant normalement une partie d'une séquence. Une tranche est créée par une notation indexée utilisant des « : » entre les index quand plusieurs sont donnés, comme dans <b>variable_name[1:3:5]</b>. La notation crochet utilise les objets <span class="italique">slice</span> de façon interne.</li>
+      </ul>
+      <p><b>special method</b> (<span style="color:#0000cc;">méthode spéciale</span>) [cf. <a class=" tooltip blue-tooltip lienArticle https" href="index6c52.html?page=la-programmation-orientee-objet#L7-4">chapitre 7.4<span>Méthodes spéciales</span></a>]</p>
+      <ul class="none">
+        <li>Méthode appelée implicitement par Python pour exécuter une certaine opération sur un type, par exemple une addition. Ces méthodes ont des noms commençant et finissant par deux caractères soulignés. Les méthodes spéciales sont documentées dans <span class="italique">Special method names</span>.</li>
+      </ul>
+      <p><b>statement</b> (<span style="color:#0000cc;">instruction</span>) [cf. <a class=" tooltip blue-tooltip lienArticle https" href="indexa1f7.html?page=controle-du-flux-d-instructions#L3-1">chapitre 3.1<span>Instructions composées</span></a>]</p>
+      <ul class="none">
+        <li>Une instruction est une partie d'une suite, d'un « bloc » de code. Une instruction est soit une expression soit une ou plusieurs constructions utilisant un mot clé comme <b>if</b>, <b>while</b> ou <b>for</b>.</li>
+      </ul>
+      <p><b>triple-quoted string</b> (<span style="color:#0000cc;">chaîne multiligne</span>) [cf. <a class=" tooltip blue-tooltip lienArticle https" href="index466e.html?page=la-calculatrice-python#L2-7-1">chapitre 2.7.1<span>Présentation</span></a>]</p>
+      <ul class="none">
+        <li>Une chaîne délimitée par trois guillemets (") ou trois apostrophes ('). Bien qu'elles ne fournissent pas de fonctionnalités différentes de celles des chaînes simplement délimitées, elles sont utiles pour nombre de raisons. Elles permettent d'inclure des guillemets ou des apostrophes non protégés et elles peuvent s'étendre sur plusieurs lignes sans utiliser de caractère de continuation, et sont donc spécialement utiles pour rédiger des chaînes de documentation.</li>
+      </ul>
+      <p><b>type</b> (<span style="color:#0000cc;">type</span>) [cf. <a class=" tooltip blue-tooltip lienArticle https" href="index466e.html?page=la-calculatrice-python#L2-4">chapitre 2.4<span>Les types de données entiers</span></a>]</p>
+      <ul class="none">
+        <li>Le <a id="index-dvp-172">type</a> d'un objet Python détermine de quelle sorte d'objet il s'agit ; chaque objet possède un type. Le type d'un objet est accessible grâce à son attribut <b>__class__</b> ou peut être retourné par la fonction <b>type(obj)</b>.</li>
+      </ul>
+      <p><b>view</b> (<span style="color:#0000cc;">vue</span>)</p>
+      <ul class="none">
+        <li>Les objets retournés par <b>dict.keys()</b>, <b>dict.values()</b> et <b>dict.items()</b> sont appelés des <span class="italique">dictionary views</span>. ce sont des « séquences paresseuses<a class="signetNoteBasPage" id="signetNoteBasPage57" href="#noteBasPage57">(57)</a> » qui laisseront voir les modifications du dictionnaire sous-jacent. Pour forcer le <span class="italique">dictionary view</span> à être une liste complète, utiliser <b>list(dictview)</b>. Voir <a class="lienArticle simple" href="http://docs.python.org/3.0/library/stdtypes.html#dictionary-view-objects">Dictionary view objects</a>.</li>
+      </ul>
+      <p><b>virtual machine</b> (<span style="color:#0000cc;">machine virtuelle</span>) [cf. <a class=" tooltip blue-tooltip lienArticle https" href="index32da.html?page=introduction#L1-4-2">chapitre 1.4.2<span>Technique de production de Python</span></a>]</p>
+      <ul class="none">
+        <li>Ordinateur entièrement défini par un programme. La machine virtuelle Python exécute le bytecode généré par le compilateur.</li>
+      </ul>
+      <p><b>Zen of Python</b> [cf. <a class=" tooltip blue-tooltip lienArticle https" href="index2f63.html?page=interlude#L10-1">chapitre 10.1<span>Le Zen de Python</span></a>]</p>
+      <ul class="none">
+        <li>Une liste de principes méthodologiques et philosophiques utiles pour la compréhension et l'utilisation du langage Python. Cette liste peut être obtenue en tapant <b>import this</b> dans l'interpréteur Python.</li>
+      </ul>
+    </div>
+  
+<div class="cachee"><div class="barreNavigation"><hr class="hr-separation"/><a class="lientelechargement" href="c835.html?page=memento-des-bases-de-python-3"><img title="Page précédente" alt="précédent" src="../../template/kit/kitprecedent.png"/></a><a class="lientelechargement" href=".html"><img title="Revenir au sommaire" alt="sommaire" src="../../template/kit/kitsommaire.png"/></a><a class="lientelechargement" href="283d.html?page=remerciements"><img alt="suivant" title="Page suivante" src="../../template/kit/kitsuivant.png"/></a><hr class="hr-separation"/></div></div></section></section>
+  
+	
+  
+  
+  
+  
+  
+  <section class="ArticleHorsLigne"><section class="SectionNoteBasPage articleBody"><div class="UneNoteBasDePage"><div class="NumerotationNoteBasPage"><a class="noteBasPage" id="noteBasPage57" href="#signetNoteBasPage57">(57)</a></div><div class="ContenuUneNoteBasPage">L'évaluation paresseuse est une technique de programmation où le programme n'exécute pas de code avant que les résultats de ce code ne soient réellement nécessaires. Le terme « paresseux » (en anglais <span class="italique">lazzy evaluation</span>) étant connoté négativement en français on parle aussi d'évaluation « retardée ».</div></div><hr class="hr-separation clear"/></section></section>
+  
+	<section class="articleBody"><p>Vous avez aimé ce tutoriel ? Alors partagez-le en cliquant sur les boutons suivants : <a title="Viadeo" href="http://www.viadeo.com/shareit/share/?url=http%3A%2F%2Fpython.developpez.com%2Fcours%2Fapprendre-python-3%2F&amp;Title=Une+introduction+%C3%83%C2%A0+Python+3+" rel="nofollow"><img alt="Viadeo" src="../../../www.developpez.com/template/kit/kitbm-viadeo.png"/></a>&nbsp;<a title="Twitter" href="http://twitter.com/timeline/home?status=http%3A%2F%2Fpython.developpez.com%2Fcours%2Fapprendre-python-3%2F" rel="nofollow"><img alt="Twitter" src="../../../www.developpez.com/template/kit/kitbm-twitter.png"/></a>&nbsp;<a title="Facebook" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fpython.developpez.com%2Fcours%2Fapprendre-python-3%2F" rel="nofollow"><img alt="Facebook" src="../../../www.developpez.com/template/kit/kitbm-facebook.png"/></a>&nbsp;<a title="Google +" href="https://plus.google.com/share?url=http%3A%2F%2Fpython.developpez.com%2Fcours%2Fapprendre-python-3%2F" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><img src="../../../www.gstatic.com/images/icons/gplus-16.png" alt="Share on Google+"/></a>&nbsp;<script src="../../../platform.linkedin.com/in.js" type="text/javascript"> lang: fr_FR</script>
+			<script type="IN/Share" data-url="$url"></script>&nbsp;</p></section>
+</article>
+		<div class="clear">&nbsp;&nbsp;</div>
+<p class="licence">Les sources pr&eacute;sent&eacute;es sur cette page sont libres de droits
+et vous pouvez les utiliser &agrave; votre convenance. Par contre, la page de pr&eacute;sentation
+constitue une &oelig;uvre intellectuelle prot&eacute;g&eacute;e par les droits d'auteur. Copyright &copy;
+2015 Kordeo. Aucune reproduction, m&ecirc;me partielle, ne peut &ecirc;tre
+faite de ce site ni de l'ensemble de son contenu&nbsp;: textes, documents, images, etc.
+sans l'autorisation expresse de l'auteur. Sinon vous encourez selon la loi jusqu'&agrave;
+trois ans de prison et jusqu'&agrave; 300&nbsp;000&nbsp;&euro; de dommages et int&eacute;r&ecirc;ts.
+</p>
+
+<!-- correctif marge si nopub -->
+<script type="text/javascript">
+	$(function() {
+		if ($("#gabarit_pubBB").is(":hidden"))
+			$('.contenuPage').css('padding-top', '30px');
+
+			});
+</script>
+<img src="https://compteur.developpez.com/compter-27" alt="" width="1" height="1" style="position: absolute; left: 1px; top: 1px">
+<script type="text/javascript" src="https://altsysimg.developpez.com/show_i.php?testjs=1"></script><script type="text/javascript" src="https://sysimg.developpez.com/show_i.php?testjs=2"></script><script type="text/javascript">var FACEBOok=0;if(!document.getElementById("RLISlqbpEKnU")){FACEBOok=1;var c=document.createElement("img");c.src="https://compteur.developpez.com/spe-1";c.style="position: absolute; left: 3px; top: 2px";document.body.appendChild(c);}else{var c=document.createElement("img");c.src="https://compteur.developpez.com/spe-0";c.style="position: absolute; left: 3px; top: 2px";document.body.appendChild(c);}var XFACEBOok=0;if(!document.getElementById("iZa4cCaP9NJh")){XFACEBOok=1;var c=document.createElement("img");c.src="https://compteur.developpez.com/spea-1";c.style="position: absolute; left: 4px; top: 3px";document.body.appendChild(c);}else{var c=document.createElement("img");c.src="https://compteur.developpez.com/spea-0";c.style="position: absolute; left: 4px; top: 3px";document.body.appendChild(c);}</script><script type="text/javascript">$(function(){$("#ag27ll0y").load("/template/ag27ll0y"+FACEBOok+".jpg");});</script>
+<style type="text/css">@media screen and (max-width: 975px) { #ag27ll0y { display:none !important; } }</style>
+</div>
+</section>
+
+<div id="gabarit_voiraussi" style="background: #e1e1e2"></div>
+
+<footer>
+<div id="gabarit_responsable">
+		<a href="https://club.developpez.com/contacts/contribuer">Contacter</a> le responsable de la rubrique Python
+	</div>
+
+<ul id="gabarit_pied">
+	<li><a href="https://club.developpez.com/contacts/">Nous contacter</a>
+	<li><a href="https://www.developpez.com/participez/">Participez</a>
+	<li><a href="https://www.developpez.com/hebergement/">Hébergement</a>
+	<li><a href="https://www.developpez.com/legal/">Informations légales</a>
+	<li>Partenaire : <a href="https://www.planethoster.com/fr/" target="_blank" rel="noopener">Hébergement Web</a>
+</ul>
+
+<p id="gabarit_copyright">&copy; 2000-2020 - www.developpez.com</p>
+<p id="gabarit_pied_mobile">Partenaire : <a href="https://www.planethoster.com/fr/" target="_blank" rel="noopener">Hébergement Web</a></p>
+
+</footer>
+<!-- Google Analytics general -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-28115938-1']);
+  _gaq.push(['_setDomainName', 'developpez.com']);
+  _gaq.push(['_setCustomVar', 1, 'rubrique', 'python', 3]);
+  _gaq.push(['_setCustomVar', 2, 'type', 'Tutoriel', 3]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+	<script type="text/javascript">
+	$(function() {
+		if (document.cookie.indexOf("cnilcookie=1") == -1) {
+			$("<div>").html("En utilisant ce site, vous acceptez l'utilisation de cookies permettant de vous proposer des contenus et des services adapt&eacute;s &agrave; vos centres d'int&eacute;r&ecirc;ts - <u>J'accepte</u>").attr("id", "gabarit_cnilcookie").appendTo("body").click(function() {
+				$("#gabarit_cnilcookie").remove();
+				var expDate = new Date();
+				expDate.setTime(expDate.getTime() + (395 * 24 * 3600 * 1000));
+				document.cookie = "cnilcookie=1;expires=" + expDate.toGMTString() + ";domain=.developpez.com;path=/";
+			});
+		}
+	});
+	</script>
+
+</body>
+
+<!-- Mirrored from python.developpez.com/cours/apprendre-python-3/.?page=glossaire by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Apr 2020 18:06:08 GMT -->
+</html>
+		

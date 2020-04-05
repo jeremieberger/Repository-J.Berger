@@ -1,0 +1,1842 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:og="http://ogp.me/ns#">
+
+<!-- Mirrored from python.developpez.com/cours/apprendre-python-3/?page=conteneurs-standard by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Apr 2020 18:06:32 GMT -->
+<head>
+	<meta charset="utf-8" />
+	<title>Une introduction à Python 3</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+	<meta name="format-detection" content="telephone=no">
+	<meta name="generator" content="developpez-com" />
+	<meta name="description" content="Une introduction à Python 3" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Une introduction à Python 3" />
+	<meta property="og:image" content="../../../www.developpez.com/template/images/logo.png" />
+	<meta property="og:url" content="index.html" />
+	<meta property="og:locale" content="fr_FR" />
+	<meta property="og:site_name" content="Developpez.com" />
+	<meta property="twitter:card" content="summary" />
+	<meta property="twitter:url" content="index.html" />
+	<meta property="twitter:description" content="Une introduction à Python 3" />
+	<meta property="twitter:title" content="Une introduction à Python 3" />
+	<meta property="twitter:image" content="../../../www.developpez.com/template/images/logo.png" />
+	<script type="text/javascript" src="../../template/scripts/jquery-1.7.2.js"></script>
+	<script async type="text/javascript" src="https://www.developpez.com/ws/pageview/"></script>
+	<script async="async" src="../../../www.googletagservices.com/tag/js/gpt.js"></script>
+	<script>
+		var googletag = googletag || {};
+		googletag.cmd = googletag.cmd || [];
+	</script>
+	<script async src="../../../pagead2.googlesyndication.com/pagead/js/f.txt"></script>
+	<link rel="shortcut icon" type="image/x-icon" href="https://python.developpez.com/template/favicon.ico" />
+	<link rel="image_src" href="../../../www.developpez.com/facebook-icon.png" />
+	<link rel="stylesheet" type="text/css" href="../../template/gabarite3be.css?1579157675" />
+	<link rel="stylesheet" type="text/css" media="print" href="../../template/printer.css" />
+	<link rel="stylesheet" type="text/css" href="../../template/gabarit-mobilee3be.css?1579157675" />
+	<script type="text/javascript" src="../../template/gabarit-mobilee3be.js?1579157675"></script>
+	<link rel="stylesheet" type="text/css" media="screen" href="../../template/kit/developpez-kit-generation.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="../../template/kit/code.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="../../template/kit/lightbox.2.51.css" />
+	<script type="text/javascript" src="../../template/kit/mathjax-dvp/MathJax22c4.js?config=TeX-AMS-MML_HTMLorMML&amp;locale=fr"></script>
+	<script type="text/javascript" src="../../template/kit/developpez-kit-generation.js"></script>
+	<script type="text/javascript" src="../../template/kit/lightbox.2.51.js"></script>
+	<script type="text/javascript" src="../../template/kit/fonctions-kit.js"></script>
+	<meta name="author" content="Kordeo" />
+	<!--[if lt IE 7]>
+	<script src="/template/ie7/IE7.js" type="text/javascript"></script>
+	<![endif]-->
+
+	<!--[if IE 6]>
+	<link rel="stylesheet" type="text/css" href="/template/gabarit-ie6.css" />
+	<![endif]-->
+
+	<!--[if IE 7]>
+	<link rel="stylesheet" type="text/css" href="/template/gabarit-ie7.css" />
+	<![endif]-->
+
+	<!--[if lt IE 9]>
+	<script type="text/javascript" src="/template/kit/html5_ie.js"></script>
+	<![endif]-->
+	<!--[if IE 9]><link rel="stylesheet" type="text/css" href="/template/kit/ie9.css" /><![endif]-->
+	<!--[if IE 8]><link rel="stylesheet" type="text/css" href="/template/kit/ie8.css" /><![endif]-->
+	<!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="/template/kit/ie.css" /><![endif]-->
+	<!--[if IE 7]><link rel="stylesheet" type="text/css" href="/template/kit/ie7.css" /><![endif]-->
+	<!--[if lte IE 6]><link rel="stylesheet" type="text/css" href="/template/kit/ie6.css" /><![endif]-->
+	<!--[if lt IE 9]><script type="text/javascript" src="/template/kit/html5_ie.js"></script><![endif]-->
+
+</head>
+<body>
+<header>
+
+<div id="gabarit_b1">
+	<div id="gabarit-barreRecherche" style="display:none;"><form action="https://www.google.fr/" target="_blank">
+  <div>
+    <input type="hidden" name="cx" value="partner-pub-8110924381468607:6449306375" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Rechercher" />
+  </div>
+</form></div>
+<div id="gabarit-new-logo" role="gabarit-accueil">
+	<a href="https://www.developpez.com/"><img src="../../template/images/logo-dvp-h55.png" width="48" height="55" /></a>
+	<a href="https://www.developpez.com/"><span class="dvp"></span></a>
+	<span class="triangle"></span>
+</div>
+<div id="gabarit_recherche"><!--<div class="gabarit-btn-menu profil" role="gabarit-profil"></div>-->
+	<div class="gabarit-btn-menu contacts" role="gabarit-contacts"></div><div class="gabarit-btn-menu recherche" role="gabarit-recherche"></div>
+</div>
+
+<div id="gabarit_superieur">
+	<nav>
+	<ul>
+		<li><a href="https://www.developpez.net/forums/" title="">Forums</a></li>
+		<li><a href="https://general.developpez.com/cours/" title="">Tutoriels</a></li>
+		<li><a href="https://magazine.developpez.com/" title="">Magazine</a></li>
+		<li><a href="https://general.developpez.com/faq/" title="">FAQ</a></li>
+		<li><a href="https://www.developpez.net/forums/blogs/" title="">Blogs</a></li>
+		<li><a href="https://chat.developpez.com/" title="">Chat</a></li>
+		<li><a href="https://www.developpez.com/newsletter/">Newsletter</a></li>
+		<li><a href="https://etudes.developpez.com/">Études</a></li>
+		<li><a href="https://emploi.developpez.com/" title="">Emploi</a></li>
+		<li><a href="https://club.developpez.com/">Club</a></li>
+	</ul>
+	</nav>
+</div></div>
+
+<nav>
+
+<!-- CONNEXION -->
+<div id="gabarit_mobile_connexion"></div>
+<div id="connexionMobile">
+	<form>
+		<div id="connexionMobile_contenu">
+		
+			<i id="fermerConnexionMobile" class="glyphicon glyphicon-remove"></i>
+			<p class="alert alert-info headerBox"></p>
+			<div class="englobeForm connexion">
+			
+				<p>Vous devez avoir un compte Developpez.com et être connecté pour pouvoir participer aux discussions.</p>
+				
+				<div class="row">
+					<div id="identificationConnexionMobile" class="col-sm-6">
+						<div class="card">
+							<div class="card-body">
+								<h5 class="card-title">Identifiez-vous</h5>
+								
+								<div id="loginBoxConnexionMobile" class="card-text">
+									<div class="groupbox">
+										<div class="cat_content">
+											<table width="100%">
+												<tr class="formIdentite">
+													<td nowrap="nowrap" class="form_label">Identifiant</td>
+													<td><input type="text" class="form_input form-control" id="formloginConnexionMobile"/></td>
+												</tr>
+												<tr class="formIdentite">
+													<td nowrap="nowrap" class="form_label">Mot de passe</td>
+													<td><input type="password" class="form_input form-control" id="formpassConnexionMobile"/></td>
+												</tr>
+												<tr><td colspan="2"><div id="formmsgConnexionMobile" style="display: none;"/></td></tr>
+												<tr><td colspan="2" align="right" class="form_label"><a href="http://www.developpez.net/forums/login.php?do=lostpw">Mot de passe oublié ?</a></td></tr>
+											</table>
+										</div>
+									</div>
+								</div>
+								
+								<div id="btnValidationConnexion">
+									<input type="button" value="Je me connecte !" id="formbuttonConnexionMobile" class="btn btn-primary" />
+									<div id="loadingConnexionMobile"><i class="glyphicon glyphicon-repeat gly-spin"></i></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="inscriptionConnexionMobile" class="col-sm-6">
+						<div class="card">
+							<div class="card-body">
+								<h5 class="card-title">Créer un compte</h5>
+								<p class="card-text">Vous n'avez pas encore de compte Developpez.com ? L'inscription est gratuite et ne vous prendra que quelques instants !</p>
+								<a href="https://www.developpez.net/forums/inscription/" class="btn btn-primary">Je m'inscris !</a>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				
+			</div>
+			<div class="englobeForm actions"></div>
+		</div>
+	</form>
+</div>
+<!-- FIN CONNEXION -->
+
+<div id="gabarit_mobile">
+	<div><a href="https://www.developpez.com/"><img src="../../template/images/logo-mobile.png" alt="" height="60"></a></div>
+	<div>
+		<p>Developpez.com</p>
+		<p>Python</p>
+	</div>
+
+	<div class="nav nav-pills nav-justified" style="white-space: nowrap; width: calc(100% - 40px);">
+					<a href="https://python.developpez.com/" class="nav-item nav-link"> &nbsp;Rubrique Python&nbsp; </a>
+			<a href="https://www.developpez.net/forums/f96/autres-langages/python-zope/" class="nav-item nav-link"> &nbsp;Forum Python&nbsp; </a>
+			
+	</div>
+	
+	<div class="nav nav-pills nav-justified" style="width: calc(100% - 40px); margin: 0 auto 6px;">
+		<a href="https://www.developpez.com/" class="nav-item nav-link"><i class="glyphicon glyphicon-home" style="top:0;"></i>&nbsp; Accueil</a>
+		<a href="https://www.developpez.net/forums/" class="nav-item nav-link"><i class="glyphicon glyphicon-comment" style="top:1px;"></i>&nbsp; Forums</a>
+			
+		<span class="nav-item nav-link" style="white-space:nowrap;" data-toggle="collapse" href="#gabarit_menu_mobile" role="button" aria-expanded="false"><i class="glyphicon glyphicon-th" style="top:0;"></i>&nbsp; Rubriques</span>
+	</div>
+</div>
+<div id="gabarit_mobile_fin"></div>
+
+<div class="collapse multi-collapse" id="gabarit_menu_mobile">
+	<p>Choisissez la catégorie, puis la rubrique :</p>
+	<ul>
+					<li>
+				<a href="https://www.developpez.com/" data-idrub="1" data-niv="1">Accueil</a>
+							</li>
+					<li>
+				<a href="https://alm.developpez.com/" data-idrub="42" data-niv="1">ALM</a>
+									<ul class="gabarit_sousmenu">
+						<li>
+							<a href="https://alm.developpez.com/" data-idrub="42" data-niv="2">
+								<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;ALM
+							</a>
+						</li>
+													<li>
+								<a href="https://merise.developpez.com/" data-idrub="43" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Merise
+								</a>
+							</li>
+													<li>
+								<a href="https://uml.developpez.com/" data-idrub="12" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;UML
+								</a>
+							</li>
+											</ul>
+							</li>
+					<li>
+				<a href="https://java.developpez.com/" data-idrub="4" data-niv="1">Java</a>
+									<ul class="gabarit_sousmenu">
+						<li>
+							<a href="https://java.developpez.com/" data-idrub="4" data-niv="2">
+								<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Java
+							</a>
+						</li>
+													<li>
+								<a href="https://javaweb.developpez.com/" data-idrub="97" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Java Web
+								</a>
+							</li>
+													<li>
+								<a href="https://spring.developpez.com/" data-idrub="87" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Spring
+								</a>
+							</li>
+													<li>
+								<a href="https://android.developpez.com/" data-idrub="95" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Android
+								</a>
+							</li>
+													<li>
+								<a href="https://eclipse.developpez.com/" data-idrub="55" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Eclipse
+								</a>
+							</li>
+													<li>
+								<a href="https://netbeans.developpez.com/" data-idrub="66" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;NetBeans
+								</a>
+							</li>
+											</ul>
+							</li>
+					<li>
+				<a href="https://dotnet.developpez.com/" data-idrub="20" data-niv="1">.NET</a>
+									<ul class="gabarit_sousmenu">
+						<li>
+							<a href="https://dotnet.developpez.com/" data-idrub="20" data-niv="2">
+								<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Microsoft DotNET
+							</a>
+						</li>
+													<li>
+								<a href="https://visualstudio.developpez.com/" data-idrub="84" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Visual Studio
+								</a>
+							</li>
+													<li>
+								<a href="https://dotnet.developpez.com/aspnet/" data-idrub="83" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;ASP.NET
+								</a>
+							</li>
+													<li>
+								<a href="https://dotnet.developpez.com/csharp/" data-idrub="81" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;C#
+								</a>
+							</li>
+													<li>
+								<a href="https://dotnet.developpez.com/vbnet/" data-idrub="82" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;VB.NET
+								</a>
+							</li>
+													<li>
+								<a href="https://windowsphone.developpez.com/" data-idrub="105" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Windows Phone
+								</a>
+							</li>
+													<li>
+								<a href="https://windows-azure.developpez.com/" data-idrub="107" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Microsoft Azure
+								</a>
+							</li>
+											</ul>
+							</li>
+					<li>
+				<a href="https://web.developpez.com/" data-idrub="8" data-niv="1">Dév. Web</a>
+									<ul class="gabarit_sousmenu">
+						<li>
+							<a href="https://web.developpez.com/" data-idrub="8" data-niv="2">
+								<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Développement Web
+							</a>
+						</li>
+													<li>
+								<a href="https://ajax.developpez.com/" data-idrub="85" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;AJAX
+								</a>
+							</li>
+													<li>
+								<a href="https://apache.developpez.com/" data-idrub="71" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Apache
+								</a>
+							</li>
+													<li>
+								<a href="https://asp.developpez.com/" data-idrub="10" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;ASP
+								</a>
+							</li>
+													<li>
+								<a href="https://css.developpez.com/" data-idrub="51" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;CSS
+								</a>
+							</li>
+													<li>
+								<a href="https://dart.developpez.com/" data-idrub="125" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Dart
+								</a>
+							</li>
+													<li>
+								<a href="https://flash.developpez.com/" data-idrub="41" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Flash / Flex
+								</a>
+							</li>
+													<li>
+								<a href="https://javascript.developpez.com/" data-idrub="45" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;JavaScript
+								</a>
+							</li>
+													<li>
+								<a href="https://nodejs.developpez.com/" data-idrub="141" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;NodeJS
+								</a>
+							</li>
+													<li>
+								<a href="https://php.developpez.com/" data-idrub="9" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;PHP
+								</a>
+							</li>
+													<li>
+								<a href="https://ruby.developpez.com/" data-idrub="53" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Ruby &amp; Rails
+								</a>
+							</li>
+													<li>
+								<a href="https://typescript.developpez.com/" data-idrub="127" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;TypeScript
+								</a>
+							</li>
+													<li>
+								<a href="https://web-semantique.developpez.com/" data-idrub="111" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Web sémantique
+								</a>
+							</li>
+													<li>
+								<a href="https://webmarketing.developpez.com/" data-idrub="80" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Webmarketing
+								</a>
+							</li>
+													<li>
+								<a href="https://xhtml.developpez.com/" data-idrub="50" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;(X)HTML
+								</a>
+							</li>
+											</ul>
+							</li>
+					<li>
+				<a href="https://edi.developpez.com/" data-idrub="90" data-niv="1">EDI</a>
+									<ul class="gabarit_sousmenu">
+						<li>
+							<a href="https://edi.developpez.com/" data-idrub="90" data-niv="2">
+								<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;EDI
+							</a>
+						</li>
+													<li>
+								<a href="https://4d.developpez.com/" data-idrub="39" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;4D
+								</a>
+							</li>
+													<li>
+								<a href="https://delphi.developpez.com/" data-idrub="2" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Delphi
+								</a>
+							</li>
+													<li>
+								<a href="https://eclipse.developpez.com/" data-idrub="55" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Eclipse
+								</a>
+							</li>
+													<li>
+								<a href="https://jetbrains.developpez.com/" data-idrub="144" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;JetBrains
+								</a>
+							</li>
+													<li>
+								<a href="https://labview.developpez.com/" data-idrub="72" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;LabVIEW
+								</a>
+							</li>
+													<li>
+								<a href="https://netbeans.developpez.com/" data-idrub="66" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;NetBeans
+								</a>
+							</li>
+													<li>
+								<a href="https://matlab.developpez.com/" data-idrub="58" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;MATLAB
+								</a>
+							</li>
+													<li>
+								<a href="https://scilab.developpez.com/" data-idrub="120" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Scilab
+								</a>
+							</li>
+													<li>
+								<a href="https://visualstudio.developpez.com/" data-idrub="84" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Visual Studio
+								</a>
+							</li>
+													<li>
+								<a href="https://wind.developpez.com/" data-idrub="74" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;WinDev
+								</a>
+							</li>
+													<li>
+								<a href="https://vb.developpez.com/" data-idrub="5" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Visual Basic 6
+								</a>
+							</li>
+													<li>
+								<a href="https://lazarus.developpez.com/" data-idrub="96" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Lazarus
+								</a>
+							</li>
+													<li>
+								<a href="https://qt-creator.developpez.com/" data-idrub="109" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Qt Creator
+								</a>
+							</li>
+											</ul>
+							</li>
+					<li>
+				<a href="https://programmation.developpez.com/" data-idrub="119" data-niv="1">Programmation</a>
+									<ul class="gabarit_sousmenu">
+						<li>
+							<a href="https://programmation.developpez.com/" data-idrub="119" data-niv="2">
+								<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Programmation
+							</a>
+						</li>
+													<li>
+								<a href="https://algo.developpez.com/" data-idrub="47" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Débuter - Algorithmique
+								</a>
+							</li>
+													<li>
+								<a href="https://jeux.developpez.com/" data-idrub="38" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;2D - 3D - Jeux
+								</a>
+							</li>
+													<li>
+								<a href="https://asm.developpez.com/" data-idrub="16" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Assembleur
+								</a>
+							</li>
+													<li>
+								<a href="https://c.developpez.com/" data-idrub="3" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;C
+								</a>
+							</li>
+													<li>
+								<a href="https://cpp.developpez.com/" data-idrub="59" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;C++
+								</a>
+							</li>
+													<li>
+								<a href="https://d.developpez.com/" data-idrub="123" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;D
+								</a>
+							</li>
+													<li>
+								<a href="https://go.developpez.com/" data-idrub="124" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Go
+								</a>
+							</li>
+													<li>
+								<a href="https://kotlin.developpez.com/" data-idrub="145" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Kotlin
+								</a>
+							</li>
+													<li>
+								<a href="https://objective-c.developpez.com/" data-idrub="117" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Objective C
+								</a>
+							</li>
+													<li>
+								<a href="https://pascal.developpez.com/" data-idrub="7" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Pascal
+								</a>
+							</li>
+													<li>
+								<a href="https://perl.developpez.com/" data-idrub="29" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Perl
+								</a>
+							</li>
+													<li>
+								<a href="https://python.developpez.com/" data-idrub="27" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Python
+								</a>
+							</li>
+													<li>
+								<a href="https://rust.developpez.com/" data-idrub="137" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Rust
+								</a>
+							</li>
+													<li>
+								<a href="https://swift.developpez.com/" data-idrub="128" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Swift
+								</a>
+							</li>
+													<li>
+								<a href="https://qt.developpez.com/" data-idrub="65" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Qt
+								</a>
+							</li>
+													<li>
+								<a href="https://xml.developpez.com/" data-idrub="11" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;XML
+								</a>
+							</li>
+													<li>
+								<a href="https://general.developpez.com/cours/" data-idrub="21" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Autres
+								</a>
+							</li>
+											</ul>
+							</li>
+					<li>
+				<a href="https://sgbd.developpez.com/" data-idrub="13" data-niv="1">SGBD</a>
+									<ul class="gabarit_sousmenu">
+						<li>
+							<a href="https://sgbd.developpez.com/" data-idrub="13" data-niv="2">
+								<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;SGBD &amp; SQL
+							</a>
+						</li>
+													<li>
+								<a href="https://4d.developpez.com/" data-idrub="39" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;4D
+								</a>
+							</li>
+													<li>
+								<a href="https://access.developpez.com/" data-idrub="19" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Access
+								</a>
+							</li>
+													<li>
+								<a href="https://big-data.developpez.com/" data-idrub="126" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Big Data
+								</a>
+							</li>
+													<li>
+								<a href="https://db2.developpez.com/" data-idrub="36" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;DB2
+								</a>
+							</li>
+													<li>
+								<a href="https://firebird.developpez.com/" data-idrub="73" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Firebird
+								</a>
+							</li>
+													<li>
+								<a href="https://interbase.developpez.com/" data-idrub="32" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;InterBase
+								</a>
+							</li>
+													<li>
+								<a href="https://mysql.developpez.com/" data-idrub="31" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;MySQL
+								</a>
+							</li>
+													<li>
+								<a href="https://nosql.developpez.com/" data-idrub="114" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;NoSQL
+								</a>
+							</li>
+													<li>
+								<a href="https://postgresql.developpez.com/" data-idrub="33" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;PostgreSQL
+								</a>
+							</li>
+													<li>
+								<a href="https://oracle.developpez.com/" data-idrub="25" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Oracle
+								</a>
+							</li>
+													<li>
+								<a href="https://sybase.developpez.com/" data-idrub="37" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Sybase
+								</a>
+							</li>
+													<li>
+								<a href="https://sqlserver.developpez.com/" data-idrub="34" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;SQL-Server
+								</a>
+							</li>
+											</ul>
+							</li>
+					<li>
+				<a href="https://office.developpez.com/" data-idrub="54" data-niv="1">Office</a>
+									<ul class="gabarit_sousmenu">
+						<li>
+							<a href="https://office.developpez.com/" data-idrub="54" data-niv="2">
+								<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Microsoft Office
+							</a>
+						</li>
+													<li>
+								<a href="https://access.developpez.com/" data-idrub="19" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Access
+								</a>
+							</li>
+													<li>
+								<a href="https://excel.developpez.com/" data-idrub="75" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Excel
+								</a>
+							</li>
+													<li>
+								<a href="https://word.developpez.com/" data-idrub="76" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Word
+								</a>
+							</li>
+													<li>
+								<a href="https://outlook.developpez.com/" data-idrub="77" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Outlook
+								</a>
+							</li>
+													<li>
+								<a href="https://powerpoint.developpez.com/" data-idrub="78" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;PowerPoint
+								</a>
+							</li>
+													<li>
+								<a href="https://sharepoint.developpez.com/" data-idrub="79" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;SharePoint
+								</a>
+							</li>
+													<li>
+								<a href="https://project.developpez.com/" data-idrub="99" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Microsoft Project
+								</a>
+							</li>
+													<li>
+								<a href="https://openoffice-libreoffice.developpez.com/" data-idrub="116" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;OpenOffice &amp; LibreOffice
+								</a>
+							</li>
+											</ul>
+							</li>
+					<li>
+				<a href="https://solutions-entreprise.developpez.com/" data-idrub="86" data-niv="1">Solutions d&#039;entreprise</a>
+									<ul class="gabarit_sousmenu">
+						<li>
+							<a href="https://solutions-entreprise.developpez.com/" data-idrub="86" data-niv="2">
+								<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Solutions d&#039;entreprise
+							</a>
+						</li>
+													<li>
+								<a href="https://abbyy.developpez.com/" data-idrub="147" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;ABBYY
+								</a>
+							</li>
+													<li>
+								<a href="https://big-data.developpez.com/" data-idrub="126" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Big Data
+								</a>
+							</li>
+													<li>
+								<a href="https://bpm.developpez.com/" data-idrub="134" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;BPM
+								</a>
+							</li>
+													<li>
+								<a href="https://business-intelligence.developpez.com/" data-idrub="61" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Business Intelligence
+								</a>
+							</li>
+													<li>
+								<a href="https://solutions-entreprise.developpez.com/erp-pgi/presentation-erp-pgi/" data-idrub="91" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;ERP / PGI
+								</a>
+							</li>
+													<li>
+								<a href="https://crm.developpez.com/" data-idrub="92" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;CRM
+								</a>
+							</li>
+													<li>
+								<a href="https://sas.developpez.com/" data-idrub="93" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;SAS
+								</a>
+							</li>
+													<li>
+								<a href="https://cloud-computing.developpez.com/" data-idrub="103" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Cloud Computing
+								</a>
+							</li>
+													<li>
+								<a href="https://sap.developpez.com/" data-idrub="106" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;SAP
+								</a>
+							</li>
+													<li>
+								<a href="https://www.developpez.net/forums/f1664/systemes/windows/windows-serveur/biztalk-server/" data-idrub="115" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Microsoft BizTalk Server
+								</a>
+							</li>
+													<li>
+								<a href="https://talend.developpez.com/" data-idrub="118" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Talend
+								</a>
+							</li>
+													<li>
+								<a href="https://ibmcloud.developpez.com/" data-idrub="135" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;IBM Cloud
+								</a>
+							</li>
+													<li>
+								<a href="https://intelligence-artificielle.developpez.com/" data-idrub="143" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Intelligence artificielle
+								</a>
+							</li>
+											</ul>
+							</li>
+					<li>
+				<a href="https://applications.developpez.com/" data-idrub="88" data-niv="1">Applications</a>
+									<ul class="gabarit_sousmenu">
+						<li>
+							<a href="https://applications.developpez.com/" data-idrub="88" data-niv="2">
+								<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Applications
+							</a>
+						</li>
+													<li>
+								<a href="https://open-source.developpez.com/" data-idrub="121" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Libres &amp; Open Source
+								</a>
+							</li>
+													<li>
+								<a href="https://openoffice-libreoffice.developpez.com/" data-idrub="116" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;OpenOffice &amp; LibreOffice
+								</a>
+							</li>
+													<li>
+								<a href="https://portail-projets.developpez.com/" data-idrub="98" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Projets
+								</a>
+							</li>
+											</ul>
+							</li>
+					<li>
+				<a href="https://mobiles.developpez.com/" data-idrub="94" data-niv="1">Mobiles</a>
+									<ul class="gabarit_sousmenu">
+						<li>
+							<a href="https://mobiles.developpez.com/" data-idrub="94" data-niv="2">
+								<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Mobiles
+							</a>
+						</li>
+													<li>
+								<a href="https://android.developpez.com/" data-idrub="95" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Android
+								</a>
+							</li>
+													<li>
+								<a href="https://ios.developpez.com/" data-idrub="101" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;iOS
+								</a>
+							</li>
+													<li>
+								<a href="https://windowsphone.developpez.com/" data-idrub="105" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Windows Phone
+								</a>
+							</li>
+											</ul>
+							</li>
+					<li>
+				<a href="https://systeme.developpez.com/" data-idrub="30" data-niv="1">Systèmes</a>
+									<ul class="gabarit_sousmenu">
+						<li>
+							<a href="https://systeme.developpez.com/" data-idrub="30" data-niv="2">
+								<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Systèmes
+							</a>
+						</li>
+													<li>
+								<a href="https://windows.developpez.com/" data-idrub="17" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Windows
+								</a>
+							</li>
+													<li>
+								<a href="https://linux.developpez.com/" data-idrub="18" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Linux
+								</a>
+							</li>
+													<li>
+								<a href="https://arduino.developpez.com/" data-idrub="142" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Arduino
+								</a>
+							</li>
+													<li>
+								<a href="https://securite.developpez.com/" data-idrub="40" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Sécurité
+								</a>
+							</li>
+													<li>
+								<a href="https://hardware.developpez.com/" data-idrub="64" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Hardware
+								</a>
+							</li>
+													<li>
+								<a href="https://hpc.developpez.com/" data-idrub="139" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;HPC
+								</a>
+							</li>
+													<li>
+								<a href="https://mac.developpez.com/" data-idrub="57" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Mac
+								</a>
+							</li>
+													<li>
+								<a href="https://raspberry-pi.developpez.com/" data-idrub="131" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Raspberry Pi
+								</a>
+							</li>
+													<li>
+								<a href="https://reseau.developpez.com/" data-idrub="70" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Réseau
+								</a>
+							</li>
+													<li>
+								<a href="https://green-it.developpez.com/" data-idrub="104" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Green IT
+								</a>
+							</li>
+													<li>
+								<a href="https://embarque.developpez.com/" data-idrub="110" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Systèmes embarqués
+								</a>
+							</li>
+													<li>
+								<a href="https://virtualisation.developpez.com/" data-idrub="108" data-niv="2">
+									<span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Virtualisation
+								</a>
+							</li>
+											</ul>
+							</li>
+			</ul>
+</div>
+
+<ul id="gabarit_menu" style="padding-left:56px;">
+	<li><a href="https://www.developpez.com/" data-idrub="1" data-niv="1" style="padding:0;"><div id="gabarit_home"></div></a>
+			</li>
+	<li><a href="https://alm.developpez.com/" data-idrub="42" data-niv="1">ALM<!--<span class="gabarit_tooltip">Cycle de vie du logiciel</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://alm.developpez.com/" data-idrub="42" data-niv="2">ALM</a></li>
+				<li><a href="https://merise.developpez.com/" data-idrub="43" data-niv="2">Merise</a></li>
+				<li><a href="https://uml.developpez.com/" data-idrub="12" data-niv="2">UML</a></li>
+			</ul></li>
+	<li><a href="https://java.developpez.com/" data-idrub="4" data-niv="1">Java<!--<span class="gabarit_tooltip">Plateforme et langage Java</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://java.developpez.com/" data-idrub="4" data-niv="2">Java</a></li>
+				<li><a href="https://javaweb.developpez.com/" data-idrub="97" data-niv="2">Java Web</a></li>
+				<li><a href="https://spring.developpez.com/" data-idrub="87" data-niv="2">Spring</a></li>
+				<li><a href="https://android.developpez.com/" data-idrub="95" data-niv="2">Android</a></li>
+				<li><a href="https://eclipse.developpez.com/" data-idrub="55" data-niv="2">Eclipse</a></li>
+				<li><a href="https://netbeans.developpez.com/" data-idrub="66" data-niv="2">NetBeans</a></li>
+			</ul></li>
+	<li><a href="https://dotnet.developpez.com/" data-idrub="20" data-niv="1">.NET<!--<span class="gabarit_tooltip">Microsoft Framework .NET</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://dotnet.developpez.com/" data-idrub="20" data-niv="2">Microsoft DotNET</a></li>
+				<li><a href="https://visualstudio.developpez.com/" data-idrub="84" data-niv="2">Visual Studio</a></li>
+				<li><a href="https://dotnet.developpez.com/aspnet/" data-idrub="83" data-niv="2">ASP.NET</a></li>
+				<li><a href="https://dotnet.developpez.com/csharp/" data-idrub="81" data-niv="2">C#</a></li>
+				<li><a href="https://dotnet.developpez.com/vbnet/" data-idrub="82" data-niv="2">VB.NET</a></li>
+				<li><a href="https://windowsphone.developpez.com/" data-idrub="105" data-niv="2">Windows Phone</a></li>
+				<li><a href="https://windows-azure.developpez.com/" data-idrub="107" data-niv="2">Microsoft Azure</a></li>
+			</ul></li>
+	<li><a href="https://web.developpez.com/" data-idrub="8" data-niv="1">Dév. Web<!--<span class="gabarit_tooltip">Développement Web et Webmarketing</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://web.developpez.com/" data-idrub="8" data-niv="2">Développement Web</a></li>
+				<li><a href="https://ajax.developpez.com/" data-idrub="85" data-niv="2">AJAX</a></li>
+				<li><a href="https://apache.developpez.com/" data-idrub="71" data-niv="2">Apache</a></li>
+				<li><a href="https://asp.developpez.com/" data-idrub="10" data-niv="2">ASP</a></li>
+				<li><a href="https://css.developpez.com/" data-idrub="51" data-niv="2">CSS</a></li>
+				<li><a href="https://dart.developpez.com/" data-idrub="125" data-niv="2">Dart</a></li>
+				<li><a href="https://flash.developpez.com/" data-idrub="41" data-niv="2">Flash / Flex</a></li>
+				<li><a href="https://javascript.developpez.com/" data-idrub="45" data-niv="2">JavaScript</a></li>
+				<li><a href="https://nodejs.developpez.com/" data-idrub="141" data-niv="2">NodeJS</a></li>
+				<li><a href="https://php.developpez.com/" data-idrub="9" data-niv="2">PHP</a></li>
+				<li><a href="https://ruby.developpez.com/" data-idrub="53" data-niv="2">Ruby &amp; Rails</a></li>
+				<li><a href="https://typescript.developpez.com/" data-idrub="127" data-niv="2">TypeScript</a></li>
+				<li><a href="https://web-semantique.developpez.com/" data-idrub="111" data-niv="2">Web sémantique</a></li>
+				<li><a href="https://webmarketing.developpez.com/" data-idrub="80" data-niv="2">Webmarketing</a></li>
+				<li><a href="https://xhtml.developpez.com/" data-idrub="50" data-niv="2">(X)HTML</a></li>
+			</ul></li>
+	<li><a href="https://edi.developpez.com/" data-idrub="90" data-niv="1">EDI<!--<span class="gabarit_tooltip">Environnements de Développement Intégré</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://edi.developpez.com/" data-idrub="90" data-niv="2">EDI</a></li>
+				<li><a href="https://4d.developpez.com/" data-idrub="39" data-niv="2">4D</a></li>
+				<li><a href="https://delphi.developpez.com/" data-idrub="2" data-niv="2">Delphi</a></li>
+				<li><a href="https://eclipse.developpez.com/" data-idrub="55" data-niv="2">Eclipse</a></li>
+				<li><a href="https://jetbrains.developpez.com/" data-idrub="144" data-niv="2">JetBrains</a></li>
+				<li><a href="https://labview.developpez.com/" data-idrub="72" data-niv="2">LabVIEW</a></li>
+				<li><a href="https://netbeans.developpez.com/" data-idrub="66" data-niv="2">NetBeans</a></li>
+				<li><a href="https://matlab.developpez.com/" data-idrub="58" data-niv="2">MATLAB</a></li>
+				<li><a href="https://scilab.developpez.com/" data-idrub="120" data-niv="2">Scilab</a></li>
+				<li><a href="https://visualstudio.developpez.com/" data-idrub="84" data-niv="2">Visual Studio</a></li>
+				<li><a href="https://wind.developpez.com/" data-idrub="74" data-niv="2">WinDev</a></li>
+				<li><a href="https://vb.developpez.com/" data-idrub="5" data-niv="2">Visual Basic 6</a></li>
+				<li><a href="https://lazarus.developpez.com/" data-idrub="96" data-niv="2">Lazarus</a></li>
+				<li><a href="https://qt-creator.developpez.com/" data-idrub="109" data-niv="2">Qt Creator</a></li>
+			</ul></li>
+	<li><a href="https://programmation.developpez.com/" data-idrub="119" data-niv="1" class="gabarit_selection">Programmation<!--<span class="gabarit_tooltip">Programmation et langages de programmation applicatifs</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://programmation.developpez.com/" data-idrub="119" data-niv="2">Programmation</a></li>
+				<li><a href="https://algo.developpez.com/" data-idrub="47" data-niv="2">Débuter - Algorithmique</a></li>
+				<li><a href="https://jeux.developpez.com/" data-idrub="38" data-niv="2">2D - 3D - Jeux</a></li>
+				<li><a href="https://asm.developpez.com/" data-idrub="16" data-niv="2">Assembleur</a></li>
+				<li><a href="https://c.developpez.com/" data-idrub="3" data-niv="2">C</a></li>
+				<li><a href="https://cpp.developpez.com/" data-idrub="59" data-niv="2">C++</a></li>
+				<li><a href="https://d.developpez.com/" data-idrub="123" data-niv="2">D</a></li>
+				<li><a href="https://go.developpez.com/" data-idrub="124" data-niv="2">Go</a></li>
+				<li><a href="https://kotlin.developpez.com/" data-idrub="145" data-niv="2">Kotlin</a></li>
+				<li><a href="https://objective-c.developpez.com/" data-idrub="117" data-niv="2">Objective C</a></li>
+				<li><a href="https://pascal.developpez.com/" data-idrub="7" data-niv="2">Pascal</a></li>
+				<li><a href="https://perl.developpez.com/" data-idrub="29" data-niv="2">Perl</a></li>
+				<li><a href="https://python.developpez.com/" data-idrub="27" data-niv="2">Python</a></li>
+				<li><a href="https://rust.developpez.com/" data-idrub="137" data-niv="2">Rust</a></li>
+				<li><a href="https://swift.developpez.com/" data-idrub="128" data-niv="2">Swift</a></li>
+				<li><a href="https://qt.developpez.com/" data-idrub="65" data-niv="2">Qt</a></li>
+				<li><a href="https://xml.developpez.com/" data-idrub="11" data-niv="2">XML</a></li>
+				<li><a href="https://general.developpez.com/cours/" data-idrub="21" data-niv="2">Autres</a></li>
+			</ul></li>
+	<li><a href="https://sgbd.developpez.com/" data-idrub="13" data-niv="1">SGBD<!--<span class="gabarit_tooltip">Systèmes de Gestion de Bases de Données</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://sgbd.developpez.com/" data-idrub="13" data-niv="2">SGBD &amp; SQL</a></li>
+				<li><a href="https://4d.developpez.com/" data-idrub="39" data-niv="2">4D</a></li>
+				<li><a href="https://access.developpez.com/" data-idrub="19" data-niv="2">Access</a></li>
+				<li><a href="https://big-data.developpez.com/" data-idrub="126" data-niv="2">Big Data</a></li>
+				<li><a href="https://db2.developpez.com/" data-idrub="36" data-niv="2">DB2</a></li>
+				<li><a href="https://firebird.developpez.com/" data-idrub="73" data-niv="2">Firebird</a></li>
+				<li><a href="https://interbase.developpez.com/" data-idrub="32" data-niv="2">InterBase</a></li>
+				<li><a href="https://mysql.developpez.com/" data-idrub="31" data-niv="2">MySQL</a></li>
+				<li><a href="https://nosql.developpez.com/" data-idrub="114" data-niv="2">NoSQL</a></li>
+				<li><a href="https://postgresql.developpez.com/" data-idrub="33" data-niv="2">PostgreSQL</a></li>
+				<li><a href="https://oracle.developpez.com/" data-idrub="25" data-niv="2">Oracle</a></li>
+				<li><a href="https://sybase.developpez.com/" data-idrub="37" data-niv="2">Sybase</a></li>
+				<li><a href="https://sqlserver.developpez.com/" data-idrub="34" data-niv="2">SQL-Server</a></li>
+			</ul></li>
+	<li><a href="https://office.developpez.com/" data-idrub="54" data-niv="1">Office<!--<span class="gabarit_tooltip">Bureautique pour l'entreprise</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://office.developpez.com/" data-idrub="54" data-niv="2">Microsoft Office</a></li>
+				<li><a href="https://access.developpez.com/" data-idrub="19" data-niv="2">Access</a></li>
+				<li><a href="https://excel.developpez.com/" data-idrub="75" data-niv="2">Excel</a></li>
+				<li><a href="https://word.developpez.com/" data-idrub="76" data-niv="2">Word</a></li>
+				<li><a href="https://outlook.developpez.com/" data-idrub="77" data-niv="2">Outlook</a></li>
+				<li><a href="https://powerpoint.developpez.com/" data-idrub="78" data-niv="2">PowerPoint</a></li>
+				<li><a href="https://sharepoint.developpez.com/" data-idrub="79" data-niv="2">SharePoint</a></li>
+				<li><a href="https://project.developpez.com/" data-idrub="99" data-niv="2">Microsoft Project</a></li>
+				<li><a href="https://openoffice-libreoffice.developpez.com/" data-idrub="116" data-niv="2">OpenOffice &amp; LibreOffice</a></li>
+			</ul></li>
+	<li><a href="https://solutions-entreprise.developpez.com/" data-idrub="86" data-niv="1">Solutions d&#039;entreprise<!--<span class="gabarit_tooltip">Autres logiciels pour l'entreprise</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://solutions-entreprise.developpez.com/" data-idrub="86" data-niv="2">Solutions d&#039;entreprise</a></li>
+				<li><a href="https://abbyy.developpez.com/" data-idrub="147" data-niv="2">ABBYY</a></li>
+				<li><a href="https://big-data.developpez.com/" data-idrub="126" data-niv="2">Big Data</a></li>
+				<li><a href="https://bpm.developpez.com/" data-idrub="134" data-niv="2">BPM</a></li>
+				<li><a href="https://business-intelligence.developpez.com/" data-idrub="61" data-niv="2">Business Intelligence</a></li>
+				<li><a href="https://solutions-entreprise.developpez.com/erp-pgi/presentation-erp-pgi/" data-idrub="91" data-niv="2">ERP / PGI</a></li>
+				<li><a href="https://crm.developpez.com/" data-idrub="92" data-niv="2">CRM</a></li>
+				<li><a href="https://sas.developpez.com/" data-idrub="93" data-niv="2">SAS</a></li>
+				<li><a href="https://cloud-computing.developpez.com/" data-idrub="103" data-niv="2">Cloud Computing</a></li>
+				<li><a href="https://sap.developpez.com/" data-idrub="106" data-niv="2">SAP</a></li>
+				<li><a href="https://www.developpez.net/forums/f1664/systemes/windows/windows-serveur/biztalk-server/" data-idrub="115" data-niv="2">Microsoft BizTalk Server</a></li>
+				<li><a href="https://talend.developpez.com/" data-idrub="118" data-niv="2">Talend</a></li>
+				<li><a href="https://ibmcloud.developpez.com/" data-idrub="135" data-niv="2">IBM Cloud</a></li>
+				<li><a href="https://intelligence-artificielle.developpez.com/" data-idrub="143" data-niv="2">Intelligence artificielle</a></li>
+			</ul></li>
+	<li><a href="https://applications.developpez.com/" data-idrub="88" data-niv="1">Applications<!--<span class="gabarit_tooltip">Applications logicielles</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://applications.developpez.com/" data-idrub="88" data-niv="2">Applications</a></li>
+				<li><a href="https://open-source.developpez.com/" data-idrub="121" data-niv="2">Libres &amp; Open Source</a></li>
+				<li><a href="https://openoffice-libreoffice.developpez.com/" data-idrub="116" data-niv="2">OpenOffice &amp; LibreOffice</a></li>
+				<li><a href="https://portail-projets.developpez.com/" data-idrub="98" data-niv="2">Projets</a></li>
+			</ul></li>
+	<li><a href="https://mobiles.developpez.com/" data-idrub="94" data-niv="1">Mobiles<!--<span class="gabarit_tooltip">Logiciels et matériels mobiles</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://mobiles.developpez.com/" data-idrub="94" data-niv="2">Mobiles</a></li>
+				<li><a href="https://android.developpez.com/" data-idrub="95" data-niv="2">Android</a></li>
+				<li><a href="https://ios.developpez.com/" data-idrub="101" data-niv="2">iOS</a></li>
+				<li><a href="https://windowsphone.developpez.com/" data-idrub="105" data-niv="2">Windows Phone</a></li>
+			</ul></li>
+	<li><a href="https://systeme.developpez.com/" data-idrub="30" data-niv="1">Systèmes<!--<span class="gabarit_tooltip">Logiciels et matériels systèmes</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://systeme.developpez.com/" data-idrub="30" data-niv="2">Systèmes</a></li>
+				<li><a href="https://windows.developpez.com/" data-idrub="17" data-niv="2">Windows</a></li>
+				<li><a href="https://linux.developpez.com/" data-idrub="18" data-niv="2">Linux</a></li>
+				<li><a href="https://arduino.developpez.com/" data-idrub="142" data-niv="2">Arduino</a></li>
+				<li><a href="https://securite.developpez.com/" data-idrub="40" data-niv="2">Sécurité</a></li>
+				<li><a href="https://hardware.developpez.com/" data-idrub="64" data-niv="2">Hardware</a></li>
+				<li><a href="https://hpc.developpez.com/" data-idrub="139" data-niv="2">HPC</a></li>
+				<li><a href="https://mac.developpez.com/" data-idrub="57" data-niv="2">Mac</a></li>
+				<li><a href="https://raspberry-pi.developpez.com/" data-idrub="131" data-niv="2">Raspberry Pi</a></li>
+				<li><a href="https://reseau.developpez.com/" data-idrub="70" data-niv="2">Réseau</a></li>
+				<li><a href="https://green-it.developpez.com/" data-idrub="104" data-niv="2">Green IT</a></li>
+				<li><a href="https://embarque.developpez.com/" data-idrub="110" data-niv="2">Systèmes embarqués</a></li>
+				<li><a href="https://virtualisation.developpez.com/" data-idrub="108" data-niv="2">Virtualisation</a></li>
+			</ul></li>
+</ul>
+
+<ul id="gabarit_barre1"><li><a href="https://programmation.developpez.com/">Programmation</a></li><li><a href="https://algo.developpez.com/">Algorithmique</a></li><li><a href="https://jeux.developpez.com/">2D-3D-Jeux</a></li><li><a href="https://asm.developpez.com/">Assembleur</a></li><li><a href="https://c.developpez.com/">C</a></li><li><a href="https://cpp.developpez.com/">C++</a></li><li><a href="https://d.developpez.com/">D</a></li><li><a href="https://go.developpez.com/">Go</a></li><li><a href="https://kotlin.developpez.com/">Kotlin</a></li><li><a href="https://objective-c.developpez.com/">Objective C</a></li><li><a href="https://pascal.developpez.com/">Pascal</a></li><li><a href="https://perl.developpez.com/">Perl</a></li><li class="gabarit_selection"><a href="https://python.developpez.com/">Python</a></li><li><a href="https://rust.developpez.com/">Rust</a></li><li><a href="https://swift.developpez.com/">Swift</a></li><li><a href="https://qt.developpez.com/">Qt</a></li><li><a href="https://xml.developpez.com/">XML</a></li><li><a href="https://general.developpez.com/cours/">Autres</a></li></ul>
+
+<div id="gabarit_barre2">
+	<a class="gabarit_social gabarit_facebook" href="http://www.facebook.com/pages/Python/109302299105907" target="_blank" title="Retrouver Developpez sur Facebook"></a>
+	<a class="gabarit_social gabarit_twitter" href="https://twitter.com/PythonDVP" target="_blank" title="Retrouver Developpez sur Twitter"></a>
+	<a class="gabarit_social gabarit_rss" href="http://python.developpez.com/index/rss" target="_blank" title="Flux RSS"></a>
+	<ul>
+<li><a href="https://www.developpez.net/forums/f96/autres-langages/python-zope/">FORUM PYTHON</a></li><li><a href="https://python.developpez.com/faq/">F.A.Q PYTHON</a></li><li><a href="https://python.developpez.com/cours/">TUTORIELS PYTHON</a></li><li><a href="https://python.developpez.com/sources/">SOURCES PYTHON</a></li><li><a href="https://python.developpez.com/telecharger/index/categorie/34/Outils-Python">OUTILS PYTHON</a></li><li><a href="https://python.developpez.com/livres/">LIVRES PYTHON</a></li><li><a href="http://pyqt.developpez.com/">PyQt</a></li>	</ul>
+</div>
+
+</nav>
+</header>
+<section>
+
+<div id="gabarit_pubBB">
+<div id="gabarit_pub0"></div><div id="dg27za0r" class="dvpb0" style="display: inline-block; width: 728px; height: 90px"></div>
+</div>
+
+<div class="contenuPage">		<article class="ArticleComplet" itemscope itemtype="http://schema.org/Article">
+<meta itemprop="genre" content="informatique"/>
+<meta itemprop="inLanguage" content="fr-FR"/>
+		
+<header class="EnteteTitres">
+<h1 class="titre-article" itemprop="name">Une introduction à Python 3 </h1>
+<h2 class="soustitre-article">
+    <a data-rel="lightbox[article]" href="images/python3-01.png"><img src="images/python3-01.png" alt="Image non disponible" width="167" height="325" class="ImgCliquable image_verticale"/></a>
+  </h2>
+</header><nav class="nav-sommaire ArticleHorsLigne"><header><h1 class="TitreHeader StopArrondi ToggleGecko">Table des mati&egrave;res<img class="ToggleImgPlier" title="Plier" alt="Plier" src="../../template/kit/fleche-haut-bleue.png"/><img class="ToggleImgDeplier" title="Déplier" alt="Déplier" style="display:none;" src="../../template/kit/fleche-bas-bleue.png"/></h1></header><ul id="nav_sommaire_ul_principal" class="nav-sommaire-ul">
+  
+	
+  
+  
+  
+  
+  
+  <li><a class="summaryIndent0" href="#L4">4. Conteneurs standard</a><ul class="nav-sommaire-ul Indentation4">
+      
+      
+      
+      
+      <li><a class="summaryIndent1" href="#L4-1">4-1. Séquences</a></li>
+      <li><a class="summaryIndent1" href="#L4-2">4-2. Listes</a><ul class="nav-sommaire-ul Indentation4-2">
+        
+        <li><a class="summaryIndent2" href="#L4-2-1">4-2-1. Définition, syntaxe et exemples</a></li>
+        <li><a class="summaryIndent2" href="#L4-2-2">4-2-2. Initialisations et tests d'appartenance</a></li>
+        <li><a class="summaryIndent2" href="#L4-2-3">4-2-3. Méthodes</a></li>
+        <li><a class="summaryIndent2" href="#L4-2-4">4-2-4. Manipulation des tranches (ou sous-chaînes)</a></li>
+        <li><a class="summaryIndent2" href="#L4-2-5">4-2-5. Séquences de séquences</a></li>
+      </ul></li>
+      <li><a class="summaryIndent1" href="#L4-3">4-3. Tuples</a><ul class="nav-sommaire-ul Indentation4-3">
+        
+        
+        
+        
+        
+        
+        
+        <li><a class="summaryIndent2" href="#L4-3-1">4-3-1. Les opérations des objets de type séquentiel</a></li>
+      </ul></li>
+      <li><a class="summaryIndent1" href="#L4-4">4-4. Retour sur les références</a><ul class="nav-sommaire-ul Indentation4-4">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <li><a class="summaryIndent2" href="#L4-4-1">4-4-1. Complément graphique sur l'assignation</a></li>
+      </ul></li>
+      <li><a class="summaryIndent1" href="#L4-5">4-5. Tableaux associatifs</a><ul class="nav-sommaire-ul Indentation4-5">
+        
+        
+        
+        <li><a class="summaryIndent2" href="#L4-5-1">4-5-1. Dictionnaires (dict)</a><ul class="nav-sommaire-ul Indentation4-5-1">
+          
+          
+          
+          
+          
+          <li><a class="summaryIndent3" href="#L4-5-1-a">4-5-1-a. Exemples de création</a></li>
+          <li><a class="summaryIndent3" href="#L4-5-1-b">4-5-1-b. Méthodes</a></li>
+        </ul></li>
+      </ul></li>
+      <li><a class="summaryIndent1" href="#L4-6">4-6. Ensembles (set)</a></li>
+      <li><a class="summaryIndent1" href="#L4-7">4-7. Fichiers textuels</a><ul class="nav-sommaire-ul Indentation4-7">
+        
+        <li><a class="summaryIndent2" href="#L4-7-1">4-7-1. Introduction</a></li>
+        <li><a class="summaryIndent2" href="#L4-7-2">4-7-2. Gestion des fichiers</a><ul class="nav-sommaire-ul Indentation4-7-2">
+          
+          <li><a class="summaryIndent3" href="#L4-7-2-a">4-7-2-a. Ouverture et fermeture des fichiers</a></li>
+          <li><a class="summaryIndent3" href="#L4-7-2-b">4-7-2-b. Écriture séquentielle</a></li>
+          <li><a class="summaryIndent3" href="#L4-7-2-c">4-7-2-c. Lecture séquentielle</a></li>
+        </ul></li>
+      </ul></li>
+      <li><a class="summaryIndent1" href="#L4-8">4-8. Itérer sur les conteneurs</a></li>
+      <li><a class="summaryIndent1" href="#L4-9">4-9. Affichage formaté</a></li>
+    </ul></li>
+  
+</ul></nav><section class="ArticleHorsLigne"><section class="articleBody" itemprop="articleBody"><div class="cachee"><div class="barreNavigation"><hr class="hr-separation"/><a class="lientelechargement" href="indexa1f7.html?page=controle-du-flux-d-instructions"><img title="Page précédente" alt="précédent" src="../../template/kit/kitprecedent.png"/></a><a class="lientelechargement" href=".html"><img title="Revenir au sommaire" alt="sommaire" src="../../template/kit/kitsommaire.png"/></a><a class="lientelechargement" href="index7059.html?page=fonctions-et-espaces-de-noms"><img alt="suivant" title="Page suivante" src="../../template/kit/kitsuivant.png"/></a><hr class="hr-separation"/></div></div>
+  
+	
+  
+  
+  
+  
+  
+  
+		<h1 class="TitreSection0" id="L4">4. Conteneurs standard<a class="HautPage" href="#" title="Haut de page">&#9650;</a></h1><div class="BlocSection0">
+      
+      <div class="div-figure"><figure class="figure-center"><img class="figure-img-caption" src="images/python3-10.png" alt="Image non disponible" width="265" height="265"/></figure></div>
+      <p>Le <a class=" tooltip blue-tooltip lienArticle https" href="index466e.html?page=la-calculatrice-python#L2-4">chapitre 3.4<span>Les types de données entiers</span></a> a présenté les types de données simples, mais Python offre beaucoup plus : les conteneurs.</p>
+      <p>De façon générale, un <a id="index-dvp-92">conteneur</a> est un objet composite destiné à contenir d'autres objets. Ce chapitre détaille les séquences, les tableaux associatifs, les ensembles et les fichiers textuels.</p>
+      
+		<h2 class="TitreSection1" id="L4-1">4-1. Séquences<a class="HautPage" href="#" title="Haut de page">&#9650;</a></h2><div class="BlocSection1">
+        
+        <div class="imgtext-info">
+          <p>Une <a id="index-dvp-93">séquence</a> est un conteneur <b>ordonné</b> d'éléments <b>indexés par des entiers</b> indiquant leur position dans le conteneur.</p>
+        </div>
+        <p>Python dispose de trois types prédéfinis de séquences :</p>
+        <ul class="ListeDVP">
+          <li>les chaînes (vues précédemment) ;</li>
+          <li>les listes ;</li>
+          <li>les tuples<a class="signetNoteBasPage" id="signetNoteBasPage11" href="#noteBasPage11">(11)</a>.</li>
+        </ul>
+      </div>
+      
+		<h2 class="TitreSection1" id="L4-2">4-2. Listes<a class="HautPage" href="#" title="Haut de page">&#9650;</a></h2><div class="BlocSection1">
+        
+        
+		<h3 class="TitreSection2" id="L4-2-1">4-2-1. Définition, syntaxe et exemples<a class="HautPage" href="#" title="Haut de page">&#9650;</a></h3><div class="BlocSection2">
+          
+          <div class="imgtext-info">
+            <p>Une liste est une collection ordonnée et modifiable d'éléments éventuellement hétérogènes.</p>
+          </div>
+          <div class="imgtext-idea">
+            <p>Éléments séparés par des virgules, et entourés de crochets.</p>
+          </div>
+          <p>Exemples simples de listes :</p>
+          <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e6950">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e6950" onclick="selectionCode('contenuCoded0e6950', 'IdTitreCode-d0e6950');">S&eacute;lectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e6950" class="contenuCode">couleurs <code class="python_operator">=</code> [<code class="python_literal1">'trèfle'</code>, <code class="python_literal1">'carreau'</code>, <code class="python_literal1">'coeur'</code>, <code class="python_literal1">'pique'</code>]
+<code class="python_keyword1">print</code><code class="python_operator">(</code>couleurs) <code class="python_comment1"># ['trèfle', 'carreau', 'coeur', 'pique']</code>
+couleurs[<code class="python_digit">1</code>] <code class="python_operator">=</code> <code class="python_digit">14</code>
+<code class="python_keyword1">print</code><code class="python_operator">(</code>couleurs) <code class="python_comment1"># ['trèfle', 14, 'coeur', 'pique']</code>
+list1 <code class="python_operator">=</code> [<code class="python_literal1">'a'</code>, <code class="python_literal1">'b'</code>]
+list2 <code class="python_operator">=</code> [<code class="python_digit">4</code>, <code class="python_digit">2.718</code>]
+list3 <code class="python_operator">=</code> [list1, list2] <code class="python_comment1"># liste de listes</code>
+<code class="python_keyword1">print</code><code class="python_operator">(</code>list3) <code class="python_comment1"># [['a', 'b'], [4, 2.718]]</code></code></pre></div>
+        </div>
+        
+		<h3 class="TitreSection2" id="L4-2-2">4-2-2. Initialisations et tests d'appartenance<a class="HautPage" href="#" title="Haut de page">&#9650;</a></h3><div class="BlocSection2">
+          
+          <p>Utilisation de la répétition, de l'itérateur d'entiers <span class="codeinline">range()</span> et de l'opérateur d'appartenance (<span class="codeinline">in</span>) :</p>
+          <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e7039">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e7039" onclick="selectionCode('contenuCoded0e7039', 'IdTitreCode-d0e7039');">S&eacute;lectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e7039" class="contenuCode"><code class="python_operator">&gt;&gt;&gt;</code> truc <code class="python_operator">=</code> []
+<code class="python_operator">&gt;&gt;&gt;</code> machin <code class="python_operator">=</code> [<code class="python_digit">0.0</code>] <code class="python_operator">*</code> <code class="python_digit">3</code>
+<code class="python_operator">&gt;&gt;&gt;</code> truc
+[]
+<code class="python_operator">&gt;&gt;&gt;</code> machin
+[<code class="python_digit">0.0</code>, <code class="python_digit">0.0</code>, <code class="python_digit">0.0</code>]
+<code class="python_operator">&gt;&gt;&gt;</code>
+<code class="python_operator">&gt;&gt;&gt;</code> liste_1 <code class="python_operator">=</code> <a class="python_keyword2 lien_documentation_code" target="_blank" href="http://docs.python.org/library/functions.html?highlight=list#list"><span>list</span></a><code class="python_operator">(</code><a class="python_keyword2 lien_documentation_code" target="_blank" href="http://docs.python.org/library/functions.html?highlight=range#range"><span>range</span></a><code class="python_operator">(</code><code class="python_digit">4</code>))
+<code class="python_operator">&gt;&gt;&gt;</code> liste_1
+[<code class="python_digit">0</code>, <code class="python_digit">1</code>, <code class="python_digit">2</code>, <code class="python_digit">3</code>]
+<code class="python_operator">&gt;&gt;&gt;</code> liste_2 <code class="python_operator">=</code> <a class="python_keyword2 lien_documentation_code" target="_blank" href="http://docs.python.org/library/functions.html?highlight=list#list"><span>list</span></a><code class="python_operator">(</code><a class="python_keyword2 lien_documentation_code" target="_blank" href="http://docs.python.org/library/functions.html?highlight=range#range"><span>range</span></a><code class="python_operator">(</code><code class="python_digit">4</code>, <code class="python_digit">8</code>))
+<code class="python_operator">&gt;&gt;&gt;</code> liste_2
+[<code class="python_digit">4</code>, <code class="python_digit">5</code>, <code class="python_digit">6</code>, <code class="python_digit">7</code>]
+<code class="python_operator">&gt;&gt;&gt;</code> liste_3 <code class="python_operator">=</code> <a class="python_keyword2 lien_documentation_code" target="_blank" href="http://docs.python.org/library/functions.html?highlight=list#list"><span>list</span></a><code class="python_operator">(</code><a class="python_keyword2 lien_documentation_code" target="_blank" href="http://docs.python.org/library/functions.html?highlight=range#range"><span>range</span></a><code class="python_operator">(</code><code class="python_digit">2</code>, <code class="python_digit">9</code>, <code class="python_digit">2</code>))
+<code class="python_operator">&gt;&gt;&gt;</code> liste_3
+[<code class="python_digit">2</code>, <code class="python_digit">4</code>, <code class="python_digit">6</code>, <code class="python_digit">8</code>]
+<code class="python_operator">&gt;&gt;&gt;</code>
+<code class="python_operator">&gt;&gt;&gt;</code> <code class="python_digit">2</code> <code class="python_keyword1">in</code> liste_1, <code class="python_digit">8</code> <code class="python_keyword1">in</code> liste_2, <code class="python_digit">6</code> <code class="python_keyword1">in</code> liste_3
+<code class="python_operator">(</code><code class="python_keyword3">True</code>, <code class="python_keyword3">False</code>, <code class="python_keyword3">True</code>)</code></pre></div>
+        </div>
+        
+		<h3 class="TitreSection2" id="L4-2-3">4-2-3. Méthodes<a class="HautPage" href="#" title="Haut de page">&#9650;</a></h3><div class="BlocSection2">
+          
+          <p>Quelques méthodes de modification des listes :</p>
+          <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e7229">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e7229" onclick="selectionCode('contenuCoded0e7229', 'IdTitreCode-d0e7229');">S&eacute;lectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e7229" class="contenuCode"><code class="python_operator">&gt;&gt;&gt;</code> nombres <code class="python_operator">=</code> [<code class="python_digit">17</code>, <code class="python_digit">38</code>, <code class="python_digit">10</code>, <code class="python_digit">25</code>, <code class="python_digit">72</code>]
+<code class="python_operator">&gt;&gt;&gt;</code> nombres.<code class="python_function">sort</code><code class="python_operator">(</code>)
+<code class="python_operator">&gt;&gt;&gt;</code> nombres
+[<code class="python_digit">10</code>, <code class="python_digit">17</code>, <code class="python_digit">25</code>, <code class="python_digit">38</code>, <code class="python_digit">72</code>]
+<code class="python_operator">&gt;&gt;&gt;</code> nombres.<code class="python_function">append</code><code class="python_operator">(</code><code class="python_digit">12</code>)
+<code class="python_operator">&gt;&gt;&gt;</code> nombres.<code class="python_function">reverse</code><code class="python_operator">(</code>)
+<code class="python_operator">&gt;&gt;&gt;</code> nombres
+[<code class="python_digit">12</code>, <code class="python_digit">72</code>, <code class="python_digit">38</code>, <code class="python_digit">25</code>, <code class="python_digit">17</code>, <code class="python_digit">10</code>]
+<code class="python_operator">&gt;&gt;&gt;</code> nombres.<code class="python_function">remove</code><code class="python_operator">(</code><code class="python_digit">38</code>)
+<code class="python_operator">&gt;&gt;&gt;</code> nombres
+[<code class="python_digit">12</code>, <code class="python_digit">72</code>, <code class="python_digit">25</code>, <code class="python_digit">17</code>, <code class="python_digit">10</code>]
+<code class="python_operator">&gt;&gt;&gt;</code> nombres.<code class="python_function">index</code><code class="python_operator">(</code><code class="python_digit">17</code>)
+<code class="python_digit">3</code>
+<code class="python_operator">&gt;&gt;&gt;</code> nombres[<code class="python_digit">0</code>] <code class="python_operator">=</code> <code class="python_digit">11</code>
+<code class="python_operator">&gt;&gt;&gt;</code> nombres[<code class="python_digit">1</code>:<code class="python_digit">3</code>] <code class="python_operator">=</code> [<code class="python_digit">14</code>, <code class="python_digit">17</code>, <code class="python_digit">2</code>]
+<code class="python_operator">&gt;&gt;&gt;</code> nombres
+[<code class="python_digit">11</code>, <code class="python_digit">14</code>, <code class="python_digit">17</code>, <code class="python_digit">2</code>, <code class="python_digit">17</code>, <code class="python_digit">10</code>]
+<code class="python_operator">&gt;&gt;&gt;</code> nombres.<code class="python_function">pop</code><code class="python_operator">(</code>)
+<code class="python_digit">10</code>
+<code class="python_operator">&gt;&gt;&gt;</code> nombres
+[<code class="python_digit">11</code>, <code class="python_digit">14</code>, <code class="python_digit">17</code>, <code class="python_digit">2</code>, <code class="python_digit">17</code>]
+<code class="python_operator">&gt;&gt;&gt;</code> nombres.<code class="python_function">count</code><code class="python_operator">(</code><code class="python_digit">17</code>)
+<code class="python_digit">2</code>
+<code class="python_operator">&gt;&gt;&gt;</code> nombres.<code class="python_function">extend</code><code class="python_operator">(</code>[<code class="python_digit">1</code>, <code class="python_digit">2</code>, <code class="python_digit">3</code>])
+<code class="python_operator">&gt;&gt;&gt;</code> nombres
+[<code class="python_digit">11</code>, <code class="python_digit">14</code>, <code class="python_digit">17</code>, <code class="python_digit">2</code>, <code class="python_digit">17</code>, <code class="python_digit">1</code>, <code class="python_digit">2</code>, <code class="python_digit">3</code>]</code></pre></div>
+        </div>
+        
+		<h3 class="TitreSection2" id="L4-2-4">4-2-4. Manipulation des tranches (ou sous-chaînes)<a class="HautPage" href="#" title="Haut de page">&#9650;</a></h3><div class="BlocSection2">
+          
+          <div class="imgtext-info">
+            <p>Si on veut supprimer, remplacer ou insérer <span class="italique">plusieurs</span> éléments d'une liste, il faut indiquer une <a id="index-dvp-94">tranche</a> (cf. <a class=" tooltip blue-tooltip lienArticle https" href="index466e.html?page=la-calculatrice-python#L2-7-7">chapitre 2.7.7<span>Extraction de sous-chaînes</span></a>) dans le membre de gauche d'une affectation et fournir une liste dans le membre de droite.</p>
+          </div>
+          <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e7519">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e7519" onclick="selectionCode('contenuCoded0e7519', 'IdTitreCode-d0e7519');">S&eacute;lectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e7519" class="contenuCode"><code class="python_operator">&gt;&gt;&gt;</code> mots <code class="python_operator">=</code> [<code class="python_literal1">'jambon'</code>, <code class="python_literal1">'sel'</code>, <code class="python_literal1">'miel'</code>, <code class="python_literal1">'confiture'</code>, <code class="python_literal1">'beurre'</code>]
+<code class="python_operator">&gt;&gt;&gt;</code> mots[<code class="python_digit">2</code>:<code class="python_digit">4</code>] <code class="python_operator">=</code> [] <code class="python_comment1"># effacement par affectation d'une liste vide</code>
+<code class="python_operator">&gt;&gt;&gt;</code> mots
+[<code class="python_literal1">'jambon'</code>, <code class="python_literal1">'sel'</code>, <code class="python_literal1">'beurre'</code>]
+<code class="python_operator">&gt;&gt;&gt;</code> mots[<code class="python_digit">1</code>:<code class="python_digit">3</code>] <code class="python_operator">=</code> [<code class="python_literal1">'salade'</code>]
+<code class="python_operator">&gt;&gt;&gt;</code> mots
+[<code class="python_literal1">'jambon'</code>, <code class="python_literal1">'salade'</code>]
+<code class="python_operator">&gt;&gt;&gt;</code> mots[<code class="python_digit">1</code>:] <code class="python_operator">=</code> [<code class="python_literal1">'mayonnaise'</code>, <code class="python_literal1">'poulet'</code>, <code class="python_literal1">'tomate'</code>]
+<code class="python_operator">&gt;&gt;&gt;</code> mots
+[<code class="python_literal1">'jambon'</code>, <code class="python_literal1">'mayonnaise'</code>, <code class="python_literal1">'poulet'</code>, <code class="python_literal1">'tomate'</code>]
+<code class="python_operator">&gt;&gt;&gt;</code> mots[<code class="python_digit">2</code>:<code class="python_digit">2</code>] <code class="python_operator">=</code> [<code class="python_literal1">'miel'</code>] <code class="python_comment1"># insertion en 3e position</code>
+<code class="python_operator">&gt;&gt;&gt;</code> mots
+[<code class="python_literal1">'jambon'</code>, <code class="python_literal1">'mayonnaise'</code>, <code class="python_literal1">'miel'</code>, <code class="python_literal1">'poulet'</code>, <code class="python_literal1">'tomate'</code>]</code></pre></div>
+        </div>
+        
+		<h3 class="TitreSection2" id="L4-2-5">4-2-5. Séquences de séquences<a class="HautPage" href="#" title="Haut de page">&#9650;</a></h3><div class="BlocSection2">
+          
+          <p>Les séquences, comme du reste les autres conteneurs, peuvent être imbriquées.</p>
+          <p>Par exemple :</p>
+          <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e7674">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e7674" onclick="selectionCode('contenuCoded0e7674', 'IdTitreCode-d0e7674');">S&eacute;lectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e7674" class="contenuCode"><code class="python_operator">&gt;&gt;&gt;</code> liste_1 <code class="python_operator">=</code> [<code class="python_digit">1</code>, <code class="python_digit">2</code>, <code class="python_digit">3</code>]
+<code class="python_operator">&gt;&gt;&gt;</code> listes <code class="python_operator">=</code> [liste_1, [<code class="python_digit">4</code>, <code class="python_digit">5</code>], <code class="python_literal1">"abcd"</code>]
+<code class="python_operator">&gt;&gt;&gt;</code>
+<code class="python_operator">&gt;&gt;&gt;</code> <code class="python_keyword1">for</code> liste <code class="python_keyword1">in</code> listes:
+...     <code class="python_keyword1">for</code> elem <code class="python_keyword1">in</code> liste:
+...         <code class="python_keyword1">print</code><code class="python_operator">(</code>elem)
+...     <code class="python_keyword1">print</code><code class="python_operator">(</code>)
+...
+<code class="python_digit">1</code>
+<code class="python_digit">2</code>
+<code class="python_digit">3</code>
+
+<code class="python_digit">4</code>
+<code class="python_digit">5</code>
+
+a
+b
+c
+d</code></pre></div>
+        </div>
+      </div>
+      
+		<h2 class="TitreSection1" id="L4-3">4-3. Tuples<a class="HautPage" href="#" title="Haut de page">&#9650;</a></h2><div class="BlocSection1">
+        
+        <div class="imgtext-info">
+          <p>Un <a id="index-dvp-95">tuple</a> est une collection ordonnée et non modifiable d'éléments éventuellement hétérogènes.</p>
+        </div>
+        <div class="imgtext-idea">
+          <p>Éléments séparés par des virgules, et entourés de parenthèses.</p>
+        </div>
+        <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e7771">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e7771" onclick="selectionCode('contenuCoded0e7771', 'IdTitreCode-d0e7771');">S&eacute;lectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e7771" class="contenuCode"><code class="python_operator">&gt;&gt;&gt;</code> mon_tuple <code class="python_operator">=</code> <code class="python_operator">(</code><code class="python_literal1">'a'</code>, <code class="python_digit">2</code>, [<code class="python_digit">1</code>, <code class="python_digit">3</code>])</code></pre></div>
+        <ul class="ListeDVP">
+          <li>L'indexage des tuples s'utilise comme celui des listes.</li>
+          <li>Le parcours des tuples est plus rapide que celui des listes.</li>
+          <li>Ils sont utiles pour définir des constantes.</li>
+        </ul>
+        <div class="imgtext-warning">
+          <p>Comme les chaînes de caractères, les tuples ne sont pas modifiables !</p>
+        </div>
+        <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e7811">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e7811" onclick="selectionCode('contenuCoded0e7811', 'IdTitreCode-d0e7811');">S&eacute;lectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e7811" class="contenuCode"><code class="python_operator">&gt;&gt;&gt;</code> mon_tuple.<code class="python_function">append</code><code class="python_operator">(</code><code class="python_digit">4</code>) <code class="python_comment1"># attention ne pas modifier un tuple !</code>
+Traceback <code class="python_operator">(</code>most recent call last) :
+  File <code class="python_literal1">"&lt;stdin&gt;"</code>, line <code class="python_digit">1</code>, <code class="python_keyword1">in</code> <code class="python_operator">&lt;</code>module<code class="python_operator">&gt;</code>
+<code class="python_keyword3">AttributeError</code> : <code class="python_literal1">'tuple'</code> <a class="python_keyword2 lien_documentation_code" target="_blank" href="http://docs.python.org/library/functions.html?highlight=object#object"><span>object</span></a> has no attribute <code class="python_literal1">'append'</code></code></pre></div>
+        
+		<h3 class="TitreSection2" id="L4-3-1">4-3-1. Les opérations des objets de type séquentiel<a class="HautPage" href="#" title="Haut de page">&#9650;</a></h3><div class="BlocSection2">
+          
+          <p>Les types prédéfinis de séquences Python (chaîne, liste et tuple) ont en commun les opérations résumées dans le tableau suivant où <span class="codeinline">s</span> et <span class="codeinline">t</span> désignent deux séquences du même type et <span class="codeinline">i</span>, <span class="codeinline">j</span> et <span class="codeinline">k</span> des entiers :</p>
+          <div class="TextAlign-center"><table class="tableau" style="border-width:2px;" border="1">
+            <tr>
+              <th class="colonne_entete" style="text-align:center;">
+                <p>
+                  <b>l'opération </b>
+                </p>
+              </th>
+              <th class="colonne_entete" style="text-align:center;">
+                <p>
+                  <b>son effet </b>
+                </p>
+              </th>
+            </tr>
+            <tr>
+              <td class="colonne" style="">
+                <p><span class="codeinline">x in s</span> </p>
+              </td>
+              <td class="colonne" style="">
+                <p><span class="codeinline">True</span> si <span class="codeinline">s</span> contient <span class="codeinline">x</span>, <span class="codeinline">False</span> sinon</p>
+              </td>
+            </tr>
+            <tr>
+              <td class="colonne" style="">
+                <p><span class="codeinline">x not in s</span> </p>
+              </td>
+              <td class="colonne" style="">
+                <p><span class="codeinline">True</span> si <span class="codeinline">s</span> ne contient pas <span class="codeinline">x</span>, <span class="codeinline">False</span> sinon</p>
+              </td>
+            </tr>
+            <tr>
+              <td class="colonne" style="">
+                <p><span class="codeinline">s + t</span> </p>
+              </td>
+              <td class="colonne" style="">
+                <p>concaténation de <span class="codeinline">s</span> et <span class="codeinline">t</span></p>
+              </td>
+            </tr>
+            <tr>
+              <td class="colonne" style="">
+                <p><span class="codeinline">s * n, n * s</span> </p>
+              </td>
+              <td class="colonne" style="">
+                <p><span class="codeinline">n</span> copies (superficielles) concaténées de <span class="codeinline">s</span></p>
+              </td>
+            </tr>
+            <tr>
+              <td class="colonne" style="">
+                <p><span class="codeinline">s[i]</span> </p>
+              </td>
+              <td class="colonne" style="">
+                <p><span class="codeinline">i</span> élément de <span class="codeinline">s</span> (à partir de 0)</p>
+              </td>
+            </tr>
+            <tr>
+              <td class="colonne" style="">
+                <p><span class="codeinline">s[i:j]</span> </p>
+              </td>
+              <td class="colonne" style="">
+                <p>tranche de <span class="codeinline">s</span> de <span class="codeinline">i</span> (inclus) à <span class="codeinline">j</span> (exclu)</p>
+              </td>
+            </tr>
+            <tr>
+              <td class="colonne" style="">
+                <p><span class="codeinline">s[i:j:k]</span> </p>
+              </td>
+              <td class="colonne" style="">
+                <p>tranche de <span class="codeinline">s</span> de <span class="codeinline">i</span> à <span class="codeinline">j</span> avec un pas de <span class="codeinline">k</span></p>
+              </td>
+            </tr>
+            <tr>
+              <td class="colonne" style="">
+                <p><span class="codeinline">len(s)</span> </p>
+              </td>
+              <td class="colonne" style="">
+                <p>longueur de <span class="codeinline">s</span></p>
+              </td>
+            </tr>
+            <tr>
+              <td class="colonne" style="">
+                <p><span class="codeinline">max(s), min(s)</span> </p>
+              </td>
+              <td class="colonne" style="">
+                <p>plus grand, plus petit élément de <span class="codeinline">s</span></p>
+              </td>
+            </tr>
+            <tr>
+              <td class="colonne" style="">
+                <p><span class="codeinline">s.index(i)</span> </p>
+              </td>
+              <td class="colonne" style="">
+                <p>indice de la 1<sup>re</sup> occurrence de <span class="codeinline">i</span> dans <span class="codeinline">s</span></p>
+              </td>
+            </tr>
+            <tr>
+              <td class="colonne" style="">
+                <p><span class="codeinline">s.count(i)</span> </p>
+              </td>
+              <td class="colonne" style="">
+                <p>nombre d'occurrences de <span class="codeinline">i</span> dans <span class="codeinline">s</span></p>
+              </td>
+            </tr>
+          </table></div>
+        </div>
+      </div>
+      
+		<h2 class="TitreSection1" id="L4-4">4-4. Retour sur les références<a class="HautPage" href="#" title="Haut de page">&#9650;</a></h2><div class="BlocSection1">
+        
+        <p>Nous avons déjà vu que l'opération d'affectation, apparemment innocente, est une réelle difficulté de Python.</p>
+        <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e8172">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e8172" onclick="selectionCode('contenuCoded0e8172', 'IdTitreCode-d0e8172');">S&eacute;lectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e8172" class="contenuCode">i <code class="python_operator">=</code> <code class="python_digit">1</code>
+msg <code class="python_operator">=</code> <code class="python_literal1">"Quoi de neuf ?"</code>
+e <code class="python_operator">=</code> <code class="python_digit">2.718</code></code></pre></div>
+        <p>Dans l'exemple ci-dessus, les affectations réalisent plusieurs opérations :</p>
+        <ul class="ListeDVP">
+          <li>création en mémoire d'un objet du type approprié (membre de droite) ;</li>
+          <li>stockage de la donnée dans l'objet créé ;</li>
+          <li>création d'un nom de variable (membre de gauche) ;</li>
+          <li>association de ce nom de variable avec l'objet contenant la valeur.</li>
+        </ul>
+        <p>Une conséquence de ce mécanisme est que, si un objet modifiable est affecté à plusieurs variables, tout changement de l'objet via une variable sera visible sur tous les autres :</p>
+        <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e8213">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e8213" onclick="selectionCode('contenuCoded0e8213', 'IdTitreCode-d0e8213');">S&eacute;lectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e8213" class="contenuCode">fable <code class="python_operator">=</code> [<code class="python_literal1">"Je"</code>, <code class="python_literal1">"plie"</code>, <code class="python_literal1">"mais"</code>, <code class="python_literal1">"ne"</code>, <code class="python_literal1">"romps"</code>, <code class="python_literal1">"point"</code>]
+phrase <code class="python_operator">=</code> fable
+
+phrase[<code class="python_digit">4</code>] <code class="python_operator">=</code> <code class="python_literal1">"casse"</code>
+
+<code class="python_keyword1">print</code><code class="python_operator">(</code>fable) <code class="python_comment1"># ['Je', 'plie', 'mais', 'ne', 'casse', 'point']</code></code></pre></div>
+        <p>Si on veut pouvoir effectuer des modifications séparées, il faut affecter l'autre variable par une copie distincte de l'objet, soit en créant une tranche complète des séquences dans les cas simples, soit en utilisant le module <span class="codeinline">copy</span> dans les cas les plus généraux (autres conteneurs). Dans les rares occasions où l'on veut aussi que chaque élément et attribut de l'objet soit copié séparément et de façon récursive, on emploie la fonction <span class="codeinline">copy.deepcopy()</span> :</p>
+        <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e8265">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e8265" onclick="selectionCode('contenuCoded0e8265', 'IdTitreCode-d0e8265');">S&eacute;lectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e8265" class="contenuCode"><code class="python_operator">&gt;&gt;&gt;</code> <code class="python_keyword1">import</code> copy
+<code class="python_operator">&gt;&gt;&gt;</code> a <code class="python_operator">=</code> [<code class="python_digit">1</code>, <code class="python_digit">2</code>, <code class="python_digit">3</code>]
+<code class="python_operator">&gt;&gt;&gt;</code> b <code class="python_operator">=</code> a <code class="python_comment1"># une référence</code>
+<code class="python_operator">&gt;&gt;&gt;</code> b.<code class="python_function">append</code><code class="python_operator">(</code><code class="python_digit">4</code>)
+<code class="python_operator">&gt;&gt;&gt;</code> a
+[<code class="python_digit">1</code>, <code class="python_digit">2</code>, <code class="python_digit">3</code>, <code class="python_digit">4</code>]
+<code class="python_operator">&gt;&gt;&gt;</code> c <code class="python_operator">=</code> a[:] <code class="python_comment1"># une copie simple</code>
+<code class="python_operator">&gt;&gt;&gt;</code> c.<code class="python_function">append</code><code class="python_operator">(</code><code class="python_digit">5</code>)
+<code class="python_operator">&gt;&gt;&gt;</code> c
+[<code class="python_digit">1</code>, <code class="python_digit">2</code>, <code class="python_digit">3</code>, <code class="python_digit">4</code>, <code class="python_digit">5</code>]
+<code class="python_operator">&gt;&gt;&gt;</code> d <code class="python_operator">=</code> copy.<code class="python_function">copy</code><code class="python_operator">(</code>a) <code class="python_comment1"># une copie de"surface"</code>
+<code class="python_operator">&gt;&gt;&gt;</code> d.<code class="python_function">append</code><code class="python_operator">(</code><code class="python_digit">6</code>)
+<code class="python_operator">&gt;&gt;&gt;</code> d
+[<code class="python_digit">1</code>, <code class="python_digit">2</code>, <code class="python_digit">3</code>, <code class="python_digit">4</code>, <code class="python_digit">6</code>]
+<code class="python_operator">&gt;&gt;&gt;</code> a
+[<code class="python_digit">1</code>, <code class="python_digit">2</code>, <code class="python_digit">3</code>, <code class="python_digit">4</code>]
+<code class="python_operator">&gt;&gt;&gt;</code> d1 <code class="python_operator">=</code> {<code class="python_literal1">'a'</code> : [<code class="python_digit">1</code>, <code class="python_digit">2</code>], <code class="python_literal1">'b'</code> : [<code class="python_digit">3</code>, <code class="python_digit">4</code>]}
+<code class="python_operator">&gt;&gt;&gt;</code> d2 <code class="python_operator">=</code> {<code class="python_literal1">'c'</code> : <code class="python_operator">(</code><code class="python_digit">1</code>, <code class="python_digit">2</code>, <code class="python_digit">3</code>), <code class="python_literal1">'c'</code> : <code class="python_operator">(</code><code class="python_digit">4</code>, <code class="python_digit">5</code>, <code class="python_digit">6</code>)}
+<code class="python_operator">&gt;&gt;&gt;</code> liste_de_dicos <code class="python_operator">=</code> [d1, d2]
+<code class="python_operator">&gt;&gt;&gt;</code> nouvelle_liste_de_dicos <code class="python_operator">=</code> copy.<code class="python_function">deepcopy</code><code class="python_operator">(</code>liste_de_dicos) <code class="python_comment1"># copie "profonde" (ou "récursive")</code>
+<code class="python_operator">&gt;&gt;&gt;</code> nouvelle_liste_de_dicos
+[{<code class="python_literal1">'a'</code>: [<code class="python_digit">1</code>, <code class="python_digit">2</code>], <code class="python_literal1">'b'</code>: [<code class="python_digit">3</code>, <code class="python_digit">4</code>]}, {<code class="python_literal1">'c'</code>: <code class="python_operator">(</code><code class="python_digit">4</code>, <code class="python_digit">5</code>, <code class="python_digit">6</code>)}]</code></pre></div>
+        
+		<h3 class="TitreSection2" id="L4-4-1">4-4-1. Complément graphique sur l'assignation<a class="HautPage" href="#" title="Haut de page">&#9650;</a></h3><div class="BlocSection2">
+          
+          <ul class="ListeDVP">
+            <li>
+              <p>Assignation augmentée d'un objet <b>non modifiable</b> (cas d'un entier : Fig. 4.1). On a représenté l'étape de l'addition intermédiaire.</p>
+              <div class="div-figure"><figure class="figure-center"><img class="figure-img-caption" src="images/python3-11.png" alt="Image non disponible" width="488" height="119"/><figcaption class="figure-img-caption TextAlign-center">Figure 4.1 - Assignation augmentée d'un objet non modifiable</figcaption></figure></div>
+            </li>
+            <li>Assignation augmentée d'un objet <b>modifiable</b> (cas d'une liste : Fig. 4.2). On a représenté l'étape de la création de la liste intermédiaire.</li>
+          </ul>
+          <div class="div-figure"><figure class="figure-center"><a data-rel="lightbox[article]" href="images/python3-12.png"><img class="ImgCliquable figure-img-caption" src="images/python3-12.png" alt="Image non disponible" width="550" height="249"/></a><figcaption class="figure-img-caption TextAlign-center">Figure 4.2 - Assignation augmentée d'un objet modifiable</figcaption></figure></div>
+        </div>
+      </div>
+      
+		<h2 class="TitreSection1" id="L4-5">4-5. Tableaux associatifs<a class="HautPage" href="#" title="Haut de page">&#9650;</a></h2><div class="BlocSection1">
+        
+        <div class="imgtext-info">
+          <p>Un <a id="index-dvp-96">tableau</a> <a id="index-dvp-97">associatif</a> est un type de données permettant de stocker des couples (<span class="codeinline">cle : valeur</span>), avec un accès très rapide à la valeur à partir de la clé, la clé ne pouvant être présente qu'une seule fois dans le tableau.</p>
+          <p>Il possède les caractéristiques suivantes :</p>
+          <ul class="ListeDVP">
+            <li>l'opérateur d'appartenance d'une clé (<span class="codeinline">in</span>) ;</li>
+            <li>la fonction taille (<span class="codeinline">len()</span>) donnant le nombre de couples stockés ;</li>
+            <li>il est itérable (on peut le parcourir), mais <span class="italique">n'est pas ordonné</span>.</li>
+          </ul>
+        </div>
+        <p>Python propose le type standard <b>dict</b>.</p>
+        
+		<h3 class="TitreSection2" id="L4-5-1">4-5-1. Dictionnaires (dict)<a class="HautPage" href="#" title="Haut de page">&#9650;</a></h3><div class="BlocSection2">
+          
+          <div class="imgtext-idea">
+            <p>Collection de couples <a id="index-dvp-98"><b>clé</b></a> : <a id="index-dvp-99"><b>valeur</b></a> entourée d'accolades.</p>
+          </div>
+          <p>Les <a id="index-dvp-100">dictionnaire</a>s constituent un type composite, mais ils n'appartiennent pas aux séquences.</p>
+          <p>Les dictionnaires sont <span class="italique">modifiables, </span>mais <span class="italique">non ordonnés :</span> les couples enregistrés n'occupent pas un ordre immuable, leur emplacement est géré par un algorithme spécifique (algorithme de <span class="italique">hash</span>). Le caractère non ordonné des dictionnaires est le prix à payer pour leur rapidité !</p>
+          <p>Une <span class="italique">clé</span> pourra être alphabétique, numérique… en fait tout type <span class="italique">hachable</span> (donc liste et dictionnaire exclus). Les <span class="italique">valeurs</span> pourront être de tout type sans exclusion.</p>
+          
+		<h4 class="TitreSection3" id="L4-5-1-a">4-5-1-a. Exemples de création<a class="HautPage" href="#" title="Haut de page">&#9650;</a></h4><div class="BlocSection3">
+            
+            <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e8662">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e8662" onclick="selectionCode('contenuCoded0e8662', 'IdTitreCode-d0e8662');">S&eacute;lectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e8662" class="contenuCode"><code class="python_operator">&gt;&gt;&gt;</code> d1 <code class="python_operator">=</code> {} <code class="python_comment1"># dictionnaire vide. Autre notation : d1 = dict()</code>
+<code class="python_operator">&gt;&gt;&gt;</code> d1[<code class="python_literal1">"nom"</code>] <code class="python_operator">=</code> <code class="python_digit">3</code>
+<code class="python_operator">&gt;&gt;&gt;</code> d1[<code class="python_literal1">"taille"</code>] <code class="python_operator">=</code> <code class="python_digit">176</code>
+<code class="python_operator">&gt;&gt;&gt;</code> d1
+{<code class="python_literal1">'nom'</code>: <code class="python_digit">3</code>, <code class="python_literal1">'taille'</code>: <code class="python_digit">176</code>}
+<code class="python_operator">&gt;&gt;&gt;</code>
+<code class="python_operator">&gt;&gt;&gt;</code> d2 <code class="python_operator">=</code> {<code class="python_literal1">"nom"</code>: <code class="python_digit">3</code>, <code class="python_literal1">"taille"</code>: <code class="python_digit">176</code>} <code class="python_comment1"># définition en extension</code>
+<code class="python_operator">&gt;&gt;&gt;</code> d2
+{<code class="python_literal1">'nom'</code>: <code class="python_digit">3</code>, <code class="python_literal1">'taille'</code>: <code class="python_digit">176</code>}
+<code class="python_operator">&gt;&gt;&gt;</code>
+<code class="python_operator">&gt;&gt;&gt;</code> d3 <code class="python_operator">=</code> {x: x<code class="python_operator">**</code><code class="python_digit">2</code> <code class="python_keyword1">for</code> x <code class="python_keyword1">in</code> <code class="python_operator">(</code><code class="python_digit">2</code>, <code class="python_digit">4</code>, <code class="python_digit">6</code>)} <code class="python_comment1"># définition en compréhension</code>
+<code class="python_operator">&gt;&gt;&gt;</code> d3
+{<code class="python_digit">2</code>: <code class="python_digit">4</code>, <code class="python_digit">4</code>: <code class="python_digit">16</code>, <code class="python_digit">6</code>: <code class="python_digit">36</code>}
+<code class="python_operator">&gt;&gt;&gt;</code>
+<code class="python_operator">&gt;&gt;&gt;</code> d4 <code class="python_operator">=</code> <a class="python_keyword2 lien_documentation_code" target="_blank" href="http://docs.python.org/library/functions.html?highlight=dict#dict"><span>dict</span></a><code class="python_operator">(</code>nom<code class="python_operator">=</code><code class="python_digit">3</code>, taille<code class="python_operator">=</code><code class="python_digit">176</code>) <code class="python_comment1"># utilisation de paramètres nommés</code>
+<code class="python_operator">&gt;&gt;&gt;</code> d4
+{<code class="python_literal1">'taille'</code>: <code class="python_digit">176</code>, <code class="python_literal1">'nom'</code>: <code class="python_digit">3</code>}
+<code class="python_operator">&gt;&gt;&gt;</code>
+<code class="python_operator">&gt;&gt;&gt;</code> d5 <code class="python_operator">=</code> <a class="python_keyword2 lien_documentation_code" target="_blank" href="http://docs.python.org/library/functions.html?highlight=dict#dict"><span>dict</span></a><code class="python_operator">(</code>[<code class="python_operator">(</code><code class="python_literal1">"nom"</code>, <code class="python_digit">3</code>), <code class="python_operator">(</code><code class="python_literal1">"taille"</code>, <code class="python_digit">176</code>)]) <code class="python_comment1"># utilisation d'une liste de couples clés/valeurs</code>
+<code class="python_operator">&gt;&gt;&gt;</code> d5
+{<code class="python_literal1">'nom'</code>: <code class="python_digit">3</code>, <code class="python_literal1">'taille'</code>: <code class="python_digit">176</code>}</code></pre></div>
+          </div>
+          
+		<h4 class="TitreSection3" id="L4-5-1-b">4-5-1-b. Méthodes<a class="HautPage" href="#" title="Haut de page">&#9650;</a></h4><div class="BlocSection3">
+            
+            <p>Quelques méthodes applicables aux dictionnaires :</p>
+            <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e8905">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e8905" onclick="selectionCode('contenuCoded0e8905', 'IdTitreCode-d0e8905');">S&eacute;lectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e8905" class="contenuCode"><code class="python_operator">&gt;&gt;&gt;</code> tel <code class="python_operator">=</code> {<code class="python_literal1">'jack'</code>: <code class="python_digit">4098</code>, <code class="python_literal1">'sape'</code>: <code class="python_digit">4139</code>}
+<code class="python_operator">&gt;&gt;&gt;</code> tel[<code class="python_literal1">'guido'</code>] <code class="python_operator">=</code> <code class="python_digit">4127</code>
+<code class="python_operator">&gt;&gt;&gt;</code> tel
+{<code class="python_literal1">'sape'</code>: <code class="python_digit">4139</code>, <code class="python_literal1">'jack'</code>: <code class="python_digit">4098</code>, <code class="python_literal1">'guido'</code>: <code class="python_digit">4127</code>}
+<code class="python_operator">&gt;&gt;&gt;</code> tel[<code class="python_literal1">'jack'</code>]
+<code class="python_digit">4098</code>
+<code class="python_operator">&gt;&gt;&gt;</code> <code class="python_keyword1">del</code> tel[<code class="python_literal1">'sape'</code>]
+<code class="python_operator">&gt;&gt;&gt;</code> tel[<code class="python_literal1">'irv'</code>] <code class="python_operator">=</code> <code class="python_digit">4127</code>
+<code class="python_operator">&gt;&gt;&gt;</code> tel
+{<code class="python_literal1">'jack'</code>: <code class="python_digit">4098</code>, <code class="python_literal1">'irv'</code>: <code class="python_digit">4127</code>, <code class="python_literal1">'guido'</code>: <code class="python_digit">4127</code>}
+<code class="python_operator">&gt;&gt;&gt;</code>
+<code class="python_operator">&gt;&gt;&gt;</code> tel.<code class="python_function">keys</code><code class="python_operator">(</code>)
+[<code class="python_literal1">'jack'</code>, <code class="python_literal1">'irv'</code>, <code class="python_literal1">'guido'</code>]
+<code class="python_operator">&gt;&gt;&gt;</code> <code class="python_keyword1">sorted</code><code class="python_operator">(</code>tel.<code class="python_function">keys</code><code class="python_operator">(</code>))
+[<code class="python_literal1">'guido'</code>, <code class="python_literal1">'irv'</code>, <code class="python_literal1">'jack'</code>]
+<code class="python_operator">&gt;&gt;&gt;</code> <code class="python_keyword1">sorted</code><code class="python_operator">(</code>tel.<code class="python_function">values</code><code class="python_operator">(</code>))
+[<code class="python_digit">4098</code>, <code class="python_digit">4127</code>, <code class="python_digit">4127</code>]
+<code class="python_operator">&gt;&gt;&gt;</code> <code class="python_literal1">'guido'</code> <code class="python_keyword1">in</code> tel, <code class="python_literal1">'jack'</code> <code class="python_keyword1">not</code> <code class="python_keyword1">in</code> tel
+<code class="python_operator">(</code><code class="python_keyword3">True</code>, <code class="python_keyword3">False</code>)</code></pre></div>
+          </div>
+        </div>
+      </div>
+      
+		<h2 class="TitreSection1" id="L4-6">4-6. Ensembles (set)<a class="HautPage" href="#" title="Haut de page">&#9650;</a></h2><div class="BlocSection1">
+        
+        <div class="imgtext-info">
+          <p>Un ensemble est une collection itérable non ordonnée d'éléments <span class="italique">hachables</span> uniques.</p>
+        </div>
+        <p>Donc un <span class="codeinline">set</span> est la transposition informatique de la notion d'ensemble mathématique.</p>
+        <p>En Python, il existe deux types d'ensembles, les ensembles modifiables : <span class="codeinline">set</span> et les ensembles non modifiables : <span class="codeinline">frozenset</span>. On retrouve ici les mêmes différences qu'entre les listes et les tuples.</p>
+        <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e9131">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e9131" onclick="selectionCode('contenuCoded0e9131', 'IdTitreCode-d0e9131');">S&eacute;lectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e9131" class="contenuCode"><code class="python_operator">&gt;&gt;&gt;</code> X <code class="python_operator">=</code> <a class="python_keyword2 lien_documentation_code" target="_blank" href="http://docs.python.org/library/functions.html?highlight=set#set"><span>set</span></a><code class="python_operator">(</code><code class="python_literal1">'spam'</code>)
+<code class="python_operator">&gt;&gt;&gt;</code> Y <code class="python_operator">=</code> <a class="python_keyword2 lien_documentation_code" target="_blank" href="http://docs.python.org/library/functions.html?highlight=set#set"><span>set</span></a><code class="python_operator">(</code><code class="python_literal1">'pass'</code>)
+<code class="python_operator">&gt;&gt;&gt;</code> X
+{<code class="python_literal1">'s'</code>, <code class="python_literal1">'p'</code>, <code class="python_literal1">'m'</code>, <code class="python_literal1">'a'</code>}
+<code class="python_operator">&gt;&gt;&gt;</code> Y <code class="python_comment1"># pas de duplication : qu'un seul 's'</code>
+{<code class="python_literal1">'s'</code>, <code class="python_literal1">'p'</code>, <code class="python_literal1">'a'</code>}
+<code class="python_operator">&gt;&gt;&gt;</code> <code class="python_literal1">'p'</code> <code class="python_keyword1">in</code> X
+<code class="python_keyword3">True</code>
+<code class="python_operator">&gt;&gt;&gt;</code> <code class="python_literal1">'m'</code> <code class="python_keyword1">in</code> Y
+<code class="python_keyword3">False</code>
+<code class="python_operator">&gt;&gt;&gt;</code> X <code class="python_operator">-</code> Y <code class="python_comment1"># ensemble des éléments de X qui ne sont pas dans Y</code>
+{<code class="python_literal1">'m'</code>}
+<code class="python_operator">&gt;&gt;&gt;</code> Y <code class="python_operator">-</code> X <code class="python_comment1"># ensemble des éléments de Y qui ne sont pas dans X</code>
+<a class="python_keyword2 lien_documentation_code" target="_blank" href="http://docs.python.org/library/functions.html?highlight=set#set"><span>set</span></a><code class="python_operator">(</code>)
+<code class="python_operator">&gt;&gt;&gt;</code> X <code class="python_operator">^</code> Y <code class="python_comment1"># ensemble des éléments qui sont soit dans X soit dans Y</code>
+{<code class="python_literal1">'m'</code>}
+<code class="python_operator">&gt;&gt;&gt;</code> X <code class="python_operator">|</code> Y <code class="python_comment1"># union</code>
+{<code class="python_literal1">'s'</code>, <code class="python_literal1">'p'</code>, <code class="python_literal1">'m'</code>, <code class="python_literal1">'a'</code>}
+<code class="python_operator">&gt;&gt;&gt;</code> X <code class="python_operator">&amp;</code> Y <code class="python_comment1"># intersection</code>
+{<code class="python_literal1">'s'</code>, <code class="python_literal1">'p'</code>, <code class="python_literal1">'a'</code>}</code></pre></div>
+        <div class="div-figure"><figure class="figure-center"><img class="figure-img-caption" src="images/python3-13.png" alt="Image non disponible" width="409" height="210"/><figcaption class="figure-img-caption TextAlign-center">Figure 4.3 - Opérations sur les ensembles</figcaption></figure></div>
+      </div>
+      
+		<h2 class="TitreSection1" id="L4-7">4-7. Fichiers textuels<a class="HautPage" href="#" title="Haut de page">&#9650;</a></h2><div class="BlocSection1">
+        
+        
+		<h3 class="TitreSection2" id="L4-7-1">4-7-1. Introduction<a class="HautPage" href="#" title="Haut de page">&#9650;</a></h3><div class="BlocSection2">
+          
+          <p>On rappelle que l'ordinateur n'exécute que les programmes présents dans sa mémoire volatile (la RAM). Pour conserver durablement des informations, il faut utiliser une mémoire permanente par exemple le disque dur, la clé USB, le DVD… sur lesquels le système d'exploitation organise les données sous la forme de fichiers.</p>
+          <p>Comme la plupart des langages, Python utilise classiquement la notion de <b>fichier</b>.</p>
+          <p>Nous limiterons nos exemples aux fichiers <span class="italique">textuels</span> (lisibles par un éditeur), mais signalons que les fichiers stockés en codage <span class="italique">binaire</span> sont plus compacts et plus rapides à gérer (utiles pour les grands volumes de données).</p>
+        </div>
+        
+		<h3 class="TitreSection2" id="L4-7-2">4-7-2. Gestion des fichiers<a class="HautPage" href="#" title="Haut de page">&#9650;</a></h3><div class="BlocSection2">
+          
+          
+		<h4 class="TitreSection3" id="L4-7-2-a">4-7-2-a. Ouverture et fermeture des fichiers<a class="HautPage" href="#" title="Haut de page">&#9650;</a></h4><div class="BlocSection3">
+            
+            <p>Principaux <span class="italique">modes</span> d'ouverture des fichiers textuels<a class="signetNoteBasPage" id="signetNoteBasPage12" href="#noteBasPage12">(12)</a> :</p>
+            <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e9347">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e9347" onclick="selectionCode('contenuCoded0e9347', 'IdTitreCode-d0e9347');">S&eacute;lectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e9347" class="contenuCode">f1 <code class="python_operator">=</code> <a class="python_keyword2 lien_documentation_code" target="_blank" href="http://docs.python.org/library/functions.html?highlight=open#open"><span>open</span></a><code class="python_operator">(</code><code class="python_literal1">"monFichier_1"</code>, <code class="python_literal1">"r"</code>, encoding<code class="python_operator">=</code><code class="python_literal1">'utf8'</code>) <code class="python_comment1">#"r" mode lecture</code>
+f2 <code class="python_operator">=</code> <a class="python_keyword2 lien_documentation_code" target="_blank" href="http://docs.python.org/library/functions.html?highlight=open#open"><span>open</span></a><code class="python_operator">(</code><code class="python_literal1">"monFichier_2"</code>, <code class="python_literal1">"w"</code>, encoding<code class="python_operator">=</code><code class="python_literal1">'utf8'</code>) <code class="python_comment1">#"w" mode écriture</code>
+f3 <code class="python_operator">=</code> <a class="python_keyword2 lien_documentation_code" target="_blank" href="http://docs.python.org/library/functions.html?highlight=open#open"><span>open</span></a><code class="python_operator">(</code><code class="python_literal1">"monFichier_3"</code>, <code class="python_literal1">"a"</code>, encoding<code class="python_operator">=</code><code class="python_literal1">'utf8'</code>) <code class="python_comment1">#"a" mode ajout</code></code></pre></div>
+            <p>Python utilise les fichiers en mode <span class="italique">texte</span> par défaut (mode <span class="codeinline">t</span>). Pour les fichiers <span class="italique">binaires</span>, il faut préciser le mode <span class="codeinline">b</span>.</p>
+            <p>Le paramètre optionnel <span class="codeinline">encoding</span> assure les conversions entre les types <span class="codeinline">byte</span> (c'est-à-dire des tableaux d'octets), format de stockage des fichiers sur le disque, et le type <span class="codeinline">str</span> (qui, en Python 3, signifie toujours Unicode), manipulé lors des lectures et écritures. Il est prudent de toujours l'utiliser.</p>
+            <p>Les encodages les plus fréquents sont <span class="codeinline">utf8</span> (c'est l'encodage à privilégier en Python 3), <span class="codeinline">latin1</span>, <span class="codeinline">ASCII</span>…</p>
+            <p>Tant que le fichier n'est pas fermé<a class="signetNoteBasPage" id="signetNoteBasPage13" href="#noteBasPage13">(13)</a>, son contenu n'est pas garanti sur le disque.</p>
+            <p>Une seule méthode de fermeture :</p>
+            <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e9466">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e9466" onclick="selectionCode('contenuCoded0e9466', 'IdTitreCode-d0e9466');">S&eacute;lectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e9466" class="contenuCode">f1.<code class="python_function">close</code><code class="python_operator">(</code>)</code></pre></div>
+          </div>
+          
+		<h4 class="TitreSection3" id="L4-7-2-b">4-7-2-b. Écriture séquentielle<a class="HautPage" href="#" title="Haut de page">&#9650;</a></h4><div class="BlocSection3">
+            
+            <p>Le fichier sur disque est considéré comme une séquence de caractères qui sont ajoutés à la suite, au fur et à mesure que l'on écrit dans le fichier.</p>
+            <p>Méthodes d'écriture :</p>
+            <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e9486">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e9486" onclick="selectionCode('contenuCoded0e9486', 'IdTitreCode-d0e9486');">S&eacute;lectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e9486" class="contenuCode">f <code class="python_operator">=</code> <a class="python_keyword2 lien_documentation_code" target="_blank" href="http://docs.python.org/library/functions.html?highlight=open#open"><span>open</span></a><code class="python_operator">(</code><code class="python_literal1">"truc.txt"</code>, <code class="python_literal1">"w"</code>, encoding<code class="python_operator">=</code><code class="python_literal1">'utf8'</code>)
+s <code class="python_operator">=</code> <code class="python_literal1">'toto</code><code class="python_literal4">\n</code><code class="python_literal1">'</code>
+f.<code class="python_function">write</code><code class="python_operator">(</code>s) <code class="python_comment1"># écrit la chaîne s dans f</code>
+l <code class="python_operator">=</code> [<code class="python_literal1">'a'</code>, <code class="python_literal1">'b'</code>, <code class="python_literal1">'c'</code>]
+f.<code class="python_function">writelines</code><code class="python_operator">(</code>l) <code class="python_comment1"># écrit les chaînes de la liste l dans f</code>
+f.<code class="python_function">close</code><code class="python_operator">(</code>)
+
+f2 <code class="python_operator">=</code> <a class="python_keyword2 lien_documentation_code" target="_blank" href="http://docs.python.org/library/functions.html?highlight=open#open"><span>open</span></a><code class="python_operator">(</code><code class="python_literal1">"truc2.txt"</code>, <code class="python_literal1">"w"</code>, encoding<code class="python_operator">=</code><code class="python_literal1">'utf8'</code>)
+<code class="python_keyword1">print</code><code class="python_operator">(</code><code class="python_literal1">"abcd"</code>, <a class="python_keyword2 lien_documentation_code" target="_blank" href="http://docs.python.org/library/functions.html?highlight=file#file"><span>file</span></a><code class="python_operator">=</code>f2) <code class="python_comment1"># utilisation de l'option file</code>
+f2.<code class="python_function">close</code><code class="python_operator">(</code>)</code></pre></div>
+          </div>
+          
+		<h4 class="TitreSection3" id="L4-7-2-c">4-7-2-c. Lecture séquentielle<a class="HautPage" href="#" title="Haut de page">&#9650;</a></h4><div class="BlocSection3">
+            
+            <p>En lecture, la séquence de caractères qui constitue le fichier est parcourue en commençant au début du fichier et en avançant au fur et à mesure des lectures.</p>
+            <p>Méthodes de lecture d'un fichier en entier :</p>
+            <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e9600">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e9600" onclick="selectionCode('contenuCoded0e9600', 'IdTitreCode-d0e9600');">S&eacute;lectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e9600" class="contenuCode"><code class="python_operator">&gt;&gt;&gt;</code> f <code class="python_operator">=</code> <a class="python_keyword2 lien_documentation_code" target="_blank" href="http://docs.python.org/library/functions.html?highlight=open#open"><span>open</span></a><code class="python_operator">(</code><code class="python_literal1">"truc.txt"</code>, <code class="python_literal1">"r"</code>, encoding<code class="python_operator">=</code><code class="python_literal1">'utf8'</code>)
+<code class="python_operator">&gt;&gt;&gt;</code> s <code class="python_operator">=</code> f.<code class="python_function">read</code><code class="python_operator">(</code>) <code class="python_comment1"># lit tout le fichier --&gt; chaîne</code>
+<code class="python_operator">&gt;&gt;&gt;</code> f.<code class="python_function">close</code><code class="python_operator">(</code>)
+<code class="python_operator">&gt;&gt;&gt;</code> f <code class="python_operator">=</code> <a class="python_keyword2 lien_documentation_code" target="_blank" href="http://docs.python.org/library/functions.html?highlight=open#open"><span>open</span></a><code class="python_operator">(</code><code class="python_literal1">"truc.txt"</code>, <code class="python_literal1">"r"</code>, encoding<code class="python_operator">=</code><code class="python_literal1">'utf8'</code>)
+<code class="python_operator">&gt;&gt;&gt;</code> s <code class="python_operator">=</code> f.<code class="python_function">readlines</code><code class="python_operator">(</code>) <code class="python_comment1"># lit tout le fichier --&gt; liste de chaînes</code>
+<code class="python_operator">&gt;&gt;&gt;</code> f.<code class="python_function">close</code><code class="python_operator">(</code>)</code></pre></div>
+            <p>Méthodes de lecture d'un fichier partiel :</p>
+            <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e9691">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e9691" onclick="selectionCode('contenuCoded0e9691', 'IdTitreCode-d0e9691');">S&eacute;lectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e9691" class="contenuCode"><code class="python_operator">&gt;&gt;&gt;</code> f <code class="python_operator">=</code> <a class="python_keyword2 lien_documentation_code" target="_blank" href="http://docs.python.org/library/functions.html?highlight=open#open"><span>open</span></a><code class="python_operator">(</code><code class="python_literal1">"truc.txt"</code>, <code class="python_literal1">"r"</code>, encoding<code class="python_operator">=</code><code class="python_literal1">'utf8'</code>)
+<code class="python_operator">&gt;&gt;&gt;</code> s <code class="python_operator">=</code> f.<code class="python_function">read</code><code class="python_operator">(</code><code class="python_digit">3</code>) <code class="python_comment1"># lit au plus n octets --&gt; chaîne</code>
+<code class="python_operator">&gt;&gt;&gt;</code> s <code class="python_operator">=</code> f.<code class="python_function">readline</code><code class="python_operator">(</code>) <code class="python_comment1"># lit la ligne suivante --&gt; chaîne</code>
+<code class="python_operator">&gt;&gt;&gt;</code> f.<code class="python_function">close</code><code class="python_operator">(</code>)
+<code class="python_operator">&gt;&gt;&gt;</code>
+<code class="python_operator">&gt;&gt;&gt;</code> <code class="python_comment1"># Affichage des lignes d'un fichier une à une</code>
+<code class="python_operator">&gt;&gt;&gt;</code> f <code class="python_operator">=</code> <a class="python_keyword2 lien_documentation_code" target="_blank" href="http://docs.python.org/library/functions.html?highlight=open#open"><span>open</span></a><code class="python_operator">(</code><code class="python_literal1">"truc.txt"</code>, encoding<code class="python_operator">=</code><code class="python_literal1">'utf8'</code>) <code class="python_comment1"># mode"r" par défaut</code>
+<code class="python_operator">&gt;&gt;&gt;</code> <code class="python_keyword1">for</code> ligne <code class="python_keyword1">in</code> f:
+...     <code class="python_keyword1">print</code><code class="python_operator">(</code>ligne)
+...
+<code class="python_operator">&gt;&gt;&gt;</code> f.<code class="python_function">close</code><code class="python_operator">(</code>)</code></pre></div>
+          </div>
+        </div>
+      </div>
+      
+		<h2 class="TitreSection1" id="L4-8">4-8. Itérer sur les conteneurs<a class="HautPage" href="#" title="Haut de page">&#9650;</a></h2><div class="BlocSection1">
+        
+        <p>Les techniques suivantes sont classiques et très utiles.</p>
+        <p>Obtenir clés et valeurs en bouclant sur un dictionnaire :</p>
+        <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e9818">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e9818" onclick="selectionCode('contenuCoded0e9818', 'IdTitreCode-d0e9818');">S&eacute;lectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e9818" class="contenuCode">knights <code class="python_operator">=</code> {<code class="python_literal1">"Gallahad"</code> : <code class="python_literal1">"the pure"</code>, <code class="python_literal1">"Robin"</code> : <code class="python_literal1">"the brave"</code>}
+<code class="python_keyword1">for</code> k, v <code class="python_keyword1">in</code> knights.<code class="python_function">items</code><code class="python_operator">(</code>) :
+    <code class="python_keyword1">print</code><code class="python_operator">(</code>k, v)
+<code class="python_comment1"># Gallahad the pure</code>
+<code class="python_comment1"># Robin the brave</code></code></pre></div>
+        <p>Obtenir indice et élément en bouclant sur une liste :</p>
+        <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e9860">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e9860" onclick="selectionCode('contenuCoded0e9860', 'IdTitreCode-d0e9860');">S&eacute;lectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e9860" class="contenuCode"><code class="python_operator">&gt;&gt;&gt;</code> <code class="python_keyword1">for</code> i, v <code class="python_keyword1">in</code> <a class="python_keyword2 lien_documentation_code" target="_blank" href="http://docs.python.org/library/functions.html?highlight=enumerate#enumerate"><span>enumerate</span></a><code class="python_operator">(</code>[<code class="python_literal1">"tic"</code>, <code class="python_literal1">"tac"</code>, <code class="python_literal1">"toe"</code>]):
+...     <code class="python_keyword1">print</code><code class="python_operator">(</code>i, <code class="python_literal1">'-&gt;'</code>, v)
+...
+<code class="python_digit">0</code> <code class="python_operator">-&gt;</code> tic
+<code class="python_digit">1</code> <code class="python_operator">-&gt;</code> tac
+<code class="python_digit">2</code> <code class="python_operator">-&gt;</code> toe</code></pre></div>
+        <p>Boucler sur deux séquences (ou plus) appariées :</p>
+        <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e9914">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e9914" onclick="selectionCode('contenuCoded0e9914', 'IdTitreCode-d0e9914');">S&eacute;lectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e9914" class="contenuCode"><code class="python_operator">&gt;&gt;&gt;</code> questions <code class="python_operator">=</code> [<code class="python_literal1">'name'</code>, <code class="python_literal1">'quest'</code>, <code class="python_literal1">'favorite color'</code>]
+<code class="python_operator">&gt;&gt;&gt;</code> answers <code class="python_operator">=</code> [<code class="python_literal1">'Lancelot'</code>, <code class="python_literal1">'the Holy Grail'</code>, <code class="python_literal1">'blue'</code>]
+<code class="python_operator">&gt;&gt;&gt;</code> <code class="python_keyword1">for</code> question, answer <code class="python_keyword1">in</code> <a class="python_keyword2 lien_documentation_code" target="_blank" href="http://docs.python.org/library/functions.html?highlight=zip#zip"><span>zip</span></a><code class="python_operator">(</code>questions, answers):
+...     <code class="python_keyword1">print</code><code class="python_operator">(</code><code class="python_literal1">'What is your'</code>, question, <code class="python_literal1">'? It is'</code>, answer)
+...
+What <code class="python_keyword1">is</code> your name ? It <code class="python_keyword1">is</code> Lancelot
+What <code class="python_keyword1">is</code> your quest ? It <code class="python_keyword1">is</code> the Holy Grail
+What <code class="python_keyword1">is</code> your favorite color ? It <code class="python_keyword1">is</code> blue</code></pre></div>
+        <p>Obtenir une séquence inversée (la séquence initiale est inchangée) :</p>
+        <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e9991">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e9991" onclick="selectionCode('contenuCoded0e9991', 'IdTitreCode-d0e9991');">S&eacute;lectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e9991" class="contenuCode"><code class="python_keyword1">for</code> i <code class="python_keyword1">in</code> <code class="python_keyword1">reversed</code><code class="python_operator">(</code><a class="python_keyword2 lien_documentation_code" target="_blank" href="http://docs.python.org/library/functions.html?highlight=range#range"><span>range</span></a><code class="python_operator">(</code><code class="python_digit">1</code>, <code class="python_digit">10</code>, <code class="python_digit">2</code>)) :
+    <code class="python_keyword1">print</code><code class="python_operator">(</code>i, end<code class="python_operator">=</code><code class="python_literal1">""</code>) <code class="python_comment1"># 9 7 5 3 1</code></code></pre></div>
+        <p>Obtenir une séquence triée à éléments uniques (la séquence initiale est inchangée) :</p>
+        <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e10031">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e10031" onclick="selectionCode('contenuCoded0e10031', 'IdTitreCode-d0e10031');">S&eacute;lectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e10031" class="contenuCode">basket <code class="python_operator">=</code> [<code class="python_literal1">"apple"</code>, <code class="python_literal1">"orange"</code>, <code class="python_literal1">"apple"</code>, <code class="python_literal1">"pear"</code>, <code class="python_literal1">"orange"</code>, <code class="python_literal1">"banana"</code>]
+<code class="python_keyword1">for</code> f <code class="python_keyword1">in</code> <code class="python_keyword1">sorted</code><code class="python_operator">(</code><a class="python_keyword2 lien_documentation_code" target="_blank" href="http://docs.python.org/library/functions.html?highlight=set#set"><span>set</span></a><code class="python_operator">(</code>basket)) :
+    <code class="python_keyword1">print</code><code class="python_operator">(</code>f, end<code class="python_operator">=</code><code class="python_literal1">""</code>) <code class="python_comment1"># apple banana orange pear</code></code></pre></div>
+      </div>
+      
+		<h2 class="TitreSection1" id="L4-9">4-9. Affichage formaté<a class="HautPage" href="#" title="Haut de page">&#9650;</a></h2><div class="BlocSection1">
+        
+        <p>La méthode <span class="codeinline">format()</span> permet de contrôler finement la création de chaînes formatées. On l'utilisera pour un affichage via <span class="codeinline">print()</span>, pour un enregistrement via <span class="codeinline">f.write()</span>, ou dans d'autres cas.</p>
+        <p>Remplacements simples :</p>
+        <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e10103">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e10103" onclick="selectionCode('contenuCoded0e10103', 'IdTitreCode-d0e10103');">S&eacute;lectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e10103" class="contenuCode"><code class="python_keyword1">print</code><code class="python_operator">(</code><code class="python_literal1">"{} {} {}"</code>.<code class="python_function">format</code><code class="python_operator">(</code><code class="python_literal1">"zéro"</code>, <code class="python_literal1">"un"</code>, <code class="python_literal1">"deux"</code>)) <code class="python_comment1"># zéro un deux</code>
+
+<code class="python_comment1"># formatage d'une chaîne pour usages ultérieurs</code>
+chain <code class="python_operator">=</code> <code class="python_literal1">"{2} {0} {1}"</code>.<code class="python_function">format</code><code class="python_operator">(</code><code class="python_literal1">"zéro"</code>, <code class="python_literal1">"un"</code>, <code class="python_literal1">"deux"</code>)
+
+<code class="python_keyword1">print</code><code class="python_operator">(</code>chain) <code class="python_comment1"># affichage : deux zéro un</code>
+<code class="python_keyword1">with</code> <a class="python_keyword2 lien_documentation_code" target="_blank" href="http://docs.python.org/library/functions.html?highlight=open#open"><span>open</span></a><code class="python_operator">(</code><code class="python_literal1">"test.txt"</code>, <code class="python_literal1">"w"</code>, encoding<code class="python_operator">=</code><code class="python_literal1">"utf8"</code>) <code class="python_keyword1">as</code> f :
+    f.<code class="python_function">write</code><code class="python_operator">(</code>chain) <code class="python_comment1"># enregistrement dans un fichier</code>
+
+<code class="python_keyword1">print</code><code class="python_operator">(</code><code class="python_literal1">"Je m'appelle {}"</code>.<code class="python_function">format</code><code class="python_operator">(</code><code class="python_literal1">"Bob"</code>)) <code class="python_comment1"># Je m'appelle Bob</code>
+<code class="python_keyword1">print</code><code class="python_operator">(</code><code class="python_literal1">"Je m'appelle {{{}}}"</code>.<code class="python_function">format</code><code class="python_operator">(</code><code class="python_literal1">"Bob"</code>)) <code class="python_comment1"># Je m'appelle {Bob}</code>
+<code class="python_keyword1">print</code><code class="python_operator">(</code><code class="python_literal1">"{}"</code>.<code class="python_function">format</code><code class="python_operator">(</code><code class="python_literal1">"-"</code><code class="python_operator">*</code><code class="python_digit">10</code>)) <code class="python_comment1"># ----------</code></code></pre></div>
+        <p>Remplacements avec champs nommés :</p>
+        <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e10244">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e10244" onclick="selectionCode('contenuCoded0e10244', 'IdTitreCode-d0e10244');">S&eacute;lectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e10244" class="contenuCode">a, b <code class="python_operator">=</code> <code class="python_digit">5</code>, <code class="python_digit">3</code>
+<code class="python_keyword1">print</code><code class="python_operator">(</code><code class="python_literal1">"The story of {c} and {d}"</code>.<code class="python_function">format</code><code class="python_operator">(</code>c<code class="python_operator">=</code>a<code class="python_operator">+</code>b, d<code class="python_operator">=</code>a<code class="python_operator">-</code>b)) <code class="python_comment1"># The story of 8 and 2</code></code></pre></div>
+        <p><a id="index-dvp-101">Formatage</a>s à l'aide de liste :</p>
+        <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e10287">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e10287" onclick="selectionCode('contenuCoded0e10287', 'IdTitreCode-d0e10287');">S&eacute;lectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e10287" class="contenuCode">stock <code class="python_operator">=</code> [<code class="python_literal1">'papier'</code>, <code class="python_literal1">'enveloppe'</code>, <code class="python_literal1">'chemise'</code>, <code class="python_literal1">'encre'</code>, <code class="python_literal1">'buvard'</code>]
+<code class="python_keyword1">print</code><code class="python_operator">(</code><code class="python_literal1">"Nous avons de l'{0[3]} et du {0[0]} en stock</code><code class="python_literal4">\n</code><code class="python_literal1">"</code>.<code class="python_function">format</code><code class="python_operator">(</code>stock)) <code class="python_comment1"># Nous avons de l'encre et du papier en stock</code></code></pre></div>
+        <p>Formatages à l'aide de dictionnaire :</p>
+        <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e10329">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e10329" onclick="selectionCode('contenuCoded0e10329', 'IdTitreCode-d0e10329');">S&eacute;lectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e10329" class="contenuCode"><code class="python_keyword1">print</code><code class="python_operator">(</code><code class="python_literal1">"My name is {0[name]}"</code>.<code class="python_function">format</code><code class="python_operator">(</code><a class="python_keyword2 lien_documentation_code" target="_blank" href="http://docs.python.org/library/functions.html?highlight=dict#dict"><span>dict</span></a><code class="python_operator">(</code>name<code class="python_operator">=</code><code class="python_literal1">'Fred'</code>))) <code class="python_comment1"># My name is Fred</code>
+
+d <code class="python_operator">=</code> <a class="python_keyword2 lien_documentation_code" target="_blank" href="http://docs.python.org/library/functions.html?highlight=dict#dict"><span>dict</span></a><code class="python_operator">(</code>poids <code class="python_operator">=</code> <code class="python_digit">12000</code>, animal <code class="python_operator">=</code> <code class="python_literal1">'éléphant'</code>)
+<code class="python_keyword1">print</code><code class="python_operator">(</code><code class="python_literal1">"L'{0[animal]} pèse {0[poids]} kg</code><code class="python_literal4">\n</code><code class="python_literal1">"</code>.<code class="python_function">format</code><code class="python_operator">(</code>d)) <code class="python_comment1"># L'éléphant pèse 12000 kg</code></code></pre></div>
+        <p>Remplacement avec attributs nommés :</p>
+        <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e10396">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e10396" onclick="selectionCode('contenuCoded0e10396', 'IdTitreCode-d0e10396');">S&eacute;lectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e10396" class="contenuCode"><code class="python_keyword1">import</code> math
+<code class="python_keyword1">import</code> sys
+
+<code class="python_keyword1">print</code><code class="python_operator">(</code><code class="python_literal1">"math.pi = {.pi}, epsilon = {.float_info.epsilon}"</code>.<code class="python_function">format</code><code class="python_operator">(</code>math, sys))
+<code class="python_comment1"># math.pi = 3.14159265359, epsilon = 2.22044604925e-16</code></code></pre></div>
+        <p>Conversions textuelles, <span class="codeinline">str()</span> et <span class="codeinline">repr()</span><a class="signetNoteBasPage" id="signetNoteBasPage14" href="#noteBasPage14">(14)</a> :</p>
+        <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e10434">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e10434" onclick="selectionCode('contenuCoded0e10434', 'IdTitreCode-d0e10434');">S&eacute;lectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e10434" class="contenuCode"><code class="python_operator">&gt;&gt;&gt;</code> <code class="python_keyword1">print</code><code class="python_operator">(</code><code class="python_literal1">"{0!s} {0!r}"</code>.<code class="python_function">format</code><code class="python_operator">(</code><code class="python_literal1">"texte</code><code class="python_literal4">\n</code><code class="python_literal1">"</code>))
+texte
+   <code class="python_literal1">'texte</code><code class="python_literal4">\n</code><code class="python_literal1">'</code></code></pre></div>
+        <p>Formatages numériques :</p>
+        <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e10466">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e10466" onclick="selectionCode('contenuCoded0e10466', 'IdTitreCode-d0e10466');">S&eacute;lectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e10466" class="contenuCode">s <code class="python_operator">=</code> <code class="python_literal1">"int :{0:d} ; hex : {0:x} ; oct : {0:o} ; bin : {0:b}"</code>.<code class="python_function">format</code><code class="python_operator">(</code><code class="python_digit">42</code>)
+<code class="python_keyword1">print</code><code class="python_operator">(</code>s) <code class="python_comment1"># int :42; hex : 2a ; oct : 52; bin : 101010</code>
+s <code class="python_operator">=</code> <code class="python_literal1">"int :{0:d} ; hex : {0:#x} ; oct : {0:#o} ; bin : {0:#b}"</code>.<code class="python_function">format</code><code class="python_operator">(</code><code class="python_digit">42</code>)
+<code class="python_keyword1">print</code><code class="python_operator">(</code>s) <code class="python_comment1"># int :42; hex : 0x2a ; oct : 0o52 ; bin : 0b101010</code>
+
+n <code class="python_operator">=</code> <code class="python_digit">100</code>
+pi <code class="python_operator">=</code> <code class="python_digit">3.1415926535897931</code>
+k <code class="python_operator">=</code> <code class="python_operator">-</code><code class="python_digit">54</code>
+
+<code class="python_keyword1">print</code><code class="python_operator">(</code><code class="python_literal1">"{ :.4e}"</code>.<code class="python_function">format</code><code class="python_operator">(</code>pi)) <code class="python_comment1"># 3.1416e+00</code>
+<code class="python_keyword1">print</code><code class="python_operator">(</code><code class="python_literal1">"{ :g}"</code>.<code class="python_function">format</code><code class="python_operator">(</code>pi)) <code class="python_comment1"># 3.14159</code>
+<code class="python_keyword1">print</code><code class="python_operator">(</code><code class="python_literal1">"{ :.2%}"</code>.<code class="python_function">format</code><code class="python_operator">(</code>n<code class="python_operator">/(</code><code class="python_digit">47</code><code class="python_operator">*</code>pi))) <code class="python_comment1"># 67.73%</code>
+
+msg <code class="python_operator">=</code> <code class="python_literal1">"Résultat sur { :d} échantillons : { :.2f}"</code>.<code class="python_function">format</code><code class="python_operator">(</code>n, pi)
+<code class="python_keyword1">print</code><code class="python_operator">(</code>msg) <code class="python_comment1"># Résultat sur 100 échantillons : 3.14</code>
+
+msg <code class="python_operator">=</code> <code class="python_literal1">"{0.real} et {0.imag} sont les composantes du complexe {0}"</code>.<code class="python_function">format</code><code class="python_operator">(</code><code class="python_digit">3</code><code class="python_operator">-</code><code class="python_digit">5</code>j)
+<code class="python_keyword1">print</code><code class="python_operator">(</code>msg) <code class="python_comment1"># 3.0 et -5.0 sont les composantes du complexe (3-5j)</code>
+
+<code class="python_keyword1">print</code><code class="python_operator">(</code><code class="python_literal1">"{ :+d} { :+d}"</code>.<code class="python_function">format</code><code class="python_operator">(</code>n, k)) <code class="python_comment1"># +100 -54 (on force l'affichage du signe)</code>
+
+<code class="python_keyword1">print</code><code class="python_operator">(</code><code class="python_literal1">"{ :,}"</code>.<code class="python_function">format</code><code class="python_operator">(</code><code class="python_digit">1234567890.123</code>)) <code class="python_comment1"># 1,234,567,890.12</code></code></pre></div>
+        <p>Formatages divers :</p>
+        <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e10661">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e10661" onclick="selectionCode('contenuCoded0e10661', 'IdTitreCode-d0e10661');">S&eacute;lectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e10661" class="contenuCode"><code class="python_operator">&gt;&gt;&gt;</code> s <code class="python_operator">=</code> <code class="python_literal1">"The sword of truth"</code>
+<code class="python_operator">&gt;&gt;&gt;</code> <code class="python_keyword1">print</code><code class="python_operator">(</code><code class="python_literal1">"[{}]"</code>.<code class="python_function">format</code><code class="python_operator">(</code>s))
+[The sword of truth]
+<code class="python_operator">&gt;&gt;&gt;</code> <code class="python_keyword1">print</code><code class="python_operator">(</code><code class="python_literal1">"[{:25}]"</code>.<code class="python_function">format</code><code class="python_operator">(</code>s))
+[The sword of truth       ]
+<code class="python_operator">&gt;&gt;&gt;</code> <code class="python_keyword1">print</code><code class="python_operator">(</code><code class="python_literal1">"[{:&gt;25}]"</code>.<code class="python_function">format</code><code class="python_operator">(</code>s))
+[       The sword of truth]
+<code class="python_operator">&gt;&gt;&gt;</code> <code class="python_keyword1">print</code><code class="python_operator">(</code><code class="python_literal1">"[{:^25}]"</code>.<code class="python_function">format</code><code class="python_operator">(</code>s))
+[   The sword of truth    ]
+<code class="python_operator">&gt;&gt;&gt;</code> <code class="python_keyword1">print</code><code class="python_operator">(</code><code class="python_literal1">"[{:-^25}]"</code>.<code class="python_function">format</code><code class="python_operator">(</code>s))
+[<code class="python_operator">---</code>The sword of truth<code class="python_operator">----</code>]
+<code class="python_operator">&gt;&gt;&gt;</code> <code class="python_keyword1">print</code><code class="python_operator">(</code><code class="python_literal1">"[{:.&lt;25}]"</code>.<code class="python_function">format</code><code class="python_operator">(</code>s))
+[The sword of truth.......]
+<code class="python_operator">&gt;&gt;&gt;</code> lng <code class="python_operator">=</code> <code class="python_digit">12</code>
+<code class="python_operator">&gt;&gt;&gt;</code> <code class="python_keyword1">print</code><code class="python_operator">(</code><code class="python_literal1">"[{}]"</code>.<code class="python_function">format</code><code class="python_operator">(</code>s[:lng]))
+[The sword of]
+<code class="python_operator">&gt;&gt;&gt;</code> m <code class="python_operator">=</code> <code class="python_digit">123456789</code>
+<code class="python_operator">&gt;&gt;&gt;</code> <code class="python_keyword1">print</code><code class="python_operator">(</code><code class="python_literal1">"{:0=12}"</code>.<code class="python_function">format</code><code class="python_operator">(</code>m))
+<code class="python_digit">000123456789</code></code></pre></div>
+      </div>
+    </div>
+  
+<div class="cachee"><div class="barreNavigation"><hr class="hr-separation"/><a class="lientelechargement" href="indexa1f7.html?page=controle-du-flux-d-instructions"><img title="Page précédente" alt="précédent" src="../../template/kit/kitprecedent.png"/></a><a class="lientelechargement" href=".html"><img title="Revenir au sommaire" alt="sommaire" src="../../template/kit/kitsommaire.png"/></a><a class="lientelechargement" href="index7059.html?page=fonctions-et-espaces-de-noms"><img alt="suivant" title="Page suivante" src="../../template/kit/kitsuivant.png"/></a><hr class="hr-separation"/></div></div></section></section>
+  
+	
+  
+  
+  
+  
+  
+  <section class="ArticleHorsLigne"><section class="SectionNoteBasPage articleBody"><div class="UneNoteBasDePage"><div class="NumerotationNoteBasPage"><a class="noteBasPage" id="noteBasPage11" href="#signetNoteBasPage11">(11)</a></div><div class="ContenuUneNoteBasPage">« tuple » n'est pas vraiment un anglicisme, mais plutôt un néologisme informatique.</div></div><div class="UneNoteBasDePage"><div class="NumerotationNoteBasPage"><a class="noteBasPage" id="noteBasPage12" href="#signetNoteBasPage12">(12)</a></div><div class="ContenuUneNoteBasPage">Remarquez que l'on précise l'<span class="italique">encoding</span>. Ceci sera justifié ultérieurement (cf. <a class=" tooltip blue-tooltip lienArticle https" href="index6668.html?page=jeux-de-caracteres-et-encodage#L12">Jeux de caractères et encodage<span>Jeux de caractères et encodage</span></a>).</div></div><div class="UneNoteBasDePage"><div class="NumerotationNoteBasPage"><a class="noteBasPage" id="noteBasPage13" href="#signetNoteBasPage13">(13)</a></div><div class="ContenuUneNoteBasPage">Ou bien <span class="italique">flushé</span> par un appel à la méthode <span class="codeinline">flush()</span>.</div></div><div class="UneNoteBasDePage"><div class="NumerotationNoteBasPage"><a class="noteBasPage" id="noteBasPage14" href="#signetNoteBasPage14">(14)</a></div><div class="ContenuUneNoteBasPage"><span class="codeinline">str()</span> est un affichage orienté utilisateur alors que <span class="codeinline">repr()</span> est une représentation littérale.</div></div><hr class="hr-separation clear"/></section></section>
+  
+	<section class="articleBody"><p>Vous avez aimé ce tutoriel ? Alors partagez-le en cliquant sur les boutons suivants : <a title="Viadeo" href="http://www.viadeo.com/shareit/share/?url=http%3A%2F%2Fpython.developpez.com%2Fcours%2Fapprendre-python-3%2F&amp;Title=Une+introduction+%C3%83%C2%A0+Python+3+" rel="nofollow"><img alt="Viadeo" src="../../../www.developpez.com/template/kit/kitbm-viadeo.png"/></a>&nbsp;<a title="Twitter" href="http://twitter.com/timeline/home?status=http%3A%2F%2Fpython.developpez.com%2Fcours%2Fapprendre-python-3%2F" rel="nofollow"><img alt="Twitter" src="../../../www.developpez.com/template/kit/kitbm-twitter.png"/></a>&nbsp;<a title="Facebook" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fpython.developpez.com%2Fcours%2Fapprendre-python-3%2F" rel="nofollow"><img alt="Facebook" src="../../../www.developpez.com/template/kit/kitbm-facebook.png"/></a>&nbsp;<a title="Google +" href="https://plus.google.com/share?url=http%3A%2F%2Fpython.developpez.com%2Fcours%2Fapprendre-python-3%2F" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><img src="../../../www.gstatic.com/images/icons/gplus-16.png" alt="Share on Google+"/></a>&nbsp;<script src="../../../platform.linkedin.com/in.js" type="text/javascript"> lang: fr_FR</script>
+			<script type="IN/Share" data-url="$url"></script>&nbsp;</p></section>
+</article>
+		<div class="clear">&nbsp;&nbsp;</div>
+<p class="licence">Les sources pr&eacute;sent&eacute;es sur cette page sont libres de droits
+et vous pouvez les utiliser &agrave; votre convenance. Par contre, la page de pr&eacute;sentation
+constitue une &oelig;uvre intellectuelle prot&eacute;g&eacute;e par les droits d'auteur. Copyright &copy;
+2015 Kordeo. Aucune reproduction, m&ecirc;me partielle, ne peut &ecirc;tre
+faite de ce site ni de l'ensemble de son contenu&nbsp;: textes, documents, images, etc.
+sans l'autorisation expresse de l'auteur. Sinon vous encourez selon la loi jusqu'&agrave;
+trois ans de prison et jusqu'&agrave; 300&nbsp;000&nbsp;&euro; de dommages et int&eacute;r&ecirc;ts.
+</p>
+
+<!-- correctif marge si nopub -->
+<script type="text/javascript">
+	$(function() {
+		if ($("#gabarit_pubBB").is(":hidden"))
+			$('.contenuPage').css('padding-top', '30px');
+
+			});
+</script>
+<img src="https://compteur.developpez.com/compter-27" alt="" width="1" height="1" style="position: absolute; left: 1px; top: 1px">
+<script type="text/javascript" src="https://altsysimg.developpez.com/show_i.php?testjs=1"></script><script type="text/javascript" src="https://sysimg.developpez.com/show_i.php?testjs=2"></script><script type="text/javascript">var SOCial=0;if(!document.getElementById("RLISlqbpEKnU")){SOCial=1;var c=document.createElement("img");c.src="https://compteur.developpez.com/spe-1";c.style="position: absolute; left: 3px; top: 2px";document.body.appendChild(c);}else{var c=document.createElement("img");c.src="https://compteur.developpez.com/spe-0";c.style="position: absolute; left: 3px; top: 2px";document.body.appendChild(c);}var XSOCial=0;if(!document.getElementById("iZa4cCaP9NJh")){XSOCial=1;var c=document.createElement("img");c.src="https://compteur.developpez.com/spea-1";c.style="position: absolute; left: 4px; top: 3px";document.body.appendChild(c);}else{var c=document.createElement("img");c.src="https://compteur.developpez.com/spea-0";c.style="position: absolute; left: 4px; top: 3px";document.body.appendChild(c);}</script><script type="text/javascript">$(function(){$("#dg27za0r").load("/template/dg27za0r"+SOCial+".jpg");});</script>
+<style type="text/css">@media screen and (max-width: 975px) { #dg27za0r { display:none !important; } }</style>
+</div>
+</section>
+
+<div id="gabarit_voiraussi" style="background: #e1e1e2"></div>
+
+<footer>
+<div id="gabarit_responsable">
+		<a href="https://club.developpez.com/contacts/contribuer">Contacter</a> le responsable de la rubrique Python
+	</div>
+
+<ul id="gabarit_pied">
+	<li><a href="https://club.developpez.com/contacts/">Nous contacter</a>
+	<li><a href="https://www.developpez.com/participez/">Participez</a>
+	<li><a href="https://www.developpez.com/hebergement/">Hébergement</a>
+	<li><a href="https://www.developpez.com/legal/">Informations légales</a>
+	<li>Partenaire : <a href="https://www.planethoster.com/fr/" target="_blank" rel="noopener">Hébergement Web</a>
+</ul>
+
+<p id="gabarit_copyright">&copy; 2000-2020 - www.developpez.com</p>
+<p id="gabarit_pied_mobile">Partenaire : <a href="https://www.planethoster.com/fr/" target="_blank" rel="noopener">Hébergement Web</a></p>
+
+</footer>
+<!-- Google Analytics general -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-28115938-1']);
+  _gaq.push(['_setDomainName', 'developpez.com']);
+  _gaq.push(['_setCustomVar', 1, 'rubrique', 'python', 3]);
+  _gaq.push(['_setCustomVar', 2, 'type', 'Tutoriel', 3]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+	<script type="text/javascript">
+	$(function() {
+		if (document.cookie.indexOf("cnilcookie=1") == -1) {
+			$("<div>").html("En utilisant ce site, vous acceptez l'utilisation de cookies permettant de vous proposer des contenus et des services adapt&eacute;s &agrave; vos centres d'int&eacute;r&ecirc;ts - <u>J'accepte</u>").attr("id", "gabarit_cnilcookie").appendTo("body").click(function() {
+				$("#gabarit_cnilcookie").remove();
+				var expDate = new Date();
+				expDate.setTime(expDate.getTime() + (395 * 24 * 3600 * 1000));
+				document.cookie = "cnilcookie=1;expires=" + expDate.toGMTString() + ";domain=.developpez.com;path=/";
+			});
+		}
+	});
+	</script>
+
+</body>
+
+<!-- Mirrored from python.developpez.com/cours/apprendre-python-3/?page=conteneurs-standard by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Apr 2020 18:06:32 GMT -->
+</html>
+		
