@@ -1,0 +1,138 @@
+@font-face {
+    font-family: 'aileronregular';
+    src: url('Aileron-Regular-webfont.eot');
+    src: url('Aileron-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Aileron-Regular-webfont.woff2') format('woff2'),
+         url('Aileron-Regular-webfont.woff') format('woff'),
+         url('Aileron-Regular-webfont.ttf') format('truetype'),
+         url('Aileron-Regular-webfont.svg#aileronregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'aileronitalic';
+    src: url('Aileron-Italic-webfont.eot');
+    src: url('Aileron-Italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Aileron-Italic-webfont.woff2') format('woff2'),
+         url('Aileron-Italic-webfont.woff') format('woff'),
+         url('Aileron-Italic-webfont.ttf') format('truetype'),
+         url('Aileron-Italic-webfont.svg#aileronitalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'aileronbold';
+    src: url('Aileron-Bold-webfont.eot');
+    src: url('Aileron-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Aileron-Bold-webfont.woff2') format('woff2'),
+         url('Aileron-Bold-webfont.woff') format('woff'),
+         url('Aileron-Bold-webfont.ttf') format('truetype'),
+         url('Aileron-Bold-webfont.svg#aileronbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+h1, h2
+{
+    font-family: 'aileronbold', 'Arial', 'sans-serif';
+}
+
+h1, p
+{
+    text-align: center;
+}
+
+h2
+{
+    clear: both;
+    background: #960000;
+    background: -moz-linear-gradient(left, #960000 0%, #F14C50 75%);
+    background: -webkit-linear-gradient(left, #960000 0%,#F14C50 75%);
+    background: linear-gradient(to right, #960000 0%,#F14C50 75%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#960000', endColorstr='#F14C50',GradientType=1 );
+    color: #fff;
+    box-shadow: 0px 5px 5px gray;
+    -webkit-box-shadow: 0px 5px 5px gray;
+    -moz-box-shadow: 0px 5px 5px gray;
+}
+
+p, ul
+{
+    font-family: 'aileronregular', 'Arial', 'sans-serif';
+}
+
+em
+{
+    font-family: 'aileronitalic', 'Arial', 'sans-serif';
+    color: #555;
+}
+
+#photo
+{
+    float: right;
+    display: inline-block;
+}
+
+
+
+img
+{
+    border: 2px solid #960000;
+    box-shadow: 0px 0px 5px gray;
+    -webkit-box-shadow: 0px 0px 5px gray;
+    -moz-box-shadow: 0px 0px 5px gray;
+}
+
+img:hover
+{
+    border: 2px solid #555;
+}
+
+body
+{
+    background-image: url(main_croquis.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    display: flex;
+    flex-direction: row;
+}
+
+.contenu
+{
+    display: flex;
+    flex-direction: row;
+}
+
+article
+{
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+}
+
+.cv
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.liserai
+{
+    background-image: url("liserai_cv.png");
+    width: 80%;
+    min-width: 100px;
+    height: 752px;
+    border-radius: 10px;
+}
+
+#bloc_page
+{
+    width: 900px;
+    margin: auto;
+}
