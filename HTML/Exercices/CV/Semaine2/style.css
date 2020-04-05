@@ -1,0 +1,103 @@
+/* Importation des polices */
+
+@font-face {
+    font-family: 'aileronregular';
+    src: url('Aileron-Regular-webfont.eot');
+    src: url('Aileron-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Aileron-Regular-webfont.woff2') format('woff2'),
+         url('Aileron-Regular-webfont.woff') format('woff'),
+         url('Aileron-Regular-webfont.ttf') format('truetype'),
+         url('Aileron-Regular-webfont.svg#aileronregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'aileronitalic';
+    src: url('Aileron-Italic-webfont.eot');
+    src: url('Aileron-Italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Aileron-Italic-webfont.woff2') format('woff2'),
+         url('Aileron-Italic-webfont.woff') format('woff'),
+         url('Aileron-Italic-webfont.ttf') format('truetype'),
+         url('Aileron-Italic-webfont.svg#aileronitalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'aileronbold';
+    src: url('Aileron-Bold-webfont.eot');
+    src: url('Aileron-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Aileron-Bold-webfont.woff2') format('woff2'),
+         url('Aileron-Bold-webfont.woff') format('woff'),
+         url('Aileron-Bold-webfont.ttf') format('truetype'),
+         url('Aileron-Bold-webfont.svg#aileronbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* Application des styles CSS aux balises HTML */
+
+h1, h2
+{
+    font-family: 'aileronbold', 'Arial', 'sans-serif'; /* Utiliser une police personnalisée via @font-face */
+}
+
+h1, p
+{
+    text-align: center; /* Changer l'alignement d'un des textes */
+}
+
+h2
+{
+    clear: both;
+    background: #960000;
+    background: -moz-linear-gradient(left, #960000 0%, #ff0000 100%);
+    background: -webkit-linear-gradient(left, #960000 0%,#ff0000 100%);
+    background: linear-gradient(to right, #960000 0%,#ff0000 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#960000', endColorstr='#ff0000',GradientType=1 );
+    color: #fff; /*Changer la couleur d'un des textes */
+    box-shadow: 0px 5px 5px gray; /* Définir une ombre à un élément */
+    -webkit-box-shadow: 0px 5px 5px gray;
+    -moz-box-shadow: 0px 5px 5px gray;
+}
+
+p, ul
+{
+    font-family: 'aileronregular', 'Arial', 'sans-serif';
+}
+
+em
+{
+    font-family: 'aileronitalic', 'Arial', 'sans-serif';
+    color: #555;
+}
+
+#photo
+{
+    float: right;
+}
+
+img
+{
+    border: 2px solid #960000; /* Définir une bordure à un élément */
+    box-shadow: 0px 5px 5px gray; /* Définir une ombre à un élément */
+    -webkit-box-shadow: 0px 0px 10px gray;
+    -moz-box-shadow: 0px 0px 10px gray;
+}
+
+img:hover
+{
+    border: 2px solid #555; /* Définir une bordure à un élément */
+}
+body
+
+{
+    background-image: url(main_croquis.jpg); /* Appliquer une image de fond à la page */
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+}
