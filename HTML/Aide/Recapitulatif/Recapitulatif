@@ -1,0 +1,699 @@
+<!DOCTYPE html> <!-- balise indispensable pour qu'un navigateur pouisse interpréter le langage HTML5 -->
+
+<!-- Copyright Jérémie Berger 2019. Tous droits réservés.-->
+
+<!-- Ceci est la page récapitulative pour la syntaxe du langage HTML5,
+    et pourra servir en lien avec la page récapitulative du CSS3.-->
+
+<!-- Ceci est un commentaire -->
+
+<!-- Le langage HTML5 fonctionne par balises. Il en existe deux types : les balises en paires et les 
+    balises orphelines.-->
+
+<!-- Syntaxe des balises en paires :
+
+    <balise>
+        code contenu dans la paire de balises.
+    </balise>
+
+-->
+
+<!-- Syntaxe des balises orphelines :
+
+    <balise/>
+
+-->
+
+<!-- Les balises peuvent posséder des attributs : Ils seront écrits après le nom des balises ouvrantes pour les balises en paires, et après le nom de balise pour les balises orphelines -->
+
+<!-- Syntaxe des attributs pour les balises en paires :
+
+    <balise attribut1="valeur1" attribut2="valeur2">
+        code contenu dans la paire de balises.
+    </balise>
+
+-->
+
+<!-- Syntaxe des attributs pour les balises orphelines :
+
+    </balise attribut1="valeur1" attribut2="valeur2">
+
+-->
+
+<!-- Pour éviter les erreurs, préférer les noms de fichiers en minuscules avec des _ pour les espaces :
+    exemples : mon_repertoire/ma_page.html ou mon_image.png ou mon_fichier.zip
+-->
+
+<!-- Structure de base d'une page HTML5 : -->
+
+<html> <!-- balise de base d'une page HTML -->
+
+    <head> <!-- balise d'en-tête de page -->
+
+        <meta charset="utf-8" /> <!-- balise contenant les méta données sur la page courante.
+        charset : Spécifie l'encodage : ATTENTION à bien enregistrer la page avec le même encodage !
+        -->
+
+        <link rel="stylesheet" href="style.css"/> <!-- balise indiquant que style.css contient le code CSS de la page -->
+
+        <title>
+            Récapitulatif HTML5 / CSS3
+        </title> <!-- balise de titre, il apparaitra comme nom d'onglet/fenêtre et comme intitulé principal dans les moteurs de recherche.
+        En général moins de 100 caractères.
+        ATTENTION : Si un commentaire est mis entre les deux balises de titre, il sera peût-être visible comme titre dans certains navigateurs.
+        provoque un saut de ligne -->
+
+        Texte contenu dans le head.
+
+    </head> <!-- ne provoque pas de saut de ligne -->
+
+
+    <body> <!-- balise de corps de page -->
+
+        <br id="ancre"/> <!-- balise de saut de ligne.
+        Doit être de préférence contenue dans un paragraphe.
+        id : attribut d'identification de la balise : Attribue un identifiant unique, contrairement à la balise class qui identifie un groupe de plusieurs balises
+        -->
+
+        Texte de test <!-- on peut entrer du texte, il sera affiché en prenant en compte les balises entre lesquelles il se situe -->
+
+        <p> <!-- balise de paragraphe -->
+            Texte contenu dans un paragraphe.
+        </p> <!-- provoque un saut de ligne -->
+
+        <h1> <!-- balise de titre d'importance 1 -->
+            Titre d'importance 1
+        </h1> <!-- provoque un saut de ligne -->
+
+        <h2> <!-- balise de titre d'importance 2 -->
+            Titre d'importance 2
+        </h2>
+
+        <h3> <!-- balise de titre d'importance 3 -->
+            Titre d'importance 3
+        </h3>
+
+        <h4> <!-- balise de titre d'importance 4 -->
+            Titre d'importance 4
+        </h4>
+
+        <h5> <!-- balise de titre d'importance 5 -->
+            Titre d'importance 5
+        </h5>
+
+        <h6> <!-- balise de titre d'importance 6 -->
+            Titre d'importance 6
+        </h6>
+
+        <!-- les balises de titre d'importance 6 sont les moins importantes et les balises d'importance 1 les plus importantes -->
+
+        <em> <!-- balise de mise en valeur faible -->
+            Texte faiblement mis en valeur.
+        </em> <!-- ne provoque pas de saut de ligne -->
+
+        <strong> <!-- balise de mise en valeur forte -->
+            Texte fortement mis en valeur.
+        </strong> <!-- ne provoque pas de saut de ligne -->
+
+        <mark> <!-- balise de mise en valeur visuelle/surlignage -->
+            Texte mis en valeur visuellement.
+        </mark> <!-- ne provoque pas de saut de ligne -->
+
+        <ul> <!-- balise de liste à puce -->
+
+            <li> <!-- balise d'élément de liste. Doit être contenu dans une liste -->
+                Partie 1
+            </li> <!-- provoque un saut de ligne -->
+
+            <li>
+                Partie 2
+            </li>
+
+            <li>
+                Partie 3
+            </li>
+
+        </ul> <!-- provoque un saut de ligne -->
+
+        <ol> <!-- balise de liste ordonnée -->
+
+            <li>
+                Partie 1
+            </li>
+
+            <li>
+                Partie 2
+            </li>
+
+            <li>
+                Parie 3
+            </li>
+
+        </ol>
+
+        <dl> <!-- balise de liste de définitions -->
+
+            <dt> <!-- balise de terme -->
+                Terme 1
+            </dt>
+
+            <dd> <!-- balise de définition -->
+                Définition 1
+            </dd>
+
+            <dt>
+                Terme 2
+            </dt>
+
+            <dd>
+                Définition 2
+            </dd>
+
+        </dl>
+
+        <a href="Liens" title="texte affiché au survol du lien" target="_blank"> <!-- balise de lien hypertexte.
+            href : Spécifie la destination vers laquelle pointe le lien :
+                "https://www.siteweb.fr/exemple/page" vers une url (ATTENTION : on ne met pas toujours le html)
+                "../repertoire/page" vers une adresse relative
+                "../repertoire/page#id" vers une ancre au sein d'une adresse relative
+                "https://www.siteweb.fr/repertoire/page#ancre" vers une ancre au sein d'une url
+        	    "mailto:email@fournisseur.com" vers un envoi de mail à l'adresse spécifiée
+        	    "monfichier.zip" vers le téléchargement d'un fichier
+            title : Spécifie le texte affiché au survol du lien ou comme description pour les malvoyants.
+            target : Spécifie la manière dont doit s'ouvrir le lien :
+                "_blank" force l'ouverture dans un nouvel onglet (ou fenêtre selon la configuration du navigateur)
+            ATTENTION : Si une url contient des &, il faudra les échapper en les écrivant &amp
+            -->
+            Lien hypertexte
+        </a> <!-- ne provoque pas de saut de ligne -->
+
+        <a href="#ancre"> <!-- balise de lien vers une balise ancre sur la page courante.
+        Il faut noter # puis le nom d'identification (id) de la balise concernée comme url.
+        On peut coupler liens vers ancres et vers pages en écrivant url/page#ancre
+        -->
+            Aller vers l'ancre
+        </a>
+
+        <img src="montagne.jpg" alt="photo de montagne" title="texte affiché au survol de l'image"/> <!-- balise d'image
+        src : emplacement du fichier image à afficher (url ou relatif)
+        alt : texte alternatif à afficher si l'image ne peut s'afficher, pour les moteurs de recherche et pour les malvoyants
+        title : texte affiché au survol de l'image ou pour les malvoyants
+        -->
+
+        <figure> <!-- balise de figure
+            on peut y insérer une ou plusieurs images, ou tous autres éléments venant illustrer le propos du texte -->
+            <figcaption> <!-- balise de description de figure -->
+                Description de la figure
+            </figcaption>
+        </figure>
+
+    <div></div> <!-- balise universelle de type block -->
+    <span></span> <!-- balise universelle de type inline -->
+
+    <p id="id1"> <!-- paragraphe avec l'id "id1" -->
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio doloribus ab laborum, cupiditate, ut alias magni molestiae, consequatur laudantium temporibus at velit ad. Dignissimos, in non vitae illo iure quo odio, ab modi rerum officiis illum esse libero reprehenderit est veniam obcaecati et repellendus quasi. Ipsa perspiciatis est deserunt voluptate.
+    </p>
+
+    <p class="class1"> <!-- paragraphe avec la classe "class1" -->
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio doloribus ab laborum, cupiditate, ut alias magni molestiae, consequatur laudantium temporibus at velit ad. Dignissimos, in non vitae illo iure quo odio, ab modi rerum officiis illum esse libero reprehenderit est veniam obcaecati et repellendus quasi. Ipsa perspiciatis est deserunt voluptate.
+    </p>
+
+    <!-- #id et .class en emmet-->
+
+    <p class="class2">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim doloremque assumenda inventore, consequuntur neque provident repudiandae numquam est. Repellendus fugiat architecto <span id="id2">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>nesciunt odio accusantium culpa voluptatum, labore illo aperiam, quia est nisi repudiandae distinctio reiciendis possimus et. Dolores cupiditate totam nisi, nesciunt ducimus, aut a doloremque rerum enim ratione adipisci?
+    </p>
+
+    <p><img src="zozor.png" class="imageflottante" alt="Image flottante" /></p>
+
+    <p>Ce texte est écrit à côté de l'image flottante.</p>
+
+    <p class="dessous">Ce texte est écrit sous l'image flottante.</p>
+
+    <p class="paragraphe"><img src="css_colors.png" alt="Couleurs utilisables en CSS"/></p>
+
+    <header></header> <!-- balise d'en-t$ete de page -->
+    <nav></nav> <!-- balise de navigation, souvent réservée au menu principal du site  qui sera écrit à l'intérieur sous forme de liste -->
+    <section></section> <!-- balise de section de page, grande partie d'une page -->
+    <footer></footer> <!-- balise de pied-de-page -->
+    <article></article> <!-- balise d'article, réservée aux articles -->
+    <aside></aside> <!-- balise d'encart, pouvant illustrer ou apporter des informations complémentaires à une section ou un article -->
+
+    <img src="structure.png" alt="Schéma des balises structurantes">
+
+    </body>
+
+</html>
+
+
+<!-- balises de type BLOCK -->
+
+<div></div> <!-- BLOCK de base -->
+
+<header></header> <!-- BLOCK vide -->
+<nav></nav> <!-- BLOCK vide -->
+<section></section> <!-- BLOCK vide -->
+<footer></footer> <!-- BLOCK vide -->
+<article></article> <!-- BLOCK vide -->
+<aside></aside> <!-- BLOCK vide -->
+
+<p></p> <!-- BLOCK -->
+<h1></h1> <!-- BLOCK -->
+<h2></h2> <!-- BLOCK -->
+<h3></h3> <!-- BLOCK -->
+<h4></h4> <!-- BLOCK -->
+<h5></h5> <!-- BLOCK -->
+<h6></h6> <!-- BLOCK -->
+
+
+<!-- balises de type INLINE -->
+
+<span></span> <!-- INLINE de base -->
+
+<a></a> <!-- INLINE -->
+<em></em> <!-- INLINE -->
+<strong></strong> <!-- INLINE -->
+<mark></mark> <!-- INLINE -->
+<img/> <!-- INLINE -->
+
+<section>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum voluptatem repellendus nulla. Numquam perspiciatis adipisci culpa officia accusamus. Quidem autem saepe totam cumque ipsam eligendi sequi doloremque harum dolores tempore corrupti modi aliquid, sapiente, quo quaerat aliquam at explicabo officiis omnis porro placeat impedit corporis voluptas sunt perspiciatis! Omnis, repudiandae similique esse voluptates porro, vitae dolore fuga velit rerum. Magnam officiis repellendus nobis totam molestiae architecto aut corrupti atque necessitatibus minus nemo consequuntur adipisci illum, accusamus saepe tempora illo quisquam maxime fugit officia, odit, qui rem commodi. Quod alias similique nisi quas illum vero, asperiores eveniet dolore ut ipsam molestias quam, voluptatum eos amet non debitis! Dolorem modi, aliquid, repellat tempore officiis, illo quidem possimus ullam dolorum nostrum suscipit quaerat minus atque consequatur. Quo inventore minus incidunt hic similique ex esse eaque adipisci ratione cum quaerat, dignissimos ipsum enim autem eveniet sit architecto quia quae perferendis numquam pariatur perspiciatis vel atque? Sequi excepturi assumenda neque provident, maiores quis, qui repellendus dolores corrupti molestiae atque temporibus, molestias voluptate quam nesciunt quaerat recusandae eligendi est deserunt placeat ut laborum enim. Molestias eum corporis reprehenderit eius nesciunt omnis. Voluptatem, odit, sunt. Nihil deleniti, iusto impedit explicabo dolorum numquam omnis rerum. Molestias nisi fugit, a distinctio! Suscipit eligendi tempora hic possimus optio sequi facere voluptas labore, illo nam commodi ullam, repudiandae tenetur praesentium, nisi deleniti. Quas maxime voluptate nihil ratione blanditiis, adipisci officia labore est voluptatem sint rem, aperiam doloremque natus harum inventore sunt eligendi incidunt dolorum modi? Voluptatibus rem porro ad inventore, blanditiis vero, atque asperiores, eligendi fuga vel, eveniet unde. Non nisi debitis aliquam autem temporibus, laudantium, tempore quos repellat, accusamus quaerat adipisci. At dolor temporibus non, nesciunt reprehenderit impedit eum atque optio nisi itaque velit laudantium laboriosam voluptate cum quam eius molestias libero! Laborum sed officiis est nisi, suscipit dolore illo! Odit veniam molestias ducimus doloribus eaque, nulla provident tenetur ipsum quasi beatae rem voluptatibus maxime reprehenderit, maiores quaerat at tempora officia, tempore sapiente soluta dicta rerum. Ab velit, unde quia et id consectetur aspernatur, quidem inventore, incidunt eum distinctio voluptatem facilis dicta. Placeat quos minima eligendi voluptatem laudantium aliquam quo recusandae vel eius, natus, nam, minus autem cumque aspernatur similique ullam praesentium, nemo voluptates! Voluptate aliquid perspiciatis, deleniti fugiat neque dignissimos vel magnam quaerat nisi, ipsam excepturi eum ut, nemo, sit optio. Aspernatur, ea, ab. Asperiores voluptatibus, maxime architecto necessitatibus? Fugit quod maxime ex iste ab veniam labore eos vitae laudantium atque animi adipisci voluptatibus vero, blanditiis cumque officia amet assumenda suscipit facere quisquam beatae! Reiciendis voluptatem dicta nam voluptas, sapiente rem ad quos nesciunt minus explicabo. Dicta at odio esse voluptate eius. Distinctio non, laborum maiores cumque repellendus, ratione aut, ipsam amet, rem accusamus nam facilis velit enim! Voluptas modi repudiandae consequuntur velit dolore commodi enim eos veritatis perferendis, quisquam eum animi cupiditate voluptatum aperiam perspiciatis molestias architecto qui eligendi soluta atque nam excepturi laudantium rerum sunt. Corporis officia, sapiente, perferendis odio laborum maxime quae pariatur tempore eligendi at fugit! Vitae deserunt ullam quos possimus, voluptate corporis praesentium enim.
+</section>
+
+<section>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum voluptatem repellendus nulla. Numquam perspiciatis adipisci culpa officia accusamus. Quidem autem saepe totam cumque ipsam eligendi sequi doloremque harum dolores tempore corrupti modi aliquid, sapiente, quo quaerat aliquam at explicabo officiis omnis porro placeat impedit corporis voluptas sunt perspiciatis! Omnis, repudiandae similique esse voluptates porro, vitae dolore fuga velit rerum. Magnam officiis repellendus nobis totam molestiae architecto aut corrupti atque necessitatibus minus nemo consequuntur adipisci illum, accusamus saepe tempora illo quisquam maxime fugit officia, odit, qui rem commodi. Quod alias similique nisi quas illum vero, asperiores eveniet dolore ut ipsam molestias quam, voluptatum eos amet non debitis! Dolorem modi, aliquid, repellat tempore officiis, illo quidem possimus ullam dolorum nostrum suscipit quaerat minus atque consequatur. Quo inventore minus incidunt hic similique ex esse eaque adipisci ratione cum quaerat, dignissimos ipsum enim autem eveniet sit architecto quia quae perferendis numquam pariatur perspiciatis vel atque? Sequi excepturi assumenda neque provident, maiores quis, qui repellendus dolores corrupti molestiae atque temporibus, molestias voluptate quam nesciunt quaerat recusandae eligendi est deserunt placeat ut laborum enim. Molestias eum corporis reprehenderit eius nesciunt omnis. Voluptatem, odit, sunt. Nihil deleniti, iusto impedit explicabo dolorum numquam omnis rerum. Molestias nisi fugit, a distinctio! Suscipit eligendi tempora hic possimus optio sequi facere voluptas labore, illo nam commodi ullam, repudiandae tenetur praesentium, nisi deleniti. Quas maxime voluptate nihil ratione blanditiis, adipisci officia labore est voluptatem sint rem, aperiam doloremque natus harum inventore sunt eligendi incidunt dolorum modi? Voluptatibus rem porro ad inventore, blanditiis vero, atque asperiores, eligendi fuga vel, eveniet unde. Non nisi debitis aliquam autem temporibus, laudantium, tempore quos repellat, accusamus quaerat adipisci. At dolor temporibus non, nesciunt reprehenderit impedit eum atque optio nisi itaque velit laudantium laboriosam voluptate cum quam eius molestias libero! Laborum sed officiis est nisi, suscipit dolore illo! Odit veniam molestias ducimus doloribus eaque, nulla provident tenetur ipsum quasi beatae rem voluptatibus maxime reprehenderit, maiores quaerat at tempora officia, tempore sapiente soluta dicta rerum. Ab velit, unde quia et id consectetur aspernatur, quidem inventore, incidunt eum distinctio voluptatem facilis dicta. Placeat quos minima eligendi voluptatem laudantium aliquam quo recusandae vel eius, natus, nam, minus autem cumque aspernatur similique ullam praesentium, nemo voluptates! Voluptate aliquid perspiciatis, deleniti fugiat neque dignissimos vel magnam quaerat nisi, ipsam excepturi eum ut, nemo, sit optio. Aspernatur, ea, ab. Asperiores voluptatibus, maxime architecto necessitatibus? Fugit quod maxime ex iste ab veniam labore eos vitae laudantium atque animi adipisci voluptatibus vero, blanditiis cumque officia amet assumenda suscipit facere quisquam beatae! Reiciendis voluptatem dicta nam voluptas, sapiente rem ad quos nesciunt minus explicabo. Dicta at odio esse voluptate eius. Distinctio non, laborum maiores cumque repellendus, ratione aut, ipsam amet, rem accusamus nam facilis velit enim! Voluptas modi repudiandae consequuntur velit dolore commodi enim eos veritatis perferendis, quisquam eum animi cupiditate voluptatum aperiam perspiciatis molestias architecto qui eligendi soluta atque nam excepturi laudantium rerum sunt. Corporis officia, sapiente, perferendis odio laborum maxime quae pariatur tempore eligendi at fugit! Vitae deserunt ullam quos possimus, voluptate corporis praesentium enim.
+</section>
+
+
+<div id="conteneur">
+
+    <div class="element" id="element1">1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit voluptatem adipisci aliquam excepturi magni quia sequi debitis. Mollitia id, fugiat sunt consectetur tempore perspiciatis ipsam sint ut quae, vero rerum officia pariatur dolor in impedit tempora recusandae, adipisci porro esse libero eius facilis voluptatibus error voluptates quos! Culpa, impedit, asperiores.</div>
+
+    <div class="element" id="element2">2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure eligendi porro quasi odit quod necessitatibus tenetur quo, cum, nemo culpa reiciendis veniam eius adipisci. Suscipit quisquam quia, reiciendis mollitia ut soluta dolores, eius omnis quas nisi nihil sit. Cum quibusdam quia aliquid eligendi debitis et vitae sunt temporibus recusandae quos.</div>
+
+    <div class="element" id="element3">3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi repellat sit tempore veniam culpa distinctio quia blanditiis! Rerum sint repellendus velit suscipit qui odio nam quo voluptatum minus, placeat excepturi mollitia provident et pariatur rem, illum ipsum. Beatae vel tempore atque, possimus hic minima repudiandae facilis alias reprehenderit deserunt quibusdam!</div>
+
+    <div class="element" id="element4">4 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut quas voluptatem, ad animi vitae dignissimos temporibus illo excepturi nostrum commodi in earum rem sunt perspiciatis recusandae expedita, provident, deserunt corporis odio aperiam quis. Officia, voluptate distinctio animi autem error repudiandae repellendus sit architecto ullam dolor temporibus quis, voluptatem dicta! Delectus.</div>
+
+    <div class="element" id="element5">5 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, temporibus. Ut quam at voluptatum officiis obcaecati nisi facilis soluta, commodi fugit, cum! Esse hic, ex cumque id vitae tempore, consequuntur inventore, accusamus in vel facere autem vero recusandae facilis aspernatur dicta saepe? Officia, itaque dolorum quos aliquam magni saepe molestias?</div>
+
+    <div class="element" id="element6">6 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, temporibus explicabo numquam non, totam expedita quod sint distinctio corporis a voluptatibus labore voluptatem mollitia enim maiores culpa, eos aspernatur voluptates ab dolorem ipsam impedit corrupti! Quisquam voluptate, atque, alias et aperiam quidem nihil ab quod fuga excepturi non asperiores nemo.</div>
+
+    <div class="element" id="element7">7 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam eius autem, quo molestias, mollitia placeat rem, natus voluptate porro laboriosam inventore ea, atque pariatur hic tempore ipsum. Inventore magni excepturi sapiente praesentium natus autem dolorem architecto tempore fugiat. Nulla mollitia, labore aut quaerat quidem! Nihil a sunt, hic dolore eos.</div>
+
+    <div class="element" id="element8">8 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic nisi blanditiis, dignissimos assumenda aspernatur, sunt accusantium fuga commodi nesciunt neque, laborum enim iure ex possimus vitae facilis quis quae eligendi. Tenetur animi sunt dolore alias provident officia unde, exercitationem quisquam non esse sint eveniet vitae aliquam voluptatum, deleniti facere quasi.</div>
+
+</div>
+
+<div class="align">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+<div class="align">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur neque, aut impedit! Hic tempore animi corrupti molestias ut a expedita.</div>
+
+<div>
+    
+</div id="conteneur1">
+    <div id="float1">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+    <div id="float2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur neque, aut impedit! Hic tempore animi corrupti molestias ut a expedita.</div>
+</div>
+
+<div id="conteneur2">
+    <div class="pos" id="pos1">1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur animi, eum quidem aliquam sunt asperiores itaque aperiam nemo aut suscipit!</div>
+    <div class="pos" id="pos2">2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur animi, eum quidem aliquam sunt asperiores itaque aperiam nemo aut suscipit!</div>
+</div>
+<div id="conteneur3">
+    <div class="pos" id="pos3">3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur animi, eum quidem aliquam sunt asperiores itaque aperiam nemo aut suscipit!</div>
+    <div class="pos" id="pos4">4 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur animi, eum quidem aliquam sunt asperiores itaque aperiam nemo aut suscipit!</div>
+</div>
+
+<table> <!-- tableaux, balises de type BLOCK -->
+    <tr> <!-- ligne -->
+         <td>celule 1</td> <!-- cellule -->
+         <td>celule 2</td>
+         <td>celule 3</td>
+         <td>celule 4</td>
+    </tr>
+    <tr>
+        <td>hsrhtzrh</td>
+        <td>j;,,jjg</td>
+        <td>rtzujuj</td>
+        <td>eytjetyjk</td>
+    </tr>
+</table>
+
+<table>
+   <caption>Passagers du vol 377</caption> <!-- titre du tableau -->
+   <tr>
+       <th>Nom</th> <!-- lignes d'en-tête -->
+       <th>Âge</th> <!-- lignes d'en-tête -->
+       <th>Pays</th> <!-- lignes d'en-tête -->
+   </tr>
+   <tr>
+       <td>Carmen</td>
+       <td>33 ans</td>
+       <td>Espagne</td>
+   </tr>
+   <tr>
+       <td>Michelle</td>
+       <td>26 ans</td>
+       <td>États-Unis</td>
+   </tr>
+</table>
+
+<table>
+   <caption>Passagers du vol 377</caption>
+   <thead> <!-- En-tête du tableau -->
+       <tr>
+           <th>Nom</th>
+           <th>Âge</th>
+           <th>Pays</th>
+       </tr>
+   </thead>
+   <tfoot> <!-- Pied de tableau -->
+       <tr>
+           <th>Nom</th>
+           <th>Âge</th>
+           <th>Pays</th>
+       </tr>
+   </tfoot>
+   <tbody> <!-- Corps du tableau -->
+       <tr>
+           <td>Carmen</td>
+           <td>33 ans</td>
+           <td>Espagne</td>
+       </tr>
+       <tr>
+           <td>Michelle</td>
+           <td>26 ans</td>
+           <td>États-Unis</td>
+       </tr>
+       <tr>
+           <td>François</td>
+           <td>43 ans</td>
+           <td>France</td>
+       </tr>
+       <tr>
+           <td>Martine</td>
+           <td>34 ans</td>
+           <td>France</td>
+       </tr>
+       <tr>
+           <td>Jonathan</td>
+           <td>13 ans</td>
+           <td>Australie</td>
+       </tr>
+       <tr>
+           <td>Xu</td>
+           <td>19 ans</td>
+           <td>Chine</td>
+       </tr>
+   </tbody>
+</table>
+
+<table>
+   <tr>
+       <th>Titre du film</th>
+       <th>Pour enfants ?</th>
+       <th>Pour adolescents ?</th>
+   </tr>
+   <tr>
+       <td>Massacre à la tronçonneuse</td>
+       <td >Non, trop violent</td>
+       <td>Oui</td>
+   </tr>
+   <tr>
+       <td>Les bisounours font du ski</td>
+       <td>Oui, adapté</td>
+       <td>Pas assez violent...</td>
+   </tr>
+   <tr>
+       <td>Lucky Luke, seul contre tous</td>
+       <td colspan="2">Pour toute la famille !</td>
+   </tr>
+</table>
+
+<table>
+   <tr>
+       <th>Titre du film</th>
+       <td>Massacre à la tronçonneuse</td>
+       <td>Les bisounours font du ski</td>
+       <td>Lucky Luke, seul contre tous</td>
+   </tr>
+   <tr>
+       <th>Pour enfants ?</th>
+       <td>Non, trop violent</td>
+       <td>Oui, adapté</td>
+       <td rowspan="2">Pour toute la famille !</td>
+   </tr>
+   <tr>
+       <th>Pour adolescents ?</th>
+       <td>Oui</td>
+       <td>Pas assez violent...</td>
+   </tr>
+</table>
+
+<p>Texte avant le formulaire</p>
+
+<form>
+   <p>Texte à l'intérieur du formulaire</p> <!-- il faut mettre des balises BLOCK gans un formulaire -->
+</form>
+
+<p>Texte après le formulaire</p>
+
+<form method="post" action="traitement.php"> <!-- ou get 255 caractères -->
+   <p>Texte à l'intérieur du formulaire</p>
+</form>
+
+<form method="post" action="traitement.php">
+    <p><label>Votre pseudo</label> :
+    <input type="text" name="pseudo" id="pseudo" placeholder="Ex : Zozor" size="30" maxlength="10"/></p>
+</form>
+
+<form method="post" action="traitement.php">
+   <p>
+       <label for="pseudo">Votre pseudo :</label>
+       <input type="text" maxlength="10" name="pseudo" id="pseudo" />
+       
+       <br />
+       <label for="pass">Votre mot de passe :</label>
+       <input type="password" maxlength="10" name="pass" id="pass" />
+       
+   </p>
+</form>
+
+<form method="post" action="traitement.php">
+   <p>
+       <label for="pseudo">Votre pseudo :</label>
+       <input type="text" name="pseudo" id="pseudo" />
+       
+       <br />
+       <label for="pass">mot de passe :</label>
+       <input type="password" name="pass" id="pass" />
+   </p>
+</form>
+
+<form method="post" action="traitement.php">
+   <p>
+       <label for="ameliorer">Comment pensez-vous que je pourrais améliorer mon site ?</label><br />
+       <textarea name="ameliorer" id="ameliorer" rows="10" cols="50" placeholder="Améliorer ton site ?!">
+        </textarea> <!-- texte multiligne -->
+    </p>
+
+    <!-- tous les types d'input possibles, notamment pour les smartphones et tablettes -->
+    <!-- tous les navigateurs ne le prennent pas en compte -->
+
+    <input type="email" placeholder="email"/></form</form></br>
+    <input type="url" placeholder="url"/></br>
+    <input type="tel" placeholder="tel"/></br>
+    <input type="number" placeholder="number"/></br>
+    <input type="range" placeholder="range"></br>
+    <input type="color" placeholder="color"/></br>
+    <input type="date" placeholder="date"/></br>
+    <input type="time" placeholder="time"/></br>
+    <input type="week" placeholder="week"/></br>
+    <input type="month" placeholder="month"/></br>
+    <input type="datetime" placeholder="datetime"/></br> <!-- date et heure avec gestion du décalage horaire -->
+    <input type="datetime-local" placeholder="datetime-local"/></br> <!-- date et heure sans gestion du décalage horaire -->
+    <input type="search" placeholder="recherche"/></br>
+    <input type="checkbox" name="choix" /></br>
+
+
+</form>
+
+<form method="post" action="traitement.php">
+   <p>
+       Cochez les aliments que vous aimez manger :<br />
+       <input type="checkbox" name="frites" id="frites" /> <label for="frites">Frites</label><br />
+       <input type="checkbox" name="steak" id="steak" /> <label for="steak">Steak haché</label><br />
+       <input type="checkbox" name="epinards" id="epinards" /> <label for="epinards">Epinards</label><br />
+       <input type="checkbox" name="huitres" id="huitres" /> <label for="huitres">Huitres</label>
+       <input type="checkbox" name="choix" checked /> <!-- case checkée par défaut -->
+   </p>
+</form>
+
+<form method="post" action="traitement.php">
+   <p>
+       Veuillez indiquer la tranche d'âge dans laquelle vous vous situez :<br />
+       <input type="radio" name="age" value="moins15" id="moins15" /> <label for="moins15">Moins de 15 ans</label><br />
+       <input type="radio" name="age" value="medium15-25" id="medium15-25" /> <label for="medium15-25">15-25 ans</label><br />
+       <input type="radio" name="age" value="medium25-40" id="medium25-40" /> <label for="medium25-40">25-40 ans</label><br />
+       <input type="radio" name="age" value="plus40" id="plus40" /> <label for="plus40">Encore plus vieux que ça ?!</label>
+   </p>
+</form>
+
+<!-- ATTENTION : il faut mettre les mêmes name à toutes les options pour qu'elles soient reconnues comme appartenant au même groupe ! Par contre les id sont toujours uniques, du coup on peut leur donner les noms des value -->
+
+<form method="post" action="traitement.php">
+   <p>
+       Veuillez indiquer la tranche d'âge dans laquelle vous vous situez :<br />
+       <input type="radio" name="age" value="moins15" id="moins15" /> <label for="moins15">Moins de 15 ans</label><br />
+       <input type="radio" name="age" value="medium15-25" id="medium15-25" /> <label for="medium15-25">15-25 ans</label><br />
+       <input type="radio" name="age" value="medium25-40" id="medium25-40" checked /> <label for="medium25-40">25-40 ans</label><br />
+       <input type="radio" name="age" value="plus40" id="plus40" /> <label for="plus40">Encore plus vieux que ça ?!</label>
+   </p>
+   <p>
+       Sur quel continent habitez-vous ?<br />
+       <input type="radio" name="continent" value="europe" id="europe" /> <label for="europe">Europe</label><br />
+       <input type="radio" name="continent" value="afrique" id="afrique" /> <label for="afrique">Afrique</label><br />
+       <input type="radio" name="continent" value="asie" id="asie" /> <label for="asie">Asie</label><br />
+       <input type="radio" name="continent" value="amerique" id="amerique" /> <label for="amerique">Amérique</label><br />
+       <input type="radio" name="continent" value="australie" id="australie" /> <label for="australie">Australie</label>
+   </p>
+</form>
+
+<form method="post" action="traitement.php">
+   <p>
+       <label for="pays">Dans quel pays habitez-vous ?</label><br />
+       <select name="pays" id="pays">
+           <option value="france">France</option>
+           <option value="espagne">Espagne</option>
+           <option value="italie">Italie</option>
+           <option value="royaume-uni">Royaume-Uni</option>
+           <option value="canada" selected>Canada</option> <!-- selectd est censé sélectionner l'opption par défaut -->
+           <option value="etats-unis">États-Unis</option>
+           <option value="chine">Chine</option>
+           <option value="japon">Japon</option>
+       </select>
+   </p>
+</form>
+
+<form method="post" action="traitement.php">
+   <p>
+       <label for="pays">Dans quel pays habitez-vous ?</label><br />
+       <select name="pays" id="pays">
+           <optgroup label="Europe">
+               <option value="france">France</option>
+               <option value="espagne">Espagne</option>
+               <option value="italie">Italie</option>
+               <option value="royaume-uni">Royaume-Uni</option>
+           </optgroup>
+           <optgroup label="Amérique">
+               <option value="canada">Canada</option>
+               <option value="etats-unis">Etats-Unis</option>
+           </optgroup>
+           <optgroup label="Asie">
+               <option value="chine">Chine</option>
+               <option value="japon">Japon</option>
+           </optgroup>
+       </select>
+   </p>
+</form>
+
+<form method="post" action="traitement.php">
+ 
+   <fieldset>
+       <legend>Vos coordonnées</legend> <!-- Titre du fieldset --> 
+
+       <label for="nom">Quel est votre nom ?</label>
+       <input type="text" name="nom" id="nom" />
+
+       <label for="prenom">Quel est votre prénom ?</label>
+       <input type="text" name="prenom" id="prenom" />
+ 
+       <label for="email">Quel est votre e-mail ?</label>
+       <input type="email" name="email" id="email" />
+
+   </fieldset>
+ 
+   <fieldset>
+       <legend>Votre souhait</legend> <!-- Titre du fieldset -->
+ 
+       <p>
+           Faites un souhait que vous voudriez voir exaucé :
+
+           <input type="radio" name="souhait" value="riche" id="riche" /> <label for="riche">Etre riche</label>
+           <input type="radio" name="souhait" value="celebre" id="celebre" /> <label for="celebre">Etre célèbre</label>
+           <input type="radio" name="souhait" value="intelligent" id="intelligent" /> <label for="intelligent">Etre <strong>encore</strong> plus intelligent</label>
+           <input type="radio" name="souhait" value="autre" id="autre" /> <label for="autre">Autre...</label>
+       </p>
+ 
+       <p>
+           <label for="precisions">Si "Autre", veuillez préciser :</label>
+           <textarea name="precisions" id="precisions" cols="40" rows="4" autofocus required></textarea>
+       </p>
+   </fieldset>
+   <input type="submit" value="Envoyer" />
+</form>
+
+<!-- autofocus plaace le curseur automatiquemnt sur le champ en question et required rend le champ obligatoire à remplir -->
+
+<!-- Le bouton d'envoi
+
+Il ne nous reste plus qu'à créer le bouton d'envoi. Là encore, la balise<input />vient à notre secours. Elle existe en quatre versions :
+
+    type="submit": le principal bouton d'envoi de formulaire. C'est celui que vous utiliserez le plus souvent. Le visiteur sera conduit à la page indiquée dans l'attributactiondu formulaire.
+
+    type="reset": remise à zéro du formulaire.
+
+    type="image": équivalent du boutonsubmit, présenté cette fois sous forme d'image. Rajoutez l'attributsrcpour indiquer l'URL de l'image.
+
+    type="button": bouton générique, qui n'aura (par défaut) aucun effet. En général, ce bouton est géré en JavaScript pour exécuter des actions sur la page. Nous ne l'utiliserons pas ici. -->
+
+    <!-- formats audio supportés MP3, AAC, OGG, WAV -->
+    <!-- conteneurs vidéo supportés AVI, MP4, MKV -->
+    <!-- codecs audio MP3, AAC, OGG -->
+    <!-- codecs vidéos
+
+    H.264 : l'un des plus puissants et des plus utilisés aujourd'hui… mais il n'est pas 100% gratuit. En fait, on peut l'utiliser gratuitement dans certains cas (comme la diffusion de vidéos sur un site web personnel), mais il y a un flou juridique qui fait qu'il est risqué de l'utiliser à tout va.
+
+    Ogg Theora : un codec gratuit et libre de droits, mais moins puissant que H.264. Il est bien reconnu sous Linux mais, sous Windows, il faut installer des programmes pour pouvoir le lire.
+
+    WebM : un autre codec gratuit et libre de droits, plus récent. Proposé par Google, c'est le concurrent le plus sérieux de H.264 à l'heure actuelle. -->
+
+<audio src="16 - Ivory Tower.mp3" controls loop autoplay preload="auto" ou "metadata" ou "none">
+    <source src="16 - Ivory Tower.mp3">
+    <source src="16 - Ivory Tower.ogg"> <!-- il faut proposer plusieurs sources si le format nest pas pris en charge -->
+    Veuillez mettre à jour votre navigateur !
+</audio>
+
+<video src="sintel.webm" controls loop autoplay ></video>
+
+<!-- poster: image à afficher à la place de la vidéo tant que celle-ci n'est pas lancée. Par défaut, le navigateur prend la première image de la vidéo mais, comme il s'agit souvent d'une image noire ou d'une image peu représentative de la vidéo, je vous conseille d'en créer une ! Vous pouvez tout simplement faire une capture d'écran d'un moment de la vidéo.
+
+    controls: pour ajouter les boutons « Lecture », « Pause » et la barre de défilement. Cela peut sembler indispensable, mais certains sites web préfèrent créer eux-mêmes leurs propres boutons et commander la lecture avec du JavaScript. En ce qui nous concerne, ce sera largement suffisant !
+
+    width: pour modifier la largeur de la vidéo.
+
+    height: pour modifier la hauteur de la vidéo.
+
+    loop: la vidéo sera jouée en boucle.
+
+    autoplay: la vidéo sera jouée dès le chargement de la page. Là encore, évitez d'en abuser, c'est en général irritant d'arriver sur un site qui lance quelque chose tout seul !
+
+    preload: indique si la vidéo peut être préchargée dès le chargement de la page ou non. Cet attribut peut prendre les valeurs :
+
+        auto(par défaut) : le navigateur décide s'il doit précharger toute la vidéo, uniquement les métadonnées ou rien du tout.
+
+        metadata: charge uniquement les métadonnées (durée, dimensions, etc.).
+
+        none: pas de préchargement. Utile si vous souhaitez éviter le gaspillage de bande passante sur votre site.-->
+
+<video src="sintel.webm" controls poster="sintel.jpg" width="600">
+Il est temps de mettre à jour votre navigateur !
+    <source src="sintel.mp4">
+    <source src="sintel.webm">
+    <source src="sintel.ogv">
+</video>
+
+
+<!-- media queries : méthode1 : mettre une feuille css pour chaque media <link rel="stylesheet" media="screen and (max-width: 1280px)" href="petite_resolution.css" />
+méthode2 : mettre les propriétés des média queries dans la feuille css principale -->
+

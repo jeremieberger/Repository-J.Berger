@@ -1,0 +1,667 @@
+/* Page récapitulative pour le CSS */
+
+/* Ceci est un commentaire */
+
+/* Le code CSS est construit comme ceci :
+
+balise ou #id ou .class
+{
+    propriete1: valeur1;
+    propriete2: valeur2;
+    propriete3: valeur3;
+}
+
+*/
+
+p /* appel à toutes les balises paragraphes */
+
+{
+
+    color: blue; /* attribut de couleur de police */
+    background: #000; /* attribut de fond général : permet de regrouper toutes les propriétés concernant le fond */
+    background-color: #8dc29e; /* attribut de couleur de fond */
+    border-radius: 5px;
+    -webkit-box-shadow: inset 6px 6px 10px yellow;
+    box-shadow: 6px 6px 10px gray; /* Ombre de bloc. inset, décalage horizontal, vertical, adoucissement, couleur */
+    text-shadow: 2px 2px 3px red;
+
+}
+
+h1 /* appel à toutes les balises de titre d'importance 1 */
+
+{
+
+    background-image: url(montagne.jpg); /* attribut d'image de fond  */
+    border-radius: 20px / 10px; /* bordures éliptiques */
+
+}
+
+#id1 /* appel à la balise avec l'id "id1" */
+
+{
+
+    background-color: #ee40c4;
+    color: #1f3;
+    font-size: 2.8ex; /* taille de police en em, %, ex, px, mm, cm ou bien xx-small, x-small, small, medium, large, x-large, xx-large */
+
+}
+
+#id2 /* appel à la balise avec l'id "id2" */
+
+{
+
+    background-color: #5e5;
+    color: #050;
+    font-size: 130%;
+
+}
+
+.class1 /* appel aux balises avec la classe "class1" */
+
+{
+
+    background-color: #ff0;
+    background-image: url("montagne.jpg"); /* image de fond */
+    background-attachment: fixed; /* défilement du fond : scroll ou fixed */
+    background-repeat: no-repeat; /* répétition du fond : no-repeat, repeat-x, repeat-y, repeat */
+    background-position: 20px 30px; /* position du fond : valeurs ou top, bottom, left, right, center */
+    
+    background: #960000; /* Faire un dégradé. On peut les générer sur le site de ColorZilla */
+    background: -moz-linear-gradient(left, #960000 0%, #ff0000 100%); /* Faire un dégradé. On peut les générer sur le site de ColorZilla */
+    background: -webkit-linear-gradient(left, #960000 0%,#ff0000 100%); /* Faire un dégradé. On peut les générer sur le site de ColorZilla */
+    background: linear-gradient(to right, #960000 0%,#ff0000 100%); /* Faire un dégradé. On peut les générer sur le site de ColorZilla */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#960000', endColorstr='#ff0000',GradientType=1 ); /* Faire un dégradé. On peut les générer sur le site de ColorZilla */
+    
+    color: #000;
+    font-size: 1.5em;
+    font-family: Arial, serif, sans-serif; /* polices à utiliser, dans l'ordre, si on les trouve sur l'ordinateur de l'utilisateur. On finit généralement par serif ou sans-serif qui sont les polices par défaut sur la plupart des ordinateurs */
+    /* polices souvent présentes sur les navigateurs :     
+    Arial
+    Arial Black
+    Comic Sans MS
+    Courier New
+    Georgia
+    Impact
+    Times New Roman
+    Trebuchet MS
+    Verdana */
+    font-style: normal; /* style de texte : normal, italic, oblique */
+    font-weight: bold; /* poids du texte : normal ou bold */
+    text-decoration: none; /* décoration du texte : none, underline, line-through, overline, blink */
+    text-align: left; /* alignement du texte : left, center, right, justify. Ne fonctionne que sur des balises de type inline */
+
+
+}
+
+.class2 /* appel aux balises avec la classe "class2" */
+
+{
+
+    font-family: 'cac_champagneregular', Arial, serif;
+    background: url("terre.gif") fixed no-repeat top right, url("zozor.png") fixed; /* l'attribut général permet d'appeler plusieurs images de fond */
+    opacity: 0.6; /* opacité du fond */
+    background-color: rgba(255, 126, 40, 0.5); /* on peut utiliser la notation rgba pour définir l'opacité d'une couleur */
+
+}
+
+/* autres sélecteurs */
+
+* /* appel à toutes les balises */
+
+{
+    
+}
+
+h3 em /* appel aux balises em conteues dans des balises h3 */
+
+{
+    
+}
+
+p, mark /* appel aux balises p et aux balises mark */
+
+{
+    
+}
+
+h2 + strong /* appel aux premières balises strong contenues dans des balises h2 */
+
+{
+    
+}
+
+a[title] /*appel aux balises a qui ont un attribut title */
+
+{
+    
+}
+
+a[title="Cliquez ici"] /*appel aux balises a qui ont un attribut title ayant pour valeur "Cliquez ici" */
+
+{
+    
+}
+
+a[title*="ici"] /* appel aux balises aui ont un attribut title contenant "ici" quelque part dans leur valeur */
+
+{
+    
+}
+
+@font-face /* permet à l'utilisateur de télécharger une police */
+
+{
+    font-family: 'cac_champagneregular'; /* nom qu'on donne à la police pour l'appeler ensuite avec font-family */
+    src: url('cac_champagne-webfont.eot');
+    src: url('cac_champagne-webfont.eot?#iefix') format('embedded-opentype'),
+         url('cac_champagne-webfont.woff2') format('woff2'),
+         url('cac_champagne-webfont.woff') format('woff'),
+         url('cac_champagne-webfont.ttf') format('truetype'),
+         url('cac_champagne-webfont.svg#cac_champagneregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.imageflottante
+
+{
+
+    float: left; /* permet de faire flotter un élément de type block ou inline dans les éléments suivants. left ou right */
+
+}
+
+.dessous
+
+{
+
+    clear: both; /* permet à un élément d'arrêter de prendre en compte les float prédédents. left, right ou both */
+
+}
+
+.paragraphe
+
+{
+    background-color: rgb(240,96,204); /* on peut noter les couleurs en rgb en précisant qu'on utilise cette notation */
+    border: 1px blue dotted; /* bordure de bloc. Taille, Couleur, Types : none, solid, dotted, dashed, double, groove, ridge, outset, inset */
+    border-radius: 5px 15px 10px 20px; /* angles de bordure arrondis. On peut indiquer chaque angle séparément en écrivant leurs radius à la suite */
+}
+
+/* Pseudo formats :
+
+:hover : au survol
+:focus : sélectionné
+:active : cliqué
+:visited : visité
+
+Les pseudo-formats sont à ajouter aux appels de balises, .class ou #id, afin de dynamiser le CSS. */
+
+/* Dimensions des balises de type BLOCK */
+
+section
+{
+    /*width: 95%; /* largeur en px ou % */
+    height: 100%; /* hauteur en px ou % */
+    /*min-width: 800px; /* largeur minimale */
+    min-height: 100%; /* hauteur minimale */
+    max-width: 550px; /* largeur maximale */
+    max-height: 10%; /* hauteur maximale */
+    text-align: justify;
+    background-color: #f00;
+    padding: 1em; /* marges intérieures en px, em et %? auto? (à test) */
+    margin: 2px 0 3px 1px; /* marges extérieures : on peut écrire haut droite bas gauche auto px em % ( à test) */
+    /* on peut aussi leur faire margin/padding-top -bottom -left ou -right pour préciser */
+}
+
+/* CENTRER UN BLOCK */
+
+/* Lui donner une largeur avec width */
+/* Lui mettre des marges automatiques avec margin: auto; */
+
+/* OVERFLOW */
+
+/* Que faire si le texte dépasse les limites de son block ? */
+
+/* overflow:hidden; (couper le texte)
+overflow:scroll; mettre une barre de défilement
+overflow:auto; (recommandé) mettre ou non une barre de défilement selon la taille de la fenêtre */
+
+/* WORD-WRAP */
+
+/* Que faire si un mot trop long dépasse de son block ? */
+/* word-wrap: break-word; force le saut de ligne quand le mot arrive au limites du block */
+/* A FAIRE DèS Q'UN BLOCK CONTIENT DU TEXTE SAISI PAR L'UTILISATEUR */
+/* ça évite de casser le design à coups de aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa */
+
+/* type block :
+créent un retour à la ligne
+occupent par défaut toute la largeur disponible
+se suivent de haut en bas */
+
+/* type inline :
+délimitent du texte au milieu d'une ligne
+se suivent de gauche à droite */
+
+#conteneur
+{
+    border: solid 2px black;
+    height: 750px;
+    display: flex; /* mettre les elements block contenus dans le block conteneur en ligne plutot qu'en colonne */
+    flex-direction: row; /* disposition des blocks :
+    row (défaut) en ligne, column, row-reverse et column-reverse */
+    flex-wrap: wrap; /* retour a la ligne des blocs si ils n'ont plus la place d'être affichés :
+    nowrap(défaut), wrap, et wrap-reverse (retour à la ligne en inversant l'ordre des blocks) */
+    justify-content: space-around; /* comment seront distribués les éléments dans la ligne ou la colonne :
+    flex-start : au début(défaut), flex-end, center,space-between, space-around (idem avec des espaces aux extrémités) */
+    align-items: center; /* position des éléments sur l'axe secondaire du conteneur :
+    stretch(défaut) étirés sur tout l'axe, flex-start, flex-end, center, baseline (aligné sur la ligne de base, semblable à flex-start) */
+    align-content: center; /* quand les éléments sont répartis sur plusieurs lignes, répartition des lignes :
+    stretch(défaut), flex-start, flex-end, center, space-between, space-around */
+}
+
+.element
+{
+    width: 250px;
+    height: 250px;
+}
+
+#element1
+{
+    background-color: #F5A431;
+    /*order: 3; /* placer cet élément en troisième position */
+}
+
+#element2
+{
+    background-color: #224AFB;
+}
+
+#element3
+{
+    background-color: #AADD66;
+    /* order: 1;*/
+}
+
+#element4
+{
+    background-color: #F5A431;
+}
+
+#element5
+{
+    background-color: #224AFB;
+}
+
+#element6
+{
+    background-color: #AADD66;
+    list-style: 
+}
+
+#element7
+{
+    background-color: #F5A431;
+}
+
+#element8
+{
+    background-color: #224AFB;
+}
+.element:nth-child(2) /* sélectionner le deuxième élément dans la classe .element */
+{
+    align-self: flex-end; /* alignement de cet élément, indépendament de ce qui a été défini dans le conteneur */
+}
+
+.element:nth-child(1)
+{
+    order: 3; /* placer le premier élément de la classe .element en position 3 */
+    -moz-order: 3;
+    -webkit-order: 3;
+    flex: 2; /* Place occupée par l'élément : 1 occupe toute la place disponible, 2 le rend 2 fois plus gros que les autres, etc */
+}
+
+.element:nth-child(3)
+{
+    order: 1; /* placer le troisième élément de la classe .element en position 1 */
+    -moz-order: 1;
+    -webkit-order: 1; /* ATTENTION order ne marche pas, il se contente de mettre l'élément en dernière position */
+    flex: 1;
+}
+
+/* CHERCHER INFOS SUR flex-grow flex-shrink et flex-basis */
+
+/* list-style : style des listes, chercher les valeurs possibles sur le net
+
+/* type INLINE-BLOCK */
+
+/* Eléments positionnés les uns à côté des autres (comme les inlines)
+mais qui peuvent être redimensionnés (comme les blocs). */
+
+/* DISPLAY */
+
+/* display: block; block, inline, inline-block, none(cache un élément) */
+
+/* ALIGNER AVEC INLINE-BLOCK */
+
+/* On peut aligner plusieurs éléments (inline ou block) en leur mettant tous display: inline-block;
+On pourra les placer et les dimensionner comme des blocks.
+Pour choisir leur alignement vertical les uns par rapport aux autres, il faut utiliser
+vertical-align: top; baseline(en bas par défaut), middle, top, bottom, ou une valeur en px, em(?) ou %, qui définira la distance par rapport à la baseline. */
+
+/* ALIGNER AVEC FLOAT */
+
+/* On peut mettre float: left ou right; à un block pour le placer à côté d'un autre.
+Présente certains inconvénients : vieille technique.
+Par exemple le texte du bloc suivant sera collé à la bordure du premier si on ne met pas de padding,
+et il faut mettre des clear: both; pour les éléments en dessous. */
+
+.align
+{
+    margin: 0px;
+    width: 150px;
+    border: 1px solid black;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#float1
+{
+    float: left;
+    width: 20%;
+    border: 1px solid black;
+}
+
+#float2
+{
+    border: 1px solid black;
+    width: 70%;
+    float: right;
+}
+
+#paragraphe
+{
+    border: 1px solid black;
+}
+
+/* POSITIONNEMENT DES ELEMENTS BLOCK OU INLINE OU AUTRE */
+
+.pos
+{
+    border: 1px solid black;
+    width: 50%;
+    max-width:400px;
+    height: 100px
+}
+
+.pos:nth-child(1)
+{
+    background-color: rgba(255, 255, 255, 0.5);
+    position: absolute; /* positionnement : absolute (par rapport à la page), fixed (comme background-attachment: fixed;), ou relative (par rapport à l'élément lui-même) */
+    /* Le positionnement fixe permet de placer un élément qui restera en place malgré le scrolling */
+    /* Le postionnement relatif situe le point de coordonnées 0,0 en haut à gauche de l'élément, et pas du contener ou de la fenêtre */
+    left: 25%; /* distance par rapport à la de la page */
+    top: 10000px; /* distance par rapport au haut de la page */
+    /* On peut aussi faire right ou bottom.
+    ATTENTION : right, left, top et bottom se placent par rapport au haut/gauche de page !
+    MAIS : Si le conteneur est lui même placé en absolu, alors là l'élément se placera par rapport au conteneur ! (quel bordel...)
+    z-index: 1; /* permet de définir la position sur l'axe Z (celui des calques).
+    Le plus petit est tout en dessous, le plus grand tout au dessus */
+}
+
+/*#pos1 ATTENTION : les nth-child(x) ne semblent plus marcher si on change de conteneur, à vérifier sur le net
+{
+    background-color: rgba(255, 255, 255, 0.5);
+}
+*/
+.pos:nth-child(2)
+{
+    background-color: rgba(0, 255, 255, 0.5);
+}
+
+/*#pos2
+{
+    background-color: rgba(0, 255, 255, 0.5);
+}
+*/
+/*.pos:nth-child(3)
+{
+    background-color: rgba(255, 0, 125, 0.5);
+}
+*/
+#pos3 /* ATTENTION : donc là vu qu'on a changé de conteneur, on se sert de #id et pas des nth-child */
+{
+    background-color: rgba(255, 0, 125, 0.5);
+}
+/*
+.pos:nth-child(4)
+{
+    background-color: rgba(255, 255, 0, 0.5);
+}
+*/
+#pos4
+{
+    background-color: rgba(255, 255, 0, 0.5);
+}
+
+#conteneur2
+{
+    background-color: #f00;
+    clear: both;
+    height: 300px;
+    border: 1px solid black;
+    width: 100px
+}
+
+#conteneur3
+{
+    background-color: #0f0;
+    clear: both;
+    height: 300px;
+    border: 1px solid black;
+}
+
+/* fonctions a regarder
+
+on peut mettre flex: 3;
+list-style-image: url('images/ico_liensexterne.png');
+position: absolute;
+top: 100px;
+left: -12px;
+*/
+
+/* tableaux */
+
+td /* Toutes les cellules des tableaux... */
+
+{
+
+    border: 1px solid black; /* auront une bordure de 1px */
+
+}
+
+table
+
+{
+
+    border-collapse: collapse; /* Les bordures du tableau seront collées (plus joli) on peut mettre separate (par défaut) */
+
+}
+
+td, th /* Mettre une bordure sur les td ET les th */
+
+{
+
+    border: 1px solid black;
+
+}
+
+caption
+{
+    caption-side: bottom; /* ou top */
+}
+
+textarea
+{
+    width: 75%;
+    height: 500px;
+}
+
+:required /* ce qui se passe si un champ requis n'est pas rempli, il existe aussi :invalid et focus pour quand le curseur est dans le champ */
+{
+    background-color: red;
+}
+
+audio
+{
+    background: #ff0050;
+    width: 50%;
+}
+
+@media screen and (max-width: 1280px)
+
+{
+
+    /* Rédigez vos propriétés CSS ici */
+
+}
+
+/* Les règles disponibles
+
+Il existe de nombreuses règles permettant de construire des media queries. Je vous présente ici les principales :
+
+    color: gestion de la couleur (en bits/pixel).
+
+    height: hauteur de la zone d'affichage (fenêtre).
+
+    width: largeur de la zone d'affichage (fenêtre).
+
+    device-height: hauteur du périphérique.
+
+    device-width: largeur du périphérique.
+
+    orientation: orientation du périphérique (portrait ou paysage).
+
+    media: type d'écran de sortie. Quelques-unes des valeurs possibles :
+
+        screen: écran « classique » ;
+
+        handheld: périphérique mobile ;
+
+        print: impression ;
+
+        tv: télévision ;
+
+        projection: projecteur ;
+
+        all: tous les types d'écran.
+
+On peut rajouter le préfixe min-ou max-devant la plupart de ces règles. Ainsi,min-widthsignifie « Largeur minimale »,max-height« Hauteur maximale », etc.
+La différence entre width et device-width se perçoit surtout sur les navigateurs mobiles des smartphones, nous en reparlerons plus loin.
+
+Les règles peuvent être combinées à l'aide des mots suivants :
+
+    only: « uniquement » ;
+
+    and: « et » ;
+
+    not: « non ». */
+
+/* Sur les écrans, quand la largeur de la fenêtre fait au maximum 1280px */
+
+@media screen and (max-width: 1280px)
+
+
+/* Sur tous types d'écran, quand la largeur de la fenêtre est comprise entre 1024px et 1280px */
+
+@media all and (min-width: 1024px) and (max-width: 1280px)
+
+/* Sur les téléviseurs */
+
+@media tv
+
+/* Sur tous types d'écrans orientés verticalement */
+
+@media all and (orientation: portrait)
+
+/* Paragraphes en bleu par défaut */
+
+p
+
+{
+
+    color: blue;
+
+}
+
+
+/* Nouvelles règles si la fenêtre fait au plus 1024px de large */
+
+@media screen and (max-width: 1024px)
+{
+    p 
+        color: blue; 
+        background-color: black;
+        font-size: 1.2em;
+    }
+} 
+
+/* Navigateur
+    
+
+Largeur du viewport par défaut
+
+Opera Mobile
+850 pixels
+
+iPhone Safari
+980 pixels
+
+Android
+800 pixels
+
+Windows Phone
+1024 pixels
+
+Un iPhone se comporte comme si la fenêtre faisait 980 px de large, tandis qu'un Android se comporte comme si la fenêtre faisait 800 px !
+
+Pour cibler les smartphones, plutôt que d'utilisermax-width, il peut être intéressant de recourir àmax-device-width: c'est la largeur du périphérique. Les périphériques mobiles ne dépassant pas 480 px de large, on pourra viser uniquement les navigateurs mobiles avec cette media query :
+*/
+
+
+
+
+
+/*IMPORTANT*/
+@media all and (max-device-width: 480px)
+{
+    /*vos règles CSS ici.*/
+}
+
+
+
+
+
+
+@media all and (max-device-width: 480px) /* si la largeur de lécran fait 48ox */
+
+{
+
+    /* Vos règles CSS pour les mobiles ici */
+
+}
+
+/* Pourquoi ne pas cibler les mobiles avec la règle mediahandheld?
+
+Je vois que vous suivez, très bien ! En effet, on peut (en théorie) cibler les écrans mobiles avec le mediahandheld… Malheureusement, aucun navigateur mobile à part Opera mobile ne reconnaîthandheld. Ils se comportent tous comme s'ils étaient des écrans normaux (screen). On ne peut donc pas vraiment utiliserhandheldpour viser les mobiles.
+
+Vous pouvez modifier la largeur viewport du navigateur mobile avec une balise meta
+à insérer dans l'en-tête (<head>) du document :
+
+<meta name="viewport" content="width=320" />
+
+Vous pouvez utiliser cette balise pour modifier la façon dont le contenu de votre page
+s'organise sur les mobiles.
+Pour obtenir un rendu facile à lire, sans zoom,
+vous pouvez demander à ce que le viewport soit le même que la largeur de l'écran :
+
+<meta name="viewport" content="width=device-width" /> */
