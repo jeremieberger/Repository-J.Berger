@@ -1,0 +1,7 @@
+{
+    "workbench.iconTheme": "vscode-great-icons",
+    "workbench.editor.highlightModifiedTabs": true,
+    "zenMode.centerLayout": false,
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "'Cascadia Code', Consolas, 'Courier New', monospace"
+}
